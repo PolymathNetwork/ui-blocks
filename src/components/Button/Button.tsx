@@ -22,17 +22,14 @@ const sizeMap: Record<string, Record<string, string>> = {
   s: {
     padding: '8px 16px',
     minWidth: '82px',
-    lineHeight: '32px',
   },
   m: {
     padding: '12px 16px',
     minWidth: '104px',
-    lineHeight: '40px',
   },
   l: {
     padding: '16px',
     minWidth: '128px',
-    lineHeight: '48px',
   },
 };
 
