@@ -20,15 +20,18 @@ const IconContainer = styled.span`
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
-    padding: '0 10px',
+    padding: '8px 16px',
+    minWidth: '82px',
     lineHeight: '32px',
   },
   m: {
-    padding: '0 20px',
+    padding: '12px 16px',
+    minWidth: '104px',
     lineHeight: '40px',
   },
   l: {
-    padding: '0 25px',
+    padding: '16px',
+    minWidth: '128px',
     lineHeight: '48px',
   },
 };
