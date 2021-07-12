@@ -1,3 +1,5 @@
+import { polyIcons } from './';
+
 export const BREAKPOINT = {
   xs: 320,
   sm: 768,
@@ -239,6 +241,7 @@ export const BUTTON = {
   },
 };
 
+export const ICONS = { ...polyIcons };
 export const ICON = {
   basic: {
     'svg > *': {
