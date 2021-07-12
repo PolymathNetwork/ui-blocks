@@ -15,13 +15,13 @@ export const MEDIA_QUERY = {
 };
 
 export const GAP = {
-  xs: '5px',
-  s: '10px',
-  m: '16px',
-  l: '36px',
-  xl: '48px',
-  xxl: '80px',
-  xxxl: '120px',
+  xs: '8px',
+  s: '16px',
+  m: '24px',
+  l: '32px',
+  xl: '40px',
+  xxl: '48px',
+  xxxl: '96px',
 };
 
 export const COLOR = {
