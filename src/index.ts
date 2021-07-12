@@ -27,14 +27,14 @@ export { Button, ButtonProps } from './components/Button';
 // export { Input, InputProps } from './components/Input';
 
 // MEDIA
-// export { Icon, IconProps } from './components/Icon';
+export { Icon, IconProps } from './components/Icon';
 // export { Image, ImageProps } from './components/Image';
 // export { Video, VideoProps } from './components/Video';
 
 // CONTAINERS
-// export { Box, BoxProps } from './components/Box';
-// export { Flex, FlexProps } from './components/Flex';
-// export { Grid, GridProps } from './components/Grid';
+export { Box, BoxProps } from './components/Box';
+export { Flex, FlexProps } from './components/Flex';
+export { Grid, GridProps } from './components/Grid';
 // export { InfoBox, InfoBoxProps } from './components/InfoBox';
 // export { Page, PageProps } from './components/Page';
 // export { Drawer, DrawerProps } from './components/Drawer';
