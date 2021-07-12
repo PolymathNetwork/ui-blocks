@@ -1,0 +1,52 @@
+{
+  "name": "@polymathnetwork/ui-blocks",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/PolymathNetwork/ui-blocks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PolymathNetwork/ui-blocks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PolymathNetwork/ui-Polyblocks/issues"
+  },
+  "scripts": {
+    "start": "start-storybook -p 2000",
+    "build": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/cli": "^6.3.4",
+    "@storybook/react": "^6.3.4",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.0",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.11",
+    "@types/styled-system": "^5.1.12",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "focus-visible": "^5.2.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
+    "typescript": "^4.3.5"
+  }
+}

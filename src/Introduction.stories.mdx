@@ -1,0 +1,145 @@
+import { Meta } from '@storybook/addon-docs';
+import Code from './assets/svg/code-brackets.svg';
+import Comments from './assets/svg/comments.svg';
+import Bull from './assets/svg/bull.svg';
+
+<Meta title='Introduction' />
+
+<style>{`
+  img {
+    max-width: 100px;
+    height: 50px;
+  }
+
+  h1 {
+    margin: 0 0 30px 10px !important;
+    padding: 0;
+    line-height: 50px;
+  }
+
+  p {
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+
+  p > a {
+    color: #1348E4 !important;
+  }
+
+  blockquote {
+    font-style: italic;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    margin-top: 50px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1348E4;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  .link-item img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+    flex: none;
+  }
+
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+`}</style>
+
+<img src={Bull} alt='Polymath Bull' draggable='false' />
+<h1>Welcome to Polyblocks!</h1>
+
+<p>
+  This UI library is opinionated, components are styled according to our design
+  system guidelines and specifications to make precise implementation the
+  default. However, there are ways to override them.
+</p>
+
+<p>
+  We followed the{' '}
+  <a href='https://www.componentdriven.org/#how' target='_blank'>
+    component-driven UI
+  </a>{' '}
+  process:
+</p>
+
+<blockquote>
+  The development and design practice of building user interfaces with modular
+  components. UIs are built from the “bottom up” starting with basic components
+  then progressively combined to assemble screens.
+</blockquote>
+
+<p>
+  Browse components (Polyblocks) by navigating to them in the sidebar. View
+  their code and play around with controls to learn how they work.
+</p>
+
+<div className='link-list'>
+  <a
+    className='link-item'
+    href='https://github.com/PolymathNetwork/ui-blocks'
+    target='_blank'
+  >
+    <img src={Code} alt='code' />
+    <span>
+      <strong>GitHub project</strong>
+      View the source and add issues
+    </span>
+  </a>
+  <a className='link-item' href='https://discord.gg/storybook' target='_blank'>
+    <img src={Comments} alt='comments' />
+    <span>
+      <strong>Discord chat</strong>
+      Chat with maintainers and the community
+    </span>
+  </a>
+</div>
