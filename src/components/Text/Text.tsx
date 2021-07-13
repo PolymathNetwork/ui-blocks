@@ -22,7 +22,7 @@ export const Text: FC<TextProps> = ({
   ...props
 }) => {
   const Component = styled[variant](({ theme }) => ({
-    ...(theme.TYPOGRAPHY[variant] || {}),
+    ...(theme.TEXT[variant] || {}),
     ...(margin && { margin: getMargin({ theme, margin }) }),
     ...(color && { color: theme.COLOR[color] }),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),

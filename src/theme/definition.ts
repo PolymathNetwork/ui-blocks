@@ -3,6 +3,7 @@ import { CSSPropertiesExtended } from './types';
 import { BoxVariant } from '../components/Box/Box';
 import { ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
+import { TextVariant } from '../components/Text/Text';
 
 // Basics
 
@@ -141,25 +142,6 @@ export const TYPOGRAPHY = {
     fontSize: '18px',
     color: COLOR.gray1,
   },
-  p: {
-    margin: `0 0 ${GAP.s} 0`,
-    lineHeight: '27px',
-    fontWeight: 'inherit',
-    fontSize: 'inherit',
-    color: COLOR.gray2,
-  },
-  span: {
-    lineHeight: 'inherit',
-    fontWeight: 'inherit',
-    fontSize: 'inherit',
-    color: 'inherit',
-  },
-  label: {
-    lineHeight: 'inherit',
-    fontWeight: 'inherit',
-    fontSize: 'inherit',
-    color: 'inherit',
-  },
 };
 
 export const ICONS = { ...polyIcons };
@@ -279,5 +261,27 @@ export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
     padding: GAP.m,
     borderRadius: RADIUS.m,
     boxShadow: SHADOW[1],
+  },
+};
+
+export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
+  p: {
+    margin: `0 0 ${GAP.s} 0`,
+    lineHeight: '27px',
+    fontWeight: 'inherit',
+    fontSize: 'inherit',
+    color: COLOR.gray2,
+  },
+  span: {
+    lineHeight: 'inherit',
+    fontWeight: 'inherit',
+    fontSize: 'inherit',
+    color: 'inherit',
+  },
+  label: {
+    lineHeight: 'inherit',
+    fontWeight: 'inherit',
+    fontSize: 'inherit',
+    color: 'inherit',
   },
 };
