@@ -142,6 +142,77 @@ export const TYPOGRAPHY = {
     fontSize: '18px',
     color: COLOR.gray1,
   },
+  b1m: {
+    fontWeight: 500,
+    fontSize: '16px',
+    lineHeight: '27px',
+    color: COLOR.gray1,
+  },
+  b1: {
+    fontWeight: 400,
+    fontSize: '16px',
+    lineHeight: '27px',
+    color: COLOR.gray1,
+  },
+  b2m: {
+    fontWeight: 500,
+    fontSize: '14px',
+    lineHeight: '24px',
+    color: COLOR.gray1,
+  },
+  b2: {
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '24px',
+    color: COLOR.gray1,
+  },
+  b3m: {
+    fontWeight: 500,
+    fontSize: '12px',
+    lineHeight: '19px',
+    color: COLOR.gray1,
+  },
+  b3: {
+    fontWeight: 400,
+    fontSize: '12px',
+    lineHeight: '19px',
+    color: COLOR.gray1,
+  },
+  c1: {
+    fontWeight: 500,
+    fontSize: '14px',
+    lineHeight: '20px',
+    color: COLOR.gray1,
+    letterSpacing: '0.5px',
+  },
+  c2: {
+    fontWeight: 500,
+    fontSize: '12px',
+    lineHeight: '15px',
+    color: COLOR.gray1,
+    letterSpacing: '0.4px',
+  },
+  btn: {
+    fontWeight: 500,
+    fontSize: '14px',
+    lineHeight: '16px',
+    color: COLOR.gray1,
+    letterSpacing: '0.75px',
+  },
+  tn: {
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '17px',
+    color: COLOR.gray1,
+    letterSpacing: '0.75px',
+  },
+  code: {
+    fontFamily: 'monospace',
+    fontWeight: 400,
+    fontSize: '12px',
+    lineHeight: '19px',
+    color: COLOR.gray1,
+  },
 };
 
 export const ICONS = { ...polyIcons };
@@ -165,9 +236,7 @@ export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
 
 export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
-    fontWeight: 500,
-    fontSize: '14px',
-    letterSpacing: '0.75px',
+    ...TYPOGRAPHY.btn,
     color: COLOR.light,
     background: COLOR.brandMain,
     border: 0,
@@ -188,9 +257,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     },
   },
   secondary: {
-    fontWeight: 500,
-    fontSize: '14px',
-    letterSpacing: '0.75px',
+    ...TYPOGRAPHY.btn,
     color: COLOR.gray1,
     background: COLOR.gray5,
     border: 0,
@@ -212,9 +279,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     },
   },
   tertiary: {
-    fontWeight: 500,
-    fontSize: '14px',
-    letterSpacing: '0.75px',
+    ...TYPOGRAPHY.btn,
     color: COLOR.gray1,
     background: 'transparent',
     border: 0,
