@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
+export type TextVariant = 'p' | 'span' | 'label';
+
 export type TextProps = {
-  variant: 'p' | 'span' | 'label';
+  variant: TextVariant;
   color?: string;
   altColor?: string;
   display?: 'block' | 'inline-block' | 'inline' | 'none';

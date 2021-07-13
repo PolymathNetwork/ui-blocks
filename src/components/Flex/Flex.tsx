@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Box, BoxProps } from '../Box';
+import { Box, BoxProps, BoxVariant } from '../Box';
+
+export type FlexVariant = BoxVariant;
 
 export type FlexProps = BoxProps & {
   justify?: 'spaced' | 'center' | 'start' | 'end';

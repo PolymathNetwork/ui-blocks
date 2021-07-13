@@ -1,4 +1,10 @@
 import { polyIcons } from './';
+import { CSSPropertiesExtended } from './types';
+import { BoxVariant } from '../components/Box/Box';
+import { ButtonVariant } from '../components/Button/Button';
+import { IconVariant } from '../components/Icon/Icon';
+
+// Basics
 
 export const BREAKPOINT = {
   xs: 320,
@@ -156,7 +162,26 @@ export const TYPOGRAPHY = {
   },
 };
 
-export const BUTTON = {
+export const ICONS = { ...polyIcons };
+
+// Components
+
+export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
+  basic: {
+    'svg > *': {
+      fill: COLOR.brandMain,
+    },
+  },
+  circle: {
+    borderRadius: '50%',
+    backgroundColor: COLOR.brandLightest,
+    'svg > *': {
+      fill: COLOR.brandMain,
+    },
+  },
+};
+
+export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
     fontWeight: 500,
     fontSize: '14px',
@@ -241,23 +266,7 @@ export const BUTTON = {
   },
 };
 
-export const ICONS = { ...polyIcons };
-export const ICON = {
-  basic: {
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
-  },
-  circle: {
-    borderRadius: '50%',
-    backgroundColor: COLOR.brandLightest,
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
-  },
-};
-
-export const BOX = {
+export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   basic: {
     padding: GAP.m,
   },

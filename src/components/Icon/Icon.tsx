@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
+export type IconVariant = 'basic' | 'circle';
+
 export type IconProps = {
-  variant: 'basic' | 'circle';
+  variant: IconVariant;
   icon: (props: any) => JSX.Element;
   size: string;
   color?: string;

@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
+export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 export type HeadingProps = {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  variant: HeadingVariant;
   color?: string;
   altColor?: string;
   margin?: string;

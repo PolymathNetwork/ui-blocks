@@ -1,1 +1,1 @@
-export { Box, BoxProps } from './Box';
+export { Box, BoxProps, BoxVariant } from './Box';

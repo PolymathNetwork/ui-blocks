@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import { Icon } from '../Icon';
 import { getMargin } from '../../theme/utils';
 
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
+
 export type ButtonProps = {
-  variant: 'primary' | 'secondary' | 'tertiary' | 'inline';
+  variant: ButtonVariant;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: (props: any) => JSX.Element;

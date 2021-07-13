@@ -3,8 +3,10 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
+export type BoxVariant = 'basic' | 'border' | 'shadow';
+
 export type BoxProps = {
-  variant: 'basic' | 'border' | 'shadow';
+  variant: BoxVariant;
   margin?: string;
 };
 
