@@ -7,8 +7,8 @@ export const PolyGlobalStyles = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
-    background-color: ${({ theme }) => theme.COLOR.light};
-    font-family: ${({ theme }) => theme.TYPOGRAPHY.font};
+    background-color: ${({ theme }: any) => theme.COLOR.light};
+    font-family: ${({ theme }: any) => theme.TYPOGRAPHY.font};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

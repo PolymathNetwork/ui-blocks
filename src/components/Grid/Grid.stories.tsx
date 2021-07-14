@@ -1,4 +1,7 @@
-import { Grid, GridProps } from './Grid';
+import { ComponentProps } from 'react';
+import { Story } from '@storybook/react';
+
+import { Grid } from './Grid';
 import { Box } from '../Box';
 
 export default {
@@ -6,7 +9,9 @@ export default {
   component: Grid,
 };
 
-const Template = (props: any) => <Grid {...props} />;
+const Template: Story<ComponentProps<typeof Grid>> = (props: any) => (
+  <Grid {...props} />
+);
 
 export const Basic = Template.bind({});
 Basic.args = {
@@ -18,7 +23,7 @@ Basic.args = {
       <Box variant='basic'>Second box</Box>
     </>
   ),
-} as GridProps;
+};
 
 export const Border = Template.bind({});
 Border.args = {
@@ -30,7 +35,7 @@ Border.args = {
       <Box variant='basic'>Second box</Box>
     </>
   ),
-} as GridProps;
+};
 
 export const Shadow = Template.bind({});
 Shadow.args = {
@@ -42,4 +47,4 @@ Shadow.args = {
       <Box variant='basic'>Second box</Box>
     </>
   ),
-} as GridProps;
+};

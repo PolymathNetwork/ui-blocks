@@ -1,11 +1,16 @@
-import { Button, ButtonProps } from './Button';
+import { ComponentProps } from 'react';
+import { Story } from '@storybook/react';
+
+import { Button } from './Button';
 
 export default {
   title: 'Polyblocks/Button',
   component: Button,
 };
 
-const Template = (props: any) => <Button {...props} />;
+const Template: Story<ComponentProps<typeof Button>> = (props: any) => (
+  <Button {...props} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -14,29 +19,29 @@ Primary.args = {
   onClick: () => {
     alert('Button clicked!');
   },
-} as ButtonProps;
+};
 
 export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
   variant: 'primary',
   children: 'Disabled Primary Button',
   disabled: true,
-} as ButtonProps;
+};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
   children: 'Secondary Button',
-} as ButtonProps;
+};
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   variant: 'tertiary',
   children: 'Tertiary Button',
-} as ButtonProps;
+};
 
 export const Inline = Template.bind({});
 Inline.args = {
   variant: 'inline',
   children: 'Inline Button',
-} as ButtonProps;
+};
