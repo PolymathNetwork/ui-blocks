@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Text } from './Text';
 
 export default {
-  title: 'Polyblocks/Text',
+  title: 'UI-Blocks/Text',
   component: Text,
 };
 

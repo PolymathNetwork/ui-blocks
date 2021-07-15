@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Button } from './Button';
 
 export default {
-  title: 'Polyblocks/Button',
+  title: 'UI-Blocks/Button',
   component: Button,
 };
 

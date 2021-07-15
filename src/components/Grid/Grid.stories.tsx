@@ -5,7 +5,7 @@ import { Grid } from './Grid';
 import { Box } from '../Box';
 
 export default {
-  title: 'Polyblocks/Grid',
+  title: 'UI-Blocks/Grid',
   component: Grid,
 };
 

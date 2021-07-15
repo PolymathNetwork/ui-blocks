@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
-  title: 'Polyblocks/Flex',
+  title: 'UI-Blocks/Flex',
   component: Flex,
 };
 

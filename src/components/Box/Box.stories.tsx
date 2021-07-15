@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Box } from './Box';
 
 export default {
-  title: 'Polyblocks/Box',
+  title: 'UI-Blocks/Box',
   component: Box,
 };
 

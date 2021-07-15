@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 import { polyIcons } from '../../theme';
 
 export default {
-  title: 'Polyblocks/Icon',
+  title: 'UI-Blocks/Icon',
   component: Icon,
 };
 

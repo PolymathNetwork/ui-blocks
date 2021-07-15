@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Heading } from './Heading';
 
 export default {
-  title: 'Polyblocks/Heading',
+  title: 'UI-Blocks/Heading',
   component: Heading,
 };
 
