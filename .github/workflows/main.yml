@@ -1,0 +1,52 @@
+name: Build and Publish
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # SETUP AND BUILD
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Install Node Modules
+        env:
+          CI: true
+        run: npm install
+      - name: Lint
+        env:
+          CI: true
+        run: npm run lint
+        run: npm run build:docs
+      - name: Build package
+        env:
+          CI: true
+        run: npm run build
+
+      # VERSION AND PUBLISH
+      # - name: Bump version
+      #   if: github.ref == 'refs/heads/main'
+      #   run: |
+      #     git config --global user.name 'Github'
+      #     git config --global user.email 'fahdw@users.noreply.github.com'
+      #     npm version patch
+      # - name: Commit to branch
+      #   if: github.ref == 'refs/heads/main'
+      #   run: git push
+      # - name: Publish to NPM
+      #   if: github.ref == 'refs/heads/main'
+      #   run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}" && npm publish
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # PUBLISH DOCS
+      - name: Publish Storybook to GH Pages
+        if: github.ref == 'refs/heads/main'
+        run: npm run deploy-storybook-ci
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
