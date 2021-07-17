@@ -8,7 +8,7 @@
     "url": "https://github.com/PolymathNetwork/ui-blocks.git"
   },
   "bugs": {
-    "url": "https://github.com/PolymathNetwork/ui-Polyblocks/issues"
+    "url": "https://github.com/PolymathNetwork/ui-blocks/issues"
   },
   "main": "./build/lib/index.js",
   "module": "./build/lib/index.js",
