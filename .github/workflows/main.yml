@@ -14,18 +14,17 @@ jobs:
         with:
           node-version: '10.x'
       - name: Install Node Modules
-        env:
-          CI: true
         run: npm install
+        env:
+          CI: true
       - name: Lint
-        env:
-          CI: true
         run: npm run lint
-        run: npm run build:docs
-      - name: Build package
         env:
           CI: true
+      - name: Build package
         run: npm run build
+        env:
+          CI: true
 
       # VERSION AND PUBLISH
       # - name: Bump version
