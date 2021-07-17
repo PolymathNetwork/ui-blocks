@@ -1,4 +1,4 @@
-import { polyIcons } from './';
+import * as polyIcons from './icons';
 import { CSSPropertiesExtended } from './types';
 import { BoxVariant } from '../components/Box/Box';
 import { ButtonVariant } from '../components/Button/Button';

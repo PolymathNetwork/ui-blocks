@@ -1,0 +1,105 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+        "moduleDirectory": ["node_modules", "src/"]
+      },
+      "typescript": {
+        "project": "."
+      }
+    },
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "array-callback-return": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/ban-types": "off",
+    "func-names": "off",
+    "consistent-return": "off",
+    "class-methods-use-this": "off",
+    "default-case": "off",
+    "import/prefer-default-export": "off",
+    "no-await-in-loop": "off",
+    "no-case-declarations": "off",
+    "no-console": "warn",
+    "no-else-return": "off",
+    "react/jsx-no-target-blank": "off",
+    "no-continue": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-globals": "off",
+    "no-underscore-dangle": "off",
+    "no-restricted-syntax": "off",
+    "import/order": "warn",
+    "prefer-destructuring": "error",
+    "prefer-template": "off",
+    "react/prop-types": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "import/no-extraneous-dependencies": "error",
+    "import/no-duplicates": "warn",
+    "import/no-mutable-exports": "warn",
+    "no-restricted-properties": "error",
+    "no-control-regex": "off",
+    "no-useless-escape": "error",
+    "no-unused-expressions": "error",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "no-async-promise-executor": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "import/no-unresolved": "warn",
+    "import/named": "off",
+    "guard-for-in": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-non-null-assertion": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.tsx"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "react/display-name": "off"
+      }
+    }
+  ]
+}

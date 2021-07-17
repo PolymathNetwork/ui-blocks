@@ -19,8 +19,8 @@ Basic.args = {
   cols: '1fr 1fr',
   children: (
     <>
-      <Box variant='basic'>Basic grid</Box>
-      <Box variant='basic'>Second box</Box>
+      <Box variant="basic">Basic grid</Box>
+      <Box variant="basic">Second box</Box>
     </>
   ),
 };
@@ -31,8 +31,8 @@ Border.args = {
   cols: '1fr 1fr',
   children: (
     <>
-      <Box variant='basic'>Border grid</Box>
-      <Box variant='basic'>Second box</Box>
+      <Box variant="basic">Border grid</Box>
+      <Box variant="basic">Second box</Box>
     </>
   ),
 };
@@ -43,8 +43,8 @@ Shadow.args = {
   cols: '1fr 1fr',
   children: (
     <>
-      <Box variant='basic'>Shadow grid</Box>
-      <Box variant='basic'>Second box</Box>
+      <Box variant="basic">Shadow grid</Box>
+      <Box variant="basic">Second box</Box>
     </>
   ),
 };

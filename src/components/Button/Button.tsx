@@ -52,7 +52,7 @@ export const Button: FC<ButtonProps> = ({
     <Component {...props}>
       {icon && (
         <IconContainer>
-          <Icon icon={icon} variant='basic' size='12px' />
+          <Icon icon={icon} variant="basic" size="12px" />
         </IconContainer>
       )}
       {children}

@@ -17,7 +17,7 @@ Primary.args = {
   variant: 'primary',
   children: 'Primary Button',
   onClick: () => {
-    alert('Button clicked!');
+    alert('Button clicked!'); // eslint-disable-line
   },
 };
 

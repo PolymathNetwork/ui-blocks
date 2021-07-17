@@ -18,7 +18,7 @@ export type IconProps = {
 
 export const Icon: FC<IconProps> = ({
   variant,
-  icon: Icon,
+  icon: SvgIcon,
   size,
   color,
   bg,
@@ -52,7 +52,7 @@ export const Icon: FC<IconProps> = ({
   }));
   return (
     <Component {...props}>
-      <Icon />
+      <SvgIcon />
     </Component>
   );
 };
