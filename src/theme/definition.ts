@@ -350,3 +350,9 @@ export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
     color: 'inherit',
   },
 };
+
+export const PAGE: CSSPropertiesExtended = {
+  padding: '0 124px',
+  maxWidth: '1600px',
+  minHeight: '70vh',
+};
