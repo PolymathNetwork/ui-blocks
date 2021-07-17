@@ -21,11 +21,12 @@
   },
   "scripts": {
     "start": "start-storybook -p 2000",
-    "docs": "start-storybook -p 2000 --docs --no-manager-cache",
-    "build:docs": "build-storybook -o build/docs",
     "build": "tsc",
     "lint": "eslint \"{src,config,.storybook}/**/*{.js,.ts,.tsx}\"",
-    "lint-fix": "yarn lint --fix"
+    "lint-fix": "yarn lint --fix",
+    "build-storybook": "build-storybook -o build/docs",
+    "deploy-storybook": "npm run build-storybook && storybook-to-ghpages",
+    "deploy-storybook-ci": "npm run deploy-storybook -- --ci"
   },
   "dependencies": {
     "focus-visible": "^5.2.0",
@@ -40,6 +41,7 @@
     "@storybook/addon-links": "^6.3.4",
     "@storybook/cli": "^6.3.4",
     "@storybook/react": "^6.3.4",
+    "@storybook/storybook-deployer": "^2.8.10",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.3.0",
     "@types/styled-components": "^5.1.11",
