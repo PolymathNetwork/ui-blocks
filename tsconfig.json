@@ -1,23 +1,17 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "baseUrl": "src",
-    "outDir": "build/lib",
-    "declarationDir": "build/lib",
-    "declaration": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "composite": true,
+    "esModuleInterop": true,
     "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": true
+    "outDir": "build/lib",
+    "rootDir": "src",
+    "baseUrl": "src"
   },
   "include": ["src", "svg.d.ts"],
   "exclude": ["node_modules", "build"]
