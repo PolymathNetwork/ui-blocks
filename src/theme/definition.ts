@@ -1,9 +1,10 @@
 import * as polyIcons from './icons';
 import { CSSPropertiesExtended } from './types';
 import { BoxVariant } from '../components/Box/Box';
-import { ButtonVariant } from '../components/Button/Button';
+import { Button, ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
 import { TextVariant } from '../components/Text/Text';
+import { LinkVariant } from '../components/Link/Link';
 
 // Basics
 
@@ -21,6 +22,15 @@ export const MEDIA_QUERY = {
   md: `@media (min-width: ${BREAKPOINT.md}px)`,
   lg: `@media (min-width: ${BREAKPOINT.lg}px)`,
   xl: `@media (min-width: ${BREAKPOINT.xl}px)`,
+};
+
+export const TRANSITION = {
+  hover: {
+    ms: 150,
+  },
+  modal: {
+    ms: 200,
+  },
 };
 
 export const GAP = {
@@ -355,4 +365,29 @@ export const PAGE: CSSPropertiesExtended = {
   padding: '0 124px',
   maxWidth: '1600px',
   minHeight: '70vh',
+};
+
+export const LINK: Record<LinkVariant, CSSPropertiesExtended> = {
+  anchor: {
+    textDecoration: 'none',
+    color: COLOR.brandMain,
+    '&:hover, &:focus': {
+      textDecoration: 'none',
+    },
+  },
+  button: {
+    ...BUTTON.inline,
+    color: COLOR.brandMain,
+    padding: 0,
+    background: 'none',
+    textTransform: 'none',
+    letterSpacing: 'normal',
+    border: 'none',
+    cursor: 'pointer',
+    transitionDuration: `${TRANSITION.hover.ms}ms`,
+    transitionProperty: 'background, color, box-shadow, opacity',
+    '&:hover, &:focus': {
+      textDecoration: 'none',
+    },
+  },
 };

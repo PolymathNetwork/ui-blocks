@@ -15,12 +15,12 @@ const Template: Story<ComponentProps<typeof Text>> = (props: any) => (
 export const P = Template.bind({});
 P.args = {
   variant: 'p',
+  altColor: 'brandMain',
   children: (
     <>
       This is in a paragraph <span>with alt text</span>.
     </>
   ),
-  altColor: 'brandMain',
 };
 
 export const Span = Template.bind({});
