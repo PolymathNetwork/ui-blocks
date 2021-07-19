@@ -9,6 +9,7 @@ export type FlexProps = BoxProps & {
   justify?: 'spaced' | 'center' | 'start' | 'end';
   align?: 'center' | 'start' | 'end';
   dir?: 'row' | 'column';
+  display?: 'flex' | 'inline-flex';
 };
 
 const propValueMap: Record<string, string> = {
@@ -19,6 +20,7 @@ const propValueMap: Record<string, string> = {
 
 export const Flex: FC<FlexProps> = ({
   variant,
+  display = 'flex',
   justify,
   align,
   dir,
@@ -26,7 +28,7 @@ export const Flex: FC<FlexProps> = ({
 }) => {
   const Component = styled(Box)(({ theme }) => ({
     ...(theme.FLEX || {}),
-    display: 'flex',
+    ...(display && { display }),
     ...(justify && { justifyContent: propValueMap[justify] || justify }),
     ...(align && { alignItems: propValueMap[align] || align }),
     ...(dir && { flexDirection: dir }),

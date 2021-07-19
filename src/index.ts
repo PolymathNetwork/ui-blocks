@@ -17,7 +17,7 @@ export {
 // TYPOGRAPHY
 export * from './components/Heading';
 export * from './components/Text';
-// export * from './components/Link';
+export * from './components/Link';
 
 // CONTROLS
 export * from './components/Button';
