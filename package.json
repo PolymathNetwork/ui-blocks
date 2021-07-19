@@ -23,7 +23,7 @@
     "start": "start-storybook -p 2000",
     "build": "tsc",
     "lint": "eslint \"{src,config,.storybook}/**/*{.js,.ts,.tsx}\"",
-    "lint-fix": "yarn lint --fix",
+    "lint-fix": "npm run lint --fix",
     "build-storybook": "build-storybook -o build/docs",
     "deploy-storybook": "npm run build-storybook && storybook-to-ghpages",
     "deploy-storybook-ci": "npm run deploy-storybook -- --ci"
