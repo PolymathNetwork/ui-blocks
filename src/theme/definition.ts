@@ -104,13 +104,28 @@ export const RADIUS = {
   xl: '16px',
 };
 
+export const FONTSIZE = {
+  0: '0.75rem', // 12px
+  1: '0.875rem', // 14px
+  2: '1rem', // 16px
+  3: '1.125rem', // 18px
+  4: '1.25rem', // 20px
+  5: '1.5rem', // 24px
+  6: '1.75rem', // 28px
+  7: '2.125rem', // 34px
+  8: '2.625rem', // 42px
+  9: '3rem', // 48px
+  10: '3.75rem', // 60px,
+  baseText: '1rem',
+};
+
 export const TYPOGRAPHY = {
   font: "'Inter', sans-serif",
   h1: {
     margin: `0 0 ${GAP.l} 0`,
     lineHeight: '80px',
     fontWeight: 300,
-    fontSize: '60px',
+    fontSize: FONTSIZE[10],
     color: COLOR.gray1,
     letterSpacing: '-1px',
   },
@@ -118,7 +133,7 @@ export const TYPOGRAPHY = {
     margin: `0 0 ${GAP.m} 0`,
     lineHeight: '66px',
     fontWeight: 400,
-    fontSize: '48px',
+    fontSize: FONTSIZE[9],
     color: COLOR.gray1,
     letterSpacing: '-0.5px',
   },
@@ -126,7 +141,7 @@ export const TYPOGRAPHY = {
     margin: `0 0 ${GAP.m} 0`,
     lineHeight: '47px',
     fontWeight: 500,
-    fontSize: '34px',
+    fontSize: FONTSIZE[8],
     color: COLOR.gray1,
     letterSpacing: '-0.25px',
   },
@@ -134,14 +149,14 @@ export const TYPOGRAPHY = {
     margin: `0 0 ${GAP.m} 0`,
     lineHeight: '34px',
     fontWeight: 500,
-    fontSize: '24px',
+    fontSize: FONTSIZE[5],
     color: COLOR.gray1,
   },
   h5: {
     margin: `0 0 ${GAP.s} 0`,
     lineHeight: '29px',
     fontWeight: 500,
-    fontSize: '20px',
+    fontSize: FONTSIZE[4],
     color: COLOR.gray1,
     letterSpacing: '0.15px',
   },
@@ -149,69 +164,69 @@ export const TYPOGRAPHY = {
     margin: `0 0 ${GAP.s} 0`,
     lineHeight: '27px',
     fontWeight: 400,
-    fontSize: '18px',
+    fontSize: FONTSIZE[3],
     color: COLOR.gray1,
   },
   b1m: {
     fontWeight: 500,
-    fontSize: '16px',
+    fontSize: FONTSIZE[2],
     lineHeight: '27px',
     color: COLOR.gray1,
   },
   b1: {
     fontWeight: 400,
-    fontSize: '16px',
+    fontSize: FONTSIZE[2],
     lineHeight: '27px',
     color: COLOR.gray1,
   },
   b2m: {
     fontWeight: 500,
-    fontSize: '14px',
+    fontSize: FONTSIZE[1],
     lineHeight: '24px',
     color: COLOR.gray1,
   },
   b2: {
     fontWeight: 400,
-    fontSize: '14px',
+    fontSize: FONTSIZE[1],
     lineHeight: '24px',
     color: COLOR.gray1,
   },
   b3m: {
     fontWeight: 500,
-    fontSize: '12px',
+    fontSize: FONTSIZE[0],
     lineHeight: '19px',
     color: COLOR.gray1,
   },
   b3: {
     fontWeight: 400,
-    fontSize: '12px',
+    fontSize: FONTSIZE[0],
     lineHeight: '19px',
     color: COLOR.gray1,
   },
   c1: {
     fontWeight: 500,
-    fontSize: '14px',
+    fontSize: FONTSIZE[1],
     lineHeight: '20px',
     color: COLOR.gray1,
     letterSpacing: '0.5px',
   },
   c2: {
     fontWeight: 500,
-    fontSize: '12px',
+    fontSize: FONTSIZE[0],
     lineHeight: '15px',
     color: COLOR.gray1,
     letterSpacing: '0.4px',
   },
   btn: {
     fontWeight: 500,
-    fontSize: '14px',
+    fontSize: FONTSIZE[1],
     lineHeight: '16px',
     color: COLOR.gray1,
     letterSpacing: '0.75px',
   },
   tn: {
     fontWeight: 400,
-    fontSize: '14px',
+    fontSize: FONTSIZE[1],
     lineHeight: '17px',
     color: COLOR.gray1,
     letterSpacing: '0.75px',
@@ -219,7 +234,7 @@ export const TYPOGRAPHY = {
   code: {
     fontFamily: 'monospace',
     fontWeight: 400,
-    fontSize: '12px',
+    fontSize: FONTSIZE[0],
     lineHeight: '19px',
     color: COLOR.gray1,
   },
@@ -365,6 +380,13 @@ export const PAGE: CSSPropertiesExtended = {
   padding: '0 124px',
   maxWidth: '1600px',
   minHeight: '70vh',
+};
+
+export const CHECKBOX: CSSPropertiesExtended = {
+  label: {
+    color: COLOR.gray1,
+    fontSize: FONTSIZE.baseText,
+  },
 };
 
 export const LINK: Record<LinkVariant, CSSPropertiesExtended> = {
