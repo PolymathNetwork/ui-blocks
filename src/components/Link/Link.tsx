@@ -3,19 +3,13 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
-enum Variant {
-  anchor = 'anchor',
-  button = 'button',
-}
-
-export type LinkVariant = Variant.anchor | Variant.button;
+export type LinkVariant = 'basic' | 'button';
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: LinkVariant;
   color?: string;
   margin?: string;
   href?: string;
-  as?: string;
 };
 
 const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{2,63}\b([-a-zA-Z0-9()@:%_+.~#?&=]*)/;
@@ -32,7 +26,7 @@ const Anchor = ({ href, ...props }: LinkProps) => (
 );
 
 export const Link: FC<LinkProps> = ({
-  variant = Variant.anchor,
+  variant = 'basic',
   color,
   margin,
   ...props
@@ -44,9 +38,6 @@ export const Link: FC<LinkProps> = ({
   }));
 
   return (
-    <Component
-      {...(variant === Variant.button && { as: 'button' })}
-      {...props}
-    />
+    <Component {...(variant === 'button' && { as: 'button' })} {...props} />
   );
 };

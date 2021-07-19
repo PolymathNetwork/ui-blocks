@@ -14,7 +14,7 @@ const Template: Story<ComponentProps<typeof Link>> = (props: any) => (
 
 export const Anchor = Template.bind({});
 Anchor.args = {
-  variant: 'anchor',
+  variant: 'basic',
   href: 'https://polymath.network',
   children: <>This is in a link</>,
 };
