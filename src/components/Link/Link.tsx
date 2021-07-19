@@ -3,7 +3,12 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
-export type LinkVariant = 'anchor' | 'button';
+enum Variant {
+  anchor = 'anchor',
+  button = 'button',
+}
+
+export type LinkVariant = Variant.anchor | Variant.button;
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: LinkVariant;
@@ -27,7 +32,7 @@ const Anchor = ({ href, ...props }: LinkProps) => (
 );
 
 export const Link: FC<LinkProps> = ({
-  variant = 'anchor',
+  variant = Variant.anchor,
   color,
   margin,
   ...props
@@ -39,6 +44,9 @@ export const Link: FC<LinkProps> = ({
   }));
 
   return (
-    <Component {...(variant === 'button' && { as: 'button' })} {...props} />
+    <Component
+      {...(variant === Variant.button && { as: 'button' })}
+      {...props}
+    />
   );
 };
