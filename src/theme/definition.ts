@@ -390,7 +390,7 @@ export const CHECKBOX: CSSPropertiesExtended = {
 };
 
 export const LINK: Record<LinkVariant, CSSPropertiesExtended> = {
-  anchor: {
+  basic: {
     textDecoration: 'none',
     color: COLOR.brandMain,
     '&:hover, &:focus': {
