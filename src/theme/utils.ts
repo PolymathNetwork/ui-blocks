@@ -1,5 +1,7 @@
-export const getMargin = ({ theme, margin }: { theme: any; margin: string }) =>
+export const getMargin = ({ theme, margin }: { theme: any; margin?: string }) =>
   margin
-    .split(' ')
-    .map((e) => theme.GAP[e] || e)
-    .join(' ');
+    ? margin
+        .split(' ')
+        .map((e) => theme.GAP[e] || e)
+        .join(' ')
+    : 0;

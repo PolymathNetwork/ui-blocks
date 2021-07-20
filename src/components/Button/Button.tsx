@@ -8,11 +8,11 @@ export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
 
 export type ButtonProps = {
   variant: ButtonVariant;
+  margin?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: (props: any) => JSX.Element;
   onClick?: () => void;
-  margin?: string;
 };
 
 const IconContainer = styled.span`
@@ -45,7 +45,7 @@ export const Button: FC<ButtonProps> = ({
 }) => {
   const Component = styled.button(({ theme }) => ({
     ...(theme.BUTTON[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),
     ...(sizeMap[size] || {}),
   }));
   return (

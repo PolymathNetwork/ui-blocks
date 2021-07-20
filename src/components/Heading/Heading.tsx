@@ -7,9 +7,9 @@ export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type HeadingProps = {
   variant: HeadingVariant;
+  margin?: string;
   color?: string;
   altColor?: string;
-  margin?: string;
 };
 
 export const Heading: FC<HeadingProps> = ({
@@ -21,7 +21,7 @@ export const Heading: FC<HeadingProps> = ({
 }) => {
   const Component = styled[variant](({ theme }) => ({
     ...(theme.TYPOGRAPHY[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),
     ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
   }));

@@ -7,13 +7,13 @@ export type IconVariant = 'basic' | 'circle';
 
 export type IconProps = {
   variant: IconVariant;
+  margin?: string;
   icon: (props: any) => JSX.Element;
   size: string;
   color?: string;
   bg?: string;
   scale?: number;
   rotate?: string;
-  margin?: string;
 };
 
 export const Icon: FC<IconProps> = ({

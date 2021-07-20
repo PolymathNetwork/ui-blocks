@@ -13,7 +13,7 @@ export type BoxProps = {
 export const Box: FC<BoxProps> = ({ variant, margin, ...props }) => {
   const Component = styled.div(({ theme }) => ({
     ...(theme.BOX[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),,
   }));
   return <Component {...props} />;
 };
