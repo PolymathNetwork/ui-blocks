@@ -2,13 +2,14 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
+import { IconType } from '../../theme/types';
 
 export type IconVariant = 'basic' | 'circle';
 
 export type IconProps = {
   variant: IconVariant;
   margin?: string;
-  icon: (props: any) => JSX.Element;
+  icon: IconType;
   size: string;
   color?: string;
   bg?: string;

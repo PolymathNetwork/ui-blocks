@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Icon } from '../Icon';
 import { getMargin } from '../../theme/utils';
+import { IconType } from '../../theme/types';
+import { Icon } from '../Icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
 
@@ -11,7 +12,7 @@ export type ButtonProps = {
   margin?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
-  icon?: (props: any) => JSX.Element;
+  icon?: IconType;
   onClick?: () => void;
 };
 

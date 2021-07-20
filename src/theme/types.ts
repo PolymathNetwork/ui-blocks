@@ -1,8 +1,8 @@
 import { CSSProperties } from 'react';
 
-export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
+export type IconType = (props: any) => JSX.Element;
 
-export type Gap = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
+export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
 
 export type TextFormat =
   | 'b1m'
