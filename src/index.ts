@@ -1,10 +1,13 @@
-// Styled Components
+// STYLED COMPONENTS
 export {
   default as styled,
   createGlobalStyle,
   GlobalStyleComponent,
   ThemeProvider,
 } from 'styled-components';
+
+// UTILS
+export { default as moment } from 'moment';
 
 // THEME
 export {
@@ -25,7 +28,7 @@ export * from './components/Button';
 // export * from './components/Radio';
 // export * from './components/Select';
 export * from './components/Input';
-// export * from './components/DatePicker';
+export * from './components/DatePicker';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
 

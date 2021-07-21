@@ -30,7 +30,9 @@
   },
   "dependencies": {
     "focus-visible": "^5.2.0",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
+    "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.6.4",
     "styled-components": "^5.3.0"

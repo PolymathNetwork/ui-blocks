@@ -19,11 +19,15 @@ export type InputProps = {
   type?: 'text' | 'password' | 'email';
   disabled?: boolean;
   label?: string;
+  placeholder?: string;
+  value?: string | null;
+  onChange?: (state: any) => void;
   tooltip?: string; // | JSX.Element;
   icon?: IconType;
   unit?: string;
   error?: string;
   isDivisible?: boolean;
+  inputRef?: any;
 };
 
 export const Input: FC<InputProps> = ({
@@ -75,7 +79,7 @@ export const Input: FC<InputProps> = ({
     WebkitAppearance: 'none',
     outline: 'none',
   }));
-  const ComponentProps = {
+  const componentProps = {
     ...props,
     disabled,
     ...(isBasic ? { type } : {}),
@@ -121,7 +125,7 @@ export const Input: FC<InputProps> = ({
             margin="0 s 0 0"
           />
         )}
-        <Component {...ComponentProps} />
+        <Component {...componentProps} />
         {unit && <Unit>{unit}</Unit>}
       </InputWrapper>
       {error && (
