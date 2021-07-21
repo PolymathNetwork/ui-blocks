@@ -43,13 +43,14 @@ export const Icon: FC<IconProps> = ({
       ...(scale && { padding: `${(1 - scale) * 100}%` }),
       ...(rotate && { transform: `rotateZ(${rotate})` }),
     },
-    ...(color &&
-      theme.COLOR[color] && {
-        'svg > *': {
-          ...theme.ICON[variant]['svg > *'],
-          fill: theme.COLOR[color],
-        },
-      }),
+    'svg > *': {
+      ...theme.ICON[variant]['svg > *'],
+      ...(color || theme.ICON[variant].fill
+        ? {
+            fill: color ? theme.COLOR[color] : theme.ICON[variant].fill,
+          }
+        : {}),
+    },
   }));
   return (
     <Component {...props}>

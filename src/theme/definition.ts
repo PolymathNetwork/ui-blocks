@@ -221,16 +221,12 @@ export const ICONS = { ...polyIcons };
 
 export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
   basic: {
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
+    fill: COLOR.brandMain,
   },
   circle: {
-    borderRadius: '50%',
+    fill: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
+    borderRadius: '50%',
   },
 };
 
