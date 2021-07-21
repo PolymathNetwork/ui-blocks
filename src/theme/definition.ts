@@ -360,8 +360,13 @@ export const INPUT: CSSPropertiesExtended = {
   border: `1px solid ${COLOR.gray3}`,
   borderRadius: RADIUS.s,
   transition: 'all 0.3s',
+  backgroundColor: COLOR.light,
   '&:focus': {
     borderColor: COLOR.brandMain,
+  },
+  '&:disabled': {
+    borderColor: COLOR.gray5,
+    backgroundColor: COLOR.gray5,
   },
 };
 

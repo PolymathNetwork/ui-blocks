@@ -36,6 +36,7 @@ export const Input: FC<InputProps> = ({
   unit,
   error,
   isDivisible = true,
+  disabled,
   ...props
 }) => {
   const isBasic = variant === 'basic';
@@ -44,6 +45,8 @@ export const Input: FC<InputProps> = ({
     margin: getMargin({ theme, margin }),
   }));
   const InputWrapper = styled(Grid)(({ theme }) => ({
+    backgroundColor: (theme.INPUT || { backgroundColor: 'unset' })
+      .backgroundColor,
     padding: (theme.INPUT || { padding: 0 }).padding,
     border: (theme.INPUT || { border: 0 }).border,
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
@@ -51,6 +54,9 @@ export const Input: FC<InputProps> = ({
     ...(error ? { borderColor: theme.COLOR.danger } : {}),
     ...(theme.INPUT && theme.INPUT['&:focus']
       ? { '&:focus-within': theme.INPUT['&:focus'] }
+      : {}),
+    ...(disabled && theme.INPUT && theme.INPUT['&:disabled']
+      ? theme.INPUT['&:disabled']
       : {}),
   }));
   const Unit = styled.div(({ theme }) => ({
@@ -71,6 +77,7 @@ export const Input: FC<InputProps> = ({
   }));
   const ComponentProps = {
     ...props,
+    disabled,
     ...(isBasic ? { type } : {}),
     ...(isAmount
       ? {
