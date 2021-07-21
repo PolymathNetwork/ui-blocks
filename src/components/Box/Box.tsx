@@ -6,7 +6,7 @@ import { getMargin } from '../../theme/utils';
 export type BoxVariant = 'basic' | 'border' | 'shadow';
 
 export type BoxProps = {
-  variant: BoxVariant;
+  variant: 'raw' | BoxVariant;
   margin?: string;
 };
 

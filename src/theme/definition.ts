@@ -351,6 +351,20 @@ export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
   },
 };
 
+export const INPUT: CSSPropertiesExtended = {
+  padding: `0 ${GAP.s}`,
+  lineHeight: '40px',
+  fontWeight: 'inherit',
+  fontSize: 'inherit',
+  color: COLOR.gray1,
+  border: `1px solid ${COLOR.gray3}`,
+  borderRadius: RADIUS.s,
+  transition: 'all 0.3s',
+  '&:focus': {
+    borderColor: COLOR.brandMain,
+  },
+};
+
 export const PAGE: CSSPropertiesExtended = {
   padding: '0 124px',
   maxWidth: '1600px',
