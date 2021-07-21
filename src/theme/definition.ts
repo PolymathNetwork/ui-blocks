@@ -314,6 +314,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
 };
 
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
+  raw: {},
   basic: {
     padding: GAP.m,
   },
