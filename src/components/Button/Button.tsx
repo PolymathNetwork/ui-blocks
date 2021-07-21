@@ -10,16 +10,12 @@ export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
 export type ButtonProps = {
   variant: ButtonVariant;
   margin?: string;
+  id?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: IconType;
   onClick?: () => void;
 };
-
-const IconContainer = styled.span`
-  display: inline-block;
-  margin-right: ${({ theme }) => theme.GAP.s};
-`;
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
@@ -44,6 +40,10 @@ export const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
+  const IconContainer = styled.span(({ theme }) => ({
+    display: 'inline-block',
+    marginRight: theme.GAP.s,
+  }));
   const Component = styled.button(({ theme }) => ({
     ...(theme.BUTTON[variant] || {}),
     margin: getMargin({ theme, margin }),

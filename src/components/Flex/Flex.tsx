@@ -2,19 +2,14 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Box, BoxProps, BoxVariant } from '../Box';
+import { Justify, Align, propValueMap } from '../../theme/types';
 
 export type FlexVariant = BoxVariant;
 
 export type FlexProps = BoxProps & {
-  justify?: 'spaced' | 'center' | 'start' | 'end';
-  align?: 'center' | 'start' | 'end';
+  justify?: Justify;
+  align?: Align;
   dir?: 'row' | 'column';
-};
-
-const propValueMap: Record<string, string> = {
-  spaced: 'space-between',
-  start: 'flex-start',
-  end: 'flex-end',
 };
 
 export const Flex: FC<FlexProps> = ({
