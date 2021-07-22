@@ -85,64 +85,9 @@ export const DatePicker: FC<DatePickerProps> = ({
   };
 
   const Overlay = styled(Box)(({ theme }) => ({
+    ...(theme.DATEPICKER || {}),
     position: 'absolute',
-    padding: theme.GAP.s,
-    backgroundColor: theme.COLOR.light,
-    border: `1px solid ${theme.COLOR.grary4}`,
-    borderRadius: theme.RADIUS.l,
-    boxShadow: theme.SHADOW[3],
-    lineHeight: 'normal',
     zIndex: 1,
-    '.DayPicker': {
-      '&-wrapper': {
-        margin: 0,
-        padding: 0,
-      },
-      '&-NavButton': {
-        margin: 0,
-        padding: 0,
-        backgroundImage: 'none',
-        borderStyle: 'solid',
-        borderWidth: '2px 2px 0 0',
-        height: '7px',
-        width: '7px',
-        color: theme.COLOR.gray2,
-        top: '20px',
-        right: '10px',
-        transform: 'rotate(45deg)',
-        '&--prev': {
-          right: '50px',
-          transform: 'rotate(-135deg)',
-        },
-      },
-      '&-Month': {
-        margin: 0,
-      },
-      '&-Caption': {
-        color: theme.COLOR.gray2,
-        fontSize: theme.TYPOGRAPHY.b3,
-        paddingTop: '15px',
-        marginBottom: '20px',
-      },
-      '&-Day': {
-        margin: 0,
-        padding: 0,
-        borderRadius: 0,
-        lineHeight: '30px',
-        width: '20px',
-        fontSize: theme.TYPOGRAPHY.b3,
-        color: theme.COLOR.gray1,
-        '&--selected': {
-          backgroundColor: theme.COLOR.brandMain,
-        },
-        '&--disabled': {
-          color: theme.COLOR.gray4,
-        },
-        '&--outside': {
-          color: theme.COLOR.gray2,
-        },
-      },
-    },
   }));
 
   const Component = forwardRef(function CustomInput(p, ref) {

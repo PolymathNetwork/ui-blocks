@@ -367,6 +367,65 @@ export const INPUT: CSSPropertiesExtended = {
   },
 };
 
+export const DATEPICKER: CSSPropertiesExtended = {
+  padding: GAP.s,
+  backgroundColor: COLOR.light,
+  border: `1px solid ${COLOR.gray4}`,
+  borderRadius: RADIUS.l,
+  boxShadow: SHADOW[3],
+  lineHeight: 'normal',
+  '.DayPicker': {
+    '&-wrapper': {
+      margin: 0,
+      padding: 0,
+    },
+    '&-NavButton': {
+      margin: 0,
+      padding: 0,
+      backgroundImage: 'none',
+      borderStyle: 'solid',
+      borderWidth: '2px 2px 0 0',
+      height: '7px',
+      width: '7px',
+      color: COLOR.gray2,
+      top: '20px',
+      right: '10px',
+      transform: 'rotate(45deg)',
+      '&--prev': {
+        right: '50px',
+        transform: 'rotate(-135deg)',
+      },
+    },
+    '&-Month': {
+      margin: 0,
+    },
+    '&-Caption': {
+      ...TYPOGRAPHY.b3,
+      color: COLOR.gray2,
+      paddingTop: '15px',
+      marginBottom: '20px',
+    },
+    '&-Day': {
+      margin: 0,
+      padding: 0,
+      borderRadius: 0,
+      width: '20px',
+      ...TYPOGRAPHY.b3,
+      color: COLOR.gray1,
+      lineHeight: '30px',
+      '&--selected': {
+        backgroundColor: COLOR.brandMain,
+      },
+      '&--disabled': {
+        color: COLOR.gray4,
+      },
+      '&--outside': {
+        color: COLOR.gray2,
+      },
+    },
+  },
+};
+
 export const PAGE: CSSPropertiesExtended = {
   padding: '0 124px',
   maxWidth: '1600px',
