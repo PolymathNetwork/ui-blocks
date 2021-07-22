@@ -103,7 +103,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         placeholder={placeholder}
         {...(hasIcon
           ? {
-              icon: polyIcons.Bull, // TODO: Use calendar icon
+              icon: polyIcons.CalendarRange,
             }
           : {})}
         {...inputProps}

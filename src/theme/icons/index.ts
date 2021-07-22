@@ -51,7 +51,6 @@ export { default as BriefcaseCheck } from './svg/briefcase-check.svg';
 export { default as BriefcaseClock } from './svg/briefcase-clock.svg';
 export { default as BriefcasePlus } from './svg/briefcase-plus.svg';
 export { default as Brush } from './svg/brush.svg';
-export { default as Bull } from './svg/bull.svg';
 export { default as BullseyeArrow } from './svg/bullseye-arrow.svg';
 export { default as CalendarEdit } from './svg/calendar-edit.svg';
 export { default as CalendarRange } from './svg/calendar-range.svg';

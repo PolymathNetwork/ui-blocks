@@ -122,7 +122,7 @@ export const Input: FC<InputProps> = ({
           <Icon
             icon={icon}
             variant="basic"
-            size="18px"
+            size="24px"
             color="gray3"
             margin="0 s 0 0"
           />

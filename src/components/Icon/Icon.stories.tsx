@@ -16,13 +16,13 @@ const Template: Story<ComponentProps<typeof Icon>> = (props: any) => (
 export const Basic = Template.bind({});
 Basic.args = {
   variant: 'basic',
-  icon: polyIcons.Bull,
+  icon: polyIcons.PolyBull,
   size: '32px',
 };
 
 export const Circle = Template.bind({});
 Circle.args = {
   variant: 'circle',
-  icon: polyIcons.Bull,
+  icon: polyIcons.PolyBull,
   size: '32px',
 };
