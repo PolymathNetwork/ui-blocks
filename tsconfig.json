@@ -13,6 +13,6 @@
     "rootDir": "src",
     "baseUrl": "src"
   },
-  "include": ["src", "svg.d.ts"],
+  "include": ["src", "svg.d.ts", "webpack.config.js"],
   "exclude": ["node_modules", "build"]
 }
