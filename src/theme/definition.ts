@@ -246,16 +246,12 @@ export const ICONS = { ...polyIcons };
 
 export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
   basic: {
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
+    fill: COLOR.brandMain,
   },
   circle: {
-    borderRadius: '50%',
+    fill: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
-    'svg > *': {
-      fill: COLOR.brandMain,
-    },
+    borderRadius: '50%',
   },
 };
 
@@ -339,6 +335,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
 };
 
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
+  raw: {},
   basic: {
     padding: GAP.m,
   },
@@ -373,6 +370,84 @@ export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
     fontWeight: 'inherit',
     fontSize: 'inherit',
     color: 'inherit',
+  },
+};
+
+export const INPUT: CSSPropertiesExtended = {
+  padding: `0 ${GAP.s}`,
+  lineHeight: '40px',
+  fontWeight: 'inherit',
+  fontSize: 'inherit',
+  color: COLOR.gray1,
+  border: `1px solid ${COLOR.gray3}`,
+  borderRadius: RADIUS.s,
+  transition: 'all 0.3s',
+  backgroundColor: COLOR.light,
+  '&:focus': {
+    borderColor: COLOR.brandMain,
+  },
+  '&:disabled': {
+    borderColor: COLOR.gray5,
+    backgroundColor: COLOR.gray5,
+  },
+};
+
+export const DATEPICKER: CSSPropertiesExtended = {
+  padding: GAP.s,
+  backgroundColor: COLOR.light,
+  border: `1px solid ${COLOR.gray4}`,
+  borderRadius: RADIUS.l,
+  boxShadow: SHADOW[3],
+  lineHeight: 'normal',
+  '.DayPicker': {
+    '&-wrapper': {
+      margin: 0,
+      padding: 0,
+    },
+    '&-NavButton': {
+      margin: 0,
+      padding: 0,
+      backgroundImage: 'none',
+      borderStyle: 'solid',
+      borderWidth: '2px 2px 0 0',
+      height: '7px',
+      width: '7px',
+      color: COLOR.gray2,
+      top: '20px',
+      right: '10px',
+      transform: 'rotate(45deg)',
+      '&--prev': {
+        right: '50px',
+        transform: 'rotate(-135deg)',
+      },
+    },
+    '&-Month': {
+      margin: 0,
+    },
+    '&-Caption': {
+      ...TYPOGRAPHY.b3,
+      color: COLOR.gray2,
+      paddingTop: '15px',
+      marginBottom: '20px',
+    },
+    '&-Day': {
+      margin: 0,
+      padding: 0,
+      borderRadius: 0,
+      width: '20px',
+      ...TYPOGRAPHY.b3,
+      color: COLOR.gray1,
+      lineHeight: '30px',
+      '&--selected': {
+        backgroundColor: COLOR.brandMain,
+      },
+      '&--disabled': {
+        color: COLOR.gray4,
+      },
+      '&--outside': {
+        color: COLOR.gray2,
+      },
+    },
   },
 };
 

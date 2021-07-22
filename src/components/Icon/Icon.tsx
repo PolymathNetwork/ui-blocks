@@ -2,18 +2,19 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
+import { IconType } from '../../theme/types';
 
 export type IconVariant = 'basic' | 'circle';
 
 export type IconProps = {
   variant: IconVariant;
-  icon: (props: any) => JSX.Element;
+  margin?: string;
+  icon: IconType;
   size: string;
   color?: string;
   bg?: string;
   scale?: number;
   rotate?: string;
-  margin?: string;
 };
 
 export const Icon: FC<IconProps> = ({
@@ -42,13 +43,14 @@ export const Icon: FC<IconProps> = ({
       ...(scale && { padding: `${(1 - scale) * 100}%` }),
       ...(rotate && { transform: `rotateZ(${rotate})` }),
     },
-    ...(color &&
-      theme.COLOR[color] && {
-        'svg > *': {
-          ...theme.ICON[variant]['svg > *'],
-          fill: theme.COLOR[color],
-        },
-      }),
+    'svg > *': {
+      ...theme.ICON[variant]['svg > *'],
+      ...(color || theme.ICON[variant].fill
+        ? {
+            fill: color ? theme.COLOR[color] : theme.ICON[variant].fill,
+          }
+        : {}),
+    },
   }));
   return (
     <Component {...props}>

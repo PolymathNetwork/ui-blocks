@@ -8,11 +8,11 @@ export type TextVariant = 'p' | 'span' | 'label';
 
 export type TextProps = {
   variant: TextVariant;
+  margin?: string;
   format?: TextFormat;
   color?: string;
   altColor?: string;
   display?: 'block' | 'inline-block' | 'inline' | 'none';
-  margin?: string;
 };
 
 export const Text: FC<TextProps> = ({
@@ -27,7 +27,7 @@ export const Text: FC<TextProps> = ({
   const Component = styled[variant](({ theme }) => ({
     ...(theme.TEXT[variant] || {}),
     ...(format && (theme.TYPOGRAPHY[format] || {})),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),
     ...(color && { color: theme.COLOR[color] }),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
     ...(display && { display }),

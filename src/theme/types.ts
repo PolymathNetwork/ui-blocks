@@ -2,7 +2,11 @@ import { CSSProperties } from 'react';
 
 export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
 
-export type Gap = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
+export type IconType = (props: any) => JSX.Element;
+
+export type Justify = 'spaced' | 'center' | 'start' | 'end';
+
+export type Align = 'center' | 'start' | 'end';
 
 export type TextFormat =
   | 'b1m'
@@ -16,3 +20,9 @@ export type TextFormat =
   | 'btn'
   | 'tn'
   | 'code';
+
+export const propValueMap: Record<string, string> = {
+  spaced: 'space-between',
+  start: 'flex-start',
+  end: 'flex-end',
+};

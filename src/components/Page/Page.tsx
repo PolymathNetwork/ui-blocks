@@ -10,7 +10,7 @@ export type PageProps = {
 export const Page: FC<PageProps> = ({ margin, ...props }) => {
   const Component = styled.div(({ theme }) => ({
     ...(theme.PAGE || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),
   }));
   return <Component {...props} />;
 };

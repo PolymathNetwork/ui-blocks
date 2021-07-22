@@ -1,8 +1,9 @@
-export const getMargin = ({ theme, margin }: { theme: any; margin: string }) =>
-  margin
-    .split(' ')
-    .map((e) => theme.GAP[e] || e)
-    .join(' ');
+export const getMargin = ({ theme, margin }: { theme: any; margin?: string }) =>
+  ? margin
+      .split(' ')
+      .map((e) => theme.GAP[e] || e)
+      .join(' ')
+  : 0;
 
 export const visuallyHidden: any = () => ({
   position: 'absolute',

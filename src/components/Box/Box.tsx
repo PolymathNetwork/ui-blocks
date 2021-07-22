@@ -3,17 +3,17 @@ import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
-export type BoxVariant = 'basic' | 'border' | 'shadow';
+export type BoxVariant = 'raw' | 'basic' | 'border' | 'shadow';
 
 export type BoxProps = {
-  variant?: BoxVariant;
+  variant: BoxVariant;
   margin?: string;
 };
 
 export const Box: FC<BoxProps> = ({ variant, margin, ...props }) => {
   const Component = styled.div(({ theme }) => ({
-    ...((variant && theme.BOX[variant]) || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    ...(theme.BOX[variant] || {}),
+    margin: getMargin({ theme, margin }),
   }));
   return <Component {...props} />;
 };

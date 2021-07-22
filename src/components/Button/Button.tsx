@@ -1,24 +1,21 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Icon } from '../Icon';
 import { getMargin } from '../../theme/utils';
+import { IconType } from '../../theme/types';
+import { Icon } from '../Icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
 
 export type ButtonProps = {
   variant: ButtonVariant;
+  margin?: string;
+  id?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
-  icon?: (props: any) => JSX.Element;
+  icon?: IconType;
   onClick?: () => void;
-  margin?: string;
 };
-
-const IconContainer = styled.span`
-  display: inline-block;
-  margin-right: ${({ theme }) => theme.GAP.s};
-`;
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
@@ -43,9 +40,13 @@ export const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
+  const IconContainer = styled.span(({ theme }) => ({
+    display: 'inline-block',
+    marginRight: theme.GAP.s,
+  }));
   const Component = styled.button(({ theme }) => ({
     ...(theme.BUTTON[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    margin: getMargin({ theme, margin }),
     ...(sizeMap[size] || {}),
   }));
   return (
