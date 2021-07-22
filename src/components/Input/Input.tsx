@@ -102,13 +102,15 @@ export const Input: FC<InputProps> = ({
           <Text variant="span" format="b2m">
             {label}
           </Text>
-          {/* TODO: Pass `tooltip` as content to Tooltip component */}
-          <img
-            title={tooltip}
-            src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
-            width="18px"
-            height="18px"
-          />
+          {tooltip && (
+            // TODO: Pass `tooltip` as content to Tooltip component
+            <img
+              title={tooltip as string}
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
+              width="18px"
+              height="18px"
+            />
+          )}
         </Flex>
       )}
       <InputWrapper

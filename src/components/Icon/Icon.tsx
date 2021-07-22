@@ -31,7 +31,7 @@ export const Icon: FC<IconProps> = ({
   const Component = styled.span(({ theme }) => ({
     ...(theme.ICON[variant] || {}),
     display: 'inline-block',
-    ...(margin ? { margin: getMargin({ theme, margin }) } : { margin: 0 }),
+    margin: getMargin({ theme, margin }),
     padding: 0,
     width: size,
     height: size,
