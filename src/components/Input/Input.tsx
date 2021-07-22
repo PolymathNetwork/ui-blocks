@@ -1,4 +1,4 @@
-import { FC, WheelEvent } from 'react';
+import { FC, ComponentType, WheelEvent } from 'react';
 import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
@@ -22,7 +22,7 @@ export type InputProps = {
   placeholder?: string;
   value?: string | null;
   onChange?: (state: any) => void;
-  tooltip?: string; // | JSX.Element;
+  tooltip?: string | ComponentType;
   icon?: IconType;
   unit?: string;
   error?: string;

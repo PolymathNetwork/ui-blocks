@@ -1,4 +1,4 @@
-import { FC, useState, forwardRef } from 'react';
+import { FC, ComponentType, useState, forwardRef } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import DateInputComponent from 'react-day-picker/DayPickerInput';
@@ -26,7 +26,7 @@ export type DatePickerProps = {
   placeholder?: string;
   value?: string | null;
   onChange?: (state: any) => void;
-  tooltip?: string; // | JSX.Element;
+  tooltip?: string | ComponentType;
   error?: string;
   noExpiryOption?: boolean;
   noExpiryCopy?: string;
