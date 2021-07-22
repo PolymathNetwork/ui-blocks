@@ -48,7 +48,7 @@ export const DatePicker: FC<DatePickerProps> = ({
   noExpiryCopy = 'No expiry',
   dateFormat = 'MM/DD/YYYY',
   placeholder = 'mm/dd/yyyy',
-  dayPickerProps,
+  dayPickerProps = {},
   ...inputProps
 }) => {
   const isNoExpiry =
@@ -61,16 +61,6 @@ export const DatePicker: FC<DatePickerProps> = ({
       ? undefined
       : formatDate(value || '', dateFormat)
   );
-  const pickerProps = dayPickerProps || {};
-
-  if (minDate || maxDate) {
-    if (minDate) pickerProps.fromMonth = minDate;
-    if (maxDate) pickerProps.toMonth = maxDate;
-    pickerProps.disabledDays = [
-      ...(minDate ? [{ before: minDate }] : []),
-      ...(maxDate ? [{ after: maxDate }] : []),
-    ];
-  }
 
   const handleChange = (selectedDate: Date, modifiers: DayModifiers) => {
     if (modifiers.disabled) return;
@@ -90,6 +80,19 @@ export const DatePicker: FC<DatePickerProps> = ({
     zIndex: 1,
   }));
 
+  const OverlayComponent = ({ children, ...overlayProps }: any) => (
+    <Overlay {...overlayProps}>
+      <Flex variant="raw" dir="column" align="center">
+        {children}
+        {noExpiryOption && (
+          <Button variant="tertiary" margin="s 0 0 0" onClick={handleNoExpiry}>
+            {noExpiryCopy}
+          </Button>
+        )}
+      </Flex>
+    </Overlay>
+  );
+
   const Component = forwardRef(function CustomInput(p, ref) {
     return (
       <Input
@@ -108,37 +111,25 @@ export const DatePicker: FC<DatePickerProps> = ({
     );
   });
 
+  dayPickerProps.onDayClick = handleChange;
+  if (currentSelected && currentSelected !== noExpiryCopy) {
+    dayPickerProps.month = new Date(currentSelected);
+    dayPickerProps.selectedDays = [new Date(currentSelected)];
+  }
+  if (minDate || maxDate) {
+    if (minDate) dayPickerProps.fromMonth = minDate;
+    if (maxDate) dayPickerProps.toMonth = maxDate;
+    dayPickerProps.disabledDays = [
+      ...(minDate ? [{ before: minDate }] : []),
+      ...(maxDate ? [{ after: maxDate }] : []),
+    ];
+  }
+
   return (
     <DateInputComponent
       component={Component}
-      overlayComponent={({ children, ...overlayProps }: any) => (
-        <Overlay {...overlayProps}>
-          <Flex variant="raw" dir="column" align="center">
-            {children}
-            {noExpiryOption && (
-              <Button
-                variant="tertiary"
-                margin="s 0 0 0"
-                onClick={handleNoExpiry}
-              >
-                {noExpiryCopy}
-              </Button>
-            )}
-          </Flex>
-        </Overlay>
-      )}
-      dayPickerProps={{
-        onDayClick: handleChange,
-        month:
-          currentSelected && currentSelected !== noExpiryCopy
-            ? new Date(currentSelected)
-            : undefined,
-        selectedDays:
-          currentSelected && currentSelected !== noExpiryCopy
-            ? [new Date(currentSelected)]
-            : undefined,
-        ...pickerProps,
-      }}
+      overlayComponent={OverlayComponent}
+      dayPickerProps={dayPickerProps}
     />
   );
 };
