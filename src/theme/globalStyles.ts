@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import 'focus-visible';
 
-import '../assets/fonts/inter.css';
+import './fonts/inter.css';
 
 export const PolyGlobalStyles = createGlobalStyle`
   html, body {
