@@ -45,9 +45,7 @@ export const Input: FC<InputProps> = ({
 }) => {
   const isBasic = variant === 'basic';
   const isAmount = variant === 'amount';
-  const Wrapper = styled(Text)(({ theme }) => ({
-    margin: getMargin({ theme, margin }),
-  }));
+
   const InputWrapper = styled(Grid)(({ theme }) => ({
     backgroundColor: (theme.INPUT || { backgroundColor: 'unset' })
       .backgroundColor,
@@ -96,7 +94,7 @@ export const Input: FC<InputProps> = ({
   };
 
   return (
-    <Wrapper variant="label">
+    <Text variant="label" display="block" margin={margin}>
       {label && tooltip && (
         <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
           <Text variant="span" format="b2m">
@@ -135,6 +133,6 @@ export const Input: FC<InputProps> = ({
           {error}
         </Text>
       )}
-    </Wrapper>
+    </Text>
   );
 };
