@@ -26,3 +26,8 @@ export const propValueMap: Record<string, string> = {
   start: 'flex-start',
   end: 'flex-end',
 };
+
+export type OptionType = {
+  value: string;
+  label: string;
+};

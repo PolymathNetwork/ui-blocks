@@ -431,3 +431,53 @@ export const PAGE: CSSPropertiesExtended = {
   maxWidth: '1600px',
   minHeight: '70vh',
 };
+
+export const SELECT: any = {
+  container: (styles: any) => ({
+    ...styles,
+    minWidth: '112px',
+  }),
+  control: (styles: any, state: any) => ({
+    ...styles,
+    backgroundColor: COLOR.light,
+    borderRadius: RADIUS.m,
+    borderColor: COLOR.gray3,
+    ...(state.isFocused
+      ? {
+          borderColor: COLOR.brandMain,
+          '&:hover': {
+            borderColor: COLOR.brandMain,
+          },
+        }
+      : {}),
+    cursor: 'pointer',
+  }),
+  valueContainer: (styles: any) => ({
+    ...styles,
+    ...TYPOGRAPHY.b2,
+  }),
+  menu: (styles: any) => ({
+    ...styles,
+    backgroundColor: COLOR.light,
+    boxShadow: SHADOW[2],
+  }),
+  menuPortal: (styles: any) => ({
+    ...styles,
+    zIndex: 1000,
+  }),
+  option: (styles: any, state: any) => ({
+    ...styles,
+    color: COLOR.gray1,
+    ...(state.isSelected
+      ? {
+          color: COLOR.gray1,
+          backgroundColor: COLOR.gray5,
+        }
+      : {}),
+    '&:hover': {
+      color: COLOR.gray1,
+      backgroundColor: COLOR.brandLightest,
+    },
+    cursor: 'pointer',
+  }),
+};

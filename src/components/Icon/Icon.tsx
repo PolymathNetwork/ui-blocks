@@ -24,7 +24,7 @@ export const Icon: FC<IconProps> = ({
   color,
   bg,
   rotate,
-  scale,
+  scale = variant === 'circle' ? 0.9 : undefined,
   margin,
   ...props
 }) => {
