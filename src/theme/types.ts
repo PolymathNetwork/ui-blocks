@@ -1,8 +1,8 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ComponentType } from 'react';
 
 export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
 
-export type IconType = (props: any) => JSX.Element;
+export type IconType = string | ComponentType;
 
 export type Justify = 'spaced' | 'center' | 'start' | 'end';
 

@@ -36,7 +36,7 @@ export const Icon = Template.bind({});
 Icon.args = {
   variant: 'basic',
   label: 'Texbox with an icon',
-  icon: polyIcons.Bull,
+  icon: polyIcons.PolyBull,
 };
 
 export const Amount = Template.bind({});

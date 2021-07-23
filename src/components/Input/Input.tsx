@@ -1,4 +1,4 @@
-import { FC, WheelEvent } from 'react';
+import { FC, ComponentType, WheelEvent } from 'react';
 import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
@@ -22,7 +22,7 @@ export type InputProps = {
   placeholder?: string;
   value?: string | null;
   onChange?: (state: any) => void;
-  tooltip?: string; // | JSX.Element;
+  tooltip?: string | ComponentType;
   icon?: IconType;
   unit?: string;
   error?: string;
@@ -102,13 +102,15 @@ export const Input: FC<InputProps> = ({
           <Text variant="span" format="b2m">
             {label}
           </Text>
-          {/* TODO: Pass `tooltip` as content to Tooltip component */}
-          <img
-            title={tooltip}
-            src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
-            width="18px"
-            height="18px"
-          />
+          {tooltip && (
+            // TODO: Pass `tooltip` as content to Tooltip component
+            <img
+              title={tooltip as string}
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
+              width="18px"
+              height="18px"
+            />
+          )}
         </Flex>
       )}
       <InputWrapper
@@ -120,7 +122,7 @@ export const Input: FC<InputProps> = ({
           <Icon
             icon={icon}
             variant="basic"
-            size="18px"
+            size="24px"
             color="gray3"
             margin="0 s 0 0"
           />
