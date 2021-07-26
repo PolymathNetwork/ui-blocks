@@ -22,7 +22,6 @@ export const Select: FC<SelectProps> = ({
   const currentTheme = useContext(ThemeContext);
 
   const handleChange = (e?: OptionType | OptionType[] | null) => {
-    console.log(e);
     if (onChange) {
       if (!e) {
         onChange(null);
@@ -68,7 +67,7 @@ export const Select: FC<SelectProps> = ({
           ClearIndicator: null,
         }}
         onChange={handleChange}
-        noIcon={true}
+        noIcon={noIcon}
         menuPlacement="auto"
         menuPortalTarget={document.body}
         backspaceRemovesValue={false}

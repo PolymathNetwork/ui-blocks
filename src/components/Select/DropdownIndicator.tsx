@@ -5,10 +5,10 @@ import { polyIcons } from '../../theme';
 import { Icon } from '../Icon';
 import { DropdownIndicatorProps } from './types';
 
-export const DropdownIndicator: FC<DropdownIndicatorProps> = (iProps) => {
+export const DropdownIndicator: FC<DropdownIndicatorProps> = (props) => {
   return (
     components.DropdownIndicator && (
-      <components.DropdownIndicator {...iProps}>
+      <components.DropdownIndicator {...props}>
         <Icon
           variant="basic"
           icon={polyIcons.ChevronDown}
