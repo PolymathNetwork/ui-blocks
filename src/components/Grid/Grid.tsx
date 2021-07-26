@@ -15,15 +15,8 @@ export type GridProps = BoxProps & {
   gap?: string;
 };
 
-const GridComponent: FC<GridProps> = ({
-  justify,
-  align,
-  cols,
-  rows,
-  gap,
-  ...props
-}) => {
-  const Component = styled(Box)(({ theme }) => ({
+const Component = styled(Box)<GridProps>(
+  ({ theme, justify, align, cols, rows, gap }) => ({
     ...(theme.GRID || {}),
     display: 'grid',
     ...(justify && { justifyContent: propValueMap[justify] || justify }),
@@ -31,7 +24,10 @@ const GridComponent: FC<GridProps> = ({
     ...(cols && { gridTemplateColumns: cols }),
     ...(rows && { gridTemplateRows: rows }),
     ...(gap && { gridGap: gap }),
-  }));
+  })
+);
+
+const GridComponent: FC<GridProps> = ({ ...props }) => {
   return <Component {...props} />;
 };
 
@@ -42,16 +38,19 @@ type GridItemProps = BoxProps &
     variant: BoxVariant | FlexVariant | GridVariant;
     area: string;
   };
-const Item: FC<GridItemProps> = ({ as, area, ...itemProps }) => {
+
+const ItemWrapper = styled.div<GridItemProps & any>`
+  grid-area: ${({ area }) => area};
+`;
+
+const Item: FC<GridItemProps> = ({ as, ...itemProps }) => {
   const TargetComponent = {
     Box,
     Flex,
     Grid: GridComponent,
   }[as];
-  const ItemWrapper = styled(TargetComponent)({
-    gridArea: area,
-  });
-  return <ItemWrapper {...itemProps} />;
+
+  return <ItemWrapper as={TargetComponent} {...itemProps} />;
 };
 
 export const Grid = Object.assign(GridComponent, {
