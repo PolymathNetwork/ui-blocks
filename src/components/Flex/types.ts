@@ -1,5 +1,5 @@
 import { Justify, Align } from '../../theme/types';
-import { BoxVariant, BoxProps } from '../Box';
+import { BoxVariant, BoxProps } from '../Box/types';
 
 export type FlexVariant = BoxVariant;
 
