@@ -21,7 +21,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 2000",
-    "build": "tsc",
+    "copy-icons": "copyfiles -u 1 src/theme/icons/svg/*.svg build/lib/",
+    "copy-fonts": "copyfiles -u 1 src/theme/fonts/*.* build/lib/",
+    "build": "tsc && npm run copy-icons && npm run copy-fonts",
     "lint": "eslint \"{src,config,.storybook}/**/*{.js,.ts,.tsx}\"",
     "lint-fix": "npm run lint --fix",
     "deploy-storybook": "storybook-to-ghpages -o build/docs",
@@ -55,6 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "babel-loader": "^8.2.2",
+    "copyfiles": "^2.4.1",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
