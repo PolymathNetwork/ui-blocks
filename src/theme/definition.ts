@@ -527,6 +527,7 @@ export const ATTENTIONBOX: Record<
     borderRadius: GAP.xs,
     fontSize: '14px',
     fontWeight: 400,
+    a: { color: COLOR.brandMain },
   },
   compact: {
     minWidth: '240px',
@@ -535,5 +536,6 @@ export const ATTENTIONBOX: Record<
     borderLeft: `2px solid ${COLOR.brandMain}`,
     fontSize: '14px',
     fontWeight: 400,
+    a: { color: COLOR.brandMain },
   },
 };
