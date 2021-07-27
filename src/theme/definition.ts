@@ -317,16 +317,19 @@ export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   raw: {},
   basic: {
     padding: GAP.m,
+    backgroundColor: COLOR.light,
   },
   border: {
     padding: GAP.m,
+    backgroundColor: COLOR.light,
     border: `1px solid ${COLOR.gray3}`,
     borderRadius: RADIUS.m,
   },
   shadow: {
     padding: GAP.m,
+    backgroundColor: COLOR.light,
     borderRadius: RADIUS.m,
-    boxShadow: SHADOW.xs,
+    boxShadow: SHADOW.s,
   },
 };
 
