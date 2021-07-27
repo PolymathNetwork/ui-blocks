@@ -1,41 +1,16 @@
-import { FC, ComponentType, useState, forwardRef } from 'react';
-import styled from 'styled-components';
+import { FC, useState, forwardRef } from 'react';
 import moment from 'moment';
 import DateInputComponent from 'react-day-picker/DayPickerInput';
-import { DayPickerProps, DayModifiers } from 'react-day-picker';
+import { DayModifiers } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
 import { Input } from '../Input';
-import { Box } from '../Box';
-import { Flex } from '../Flex';
-import { Button } from '../Button';
 import { polyIcons } from '../../theme';
+import { DatePickerProps } from './types';
+import { OverlayComponent } from './OverlayComponent';
 
 const formatDate = (date: Date | string, dateFormat: string) =>
   moment(date).format(dateFormat);
-
-export type DatePickerVariant = 'basic';
-
-export type DatePickerProps = {
-  variant: DatePickerVariant;
-  margin?: string;
-  id?: string;
-  name?: string;
-  disabled?: boolean;
-  label?: string;
-  placeholder?: string;
-  value?: string | null;
-  onChange?: (state: any) => void;
-  tooltip?: string | ComponentType;
-  error?: string;
-  noExpiryOption?: boolean;
-  noExpiryCopy?: string;
-  minDate?: Date;
-  maxDate?: Date;
-  hasIcon?: boolean;
-  dateFormat?: string;
-  dayPickerProps?: Partial<DayPickerProps>;
-};
 
 export const DatePicker: FC<DatePickerProps> = ({
   value,
@@ -68,29 +43,11 @@ export const DatePicker: FC<DatePickerProps> = ({
     if (onChange) onChange(selectedDate);
   };
 
+  // @FIXME @BUG: overlay does not close after clicking no-expiry button
   const handleNoExpiry = () => {
     setCurrentSelected(noExpiryCopy);
     if (onChange) onChange(null);
   };
-
-  const Overlay = styled(Box)(({ theme }) => ({
-    ...(theme.DATEPICKER || {}),
-    position: 'absolute',
-    zIndex: 1,
-  }));
-
-  const OverlayComponent = ({ children, ...overlayProps }: any) => (
-    <Overlay {...overlayProps}>
-      <Flex variant="raw" dir="column" align="center">
-        {children}
-        {noExpiryOption && (
-          <Button variant="tertiary" margin="s 0 0 0" onClick={handleNoExpiry}>
-            {noExpiryCopy}
-          </Button>
-        )}
-      </Flex>
-    </Overlay>
-  );
 
   const Component = forwardRef(function CustomInput(p, ref) {
     return (
@@ -126,8 +83,15 @@ export const DatePicker: FC<DatePickerProps> = ({
   return (
     <DateInputComponent
       component={Component}
-      overlayComponent={OverlayComponent}
       dayPickerProps={dayPickerProps}
+      overlayComponent={(props: any) => (
+        <OverlayComponent
+          {...props}
+          noExpiryOption={noExpiryOption}
+          noExpiryCopy={noExpiryCopy}
+          handleNoExpiry={handleNoExpiry}
+        />
+      )}
     />
   );
 };
