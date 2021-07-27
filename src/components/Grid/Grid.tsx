@@ -30,7 +30,7 @@ const GridComponent: FC<GridProps> = ({
     ...(align ? { alignItems: propValueMap[align] || align } : {}),
     ...(cols ? { gridTemplateColumns: cols } : {}),
     ...(rows ? { gridTemplateRows: rows } : {}),
-    ...(gap ? { gridGap: gap } : {}),
+    ...(gap ? { gridGap: theme.GAP[gap] } : {}),
   }));
   return <Component {...props} />;
 };
