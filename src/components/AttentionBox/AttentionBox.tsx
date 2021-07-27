@@ -5,12 +5,11 @@ import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 import { Text } from '../Text/Text';
 
-// eslint-disable-next-line import/no-cycle
-import { polyIcons } from '../../theme';
+import { InformationOutline } from '../../theme/icons';
 
 export type AttentionBoxVariant = 'basic' | 'compact';
 
-export type BoxProps = {
+export type AttentionBox = {
   variant: AttentionBoxVariant;
   margin?: string;
   title: string;
@@ -53,7 +52,7 @@ const AttentionPhrase = ({
   return (
     <IconContainer>
       <Icon
-        icon={polyIcons.InformationOutline}
+        icon={InformationOutline}
         variant="circle"
         size="20px"
         margin="0 10px 0 0"
@@ -67,7 +66,7 @@ const AttentionPhrase = ({
   );
 };
 
-export const AttentionBox: FC<BoxProps> = ({
+export const AttentionBox: FC<AttentionBox> = ({
   variant,
   margin,
   title,

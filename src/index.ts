@@ -36,6 +36,7 @@ export * from './components/Tooltip';
 
 // MEDIA
 export * from './components/Icon';
+export * from './components/AttentionBox';
 // export * from './components/Image';
 // export * from './components/Video';
 

@@ -1,13 +1,14 @@
+import { createGlobalStyle } from 'styled-components';
+
 import * as polyIcons from './icons';
 import { CSSPropertiesExtended } from './types';
 import { BoxVariant } from '../components/Box/Box';
 import { ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
 import { TextVariant } from '../components/Text/Text';
-
+import { BadgeVariant } from '../components/Badge/Badge';
 // eslint-disable-next-line import/no-cycle
 import { AttentionBoxVariant } from '../components/AttentionBox/AttentionBox';
-import { BadgeVariant } from '../components/Badge/Badge';
 
 // Basics
 
@@ -72,7 +73,6 @@ export const COLOR = {
   plum800: '#4D0198',
   plum100: '#F2E6FF',
   pink800: '#97266D',
-  pink600: '#EC4673',
   pink100: '#FFEBF1',
   lime800: '#447803',
   lime100: '#F1FEE1',
@@ -85,11 +85,12 @@ export const COLOR = {
 };
 
 export const SHADOW = {
-  1: '0px 1px 3px rgba(21, 41, 53, 0.12), 0px 1px 2px rgba(21, 41, 53, 0.24)',
-  2: '0px 2px 4px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(21, 41, 53, 0.12)',
-  3: '0px 10px 20px rgba(21, 41, 53, 0.15), 0px 3px 6px rgba(21, 41, 53, 0.1)',
-  4: '0px 15px 25px rgba(21, 41, 53, 0.15), 0px 5px 10px rgba(21, 41, 53, 0.05)',
-  5: '0px 20px 40px rgba(21, 41, 53, 0.1)',
+  xs: '0px 1px 3px rgba(21, 41, 53, 0.12), 0px 1px 2px rgba(21, 41, 53, 0.24)',
+  s: '0px 2px 4px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(21, 41, 53, 0.12)',
+  m: '0px 10px 20px rgba(21, 41, 53, 0.15), 0px 3px 6px rgba(21, 41, 53, 0.1)',
+  l:
+    '0px 15px 25px rgba(21, 41, 53, 0.15), 0px 5px 10px rgba(21, 41, 53, 0.05)',
+  xl: '0px 20px 40px rgba(21, 41, 53, 0.1)',
 };
 
 export const RADIUS = {
@@ -242,7 +243,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     background: COLOR.brandMain,
     border: 0,
     borderRadius: RADIUS.l,
-    boxShadow: SHADOW[2],
+    boxShadow: SHADOW.s,
     transition: 'all 0.3s',
     cursor: 'pointer',
     '&:hover': {
@@ -327,7 +328,7 @@ export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   shadow: {
     padding: GAP.m,
     borderRadius: RADIUS.m,
-    boxShadow: SHADOW[1],
+    boxShadow: SHADOW.xs,
   },
 };
 
@@ -404,7 +405,7 @@ export const DATEPICKER: CSSPropertiesExtended = {
   backgroundColor: COLOR.light,
   border: `1px solid ${COLOR.gray4}`,
   borderRadius: RADIUS.l,
-  boxShadow: SHADOW[3],
+  boxShadow: SHADOW.m,
   lineHeight: 'normal',
   '.DayPicker': {
     '&-wrapper': {
@@ -491,7 +492,7 @@ export const SELECT: any = {
   menu: (styles: any) => ({
     ...styles,
     backgroundColor: COLOR.light,
-    boxShadow: SHADOW[2],
+    boxShadow: SHADOW.s,
   }),
   menuPortal: (styles: any) => ({
     ...styles,
@@ -514,6 +515,70 @@ export const SELECT: any = {
   }),
 };
 
+const tooltipArrowSize = 8;
+export const TOOLTIP = createGlobalStyle`
+  .tippy-box {
+    padding: 4px ${GAP.s};
+    color: ${COLOR.light};
+    background-color: ${COLOR.gray1};
+    box-shadow: ${SHADOW.xs};
+    border-radius: ${RADIUS.s};
+    z-index: 1;
+  }
+  .tippy-box[data-placement^="top"] > .tippy-arrow {
+      bottom: 0;
+  }
+  .tippy-box[data-placement^="top"] > .tippy-arrow::before {
+      bottom: -7px;
+      left: 0;
+      border-width: ${tooltipArrowSize}px ${tooltipArrowSize}px 0;
+      border-top-color: initial;
+      transform-origin: center top;
+  }
+  .tippy-box[data-placement^="bottom"] > .tippy-arrow {
+      top: 0;
+  }
+  .tippy-box[data-placement^="bottom"] > .tippy-arrow::before {
+      top: -7px;
+      left: 0;
+      border-width: 0 ${tooltipArrowSize}px ${tooltipArrowSize}px;
+      border-bottom-color: initial;
+      transform-origin: center bottom;
+  }
+  .tippy-box[data-placement^="left"] > .tippy-arrow {
+      right: 0;
+  }
+  .tippy-box[data-placement^="left"] > .tippy-arrow::before {
+      border-width: ${tooltipArrowSize}px 0 ${tooltipArrowSize}px ${tooltipArrowSize}px;
+      border-left-color: initial;
+      right: -7px;
+      transform-origin: center left;
+  }
+  .tippy-box[data-placement^="right"] > .tippy-arrow {
+      left: 0;
+  }
+  .tippy-box[data-placement^="right"] > .tippy-arrow::before {
+      left: -7px;
+      border-width: ${tooltipArrowSize}px ${tooltipArrowSize}px ${tooltipArrowSize}px 0;
+      border-right-color: initial;
+      transform-origin: center right;
+  }
+  .tippy-box[data-inertia][data-state="visible"] {
+      transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  }
+  .tippy-arrow {
+      width: ${tooltipArrowSize * 2}px;
+      height: ${tooltipArrowSize * 2}px;
+      color: ${COLOR.gray1};
+  }
+  .tippy-arrow::before {
+      content: "";
+      position: absolute;
+      border-color: transparent;
+      border-style: solid;
+  }
+`;
+
 export const ATTENTIONBOX: Record<
   AttentionBoxVariant,
   CSSPropertiesExtended
@@ -522,7 +587,7 @@ export const ATTENTIONBOX: Record<
     minWidth: '240px',
     display: 'inline-block',
     padding: GAP.s,
-    border: '2px solid #F0F0F0',
+    border: `${RADIUS.s} solid #F0F0F0`,
     sizing: 'border-box',
     borderRadius: GAP.xs,
     fontSize: '14px',
