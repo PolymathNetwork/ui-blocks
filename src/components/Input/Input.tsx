@@ -4,6 +4,7 @@ import NumberInput from 'react-number-format';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
+import { Tooltip } from '../Tooltip';
 import { InputProps } from './types';
 import { InputWrapper, Component, Unit } from './styles';
 
@@ -46,15 +47,7 @@ export const Input: FC<InputProps> = ({
           <Text variant="span" format="b2m">
             {label}
           </Text>
-          {tooltip && (
-            // TODO: Pass `tooltip` as content to Tooltip component
-            <img
-              title={tooltip as string}
-              src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
-              width="18px"
-              height="18px"
-            />
-          )}
+          {tooltip && <Tooltip variant="icon" content={tooltip} />}
         </Flex>
       )}
       <InputWrapper

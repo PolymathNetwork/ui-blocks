@@ -20,6 +20,7 @@ export {
 // TYPOGRAPHY
 export * from './components/Heading';
 export * from './components/Text';
+export * from './components/Badge';
 // export * from './components/Link';
 
 // CONTROLS
@@ -29,6 +30,7 @@ export * from './components/Button';
 export * from './components/Select';
 export * from './components/Input';
 export * from './components/DatePicker';
+export * from './components/Tooltip';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
 

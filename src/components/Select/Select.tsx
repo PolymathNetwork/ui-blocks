@@ -4,6 +4,7 @@ import ReactSelect from 'react-select';
 
 import { Flex } from '../Flex';
 import { Text } from '../Text';
+import { Tooltip } from '../Tooltip';
 import { SelectProps } from './types';
 import { Option } from './Option';
 import { DropdownIndicator } from './DropdownIndicator';
@@ -42,15 +43,7 @@ export const Select: FC<SelectProps> = ({
             <Text variant="span" format="b2m">
               {label}
             </Text>
-            {tooltip && (
-              // TODO: Pass `tooltip` as content to Tooltip component
-              <img
-                title={tooltip as string}
-                src="https://upload.wikimedia.org/wikipedia/commons/5/5f/OOjs_UI_icon_info-progressive.svg"
-                width="18px"
-                height="18px"
-              />
-            )}
+            {tooltip && <Tooltip variant="icon" content={tooltip} />}
           </Flex>
         )}
       </Text>
