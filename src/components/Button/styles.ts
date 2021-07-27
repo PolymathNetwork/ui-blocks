@@ -23,7 +23,7 @@ export const Component = styled.button<ButtonProps>(
     ...(theme.BUTTON[variant] || {}),
     ...(size ? sizeMap[size] : {}),
     margin: getMargin({ theme, margin }),
-  })
+  }),
 );
 
 export const IconContainer = styled.span(({ theme }) => ({

@@ -19,7 +19,7 @@ export const InputWrapper = styled(Grid)<InputWrapperProps>(
     ...(disabled && theme.INPUT && theme.INPUT['&:disabled']
       ? theme.INPUT['&:disabled']
       : {}),
-  })
+  }),
 );
 
 export const Component = styled.input(({ theme }) => ({

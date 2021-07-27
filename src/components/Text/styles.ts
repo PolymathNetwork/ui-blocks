@@ -10,5 +10,5 @@ export const Component = styled.span<TextVariant & any>(
     ...(color && { color: theme.COLOR[color] }),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
     ...(display && { display }),
-  })
+  }),
 );

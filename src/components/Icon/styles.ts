@@ -27,5 +27,5 @@ export const Component = styled.span<Omit<IconProps, 'icon'>>(
           }
         : {}),
     },
-  })
+  }),
 );

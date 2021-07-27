@@ -11,5 +11,5 @@ export const Component = styled(Box)<FlexProps>(
     ...(justify && { justifyContent: propValueMap[justify] || justify }),
     ...(align && { alignItems: propValueMap[align] || align }),
     ...(dir && { flexDirection: dir }),
-  })
+  }),
 );

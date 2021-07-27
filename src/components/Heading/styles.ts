@@ -9,5 +9,5 @@ export const Component = styled.h1<HeadingProps>(
     margin: getMargin({ theme, margin }),
     ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
-  })
+  }),
 );
