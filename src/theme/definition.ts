@@ -7,7 +7,6 @@ import { ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
 import { TextVariant } from '../components/Text/Text';
 import { BadgeVariant } from '../components/Badge/Badge';
-// eslint-disable-next-line import/no-cycle
 import { AttentionBoxVariant } from '../components/AttentionBox/AttentionBox';
 
 // Basics
