@@ -9,7 +9,7 @@ import { InformationOutline } from '../../theme/icons';
 
 export type AttentionBoxVariant = 'basic' | 'compact';
 
-export type AttentionBox = {
+export type AttentionBoxProps = {
   variant: AttentionBoxVariant;
   margin?: string;
   title: string;
@@ -66,7 +66,7 @@ const AttentionPhrase = ({
   );
 };
 
-export const AttentionBox: FC<AttentionBox> = ({
+export const AttentionBox: FC<AttentionBoxProps> = ({
   variant,
   margin,
   title,
