@@ -4,8 +4,11 @@ import { BoxVariant } from '../components/Box/Box';
 import { ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
 import { TextVariant } from '../components/Text/Text';
+
 // eslint-disable-next-line import/no-cycle
 import { AttentionBoxVariant } from '../components/AttentionBox/AttentionBox';
+import { BadgeVariant } from '../components/Badge/Badge';
+
 // Basics
 
 export const BREAKPOINT = {
@@ -347,6 +350,33 @@ export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
     fontWeight: 'inherit',
     fontSize: 'inherit',
     color: 'inherit',
+  },
+};
+
+export const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
+  basic: {
+    ...TYPOGRAPHY.b3m,
+    color: COLOR.brandMain,
+    backgroundColor: COLOR.brandLightest,
+    borderRadius: '100px',
+  },
+  success: {
+    ...TYPOGRAPHY.b3m,
+    color: COLOR.success,
+    backgroundColor: COLOR.success2,
+    borderRadius: '100px',
+  },
+  warning: {
+    ...TYPOGRAPHY.b3m,
+    color: COLOR.warning,
+    backgroundColor: COLOR.warning2,
+    borderRadius: '100px',
+  },
+  danger: {
+    ...TYPOGRAPHY.b3m,
+    color: COLOR.danger,
+    backgroundColor: COLOR.danger2,
+    borderRadius: '100px',
   },
 };
 
