@@ -17,3 +17,11 @@ Basic.args = {
   variant: 'basic',
   label: 'Date picker with a label',
 };
+
+export const NoExpiry = Template.bind({});
+NoExpiry.args = {
+  variant: 'basic',
+  label: 'Date picker with a label',
+  noExpiryOption: true,
+  noExpiryCopy: 'Does not expire',
+};
