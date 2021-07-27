@@ -587,7 +587,7 @@ export const ATTENTIONBOX: Record<
     minWidth: '240px',
     display: 'inline-block',
     padding: GAP.s,
-    border: `${RADIUS.s} solid #F0F0F0`,
+    border: `2px solid #F0F0F0`,
     sizing: 'border-box',
     borderRadius: GAP.xs,
     fontSize: '14px',
