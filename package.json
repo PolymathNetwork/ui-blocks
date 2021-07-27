@@ -30,6 +30,7 @@
     "deploy-storybook-ci": "npm run deploy-storybook -- --ci"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.5",
     "focus-visible": "^5.2.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
