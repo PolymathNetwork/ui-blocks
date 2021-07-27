@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 import { Text } from '../Text/Text';
 
 // eslint-disable-next-line import/no-cycle
-import { polyIcons, polyTheme } from '../../theme';
+import { polyIcons } from '../../theme';
 
 export type AttentionBoxVariant = 'basic' | 'compact';
 
@@ -47,16 +47,18 @@ const AttentionPhrase = ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: '10px',
+    svg: { padding: '0 !important' },
   }));
 
   return (
     <IconContainer>
       <Icon
-        icon={polyIcons.ExclamationOutline}
+        icon={polyIcons.InformationOutline}
         variant="circle"
         size="20px"
         margin="0 10px 0 0"
         color="brandMain"
+        bg="light"
       />
       <Title variant="span" color={getColor()}>
         {important ? title.toUpperCase() : title}

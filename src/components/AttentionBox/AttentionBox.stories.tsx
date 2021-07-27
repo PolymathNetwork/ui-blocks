@@ -2,7 +2,6 @@ import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
 import { AttentionBox } from './AttentionBox';
-import { StoTieredUsd } from 'theme/icons';
 
 export default {
   title: 'Polyblocks/AttentionBox',
