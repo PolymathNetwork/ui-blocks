@@ -2,7 +2,6 @@ import { FC, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import ReactSelect from 'react-select';
 
-import { OptionType } from '../../theme/types';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { SelectProps } from './types';
@@ -21,7 +20,8 @@ export const Select: FC<SelectProps> = ({
 }) => {
   const currentTheme = useContext(ThemeContext);
 
-  const handleChange = (e?: OptionType | OptionType[] | null) => {
+  // @TODO: properly type this function
+  const handleChange = (e?: any) => {
     if (onChange) {
       if (!e) {
         onChange(null);
@@ -66,7 +66,6 @@ export const Select: FC<SelectProps> = ({
           IndicatorSeparator: null,
           ClearIndicator: null,
         }}
-        // @TODO: fix typing for handleChange
         onChange={handleChange}
         noIcon={noIcon}
         menuPlacement="auto"
