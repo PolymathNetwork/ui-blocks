@@ -4,7 +4,7 @@ import { BoxVariant } from '../components/Box/Box';
 import { ButtonVariant } from '../components/Button/Button';
 import { IconVariant } from '../components/Icon/Icon';
 import { TextVariant } from '../components/Text/Text';
-
+import { AttentionBoxVariant } from '../components/AttentionBox/AttentionBox';
 // Basics
 
 export const BREAKPOINT = {
@@ -68,6 +68,7 @@ export const COLOR = {
   plum800: '#4D0198',
   plum100: '#F2E6FF',
   pink800: '#97266D',
+  pink600: '#EC4673',
   pink100: '#FFEBF1',
   lime800: '#447803',
   lime100: '#F1FEE1',
@@ -481,3 +482,25 @@ export const SELECT: any = {
     cursor: 'pointer',
   }),
 };
+
+export const ATTENTIONBOX: Record<AttentionBoxVariant, CSSPropertiesExtended> =
+  {
+    basic: {
+      minWidth: '240px',
+      display: 'inline-block',
+      padding: GAP.s,
+      border: '2px solid #F0F0F0',
+      sizing: 'border-box',
+      borderRadius: GAP.xs,
+      fontSize: '14px',
+      fontWeight: 400,
+    },
+    compact: {
+      minWidth: '240px',
+      display: 'inline-block',
+      padding: GAP.s,
+      borderLeft: `2px solid ${COLOR.brandMain}`,
+      fontSize: '14px',
+      fontWeight: 400,
+    },
+  };
