@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
-import { Display } from '../../theme/types';
+import { Display, CSSPropertiesExtended } from '../../theme/types';
 
 export type BadgeVariant = 'basic' | 'success' | 'warning' | 'danger';
 
@@ -13,7 +13,7 @@ export type BadgeProps = {
   size?: 's' | 'm';
 };
 
-const sizeMap: Record<string, Record<string, string>> = {
+const sizeMap: Record<string, CSSPropertiesExtended> = {
   s: {
     padding: '2px 8px',
     fontSize: '10px !important',
