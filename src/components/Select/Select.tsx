@@ -21,7 +21,6 @@ export const Select: FC<SelectProps> = ({
 }) => {
   const currentTheme = useContext(ThemeContext);
 
-  // @TODO: fix typing
   const handleChange = (e?: OptionType | OptionType[] | null) => {
     if (onChange) {
       if (!e) {
@@ -67,6 +66,7 @@ export const Select: FC<SelectProps> = ({
           IndicatorSeparator: null,
           ClearIndicator: null,
         }}
+        // @TODO: fix typing for handleChange
         onChange={handleChange}
         noIcon={noIcon}
         menuPlacement="auto"
