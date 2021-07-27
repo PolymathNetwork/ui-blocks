@@ -58,7 +58,7 @@ export const DatePicker: FC<DatePickerProps> = ({
       ? noExpiryCopy
       : value === undefined
       ? undefined
-      : formatDate(value || '', dateFormat)
+      : formatDate(value || '', dateFormat),
   );
 
   const handleChange = (selectedDate: Date, modifiers: DayModifiers) => {
