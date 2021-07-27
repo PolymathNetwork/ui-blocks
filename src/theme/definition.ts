@@ -6,7 +6,7 @@ import { BoxVariant } from '../components/Box/types';
 import { ButtonVariant } from '../components/Button/types';
 import { IconVariant } from '../components/Icon/types';
 import { TextVariant } from '../components/Text/types';
-import { BadgeVariant } from '../components/Badge';
+import { BadgeVariant } from '../components/Badge/types';
 
 // Basics
 
