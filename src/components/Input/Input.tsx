@@ -54,7 +54,7 @@ export const Input: FC<InputProps> = ({
     border: (theme.INPUT || { border: 0 }).border,
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
     transition: (theme.INPUT || { transition: 'unset' }).transition,
-    ...(error ? { borderColor: theme.COLOR.danger } : {}),
+    ...(error ? { borderColor: `${theme.COLOR.danger} !important` } : {}),
     ...(theme.INPUT && theme.INPUT['&:focus']
       ? { '&:focus-within': theme.INPUT['&:focus'] }
       : {}),
