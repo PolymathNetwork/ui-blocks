@@ -514,24 +514,26 @@ export const SELECT: any = {
   }),
 };
 
-export const ATTENTIONBOX: Record<AttentionBoxVariant, CSSPropertiesExtended> =
-  {
-    basic: {
-      minWidth: '240px',
-      display: 'inline-block',
-      padding: GAP.s,
-      border: '2px solid #F0F0F0',
-      sizing: 'border-box',
-      borderRadius: GAP.xs,
-      fontSize: '14px',
-      fontWeight: 400,
-    },
-    compact: {
-      minWidth: '240px',
-      display: 'inline-block',
-      padding: GAP.s,
-      borderLeft: `2px solid ${COLOR.brandMain}`,
-      fontSize: '14px',
-      fontWeight: 400,
-    },
-  };
+export const ATTENTIONBOX: Record<
+  AttentionBoxVariant,
+  CSSPropertiesExtended
+> = {
+  basic: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    border: '2px solid #F0F0F0',
+    sizing: 'border-box',
+    borderRadius: GAP.xs,
+    fontSize: '14px',
+    fontWeight: 400,
+  },
+  compact: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+  },
+};
