@@ -10,6 +10,8 @@ export type Justify = 'spaced' | 'center' | 'start' | 'end';
 
 export type Align = 'center' | 'start' | 'end';
 
+export type Shadow = 'xs' | 's' | 'm' | 'l' | 'xl';
+
 export type TextFormat =
   | 'b1m'
   | 'b1'
