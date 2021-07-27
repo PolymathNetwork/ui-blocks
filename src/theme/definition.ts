@@ -588,7 +588,7 @@ export const ATTENTIONBOX: Record<
     padding: GAP.s,
     border: `2px solid #F0F0F0`,
     sizing: 'border-box',
-    borderRadius: GAP.xs,
+    borderRadius: RADIUS.l,
     fontSize: '14px',
     fontWeight: 400,
     a: { color: COLOR.brandMain },
