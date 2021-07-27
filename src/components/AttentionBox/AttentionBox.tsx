@@ -57,7 +57,7 @@ const AttentionPhrase = ({
         variant="circle"
         size="20px"
         margin="0 10px 0 0"
-        color="brandMain"
+        color={color || 'brandMain'}
         bg="light"
       />
       <Title variant="span" color={getColor()}>
