@@ -1,3 +1,5 @@
+import { Display } from '../../theme/types';
+
 export type BadgeVariant = 'basic' | 'success' | 'warning' | 'danger';
 
 export type BadgeProps = {
