@@ -36,7 +36,6 @@ export * from './components/Tooltip';
 
 // MEDIA
 export * from './components/Icon';
-export * from './components/AttentionBox';
 // export * from './components/Image';
 // export * from './components/Video';
 
@@ -45,6 +44,6 @@ export * from './components/Box';
 export * from './components/Flex';
 export * from './components/Grid';
 export * from './components/Page';
-// export * from './components/InfoBox';
+export * from './components/AttentionBox';
 // export * from './components/Drawer';
 // export * from './components/Modal';
