@@ -24,7 +24,7 @@ export const Icon: FC<IconProps> = ({
   color,
   bg,
   rotate,
-  scale,
+  scale = variant === 'circle' ? 0.9 : undefined,
   margin,
   ...props
 }) => {
@@ -35,13 +35,13 @@ export const Icon: FC<IconProps> = ({
     padding: 0,
     width: size,
     height: size,
-    ...(bg && theme.COLOR[bg] && { backgroundColor: theme.COLOR[bg] }),
+    ...(bg && theme.COLOR[bg] ? { backgroundColor: theme.COLOR[bg] } : {}),
     svg: {
       display: 'block',
       width: '100%',
       height: '100%',
-      ...(scale && { padding: `${(1 - scale) * 100}%` }),
-      ...(rotate && { transform: `rotateZ(${rotate})` }),
+      ...(scale ? { padding: `${(1 - scale) * 100}%` } : {}),
+      ...(rotate ? { transform: `rotateZ(${rotate})` } : {}),
     },
     'svg > *': {
       ...theme.ICON[variant]['svg > *'],

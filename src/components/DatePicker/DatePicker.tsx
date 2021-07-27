@@ -38,7 +38,6 @@ export type DatePickerProps = {
 };
 
 export const DatePicker: FC<DatePickerProps> = ({
-  variant, // eslint-disable-line
   value,
   onChange,
   minDate,
@@ -96,7 +95,6 @@ export const DatePicker: FC<DatePickerProps> = ({
   const Component = forwardRef(function CustomInput(p, ref) {
     return (
       <Input
-        variant="basic"
         {...p}
         inputRef={ref}
         value={currentSelected}

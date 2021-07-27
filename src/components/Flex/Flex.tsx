@@ -23,10 +23,10 @@ export const Flex: FC<FlexProps> = ({
 }) => {
   const Component = styled(Box)(({ theme }) => ({
     ...(theme.FLEX || {}),
-    ...(display && { display }),
-    ...(justify && { justifyContent: propValueMap[justify] || justify }),
-    ...(align && { alignItems: propValueMap[align] || align }),
-    ...(dir && { flexDirection: dir }),
+    display,
+    ...(justify ? { justifyContent: propValueMap[justify] || justify } : {}),
+    ...(align ? { alignItems: propValueMap[align] || align } : {}),
+    ...(dir ? { flexDirection: dir } : {}),
   }));
   return <Component variant={variant} {...props} />;
 };

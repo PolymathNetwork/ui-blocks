@@ -26,9 +26,10 @@ export * from './components/Link';
 export * from './components/Button';
 // export * from './components/CheckBox';
 // export * from './components/Radio';
-// export * from './components/Select';
+export * from './components/Select';
 export * from './components/Input';
 export * from './components/DatePicker';
+export * from './components/Tooltip';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
 

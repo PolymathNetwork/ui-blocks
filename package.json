@@ -21,19 +21,23 @@
   },
   "scripts": {
     "start": "start-storybook -p 2000",
-    "build": "tsc",
+    "copy-icons": "copyfiles -u 1 src/theme/icons/svg/*.svg build/lib/",
+    "copy-fonts": "copyfiles -u 1 src/theme/fonts/*.* build/lib/",
+    "build": "tsc && npm run copy-icons && npm run copy-fonts",
     "lint": "eslint \"{src,config,.storybook}/**/*{.js,.ts,.tsx}\"",
     "lint-fix": "npm run lint --fix",
     "deploy-storybook": "storybook-to-ghpages -o build/docs",
     "deploy-storybook-ci": "npm run deploy-storybook -- --ci"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.5",
     "focus-visible": "^5.2.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.6.4",
+    "react-select": "^4.3.1",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
@@ -48,11 +52,13 @@
     "@svgr/webpack": "^5.5.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.3.0",
+    "@types/react-select": "^4.0.17",
     "@types/styled-components": "^5.1.11",
     "@types/styled-system": "^5.1.12",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "babel-loader": "^8.2.2",
+    "copyfiles": "^2.4.1",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
