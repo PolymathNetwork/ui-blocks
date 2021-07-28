@@ -1,13 +1,72 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, ComponentProps, ComponentType } from 'react';
+import { components, OptionsType, GroupedOptionsType } from 'react-select';
 import { ThemeContext } from 'styled-components';
 import ReactSelect from 'react-select';
 
+import { OptionType } from '../../theme/types';
+import { polyIcons } from '../../theme';
+import { Icon } from '../Icon';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
-import { SelectProps } from './types';
-import { Option } from './Option';
-import { DropdownIndicator } from './DropdownIndicator';
+
+export type SelectVariant = 'basic';
+
+export type SelectProps = {
+  variant: SelectVariant;
+  margin?: string;
+  id?: string;
+  name?: string;
+  label?: string;
+  tooltip?: string | ComponentType;
+  disabled?: boolean;
+  noIcon?: boolean;
+  inputRef?: any;
+  onChange?: (value: any) => void;
+  placeholder?: string;
+  value?: OptionType;
+  options: OptionsType<OptionType> | GroupedOptionsType<OptionType>;
+  // disabledOptionText?: string;
+};
+
+export type SelectOptionProps = ComponentProps<typeof components.Option>;
+
+export type DropdownIndicatorProps = ComponentProps<
+  typeof components.DropdownIndicator
+>;
+
+const DropdownIndicator: FC<DropdownIndicatorProps> = (props) => {
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <Icon
+          variant="basic"
+          icon={polyIcons.ChevronDown}
+          size="24px"
+          color="gray3"
+        />
+      </components.DropdownIndicator>
+    )
+  );
+};
+
+const Option: FC<SelectOptionProps> = ({ children, ...props }) => (
+  <components.Option {...props} isDisabled>
+    {!props.selectProps.noIcon && (
+      <Icon
+        variant="basic"
+        icon={polyIcons.Image}
+        size="22px"
+        color="gray3"
+        margin="0 s -5px l"
+      />
+    )}
+    {children}
+    {/* {oProps.isDisabled && oProps.selectProps.disabledOptionText && (
+        <Tooltip>{oProps.selectProps.disabledOptionText}</Tooltip>
+      )} */}
+  </components.Option>
+);
 
 export const Select: FC<SelectProps> = ({
   margin,
