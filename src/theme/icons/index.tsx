@@ -1,3 +1,7 @@
+import TestIconSvg from './svg/account.svg';
+
+export const TestIcon = () => <TestIconSvg />;
+
 export { default as Icon10 } from './svg/1-0.svg';
 export { default as Icon20 } from './svg/2-0.svg';
 export { default as Icon30 } from './svg/3-0.svg';
