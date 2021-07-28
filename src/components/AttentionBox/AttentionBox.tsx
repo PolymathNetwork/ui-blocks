@@ -17,6 +17,20 @@ export type AttentionBoxProps = {
   color?: string;
 };
 
+const IconContainer = styled.span(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  marginBottom: '10px',
+  svg: { padding: '0 !important' },
+}));
+
+const Component = styled.div<Pick<AttentionBoxProps, 'variant' | 'margin'>>(
+  ({ variant, margin, theme }) => ({
+    ...(theme.ATTENTIONBOX[variant] || {}),
+    margin: getMargin({ theme, margin }),
+  }),
+);
+
 const Title = styled(Text)`
   font-size: 14px !important;
   font-weight: 500 !important;
@@ -41,13 +55,6 @@ const AttentionPhrase = ({
       return fallBackColor;
     }
   };
-
-  const IconContainer = styled.span(() => ({
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '10px',
-    svg: { padding: '0 !important' },
-  }));
 
   return (
     <IconContainer>
@@ -75,13 +82,8 @@ export const AttentionBox: FC<AttentionBoxProps> = ({
   children,
   ...props
 }) => {
-  const Component = styled.div(({ theme }) => ({
-    ...(theme.ATTENTIONBOX[variant] || {}),
-    margin: getMargin({ theme, margin }),
-  }));
-
   return (
-    <Component {...props}>
+    <Component variant={variant} margin={margin} {...props}>
       <AttentionPhrase title={title} important={important} color={color} />
       {children}
     </Component>
