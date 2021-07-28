@@ -1,16 +1,73 @@
-import { FC, useState, forwardRef } from 'react';
+import { FC, useState, forwardRef, ComponentType } from 'react';
+import styled from 'styled-components';
 import moment from 'moment';
 import DateInputComponent from 'react-day-picker/DayPickerInput';
-import { DayModifiers } from 'react-day-picker';
+import { DayModifiers, DayPickerProps } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-import { Input } from '../Input';
 import { polyIcons } from '../../theme';
-import { DatePickerProps } from './types';
-import { OverlayComponent } from './OverlayComponent';
+import { BoxVariant, Box } from '../Box';
+import { Input } from '../Input';
+import { Flex } from '../Flex';
+import { Button } from '../Button';
+
+export type DatePickerVariant = 'basic';
+
+export type DatePickerProps = {
+  variant: DatePickerVariant;
+  margin?: string;
+  id?: string;
+  name?: string;
+  disabled?: boolean;
+  label?: string;
+  placeholder?: string;
+  value?: string | null;
+  onChange?: (state: any) => void;
+  tooltip?: string | ComponentType;
+  error?: string;
+  noExpiryOption?: boolean;
+  noExpiryCopy?: string;
+  minDate?: Date;
+  maxDate?: Date;
+  hasIcon?: boolean;
+  dateFormat?: string;
+  dayPickerProps?: Partial<DayPickerProps>;
+};
+
+export type OverlayComponentProps = {
+  noExpiryOption: boolean;
+  noExpiryCopy: string;
+  handleNoExpiry: () => void;
+  variant: BoxVariant;
+};
+
+export const Overlay = styled(Box)(({ theme }) => ({
+  ...(theme.DATEPICKER || {}),
+  position: 'absolute',
+  zIndex: 1,
+}));
 
 const formatDate = (date: Date | string, dateFormat: string) =>
   moment(date).format(dateFormat);
+
+export const OverlayComponent: FC<OverlayComponentProps> = ({
+  children,
+  noExpiryOption,
+  noExpiryCopy,
+  handleNoExpiry,
+  ...overlayProps
+}) => (
+  <Overlay {...overlayProps}>
+    <Flex variant="raw" dir="column" align="center">
+      {children}
+      {noExpiryOption && (
+        <Button variant="tertiary" margin="s 0 0 0" onClick={handleNoExpiry}>
+          {noExpiryCopy}
+        </Button>
+      )}
+    </Flex>
+  </Overlay>
+);
 
 export const DatePicker: FC<DatePickerProps> = ({
   value,
