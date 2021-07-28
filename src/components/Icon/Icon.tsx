@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../theme/utils';
 import { IconType } from '../../theme/types';
+import { getMargin } from '../../theme/utils';
 
 export type IconVariant = 'basic' | 'circle';
 
@@ -17,18 +17,8 @@ export type IconProps = {
   rotate?: string;
 };
 
-export const Icon: FC<IconProps> = ({
-  variant,
-  icon: SvgIcon,
-  size,
-  color,
-  bg,
-  rotate,
-  scale = variant === 'circle' ? 0.9 : undefined,
-  margin,
-  ...props
-}) => {
-  const Component = styled.span(({ theme }) => ({
+const Component = styled.span<Omit<IconProps, 'icon'>>(
+  ({ variant, margin, size, bg, scale, rotate, color, theme }) => ({
     ...(theme.ICON[variant] || {}),
     display: 'inline-block',
     margin: getMargin({ theme, margin }),
@@ -51,9 +41,17 @@ export const Icon: FC<IconProps> = ({
           }
         : {}),
     },
-  }));
+  }),
+);
+
+export const Icon: FC<IconProps> = ({
+  variant,
+  icon: SvgIcon,
+  scale = variant === 'circle' ? 0.9 : undefined,
+  ...props
+}) => {
   return (
-    <Component {...props}>
+    <Component variant={variant} scale={scale} {...props}>
       <SvgIcon />
     </Component>
   );

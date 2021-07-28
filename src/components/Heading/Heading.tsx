@@ -12,18 +12,13 @@ export type HeadingProps = {
   altColor?: string;
 };
 
-export const Heading: FC<HeadingProps> = ({
-  variant,
-  color,
-  altColor,
-  margin,
-  ...props
-}) => {
-  const Component = styled[variant](({ theme }) => ({
+const Component = styled.h1<HeadingProps>(
+  ({ theme, color, altColor, margin, variant }) => ({
     ...(theme.TYPOGRAPHY[variant] || {}),
     margin: getMargin({ theme, margin }),
     ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
-  }));
-  return <Component {...props} />;
-};
+  }),
+);
+
+export const Heading: FC<HeadingProps> = (props) => <Component {...props} />;

@@ -2,12 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 import * as polyIcons from './icons';
 import { CSSPropertiesExtended } from './types';
-import { BoxVariant } from '../components/Box/Box';
-import { ButtonVariant } from '../components/Button/Button';
-import { IconVariant } from '../components/Icon/Icon';
-import { TextVariant } from '../components/Text/Text';
-import { BadgeVariant } from '../components/Badge/Badge';
-import { AttentionBoxVariant } from '../components/AttentionBox/AttentionBox';
+import { BoxVariant } from '../components/Box';
+import { ButtonVariant } from '../components/Button';
+import { IconVariant } from '../components/Icon';
+import { TextVariant } from '../components/Text';
+import { BadgeVariant } from '../components/Badge';
+import { AttentionBoxVariant } from '../components/AttentionBox';
 
 // Basics
 

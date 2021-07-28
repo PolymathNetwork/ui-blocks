@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
+import { IconType } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
-import { IconType, CSSPropertiesExtended } from '../../theme/types';
 import { Icon } from '../Icon';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
@@ -17,7 +17,7 @@ export type ButtonProps = {
   onClick?: () => void;
 };
 
-const sizeMap: Record<string, CSSPropertiesExtended> = {
+const sizeMap: Record<string, Record<string, string>> = {
   s: {
     padding: '8px 16px',
     minWidth: '82px',
@@ -32,31 +32,31 @@ const sizeMap: Record<string, CSSPropertiesExtended> = {
   },
 };
 
+const Component = styled.button<ButtonProps>(
+  ({ theme, variant, margin, size }) => ({
+    ...(theme.BUTTON[variant] || {}),
+    ...(size ? sizeMap[size] : {}),
+    margin: getMargin({ theme, margin }),
+  }),
+);
+
+const IconContainer = styled.span(({ theme }) => ({
+  display: 'inline-block',
+  marginRight: theme.GAP.s,
+}));
+
 export const Button: FC<ButtonProps> = ({
-  variant,
   size = 'm',
   icon,
-  margin,
   children,
   ...props
-}) => {
-  const IconContainer = styled.span(({ theme }) => ({
-    display: 'inline-block',
-    marginRight: theme.GAP.s,
-  }));
-  const Component = styled.button(({ theme }) => ({
-    ...(theme.BUTTON[variant] || {}),
-    margin: getMargin({ theme, margin }),
-    ...(sizeMap[size] || {}),
-  }));
-  return (
-    <Component {...props}>
-      {icon && (
-        <IconContainer>
-          <Icon icon={icon} variant="basic" size="12px" />
-        </IconContainer>
-      )}
-      {children}
-    </Component>
-  );
-};
+}) => (
+  <Component size={size} {...props}>
+    {icon && (
+      <IconContainer>
+        <Icon icon={icon} variant="basic" size="12px" />
+      </IconContainer>
+    )}
+    {children}
+  </Component>
+);

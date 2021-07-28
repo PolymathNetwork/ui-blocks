@@ -1,11 +1,11 @@
-import { FC, ComponentType, WheelEvent } from 'react';
+import { FC, WheelEvent, ComponentType } from 'react';
 import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
 import { getMargin } from '../../theme/utils';
 import { IconType } from '../../theme/types';
+import { Grid, GridProps } from '../Grid';
 import { Icon } from '../Icon';
-import { Grid } from '../Grid';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
@@ -31,6 +31,46 @@ export type InputProps = {
   inputRef?: any;
 };
 
+export type InputWrapperProps = GridProps & {
+  error?: string;
+  disabled?: boolean;
+};
+
+const InputWrapper = styled(Grid)<InputWrapperProps>(
+  ({ theme, error, disabled }) => ({
+    backgroundColor: (theme.INPUT || { backgroundColor: 'unset' })
+      .backgroundColor,
+    padding: (theme.INPUT || { padding: 0 }).padding,
+    border: (theme.INPUT || { border: 0 }).border,
+    borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
+    transition: (theme.INPUT || { transition: 'unset' }).transition,
+    ...(error ? { borderColor: theme.COLOR.danger } : {}),
+    ...(theme.INPUT && theme.INPUT['&:focus']
+      ? { '&:focus-within': theme.INPUT['&:focus'] }
+      : {}),
+    ...(disabled && theme.INPUT && theme.INPUT['&:disabled']
+      ? theme.INPUT['&:disabled']
+      : {}),
+  }),
+);
+
+const Component = styled.input(({ theme }) => ({
+  ...(theme.INPUT || {}),
+  margin: 0,
+  padding: 0,
+  border: 0,
+  borderRadius: 0,
+  borderColor: 'transparent',
+  WebkitAppearance: 'none',
+  outline: 'none',
+}));
+
+const Unit = styled.div(({ theme }) => ({
+  margin: getMargin({ theme, margin: '0 0 0 s' }),
+  padding: 0,
+  color: theme.COLOR.gray3,
+}));
+
 export const Input: FC<InputProps> = ({
   variant,
   margin,
@@ -47,37 +87,6 @@ export const Input: FC<InputProps> = ({
   const isBasic = variant === 'basic';
   const isAmount = variant === 'amount';
 
-  const InputWrapper = styled(Grid)(({ theme }) => ({
-    backgroundColor: (theme.INPUT || { backgroundColor: 'unset' })
-      .backgroundColor,
-    padding: (theme.INPUT || { padding: 0 }).padding,
-    border: (theme.INPUT || { border: 0 }).border,
-    borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
-    transition: (theme.INPUT || { transition: 'unset' }).transition,
-    ...(error ? { borderColor: `${theme.COLOR.danger} !important` } : {}),
-    ...(theme.INPUT && theme.INPUT['&:focus']
-      ? { '&:focus-within': theme.INPUT['&:focus'] }
-      : {}),
-    ...(disabled && theme.INPUT && theme.INPUT['&:disabled']
-      ? theme.INPUT['&:disabled']
-      : {}),
-  }));
-  const Unit = styled.div(({ theme }) => ({
-    margin: getMargin({ theme, margin: '0 0 0 s' }),
-    padding: 0,
-    color: theme.COLOR.gray3,
-  }));
-
-  const Component = styled(isAmount ? NumberInput : 'input')(({ theme }) => ({
-    ...(theme.INPUT || {}),
-    margin: 0,
-    padding: 0,
-    border: 0,
-    borderRadius: 0,
-    borderColor: 'transparent',
-    WebkitAppearance: 'none',
-    outline: 'none',
-  }));
   const componentProps = {
     ...props,
     disabled,
@@ -108,6 +117,8 @@ export const Input: FC<InputProps> = ({
         variant="raw"
         align="center"
         cols={`${icon ? 'auto ' : ''}1fr${unit ? ' auto' : ''}`}
+        error={error}
+        disabled={disabled}
       >
         {icon && (
           <Icon
@@ -118,7 +129,7 @@ export const Input: FC<InputProps> = ({
             margin="0 s 0 0"
           />
         )}
-        <Component {...componentProps} />
+        <Component as={isAmount ? NumberInput : 'input'} {...componentProps} />
         {unit && <Unit>{unit}</Unit>}
       </InputWrapper>
       {error && (

@@ -1,13 +1,13 @@
-import { FC, ComponentType, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { FC, useContext, ComponentProps, ComponentType } from 'react';
 import ReactSelect, {
   components,
   OptionsType,
   GroupedOptionsType,
 } from 'react-select';
+import { ThemeContext } from 'styled-components';
 
-import { polyIcons } from '../../theme';
 import { OptionType } from '../../theme/types';
+import { polyIcons } from '../../theme';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
@@ -32,6 +32,45 @@ export type SelectProps = {
   // disabledOptionText?: string;
 };
 
+export type SelectOptionProps = ComponentProps<typeof components.Option>;
+
+export type DropdownIndicatorProps = ComponentProps<
+  typeof components.DropdownIndicator
+>;
+
+const DropdownIndicator: FC<DropdownIndicatorProps> = (props) => {
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <Icon
+          variant="basic"
+          icon={polyIcons.ChevronDown}
+          size="24px"
+          color="gray3"
+        />
+      </components.DropdownIndicator>
+    )
+  );
+};
+
+const Option: FC<SelectOptionProps> = ({ children, ...props }) => (
+  <components.Option {...props} isDisabled>
+    {!props.selectProps.noIcon && (
+      <Icon
+        variant="basic"
+        icon={polyIcons.Image}
+        size="22px"
+        color="gray3"
+        margin="0 s -5px l"
+      />
+    )}
+    {children}
+    {/* {oProps.isDisabled && oProps.selectProps.disabledOptionText && (
+        <Tooltip>{oProps.selectProps.disabledOptionText}</Tooltip>
+      )} */}
+  </components.Option>
+);
+
 export const Select: FC<SelectProps> = ({
   margin,
   id,
@@ -44,7 +83,8 @@ export const Select: FC<SelectProps> = ({
 }) => {
   const currentTheme = useContext(ThemeContext);
 
-  const handleChange = (e?: OptionType | OptionType[] | null) => {
+  // @TODO: properly type this function
+  const handleChange = (e?: any) => {
     if (onChange) {
       if (!e) {
         onChange(null);
@@ -57,51 +97,18 @@ export const Select: FC<SelectProps> = ({
     }
   };
 
-  const Option: FC<any> = ({ children, ...oProps }) => {
-    return (
-      <components.Option {...oProps}>
-        {!noIcon && (
-          <Icon
-            variant="basic"
-            icon={polyIcons.Image}
-            size="22px"
-            color="gray3"
-            margin="0 s -5px l"
-          />
-        )}
-        {children}
-        {/* {oProps.isDisabled && oProps.selectProps.disabledOptionText && (
-          <Tooltip>{oProps.selectProps.disabledOptionText}</Tooltip>
-        )} */}
-      </components.Option>
-    );
-  };
-
-  const DropdownIndicator: FC<any> = (iProps) => {
-    return (
-      components.DropdownIndicator && (
-        <components.DropdownIndicator {...iProps}>
-          <Icon
-            variant="basic"
-            icon={polyIcons.ChevronDown}
-            size="24px"
-            color="gray3"
-          />
-        </components.DropdownIndicator>
-      )
-    );
-  };
-
   return (
-    <Text variant="label" display="block" margin={margin}>
-      {label && tooltip && (
-        <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-          <Text variant="span" format="b2m">
-            {label}
-          </Text>
-          {tooltip && <Tooltip variant="icon" content={tooltip} />}
-        </Flex>
-      )}
+    <>
+      <Text variant="label" display="block" margin={margin}>
+        {label && tooltip && (
+          <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
+            <Text variant="span" format="b2m">
+              {label}
+            </Text>
+            {tooltip && <Tooltip variant="icon" content={tooltip} />}
+          </Flex>
+        )}
+      </Text>
       <ReactSelect
         inputId={id}
         ref={inputRef}
@@ -115,11 +122,12 @@ export const Select: FC<SelectProps> = ({
           ClearIndicator: null,
         }}
         onChange={handleChange}
+        noIcon={noIcon}
         menuPlacement="auto"
         menuPortalTarget={document.body}
         backspaceRemovesValue={false}
         {...props}
       />
-    </Text>
+    </>
   );
 };

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../theme/utils';
 import { Display, CSSPropertiesExtended } from '../../theme/types';
+import { getMargin } from '../../theme/utils';
 
 export type BadgeVariant = 'basic' | 'success' | 'warning' | 'danger';
 
@@ -23,18 +23,18 @@ const sizeMap: Record<string, CSSPropertiesExtended> = {
   },
 };
 
-export const Badge: FC<BadgeProps> = ({
-  variant,
-  margin,
-  display = 'inline-block',
-  size = 'm',
-  ...props
-}) => {
-  const Component = styled.span(({ theme }) => ({
+const Component = styled.span<BadgeProps>(
+  ({ theme, variant, display, margin, size }) => ({
     ...(theme.BADGE[variant] || {}),
     display,
     margin: getMargin({ theme, margin }),
-    ...(sizeMap[size] || {}),
-  }));
-  return <Component {...props} />;
-};
+    ...(size ? sizeMap[size] : {}),
+  }),
+);
+
+export const Badge: FC<BadgeProps> = ({
+  variant,
+  display = 'inline-block',
+  size = 'm',
+  ...props
+}) => <Component variant={variant} display={display} size={size} {...props} />;
