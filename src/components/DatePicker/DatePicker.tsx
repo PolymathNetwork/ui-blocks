@@ -41,7 +41,7 @@ export type OverlayComponentProps = {
   variant: BoxVariant;
 };
 
-export const Overlay = styled(Box)(({ theme }) => ({
+const Overlay = styled(Box)(({ theme }) => ({
   ...(theme.DATEPICKER || {}),
   position: 'absolute',
   zIndex: 1,
@@ -50,7 +50,7 @@ export const Overlay = styled(Box)(({ theme }) => ({
 const formatDate = (date: Date | string, dateFormat: string) =>
   moment(date).format(dateFormat);
 
-export const OverlayComponent: FC<OverlayComponentProps> = ({
+const OverlayComponent: FC<OverlayComponentProps> = ({
   children,
   noExpiryOption,
   noExpiryCopy,

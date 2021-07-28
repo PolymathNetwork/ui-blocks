@@ -32,7 +32,7 @@ const sizeMap: Record<string, Record<string, string>> = {
   },
 };
 
-export const Component = styled.button<ButtonProps>(
+const Component = styled.button<ButtonProps>(
   ({ theme, variant, margin, size }) => ({
     ...(theme.BUTTON[variant] || {}),
     ...(size ? sizeMap[size] : {}),
@@ -40,7 +40,7 @@ export const Component = styled.button<ButtonProps>(
   }),
 );
 
-export const IconContainer = styled.span(({ theme }) => ({
+const IconContainer = styled.span(({ theme }) => ({
   display: 'inline-block',
   marginRight: theme.GAP.s,
 }));
@@ -50,15 +50,13 @@ export const Button: FC<ButtonProps> = ({
   icon,
   children,
   ...props
-}) => {
-  return (
-    <Component size={size} {...props}>
-      {icon && (
-        <IconContainer>
-          <Icon icon={icon} variant="basic" size="12px" />
-        </IconContainer>
-      )}
-      {children}
-    </Component>
-  );
-};
+}) => (
+  <Component size={size} {...props}>
+    {icon && (
+      <IconContainer>
+        <Icon icon={icon} variant="basic" size="12px" />
+      </IconContainer>
+    )}
+    {children}
+  </Component>
+);

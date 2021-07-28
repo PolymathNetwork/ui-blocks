@@ -23,7 +23,7 @@ const sizeMap: Record<string, CSSPropertiesExtended> = {
   },
 };
 
-export const Component = styled.span<BadgeProps>(
+const Component = styled.span<BadgeProps>(
   ({ theme, variant, display, margin, size }) => ({
     ...(theme.BADGE[variant] || {}),
     display,

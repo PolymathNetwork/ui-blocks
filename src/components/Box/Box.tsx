@@ -13,7 +13,7 @@ export type BoxProps = {
   shadow?: Shadow;
 };
 
-export const Component = styled.div<BoxProps>(
+const Component = styled.div<BoxProps>(
   ({ variant, margin, display, shadow, theme }) => ({
     ...(theme.BOX[variant] || {}),
     margin: getMargin({ theme, margin }),

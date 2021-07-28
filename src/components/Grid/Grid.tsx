@@ -23,7 +23,7 @@ export type GridItemProps = BoxProps &
     area: string;
   };
 
-export const Component = styled(Box)<GridProps>(
+const Component = styled(Box)<GridProps>(
   ({ theme, justify, align, cols, rows, gap }) => ({
     ...(theme.GRID || {}),
     display: 'grid',
@@ -35,7 +35,7 @@ export const Component = styled(Box)<GridProps>(
   }),
 );
 
-export const ItemWrapper = styled.div<GridItemProps & any>`
+const ItemWrapper = styled.div<GridItemProps & any>`
   grid-area: ${({ area }) => area};
 `;
 

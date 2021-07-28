@@ -15,7 +15,7 @@ export type TextProps = {
   display?: 'block' | 'inline-block' | 'inline' | 'none';
 };
 
-export const Component = styled.span<TextProps>(
+const Component = styled.span<TextProps>(
   ({ variant, format, margin, color, altColor, display, theme }) => ({
     ...(theme.TEXT[variant] || {}),
     ...(format && (theme.TYPOGRAPHY[format] || {})),
