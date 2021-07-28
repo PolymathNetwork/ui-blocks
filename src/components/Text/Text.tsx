@@ -18,11 +18,11 @@ export type TextProps = {
 const Component = styled.span<TextProps>(
   ({ variant, format, margin, color, altColor, display, theme }) => ({
     ...(theme.TEXT[variant] || {}),
-    ...(format && (theme.TYPOGRAPHY[format] || {})),
+    ...(format ? theme.TYPOGRAPHY[format] : {}),
     margin: getMargin({ theme, margin }),
-    ...(color && { color: theme.COLOR[color] }),
+    ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
-    ...(display && { display }),
+    ...(display ? { display } : {}),
   }),
 );
 
