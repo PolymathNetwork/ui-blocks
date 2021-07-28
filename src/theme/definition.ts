@@ -7,6 +7,7 @@ import { ButtonVariant } from '../components/Button';
 import { IconVariant } from '../components/Icon';
 import { TextVariant } from '../components/Text';
 import { BadgeVariant } from '../components/Badge';
+import { AttentionBoxVariant } from '../components/AttentionBox';
 
 // Basics
 
@@ -579,3 +580,29 @@ export const TOOLTIP = createGlobalStyle`
       border-style: solid;
   }
 `;
+
+export const ATTENTIONBOX: Record<
+  AttentionBoxVariant,
+  CSSPropertiesExtended
+> = {
+  basic: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    border: `2px solid #F0F0F0`,
+    sizing: 'border-box',
+    borderRadius: RADIUS.l,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+  compact: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+};

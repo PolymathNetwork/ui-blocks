@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Display, Shadow } from '../../theme/types';
+import { Display, Shadow, Radius } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
 
 export type BoxVariant = 'raw' | 'basic' | 'border' | 'shadow';
@@ -11,6 +11,8 @@ export type BoxProps = {
   margin?: string;
   display?: Display;
   shadow?: Shadow;
+  radius?: Radius;
+  bg?: string;
 };
 
 const Component = styled.div<BoxProps>(
