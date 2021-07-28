@@ -1,6 +1,15 @@
 import { FC } from 'react';
+import styled from 'styled-components';
 
-import { PageProps } from './types';
-import { Component } from './styles';
+import { getMargin } from '../../theme/utils';
+
+export type PageProps = {
+  margin?: string;
+};
+
+const Component = styled.div<PageProps>(({ theme, margin }) => ({
+  ...(theme.PAGE || {}),
+  margin: getMargin({ theme, margin }),
+}));
 
 export const Page: FC<PageProps> = (props) => <Component {...props} />;
