@@ -2,11 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 import * as polyIcons from './icons';
 import { CSSPropertiesExtended } from './types';
-import { BoxVariant } from '../components/Box/types';
-import { ButtonVariant } from '../components/Button/types';
-import { IconVariant } from '../components/Icon/types';
-import { TextVariant } from '../components/Text/types';
-import { BadgeVariant } from '../components/Badge/types';
+import { BoxVariant } from '../components/Box';
+import { ButtonVariant } from '../components/Button';
+import { IconVariant } from '../components/Icon';
+import { TextVariant } from '../components/Text';
+import { BadgeVariant } from '../components/Badge';
 
 // Basics
 

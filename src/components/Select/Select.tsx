@@ -1,7 +1,10 @@
 import { FC, useContext, ComponentProps, ComponentType } from 'react';
-import { components, OptionsType, GroupedOptionsType } from 'react-select';
+import ReactSelect, {
+  components,
+  OptionsType,
+  GroupedOptionsType,
+} from 'react-select';
 import { ThemeContext } from 'styled-components';
-import ReactSelect from 'react-select';
 
 import { OptionType } from '../../theme/types';
 import { polyIcons } from '../../theme';
