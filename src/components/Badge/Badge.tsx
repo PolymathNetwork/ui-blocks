@@ -33,8 +33,7 @@ const Component = styled.span<BadgeProps>(
 );
 
 export const Badge: FC<BadgeProps> = ({
-  variant,
   display = 'inline-block',
   size = 'm',
   ...props
-}) => <Component variant={variant} display={display} size={size} {...props} />;
+}) => <Component display={display} size={size} {...props} />;

@@ -16,11 +16,13 @@ export type BoxProps = {
 };
 
 const Component = styled.div<BoxProps>(
-  ({ variant, margin, display, shadow, theme }) => ({
+  ({ theme, variant, margin, display, shadow, radius, bg }) => ({
     ...(theme.BOX[variant] || {}),
     margin: getMargin({ theme, margin }),
     ...(display ? { display } : {}),
     ...(shadow ? { boxShadow: theme.SHADOW[shadow] } : {}),
+    ...(radius ? { borderRadius: theme.RADIUS[radius] } : {}),
+    ...(bg ? { backgroundColor: theme.COLOR[bg] } : {}),
   }),
 );
 

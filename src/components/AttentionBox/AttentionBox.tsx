@@ -74,8 +74,6 @@ const AttentionPhrase = ({
 };
 
 export const AttentionBox: FC<AttentionBoxProps> = ({
-  variant,
-  margin,
   title,
   important,
   color,
@@ -83,7 +81,7 @@ export const AttentionBox: FC<AttentionBoxProps> = ({
   ...props
 }) => {
   return (
-    <Component variant={variant} margin={margin} {...props}>
+    <Component {...props}>
       <AttentionPhrase title={title} important={important} color={color} />
       {children}
     </Component>
