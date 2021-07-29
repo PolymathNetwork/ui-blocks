@@ -1,11 +1,10 @@
-import { FC, useContext } from 'react';
+import { FC, useContext, ComponentType } from 'react';
 import { ThemeContext } from 'styled-components';
 import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/animations/shift-away-subtle.css'; // eslint-disable-line import/no-extraneous-dependencies
 import 'tippy.js/dist/tippy.css'; // eslint-disable-line import/no-extraneous-dependencies
 
 import { polyIcons } from '../../theme';
-import { IconType } from '../../theme/types';
 import { Icon } from '../Icon';
 
 export type TooltipVariant = 'basic' | 'icon';
@@ -13,7 +12,7 @@ export type TooltipVariant = 'basic' | 'icon';
 export type TooltipProps = TippyProps & {
   variant: TooltipVariant;
   children?: any;
-  icon?: IconType;
+  icon?: ComponentType;
   size?: string;
   color?: string | undefined;
   onHover?: () => void;

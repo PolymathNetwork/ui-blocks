@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
 import { getMargin } from '../../theme/utils';
-import { IconType } from '../../theme/types';
 import { Grid, GridProps } from '../Grid';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';
@@ -24,7 +23,7 @@ export type InputProps = {
   value?: string | null;
   onChange?: (state: any) => void;
   tooltip?: string | ComponentType;
-  icon?: IconType;
+  icon?: ComponentType;
   unit?: string;
   error?: string;
   isDivisible?: boolean;

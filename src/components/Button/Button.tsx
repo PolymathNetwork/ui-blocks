@@ -1,7 +1,6 @@
-import { FC } from 'react';
+import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
 
-import { IconType } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 
@@ -13,7 +12,7 @@ export type ButtonProps = {
   id?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
-  icon?: IconType;
+  icon?: ComponentType;
   onClick?: () => void;
 };
 

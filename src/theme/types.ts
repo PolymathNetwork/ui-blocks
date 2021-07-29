@@ -1,8 +1,6 @@
-import { CSSProperties, ComponentType } from 'react';
+import { CSSProperties } from 'react';
 
 export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
-
-export type IconType = string | ComponentType;
 
 export type Display = 'block' | 'inline-block' | 'inline' | 'none';
 

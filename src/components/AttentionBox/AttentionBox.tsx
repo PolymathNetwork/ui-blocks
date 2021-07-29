@@ -2,10 +2,9 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
+import { polyIcons } from '../../theme/icons';
 import { Icon } from '../Icon';
 import { Text } from '../Text/Text';
-
-import { InformationOutline } from '../../theme/icons';
 
 export type AttentionBoxVariant = 'basic' | 'compact';
 
@@ -59,7 +58,7 @@ const AttentionPhrase = ({
   return (
     <IconContainer>
       <Icon
-        icon={InformationOutline}
+        icon={polyIcons.InformationOutline}
         variant="circle"
         size="20px"
         margin="0 10px 0 0"
