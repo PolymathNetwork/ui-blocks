@@ -20,4 +20,4 @@ Clone repo and run Storybook locally via `npm start`. Browse components (Polyblo
   - `<Button margin="m 0" />`
   - `<Flex margin="0 0 xl 0" />`
 - You can create other components based on these inside your project if special treatment is required.
-- To add a new icon, create SVG file in `src/theme/icons/svg` and run `npm run create-icons`. This auto generates icon components and the exports file. The SVG files are also included in production package in case they are needed.
+- To add a new icon, create SVG file in `src/theme/icons/svg`, and it will automatically be available to components in development, and exported as a React component in production. Icons are exported as `polyIcons`.
