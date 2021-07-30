@@ -46,7 +46,7 @@ const Component = styled.span<Omit<IconProps, 'icon'>>(
 export const Icon: FC<IconProps> = ({
   variant,
   icon: SvgIcon,
-  scale = variant === 'circle' ? 0.9 : undefined,
+  scale = variant === 'circle' ? 0.75 : undefined,
   ...props
 }) => {
   return (

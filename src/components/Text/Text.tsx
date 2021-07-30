@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { TextFormat } from '../../theme/types';
+import { TextFormat, Display } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
 
 export type TextVariant = 'p' | 'span' | 'label';
@@ -12,17 +12,19 @@ export type TextProps = {
   format?: TextFormat;
   color?: string;
   altColor?: string;
-  display?: 'block' | 'inline-block' | 'inline' | 'none';
+  display?: Display;
+  align?: 'center' | 'left' | 'right';
 };
 
 const Component = styled.span<TextProps>(
-  ({ variant, format, margin, color, altColor, display, theme }) => ({
+  ({ variant, format, margin, color, altColor, display, align, theme }) => ({
     ...(theme.TEXT[variant] || {}),
     ...(format ? theme.TYPOGRAPHY[format] : {}),
     margin: getMargin({ theme, margin }),
     ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
     ...(display ? { display } : {}),
+    ...(align ? { textAlign: align } : {}),
   }),
 );
 
