@@ -17,3 +17,4 @@
 *.log
 storybook-static
 .vscode
+src/theme/icons/tsx
