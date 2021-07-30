@@ -8,6 +8,7 @@ import { IconVariant } from '../components/Icon';
 import { TextVariant } from '../components/Text';
 import { BadgeVariant } from '../components/Badge';
 import { AttentionBoxVariant } from '../components/AttentionBox';
+import { DrawerVariant } from '../components/Drawer';
 
 // Basics
 
@@ -604,5 +605,22 @@ export const ATTENTIONBOX: Record<
     fontSize: '14px',
     fontWeight: 400,
     a: { color: COLOR.brandMain },
+  },
+};
+
+export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
+  left: {
+    margin: 0,
+    padding: GAP.l,
+    width: 500,
+    boxShadow: SHADOW.xl,
+    transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
+  },
+  right: {
+    margin: 0,
+    padding: GAP.l,
+    width: 500,
+    boxShadow: SHADOW.xl,
+    transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
   },
 };
