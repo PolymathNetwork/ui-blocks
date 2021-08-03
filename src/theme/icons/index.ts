@@ -4,7 +4,7 @@ import path from 'path';
 let req: any;
 let isSvg = false;
 try {
-  req = require.context('./tsx', true, /\.js?$/);
+  req = require.context('./tsx', true, /\.(tsx|js)?$/);
 } catch (e) {
   req = require.context('./svg', true, /\.svg?$/);
   isSvg = true;

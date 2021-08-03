@@ -34,11 +34,6 @@ export * from './components/Tooltip';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
 
-// MEDIA
-export * from './components/Icon';
-// export * from './components/Image';
-// export * from './components/Video';
-
 // CONTAINERS
 export * from './components/Box';
 export * from './components/Flex';
@@ -47,3 +42,12 @@ export * from './components/Page';
 export * from './components/AttentionBox';
 export * from './components/Drawer';
 // export * from './components/Modal';
+
+// MEDIA
+export * from './components/Icon';
+// export * from './components/Image';
+// export * from './components/Video';
+
+// MISC
+// export * from './components/Loader';
+// export * from './components/LoadingScreen';
