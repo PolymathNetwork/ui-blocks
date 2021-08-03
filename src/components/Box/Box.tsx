@@ -33,7 +33,7 @@ const Component = styled.div<BoxProps>(
   }) => ({
     ...(theme.BOX[variant] || {}),
     margin: getMargin({ theme, margin }),
-    padding: getMargin({ theme, margin: padding }),
+    ...(padding ? { padding: getMargin({ theme, margin: padding }) } : {}),
     ...(display ? { display } : {}),
     ...(shadow ? { boxShadow: theme.SHADOW[shadow] } : {}),
     ...(radius ? { borderRadius: theme.RADIUS[radius] } : {}),
