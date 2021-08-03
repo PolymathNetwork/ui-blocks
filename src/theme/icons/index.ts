@@ -1,12 +1,14 @@
 import { ComponentType } from 'react';
 import path from 'path';
 
-const reqSvgs = require.context('./svg', true, /\.svg$/);
-let reqTsxs: any = [];
+let req: any;
+let isSvg = false;
 try {
-  reqTsxs = require.context('./tsx', true, /\.tsx?$/);
-} catch (e) {} // eslint-disable-line
-const req = reqTsxs.length ? reqTsxs : reqSvgs;
+  req = require.context('./tsx', true, /\.tsx?$/);
+} catch (e) {
+  req = require.context('./svg', true, /\.svg?$/);
+  isSvg = true;
+}
 
 const polyIcons: Record<string, ComponentType> = {};
 
@@ -19,7 +21,7 @@ const toExportName = (filename: string) =>
 
 req.keys().forEach((file: any) => {
   const basename = path.basename(file, path.extname(file));
-  const exportName = toExportName(basename);
+  const exportName = isSvg ? toExportName(basename) : basename;
   polyIcons[exportName] = req(file).default;
 });
 

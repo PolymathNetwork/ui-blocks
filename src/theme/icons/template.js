@@ -9,12 +9,12 @@ const template = ({ template: tmp }, opts, { componentName, jsx }) => {
   const templatedComponent = templatingEngine.ast`
     import { SVGProps, memo } from 'react';
 
-    const ${componentName} = (props: SVGProps<SVGSVGElement>) =>
+    const Icon = (props: SVGProps<SVGSVGElement>) =>
       ${jsx}
     ;
 
-    const Icon = memo(${componentName});
-    export default Icon;
+    const ${componentName} = memo(Icon);
+    export default ${componentName};
   `;
 
   return templatedComponent;
