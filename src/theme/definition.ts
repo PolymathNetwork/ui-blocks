@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 import * as polyIcons from './icons';
-import { CSSPropertiesExtended } from './types';
+import { CSSPropertiesExtended, Gap } from './types';
 import { BoxVariant } from '../components/Box';
 import { ButtonVariant } from '../components/Button';
 import { IconVariant } from '../components/Icon';
@@ -28,7 +28,7 @@ export const MEDIA_QUERY = {
   xl: `@media (min-width: ${BREAKPOINT.xl}px)`,
 };
 
-export const GAP = {
+export const GAP: Record<Gap, string> = {
   xs: '8px',
   s: '16px',
   m: '24px',
