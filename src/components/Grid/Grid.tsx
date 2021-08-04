@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { propValueMap, Justify, Align } from '../../theme/types';
+import { propValueMap, Justify, Align, Gap } from '../../theme/types';
 import { Box, BoxProps, BoxVariant } from '../Box';
 import { Flex, FlexProps, FlexVariant } from '../Flex';
 
@@ -12,7 +12,7 @@ export type GridProps = BoxProps & {
   align?: Align;
   cols?: string;
   rows?: string;
-  gap?: string;
+  gap?: Gap;
 };
 
 export type GridItemProps = BoxProps &
