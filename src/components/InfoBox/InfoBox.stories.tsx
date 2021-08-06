@@ -1,15 +1,15 @@
 import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
-import { AttentionBox } from './AttentionBox';
+import { InfoBox } from './InfoBox';
 
 export default {
-  title: 'Polyblocks/AttentionBox',
-  component: AttentionBox,
+  title: 'Polyblocks/InfoBox',
+  component: InfoBox,
 };
 
-const Template: Story<ComponentProps<typeof AttentionBox>> = (props: any) => (
-  <AttentionBox {...props} />
+const Template: Story<ComponentProps<typeof InfoBox>> = (props: any) => (
+  <InfoBox {...props} />
 );
 
 export const Basic = Template.bind({});

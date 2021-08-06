@@ -6,10 +6,10 @@ import { polyIcons } from '../../theme/icons';
 import { Icon } from '../Icon';
 import { Text } from '../Text/Text';
 
-export type AttentionBoxVariant = 'basic' | 'compact';
+export type InfoBoxVariant = 'basic' | 'compact';
 
-export type AttentionBoxProps = {
-  variant: AttentionBoxVariant;
+export type InfoBoxProps = {
+  variant: InfoBoxVariant;
   margin?: string;
   title: string;
   important?: boolean;
@@ -23,19 +23,19 @@ const IconContainer = styled.span(() => ({
   svg: { padding: '0 !important' },
 }));
 
-const Component = styled.div<Pick<AttentionBoxProps, 'variant' | 'margin'>>(
+const Component = styled.div<Pick<InfoBoxProps, 'variant' | 'margin'>>(
   ({ variant, margin, theme }) => ({
-    ...(theme.ATTENTIONBOX[variant] || {}),
+    ...(theme.InfoBox[variant] || {}),
     margin: getMargin({ theme, margin }),
   }),
 );
 
-const Title = styled(Text)`
+const TitleText = styled(Text)`
   font-size: 14px !important;
   font-weight: 500 !important;
 `;
 
-const AttentionPhrase = ({
+const Title = ({
   title,
   important,
   color,
@@ -65,14 +65,14 @@ const AttentionPhrase = ({
         color={color || 'brandMain'}
         bg="light"
       />
-      <Title variant="span" color={getColor()}>
+      <TitleText variant="span" color={getColor()}>
         {important ? title.toUpperCase() : title}
-      </Title>
+      </TitleText>
     </IconContainer>
   );
 };
 
-export const AttentionBox: FC<AttentionBoxProps> = ({
+export const InfoBox: FC<InfoBoxProps> = ({
   title,
   important,
   color,
@@ -81,7 +81,7 @@ export const AttentionBox: FC<AttentionBoxProps> = ({
 }) => {
   return (
     <Component {...props}>
-      <AttentionPhrase title={title} important={important} color={color} />
+      <Title title={title} important={important} color={color} />
       {children}
     </Component>
   );

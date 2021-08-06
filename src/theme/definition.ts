@@ -7,7 +7,7 @@ import { ButtonVariant } from '../components/Button';
 import { IconVariant } from '../components/Icon';
 import { TextVariant } from '../components/Text';
 import { BadgeVariant } from '../components/Badge';
-import { AttentionBoxVariant } from '../components/AttentionBox';
+import { InfoBoxVariant } from '../components/InfoBox';
 import { DrawerVariant } from '../components/Drawer';
 
 // Basics
@@ -582,10 +582,7 @@ export const TOOLTIP = createGlobalStyle`
   }
 `;
 
-export const ATTENTIONBOX: Record<
-  AttentionBoxVariant,
-  CSSPropertiesExtended
-> = {
+export const InfoBox: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   basic: {
     minWidth: '240px',
     display: 'inline-block',
