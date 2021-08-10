@@ -42,8 +42,7 @@ export * from './components/Grid';
 export * from './components/Page';
 export * from './components/InfoBox';
 export * from './components/Drawer';
-// export * from './components/Modal';
-// export * from './components/Collapsable';
+export * from './components/Collapsable';
 
 // MEDIA
 export * from './components/Icon';
@@ -54,4 +53,4 @@ export * from './components/Icon';
 // export * from './components/Loader';
 // export * from './components/LoadingScreen';
 // export * from './components/ProgressBar';
-// export * from './components/Hr';
+// export * from './components/TabBar';
