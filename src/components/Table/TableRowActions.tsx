@@ -6,7 +6,7 @@ import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { TableCheckbox } from './TableCheckbox';
 import { Icon } from '../Icon';
-import * as polyIcons from '../../theme/icons';
+import { polyIcons } from '../../theme/icons';
 import {
   TableRowActionType,
   TableRowActionsProps,

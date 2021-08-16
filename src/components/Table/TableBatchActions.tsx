@@ -22,7 +22,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
       .replace('{s}', totalSelectedRows === 1 ? '' : 's');
 
   return (
-    <Flex>
+    <Flex variant="raw">
       {batchActions.map((action, index: number) => {
         if (
           !(
@@ -41,14 +41,19 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
         return (
           <Fragment key={`batchAction${index}Fragment`}>
             {action.isRefresh && lastUpdate && (
-              <Box key={`batchAction${index}LastUpdate`} ml="4px">
-                <Text variant="b3" color="gray.1">
+              <Box
+                variant="raw"
+                key={`batchAction${index}LastUpdate`}
+                margin="0 0 0 4px"
+              >
+                <Text variant="span" format="b3" color="gray.1">
                   {lastUpdate}
                 </Text>
               </Box>
             )}
-            <Box key={`batchAction${index}`} ml="s">
+            <Box variant="raw" key={`batchAction${index}`} margin="0 0 0 s">
               <Button
+                variant="primary"
                 onClick={() => {
                   if (refresh && action.isRefresh) refresh();
                   else if (action.click)
@@ -58,17 +63,16 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
               >
                 {action.icon && (
                   <Icon
-                    Asset={action.icon}
-                    width={15}
-                    height={15}
+                    variant="basic"
+                    icon={action.icon}
+                    size="15px"
                     color="brandMain"
-                    mt="-2px"
-                    mr="s"
+                    margin="-2px s 0 0"
                   />
                 )}
                 {action.buttonProps &&
                 action.buttonProps.variant === 'ghost' ? (
-                  <Text variant="b2" color="brandMain">
+                  <Text variant="span" format="b2" color="brandMain">
                     {label(action.label)}
                   </Text>
                 ) : (
