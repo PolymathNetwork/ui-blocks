@@ -14,7 +14,7 @@ export type IconProps = {
   bg?: string;
   scale?: number;
   rotate?: string;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const Component = styled.span<Omit<IconProps, 'icon'>>(
   ({ variant, margin, size, bg, scale, rotate, color, theme }) => ({

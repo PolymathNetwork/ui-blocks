@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 
 export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
 
-export type Display = 'block' | 'inline-block' | 'inline' | 'none';
+export type Display = 'block' | 'inline-block' | 'inline' | 'none' | 'inherit';
 
 export type Justify = 'spaced' | 'center' | 'start' | 'end';
 
