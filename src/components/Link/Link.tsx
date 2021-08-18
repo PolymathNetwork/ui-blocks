@@ -17,41 +17,55 @@ export interface LinkProps
   target?: '_blank' | '_self' | '_parent' | '_top';
 }
 
-const TextComponent = styled(Text)<TextProps & {disabled: boolean}>(({ disabled }) => ({
-  'cursor': disabled? 'not-allowed' : 'pointer'
-}));
-const IconComponent = styled(Icon)<IconProps & {disabled: boolean}>(({ disabled }) => ({
-  'cursor': disabled? 'not-allowed' : 'pointer'
-}));
+const TextComponent = styled(Text)<TextProps & { disabled: boolean }>(
+  ({ disabled }) => ({
+    cursor: disabled ? 'not-allowed' : 'pointer',
+  }),
+);
+const IconComponent = styled(Icon)<IconProps & { disabled: boolean }>(
+  ({ disabled }) => ({
+    cursor: disabled ? 'not-allowed' : 'pointer',
+  }),
+);
 
-const LinkComponent = ({ href, onClick, label, size, disabled, variant, ...rest }: LinkProps) => {
+const LinkComponent = ({
+  href,
+  onClick,
+  label,
+  size,
+  disabled,
+  variant,
+  ...rest
+}: LinkProps) => {
   let component: any;
-  let textFormat: TextFormat =
-    size === 'large'
-    ? 'b1m'
-    : size === 'medium'
-    ? 'b2m'
-    : 'b3m';
-  let iconSize: string =
-    size === 'large'
-    ? '16px'
-    : size === 'medium'
-    ? '14px'
-    : '12px';
-  let labelComponent = <TextComponent
+  const textFormat: TextFormat =
+    size === 'large' ? 'b1m' : size === 'medium' ? 'b2m' : 'b3m';
+  const iconSize: string =
+    size === 'large' ? '16px' : size === 'medium' ? '14px' : '12px';
+  const labelComponent = (
+    <TextComponent
       format={textFormat}
       variant="p"
       color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
       disabled={disabled}
     >
       {label}
-    </TextComponent>;
+    </TextComponent>
+  );
   if (disabled) {
-    component = <div {...rest} >{labelComponent}</div>;
+    component = <div {...rest}>{labelComponent}</div>;
   } else if (onClick) {
-    component = <div onClick={onClick} {...rest} >{labelComponent}</div>;
+    component = (
+      <div role="none" onClick={onClick} {...rest}>
+        {labelComponent}
+      </div>
+    );
   } else if (href) {
-    component = <a href={href} {...rest} >{labelComponent}</a>;
+    component = (
+      <a href={href} {...rest}>
+        {labelComponent}
+      </a>
+    );
   }
   return (
     <Flex variant="raw" align="center">
@@ -59,21 +73,21 @@ const LinkComponent = ({ href, onClick, label, size, disabled, variant, ...rest 
       <IconComponent
         variant="basic"
         icon={polyIcons.ArrowRight}
-        margin='0 5px'
+        margin="0 5px"
         size={iconSize}
-        color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
+        color={
+          disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'
+        }
         disabled={disabled}
       />
     </Flex>
   );
 };
 
-export const Link = styled(LinkComponent)(
-  ({ theme }) => ({
+export const Link = styled(LinkComponent)(({ theme }) => ({
+  textDecoration: 'none',
+  ...theme.links,
+  '&:hover, &:focus': {
     textDecoration: 'none',
-    ...theme.links,
-    '&:hover, &:focus': {
-      textDecoration: 'none',
-    },
-  })
-);
+  },
+}));

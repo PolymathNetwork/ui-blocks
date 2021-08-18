@@ -1,9 +1,9 @@
 import React, { FC, useContext } from 'react';
+import styled from 'styled-components';
 import { Icon, IconProps } from '../../Icon';
 import { polyIcons } from '../../../theme';
 import { Text } from '../../Text';
 import { Context } from '../Context';
-import styled from 'styled-components';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   checked?: boolean;
@@ -12,7 +12,9 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: React.ComponentType | string;
 }
 
-export const IconStyled = styled(Icon)<IconProps & {disabled: boolean | undefined, checked: boolean | undefined}>(({ theme, checked, disabled }) => ({
+export const IconStyled = styled(Icon)<
+  IconProps & { disabled: boolean | undefined; checked: boolean | undefined }
+>(({ theme, checked, disabled }) => ({
   border: `2px solid ${
     checked && !disabled ? theme.COLOR.brandMain : theme.COLOR.gray2
   }`,
@@ -26,7 +28,7 @@ const StyledText = styled(Text)`
   display: flex;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 const HiddenRadio = styled.input`
   position: absolute;
@@ -37,7 +39,7 @@ const HiddenRadio = styled.input`
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-`
+`;
 
 export const Radio: FC<Props> = (props) => {
   const {
@@ -85,11 +87,15 @@ export const Radio: FC<Props> = (props) => {
         variant="circle"
         icon={icon || polyIcons.PointNew}
         color={disabled ? 'gray2' : 'brandMain'}
-        size='20px'
+        size="20px"
         checked={checked}
         disabled={disabled}
       />
-      <Text margin="0 5px" variant="span" color={disabled ? 'gray2' : 'highlightText'}>
+      <Text
+        margin="0 5px"
+        variant="span"
+        color={disabled ? 'gray2' : 'highlightText'}
+      >
         {label}
       </Text>
     </StyledText>

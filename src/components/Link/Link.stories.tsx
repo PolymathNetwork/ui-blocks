@@ -17,6 +17,6 @@ Basic.args = {
   href: 'https://polymath.network',
   label: 'Link',
   size: 'medium',
-  variant: "primary",
-  target: '_blank'
+  variant: 'primary',
+  target: '_blank',
 };

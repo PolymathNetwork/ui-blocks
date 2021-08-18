@@ -15,5 +15,5 @@ const Template: Story<ComponentProps<typeof Checkbox>> = (props: any) => (
 export const Basic = Template.bind({});
 Basic.args = {
   checked: true,
-  label: 'Check me out!'
+  label: 'Check me out!',
 };

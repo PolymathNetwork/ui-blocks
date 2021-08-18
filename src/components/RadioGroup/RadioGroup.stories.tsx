@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RadioGroup } from '.';
 import { Radio } from './Radio';
 import { polyIcons } from '../../theme';
-import { Box } from '../Box'
+import { Box } from '../Box';
 
 export default {
   title: 'Polyblocks/Radio Group',
@@ -21,26 +21,26 @@ export const Default = () => {
   };
   return (
     <>
-      <Box variant="basic" >
+      <Box variant="basic">
         <RadioGroup onChange={handleChange} value={value}>
-          <Box variant="raw" >
+          <Box variant="raw">
             <Radio value="opt1" label="Option 1 default icon" />
           </Box>
-          <Box margin="5px 0" variant="raw" >
+          <Box margin="5px 0" variant="raw">
             <Radio value="opt2" label="Option 2 default icon" />
           </Box>
         </RadioGroup>
       </Box>
-      <Box variant="basic" >
+      <Box variant="basic">
         <RadioGroup onChange={handleChangeIcon} value={valueIcon}>
-          <Box variant="raw" >
+          <Box variant="raw">
             <Radio
               icon={polyIcons.CheckboxMarkedCircle}
               value="optIcon1"
               label="Option 1 with icon"
             />
           </Box>
-          <Box margin="5px 0" variant="raw" >
+          <Box margin="5px 0" variant="raw">
             <Radio
               icon={polyIcons.CheckboxMarkedCircle}
               value="optIcon2"

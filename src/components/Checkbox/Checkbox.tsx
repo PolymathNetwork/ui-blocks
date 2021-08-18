@@ -15,17 +15,16 @@ const CheckboxContainer = styled.div`
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-`
+`;
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   border: 0;
   height: 0px;
   position: absolute;
   width: 0px;
-`
+`;
 
-const Component = (props: CheckboxProps) => {
-  const { onClick, label } = props;
+const Component = ({ checked, onClick, label }: CheckboxProps) => {
   const handleChange = (e: any) => {
     if (onClick) {
       onClick(e.currentTarget.checked);
@@ -35,26 +34,20 @@ const Component = (props: CheckboxProps) => {
     <CheckboxContainer>
       <HiddenCheckbox onClick={handleChange} />
       <Box display="inherit" variant="raw">
-        {!props.checked && (
+        {!checked && (
           <Icon
             variant="basic"
             icon={polyIcons.CheckboxBlankOutline}
-            size='32px'
+            size="32px"
           />
         )}
-        {props.checked && (
-          <Icon
-            variant="basic"
-            icon={polyIcons.CheckboxMarked}
-            size='32px'
-          />
+        {checked && (
+          <Icon variant="basic" icon={polyIcons.CheckboxMarked} size="32px" />
         )}
       </Box>
-      {label && (
-        <Text variant="label">{label}</Text>
-      )}
+      {label && <Text variant="label">{label}</Text>}
     </CheckboxContainer>
-  )
+  );
 };
 
 export const Checkbox: FC<CheckboxProps> = (props) => {
