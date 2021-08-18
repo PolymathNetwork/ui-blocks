@@ -39,11 +39,11 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
         }
 
         return (
-          <Fragment key={`batchAction${index}Fragment`}>
+          <Fragment key={`batchAction${index + 1}Fragment`}>
             {action.isRefresh && lastUpdate && (
               <Box
                 variant="raw"
-                key={`batchAction${index}LastUpdate`}
+                key={`batchAction${index + 1}LastUpdate`}
                 margin="0 0 0 4px"
               >
                 <Text variant="span" format="b3" color="gray.1">
@@ -51,7 +51,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
                 </Text>
               </Box>
             )}
-            <Box variant="raw" key={`batchAction${index}`} margin="0 0 0 s">
+            <Box variant="raw" key={`batchAction${index + 1}`} margin="0 0 0 s">
               <Button
                 variant="primary"
                 onClick={() => {
@@ -71,7 +71,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
                   />
                 )}
                 {action.buttonProps &&
-                action.buttonProps.variant === 'ghost' ? (
+                action.buttonProps.variant === 'tertiary' ? (
                   <Text variant="span" format="b2" color="brandMain">
                     {label(action.label)}
                   </Text>

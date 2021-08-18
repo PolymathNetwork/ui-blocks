@@ -14,7 +14,7 @@ import {
 } from './TableTypes';
 import { Tooltip } from '../Tooltip';
 
-interface ExtendedRow extends Row<object> {
+interface ExtendedRow extends Row<Record<string, any>> {
   getToggleRowSelectedProps: () => any;
 }
 
@@ -63,7 +63,7 @@ export const TableRowActions = ({
           {
             id: 'action',
             width: 30,
-            Cell: ({ row }: CellProps<object>) => (
+            Cell: ({ row }: CellProps<Record<string, any>>) => (
               <Flex variant="raw" justify="end">
                 {rowActions.map((rowAction: TableRowActionType) => {
                   const showTooltip = rowAction.showTooltip

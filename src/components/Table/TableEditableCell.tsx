@@ -73,7 +73,7 @@ export const TableEditableCell: FC<TableEditableCellProps> = ({
         variant="span"
         format="b2"
         color="gray1"
-        onClick={editCell}
+        {...{ onClick: editCell }}
         {...(cell.column.editor ? { className: 'canEdit' } : {})}
       >
         {cell.column.formatter
@@ -87,7 +87,6 @@ export const TableEditableCell: FC<TableEditableCellProps> = ({
           size="16px"
           color="gray3"
           margin="-2px 0 0 s"
-          className="editIcon"
         />
       )}
       {cell.column.footer && <div>{cell.column.footer(cell.row.index)}</div>}

@@ -5,6 +5,7 @@ import { TableSubset } from './TableSubset';
 import { TableProps } from './TableTypes';
 
 export const Table: FC<TableProps> = (props) => {
-  const TableComponent = props.fetchData ? TableSubset : TableBasic;
+  const { fetchData } = props;
+  const TableComponent = fetchData ? TableSubset : TableBasic;
   return <TableComponent {...props} />;
 };

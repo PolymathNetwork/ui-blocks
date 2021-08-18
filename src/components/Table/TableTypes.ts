@@ -76,7 +76,6 @@ export interface TableProps extends BoxProps {
   paginationLabel?: string;
   selectionRowCellStyle?: CSSPropertiesExtended;
   setPageSize?: (value: number) => void;
-  maxWidth?: boolean;
   initialSelectedRowIndices?: number[];
 }
 

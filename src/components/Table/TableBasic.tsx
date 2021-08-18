@@ -185,14 +185,14 @@ export function TableBasic({
               <sc.TableHeader>
                 {headerGroups.map((headerGroup: any, rowIndex: number) => (
                   <sc.TableRow
-                    key={`headerRow${rowIndex}`}
+                    key={`headerRow${rowIndex + 1}`}
                     {...headerGroup.getHeaderGroupProps()}
                     {...(rowIndex === 0 ? { className: 'hide' } : {})}
                   >
                     {headerGroup.headers.map(
                       (column: TableColumnEnhanced, colIndex: number) => (
                         <sc.TableColumnHeader
-                          key={`headerRow${rowIndex}Column${colIndex}`}
+                          key={`headerRow${rowIndex + 1}Column${colIndex + 1}`}
                           {...column.getHeaderProps(
                             sortable
                               ? column.getSortByToggleProps()
@@ -230,9 +230,9 @@ export function TableBasic({
               {(paginate ? page : rows).map((row: any, rowIndex: number) => {
                 prepareRow(row);
                 return (
-                  <Fragment key={`bodyRow${rowIndex}Fragment`}>
+                  <Fragment key={`bodyRow${rowIndex + 1}Fragment`}>
                     <sc.TableRow
-                      key={`bodyRow${rowIndex}`}
+                      key={`bodyRow${rowIndex + 1}`}
                       {...row.getRowProps()}
                       {...(isRowSelected(row, rowIndex)
                         ? { className: 'selected' }
@@ -249,7 +249,7 @@ export function TableBasic({
                       {row.cells.map((cell: TableRowCell, colIndex: number) => {
                         return (
                           <sc.TableColumn
-                            key={`bodyRow${rowIndex}Column${colIndex}`}
+                            key={`bodyRow${rowIndex + 1}Column${colIndex + 1}`}
                             {...{
                               ...cell.getCellProps(),
                               ...(getCustomCellDefaultColumnProperties &&
@@ -279,7 +279,7 @@ export function TableBasic({
                       })}
                     </sc.TableRow>
                     {subRow && row.isExpanded && (
-                      <sc.TableRow key={`bodyRow${rowIndex}SubRow`}>
+                      <sc.TableRow key={`bodyRow${rowIndex + 1}SubRow`}>
                         <sc.TableColumn colSpan={row.cells.length}>
                           {subRow(row.original, row.index) as any}
                         </sc.TableColumn>
