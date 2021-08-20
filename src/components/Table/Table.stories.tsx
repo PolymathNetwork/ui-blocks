@@ -177,10 +177,17 @@ export const Default = () => {
       id: 'delete',
       Content: Button,
       ContentProps: {
-        icon: polyIcons.DeleteOutline,
-        width: '24px',
-        color: 'gray3',
+        variant: 'inline',
+        width: '20px',
       },
+      ContentChildren: (
+        <Icon
+          variant="basic"
+          icon={polyIcons.DeleteOutline}
+          size="20px"
+          color="gray2"
+        />
+      ) as any,
       action: (rowData) => {
         setData(data.filter((entry: any) => entry.did !== rowData.did));
       },
@@ -357,10 +364,17 @@ export const TableExpandable = () => {
       id: 'delete',
       Content: Button,
       ContentProps: {
-        icon: polyIcons.DeleteOutline,
-        size: '24px',
-        color: 'gray3',
+        variant: 'inline',
+        width: '20px',
       },
+      ContentChildren: (
+        <Icon
+          variant="basic"
+          icon={polyIcons.DeleteOutline}
+          size="20px"
+          color="gray2"
+        />
+      ) as any,
       action: () => {},
       onlyShowOnHover: true,
     },
