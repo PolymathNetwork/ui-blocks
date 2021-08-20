@@ -14,16 +14,18 @@ const Template: Story<ComponentProps<typeof Drawer>> = (props: any) => (
 
 export const Left = Template.bind({});
 Left.args = {
-  variant: 'left',
-  children: 'Left drawer',
+  variant: 'basic',
+  position: 'left',
+  children: <p>Left drawer</p>,
   isOpen: true,
   maxWidth: 300,
 };
 
 export const Right = Template.bind({});
 Right.args = {
-  variant: 'right',
-  children: 'Right drawer',
+  variant: 'basic',
+  position: 'right',
+  children: <p>Right drawer</p>,
   isOpen: true,
   hasOverlay: false,
 };
