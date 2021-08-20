@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
 
-export type DrawerVariant = 'left' | 'right';
+export type DrawerVariant = 'basic' | 'raw';
 
 export type DrawerProps = Omit<BoxProps, 'variant'> & {
   variant: DrawerVariant;
+  position: 'left' | 'right';
   isOpen: boolean;
   hasOverlay?: boolean;
 };
@@ -23,35 +24,36 @@ const Overlay = styled(Box)({
   backgroundColor: 'rgba(21, 41, 53, 0.3)',
 });
 
-const Component = styled(Box)<any>(({ theme, variant, radius, isOpen }) => {
-  const isLeft = variant === 'left';
-  return {
-    top: 0,
-    bottom: 0,
-    overflowX: 'hidden',
-    overflowY: 'auto',
-    backgroundColor: theme.COLOR.light,
-    ...(theme.DRAWER[variant] || {}),
-    position: 'fixed',
-    ...(isLeft ? { left: 0 } : { right: 0 }),
-    transform: `translate3d(${
-      isOpen ? '0' : `${isLeft ? '-' : ''}110%`
-    }, 0, 0)`,
-    ...(radius
-      ? isLeft
-        ? {
-            borderRadius: 0,
-            borderTopRightRadius: theme.RADIUS[radius],
-            borderBottomRightRadius: theme.RADIUS[radius],
-          }
-        : {
-            borderRadius: 0,
-            borderTopLeftRadius: theme.RADIUS[radius],
-            borderBottomLeftRadius: theme.RADIUS[radius],
-          }
-      : {}),
-  };
-});
+const Component = styled(Box)<any>(
+  ({ theme, variant, position, radius, isOpen }) => {
+    const isLeft = position === 'left';
+    return {
+      top: 0,
+      bottom: 0,
+      overflowX: 'hidden',
+      overflowY: 'auto',
+      ...(theme.DRAWER[variant] || {}),
+      position: 'fixed',
+      ...(isLeft ? { left: 0 } : { right: 0 }),
+      transform: `translate3d(${
+        isOpen ? '0' : `${isLeft ? '-' : ''}110%`
+      }, 0, 0)`,
+      ...(radius
+        ? isLeft
+          ? {
+              borderRadius: 0,
+              borderTopRightRadius: theme.RADIUS[radius],
+              borderBottomRightRadius: theme.RADIUS[radius],
+            }
+          : {
+              borderRadius: 0,
+              borderTopLeftRadius: theme.RADIUS[radius],
+              borderBottomLeftRadius: theme.RADIUS[radius],
+            }
+        : {}),
+    };
+  },
+);
 
 export const Drawer: FC<DrawerProps> = ({
   hasOverlay = true,
