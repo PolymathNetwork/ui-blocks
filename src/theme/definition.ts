@@ -606,18 +606,18 @@ export const InfoBox: Record<InfoBoxVariant, CSSPropertiesExtended> = {
 };
 
 export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
-  left: {
+  basic: {
     margin: 0,
     padding: GAP.l,
     width: 500,
+    backgroundColor: COLOR.light,
     boxShadow: SHADOW.xl,
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
   },
-  right: {
+  raw: {
     margin: 0,
     padding: GAP.l,
     width: 500,
-    boxShadow: SHADOW.xl,
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
   },
 };
