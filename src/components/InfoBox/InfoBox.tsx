@@ -61,7 +61,7 @@ const Title = ({
         icon={polyIcons.InformationOutline}
         variant="circle"
         size="20px"
-        margin="0 10px 0 0"
+        margin="0 10px 0 2px"
         color={color || 'brandMain'}
         bg="light"
       />
