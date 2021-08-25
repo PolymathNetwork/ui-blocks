@@ -42,15 +42,7 @@ const HiddenRadio = styled.input`
 `;
 
 export const Radio: FC<Props> = (props) => {
-  const {
-    checked,
-    name,
-    onChange,
-    label,
-    disabled,
-    icon,
-    ...other
-  } = props;
+  const { checked, name, onChange, label, disabled, icon, ...other } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
