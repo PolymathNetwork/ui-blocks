@@ -15,6 +15,7 @@ export type BoxProps = {
   radius?: Radius;
   bg?: string;
   border?: string;
+  width?: number;
   maxWidth?: number;
 };
 
@@ -29,6 +30,7 @@ const Component = styled.div<BoxProps>(
     radius,
     bg,
     border,
+    width,
     maxWidth,
   }) => ({
     ...(theme.BOX[variant] || {}),
@@ -39,6 +41,7 @@ const Component = styled.div<BoxProps>(
     ...(radius ? { borderRadius: theme.RADIUS[radius] } : {}),
     ...(bg ? { backgroundColor: theme.COLOR[bg] } : {}),
     ...(border ? { border: getBorder({ theme, border }) } : {}),
+    ...(width ? { width } : {}),
     ...(maxWidth ? { maxWidth } : {}),
   }),
 );

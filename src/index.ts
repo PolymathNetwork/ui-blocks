@@ -54,3 +54,4 @@ export * from './components/Icon';
 // export * from './components/LoadingScreen';
 // export * from './components/ProgressBar';
 // export * from './components/TabBar';
+export * from './components/Table';
