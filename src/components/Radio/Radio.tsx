@@ -1,15 +1,14 @@
-import React, { FC, useContext } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
-import { Icon, IconProps } from '../../Icon';
-import { polyIcons } from '../../../theme';
-import { Text } from '../../Text';
-import { Context } from '../Context';
+import { Icon, IconProps } from '../Icon';
+import { polyIcons } from '../../theme';
+import { Text } from '../Text';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   checked?: boolean;
-  name?: React.AllHTMLAttributes<HTMLInputElement>['name'];
+  name: React.AllHTMLAttributes<HTMLInputElement>['name'];
   icon?: React.ComponentType<React.SVGAttributes<SVGElement>>;
-  label?: React.ComponentType | string;
+  label: React.ComponentType | string;
 }
 
 export const IconStyled = styled(Icon)<
@@ -21,6 +20,7 @@ export const IconStyled = styled(Icon)<
   backgroundColor: 'transparent',
   svg: {
     visibility: checked ? 'visible' : 'hidden',
+    padding: '0',
   },
 }));
 
@@ -43,35 +43,20 @@ const HiddenRadio = styled.input`
 
 export const Radio: FC<Props> = (props) => {
   const {
-    checked: checkedProp,
-    name: nameProp,
+    checked,
+    name,
     onChange,
     label,
     disabled,
     icon,
     ...other
   } = props;
-  const radioGroup = useContext(Context);
-  let checked = checkedProp;
-  let name = nameProp;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event);
     }
-    if (radioGroup) {
-      radioGroup.onChange(event);
-    }
   };
-
-  if (radioGroup) {
-    if (typeof checked === 'undefined') {
-      checked = radioGroup.value === props.value;
-    }
-    if (typeof name === 'undefined') {
-      name = radioGroup.name;
-    }
-  }
 
   return (
     <StyledText variant="label">

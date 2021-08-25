@@ -16,7 +16,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   href: 'https://polymath.network',
   label: 'Link',
-  size: 'medium',
+  size: 'm',
   variant: 'primary',
   target: '_blank',
 };

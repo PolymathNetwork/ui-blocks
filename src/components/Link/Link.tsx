@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Icon, IconProps } from '../Icon';
 import { polyIcons } from '../../theme';
@@ -6,12 +5,18 @@ import { Flex } from '../Flex';
 import { Text, TextProps } from '../Text';
 import { TextFormat } from '../../theme/types';
 
-export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement | HTMLDivElement> {
+const StyledAnchor = styled.a`
+  text-decoration: none;
+  :hover, :focus: {
+    textDecoration: none,
+  }
+`;
+
+export type LinkProps = {
   href?: string;
   onClick?: (event: any) => void;
   label: string;
-  size: 'large' | 'medium' | 'small';
+  size: 's' | 'm' | 'l';
   variant: 'primary' | 'secondary';
   disabled: boolean;
   target?: '_blank' | '_self' | '_parent' | '_top';
@@ -28,7 +33,22 @@ const IconComponent = styled(Icon)<IconProps & { disabled: boolean }>(
   }),
 );
 
-const LinkComponent = ({
+const sizeMap: Record<string, Record<string, string>> = {
+  s: {
+    format: 'b3m',
+    size: '12px',
+  },
+  m: {
+    format: 'b2m',
+    size: '14px',
+  },
+  l: {
+    format: 'b1m',
+    size: '16px',
+  },
+};
+
+export const Link = ({
   href,
   onClick,
   label,
@@ -38,13 +58,9 @@ const LinkComponent = ({
   ...rest
 }: LinkProps) => {
   let component: any;
-  const textFormat: TextFormat =
-    size === 'large' ? 'b1m' : size === 'medium' ? 'b2m' : 'b3m';
-  const iconSize: string =
-    size === 'large' ? '16px' : size === 'medium' ? '14px' : '12px';
   const labelComponent = (
     <TextComponent
-      format={textFormat}
+      format={sizeMap[size].format as TextFormat}
       variant="p"
       color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
       disabled={disabled}
@@ -62,9 +78,9 @@ const LinkComponent = ({
     );
   } else if (href) {
     component = (
-      <a href={href} {...rest}>
+      <StyledAnchor href={href} {...rest}>
         {labelComponent}
-      </a>
+      </StyledAnchor>
     );
   }
   return (
@@ -74,7 +90,7 @@ const LinkComponent = ({
         variant="basic"
         icon={polyIcons.ArrowRight}
         margin="0 5px"
-        size={iconSize}
+        size={sizeMap[size].size as string}
         color={
           disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'
         }
@@ -83,11 +99,3 @@ const LinkComponent = ({
     </Flex>
   );
 };
-
-export const Link = styled(LinkComponent)(({ theme }) => ({
-  textDecoration: 'none',
-  ...theme.links,
-  '&:hover, &:focus': {
-    textDecoration: 'none',
-  },
-}));
