@@ -597,7 +597,7 @@ export const InfoBox: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   compact: {
     minWidth: '240px',
     display: 'inline-block',
-    padding: GAP.s,
+    padding: `0 ${GAP.xs}`,
     borderLeft: `2px solid ${COLOR.brandMain}`,
     fontSize: '14px',
     fontWeight: 400,
