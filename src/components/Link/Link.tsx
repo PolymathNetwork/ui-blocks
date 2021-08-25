@@ -8,7 +8,7 @@ import { TextFormat } from '../../theme/types';
 const StyledAnchor = styled.a`
   text-decoration: none;
   :hover, :focus: {
-    textDecoration: none,
+    text-decoration: none;
   }
 `;
 
@@ -20,7 +20,7 @@ export type LinkProps = {
   variant: 'primary' | 'secondary';
   disabled: boolean;
   target?: '_blank' | '_self' | '_parent' | '_top';
-}
+};
 
 const TextComponent = styled(Text)<TextProps & { disabled: boolean }>(
   ({ disabled }) => ({

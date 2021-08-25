@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import { useState, ComponentProps } from 'react';
+import { Story } from '@storybook/react';
 import { Radio } from './Radio';
 import { polyIcons } from '../../theme';
 import { Box } from '../Box';
-import { ComponentProps } from 'react';
-import { Story } from '@storybook/react';
 
 const Template: Story<ComponentProps<typeof Radio>> = (props: any) => (
   <Radio {...props} />
@@ -12,11 +11,10 @@ const Template: Story<ComponentProps<typeof Radio>> = (props: any) => (
 export const Basic = Template.bind({});
 Basic.args = {
   onChange: () => {},
-  name: "radio",
-  value: "opt",
-  label: "Radio",
+  name: 'radio',
+  value: 'opt',
+  label: 'Radio',
 };
-
 
 export default {
   title: 'Polyblocks/Radio',
@@ -39,7 +37,7 @@ export const Group = () => {
         <Box margin="10px 0" variant="raw">
           <Radio
             onChange={handleChange}
-            checked={value === "opt2"}
+            checked={value === 'opt2'}
             name="radio1"
             value="opt2"
             label="Option 2 default icon"
@@ -48,7 +46,7 @@ export const Group = () => {
         <Box margin="10px 0" variant="raw">
           <Radio
             onChange={handleChange}
-            checked={value === "opt1"}
+            checked={value === 'opt1'}
             name="radio1"
             value="opt1"
             label="Option 1 default icon"
@@ -60,7 +58,7 @@ export const Group = () => {
           <Radio
             icon={polyIcons.CheckboxMarkedCircle}
             onChange={handleChangeIcon}
-            checked={valueIcon === "customopt1"}
+            checked={valueIcon === 'customopt1'}
             name="radio2"
             value="customopt1"
             label="Option 2 custom icon"
@@ -70,7 +68,7 @@ export const Group = () => {
           <Radio
             icon={polyIcons.CheckboxMarkedCircle}
             onChange={handleChangeIcon}
-            checked={valueIcon === "customopt2"}
+            checked={valueIcon === 'customopt2'}
             name="radio2"
             value="customopt2"
             label="Option 1 custom icon"
