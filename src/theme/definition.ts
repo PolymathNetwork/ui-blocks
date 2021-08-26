@@ -221,6 +221,15 @@ export const TYPOGRAPHY = {
   },
 };
 
+export const TRANSITION = {
+  hover: {
+    ms: 150,
+  },
+  modal: {
+    ms: 200,
+  },
+};
+
 export const ICONS = { ...polyIcons };
 
 // Components
@@ -480,11 +489,11 @@ export const SELECT: any = {
     borderColor: COLOR.gray3,
     ...(state.isFocused
       ? {
+        borderColor: COLOR.brandMain,
+        '&:hover': {
           borderColor: COLOR.brandMain,
-          '&:hover': {
-            borderColor: COLOR.brandMain,
-          },
-        }
+        },
+      }
       : {}),
     cursor: 'pointer',
   }),
@@ -506,9 +515,9 @@ export const SELECT: any = {
     color: COLOR.gray1,
     ...(state.isSelected
       ? {
-          color: COLOR.gray1,
-          backgroundColor: COLOR.gray5,
-        }
+        color: COLOR.gray1,
+        backgroundColor: COLOR.gray5,
+      }
       : {}),
     '&:hover': {
       color: COLOR.gray1,
@@ -619,5 +628,18 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
     padding: GAP.l,
     width: 500,
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
+  },
+};
+
+export const CHECKBOX: CSSPropertiesExtended = {
+  basic: {
+    color: COLOR.gray1,
+    fontSize: '16px',
+    // the icon color manipulation
+    // svg: {
+    //   path: {
+    //     fill: 'red !important',
+    //   },
+    // },
   },
 };
