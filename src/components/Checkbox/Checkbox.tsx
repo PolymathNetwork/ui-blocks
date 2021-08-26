@@ -20,7 +20,7 @@ export type CheckboxProps = {
 
 const Input = styled.input(visuallyHidden);
 
-const CheckStateIcon = styled(Icon)<any>(({ theme }) => ({
+const CheckStateIcon = styled(Icon)<any>(() => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
