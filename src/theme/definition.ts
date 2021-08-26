@@ -76,6 +76,7 @@ export const COLOR = {
   pink100: '#FFEBF1',
   lime800: '#447803',
   lime100: '#F1FEE1',
+  transparent: 'transparent',
   overlay: 'background: rgba(21, 41, 53, 0.3);',
   gradient: `linear-gradient(
     180.63deg,
@@ -480,11 +481,11 @@ export const SELECT: any = {
     borderColor: COLOR.gray3,
     ...(state.isFocused
       ? {
+        borderColor: COLOR.brandMain,
+        '&:hover': {
           borderColor: COLOR.brandMain,
-          '&:hover': {
-            borderColor: COLOR.brandMain,
-          },
-        }
+        },
+      }
       : {}),
     cursor: 'pointer',
   }),
@@ -506,9 +507,9 @@ export const SELECT: any = {
     color: COLOR.gray1,
     ...(state.isSelected
       ? {
-          color: COLOR.gray1,
-          backgroundColor: COLOR.gray5,
-        }
+        color: COLOR.gray1,
+        backgroundColor: COLOR.gray5,
+      }
       : {}),
     '&:hover': {
       color: COLOR.gray1,

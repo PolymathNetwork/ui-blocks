@@ -12,6 +12,7 @@ export type CollapsableProps = BoxProps & {
   title: string;
   defaultOpen?: boolean;
   clickable?: boolean;
+  hasIconBg?: boolean;
   onClick?: (state: boolean) => void;
 };
 
@@ -19,6 +20,7 @@ export const Collapsable: FC<CollapsableProps> = ({
   title,
   defaultOpen,
   clickable = true,
+  hasIconBg = true,
   onClick,
   children,
   ...restProps
@@ -50,8 +52,11 @@ export const Collapsable: FC<CollapsableProps> = ({
           variant="circle"
           icon={polyIcons.ChevronUp}
           size="32px"
+          scale={1}
           color={isOpen ? 'brandMain' : 'gray.3'}
-          bg={isOpen ? 'brandLightest' : 'gray.4'}
+          {...(hasIconBg
+            ? { bg: isOpen ? 'brandLightest' : 'gray.4' }
+            : { bg: 'transparent' })}
           rotate={isOpen ? undefined : '180deg'}
           {...(clickable ? {} : clickableProps)}
         />
