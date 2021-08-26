@@ -221,15 +221,6 @@ export const TYPOGRAPHY = {
   },
 };
 
-export const TRANSITION = {
-  hover: {
-    ms: 150,
-  },
-  modal: {
-    ms: 200,
-  },
-};
-
 export const ICONS = { ...polyIcons };
 
 // Components

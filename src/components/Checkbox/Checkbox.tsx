@@ -30,13 +30,13 @@ const CheckStateIcon = styled(Icon)<any>(({ theme }) => ({
   opacity: 0,
   pointerEvents: 'none',
   margin: 'auto',
-  transition: `${theme.TRANSITION.hover.ms}ms`,
+  transition: `150ms`,
 }));
 
 const CheckboxInput = styled.div(({ theme }) => ({
   position: 'relative',
   cursor: 'pointer',
-  transition: `${theme.TRANSITION.hover.ms}ms`,
+  transition: `200ms`,
   boxSizing: 'border-box',
   border: `2px solid ${theme.COLOR.gray3}`,
   borderRadius: theme.RADIUS.s,
