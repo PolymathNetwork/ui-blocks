@@ -597,7 +597,7 @@ export const InfoBox: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   compact: {
     minWidth: '240px',
     display: 'inline-block',
-    padding: GAP.s,
+    padding: `0 ${GAP.xs}`,
     borderLeft: `2px solid ${COLOR.brandMain}`,
     fontSize: '14px',
     fontWeight: 400,
@@ -619,5 +619,18 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
     padding: GAP.l,
     width: 500,
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
+  },
+};
+
+export const CHECKBOX: CSSPropertiesExtended = {
+  basic: {
+    color: COLOR.gray1,
+    fontSize: '16px',
+    // the icon color manipulation
+    // svg: {
+    //   path: {
+    //     fill: 'red !important',
+    //   },
+    // },
   },
 };
