@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-
+import { COLLAPSABLE } from '../../theme/definition';
 import { polyIcons } from '../../theme';
 import { Box, BoxVariant, BoxProps } from '../Box';
 import { Flex } from '../Flex';
@@ -50,8 +50,17 @@ export const Collapsable: FC<CollapsableProps> = ({
           variant="circle"
           icon={polyIcons.ChevronUp}
           size="32px"
-          color={isOpen ? 'brandMain' : 'gray.3'}
-          bg={isOpen ? 'brandLightest' : 'gray.4'}
+          scale={1}
+          color={
+            isOpen
+              ? COLLAPSABLE.iconColor.isOpen
+              : COLLAPSABLE.iconColor.notOpen
+          }
+          bg={
+            isOpen
+              ? COLLAPSABLE.iconBgColor.isOpen
+              : COLLAPSABLE.iconBgColor.notOpen
+          }
           rotate={isOpen ? undefined : '180deg'}
           {...(clickable ? {} : clickableProps)}
         />

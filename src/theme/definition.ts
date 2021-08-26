@@ -9,7 +9,6 @@ import { TextVariant } from '../components/Text';
 import { BadgeVariant } from '../components/Badge';
 import { InfoBoxVariant } from '../components/InfoBox';
 import { DrawerVariant } from '../components/Drawer';
-
 // Basics
 
 export const BREAKPOINT = {
@@ -76,6 +75,7 @@ export const COLOR = {
   pink100: '#FFEBF1',
   lime800: '#447803',
   lime100: '#F1FEE1',
+  transparent: 'transparent',
   overlay: 'background: rgba(21, 41, 53, 0.3);',
   gradient: `linear-gradient(
     180.63deg,
@@ -623,6 +623,27 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
 };
 
 export const CHECKBOX: CSSPropertiesExtended = {
+  basic: {
+    color: COLOR.gray1,
+    fontSize: '16px',
+    // the icon color manipulation
+    // svg: {
+    //   path: {
+    //     fill: 'red !important',
+    //   },
+    // },
+  },
+};
+
+export const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
+  iconColor: {
+    isOpen: 'brandMain',
+    notOpen: 'gray.3',
+  },
+  iconBgColor: {
+    isOpen: 'brandLightest',
+    notOpen: 'gray.4',
+  },
   basic: {
     color: COLOR.gray1,
     fontSize: '16px',
