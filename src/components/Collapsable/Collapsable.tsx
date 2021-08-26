@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 
+import { COLLAPSABLE } from '../../theme/definition';
 import { polyIcons } from '../../theme';
 import { Box, BoxVariant, BoxProps } from '../Box';
 import { Flex } from '../Flex';
@@ -12,7 +13,6 @@ export type CollapsableProps = BoxProps & {
   title: string;
   defaultOpen?: boolean;
   clickable?: boolean;
-  hasIconBg?: boolean;
   onClick?: (state: boolean) => void;
 };
 
@@ -20,7 +20,6 @@ export const Collapsable: FC<CollapsableProps> = ({
   title,
   defaultOpen,
   clickable = true,
-  hasIconBg = true,
   onClick,
   children,
   ...restProps
@@ -53,10 +52,16 @@ export const Collapsable: FC<CollapsableProps> = ({
           icon={polyIcons.ChevronUp}
           size="32px"
           scale={1}
-          color={isOpen ? 'brandMain' : 'gray.3'}
-          {...(hasIconBg
-            ? { bg: isOpen ? 'brandLightest' : 'gray.4' }
-            : { bg: 'transparent' })}
+          color={
+            isOpen
+              ? COLLAPSABLE.iconColor.isOpen
+              : COLLAPSABLE.iconColor.notOpen
+          }
+          bg={
+            isOpen
+              ? COLLAPSABLE.iconBgColor.isOpen
+              : COLLAPSABLE.iconBgColor.notOpen
+          }
           rotate={isOpen ? undefined : '180deg'}
           {...(clickable ? {} : clickableProps)}
         />

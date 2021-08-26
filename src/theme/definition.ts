@@ -635,3 +635,24 @@ export const CHECKBOX: CSSPropertiesExtended = {
     // },
   },
 };
+
+export const COLLAPSABLE: CSSPropertiesExtended = {
+  iconColor: {
+    isOpen: 'brandMain',
+    notOpen: 'gray.3',
+  },
+  iconBgColor: {
+    isOpen: 'brandLightest',
+    notOpen: 'gray.4',
+  },
+  basic: {
+    color: COLOR.gray1,
+    fontSize: '16px',
+    // the icon color manipulation
+    // svg: {
+    //   path: {
+    //     fill: 'red !important',
+    //   },
+    // },
+  },
+};
