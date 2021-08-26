@@ -621,3 +621,16 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
   },
 };
+
+export const CHECKBOX: CSSPropertiesExtended = {
+  basic: {
+    color: COLOR.gray1,
+    fontSize: '16px',
+    // the icon color manipulation
+    // svg: {
+    //   path: {
+    //     fill: 'red !important',
+    //   },
+    // },
+  },
+};
