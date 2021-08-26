@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-
 import { COLLAPSABLE } from '../../theme/definition';
 import { polyIcons } from '../../theme';
 import { Box, BoxVariant, BoxProps } from '../Box';
