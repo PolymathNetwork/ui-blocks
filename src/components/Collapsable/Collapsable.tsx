@@ -6,8 +6,7 @@ import { Flex } from '../Flex';
 import { Heading } from '../Heading';
 import { Icon } from '../Icon';
 
-export type CollapsableVariant = BoxVariant ;
-
+export type CollapsableVariant = BoxVariant;
 
 export type CollapsableProps = BoxProps & {
   title: string;

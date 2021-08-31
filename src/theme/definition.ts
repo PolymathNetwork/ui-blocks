@@ -267,7 +267,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     ...TYPOGRAPHY.btn,
     color: COLOR.brandMain3,
     background: COLOR.light,
-    border: '1px solid ${COLOR.brandMain3}',
+    border: `1px solid ${COLOR.brandMain3}`,
     borderRadius: '100px',
     transition: 'all 0.3s',
     cursor: 'pointer',
@@ -646,23 +646,23 @@ export const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
     default: {
       iconColor: {
         open: 'brandMain',
-        closed: 'gray.3'
+        closed: 'gray.3',
       },
       bgColor: {
         open: 'brandLightest',
-        closed: 'gray.4'
-      }
+        closed: 'gray.4',
+      },
     },
     transparent: {
       iconColor: {
         open: 'brandMain',
-        closed: 'gray.3'
+        closed: 'gray.3',
       },
       bgColor: {
         open: 'transparent',
-        closed: 'transparent'
-      }
-    }
+        closed: 'transparent',
+      },
+    },
   },
   iconColor: {
     isOpen: 'brandMain',
