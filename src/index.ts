@@ -25,7 +25,7 @@ export * from './components/Link';
 
 // CONTROLS
 export * from './components/Button';
-// export * from './components/CheckBox';
+export * from './components/Checkbox';
 export * from './components/Radio';
 export * from './components/Select';
 // export * from './components/CountrySelect';
