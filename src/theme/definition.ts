@@ -338,7 +338,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
       color: COLOR.gray3,
       cursor: 'no-drop',
     },
-  }
+  },
 };
 
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
