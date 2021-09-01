@@ -45,3 +45,9 @@ Inline.args = {
   variant: 'inline',
   children: 'Inline Button',
 };
+
+export const Special = Template.bind({});
+Special.args = {
+  variant: 'special',
+  children: 'Inline Button',
+};

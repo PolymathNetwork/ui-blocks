@@ -253,8 +253,8 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
       background: COLOR.brandDark2,
     },
     '&:disabled': {
-      color: COLOR.gray3,
-      background: COLOR.gray5,
+      color: COLOR.gray4,
+      background: COLOR.gray6,
       cursor: 'no-drop',
     },
   },
@@ -313,6 +313,26 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     background: 'transparent',
     cursor: 'pointer',
   },
+  special: {
+    ...TYPOGRAPHY.btn,
+    color: COLOR.gray1,
+    background: COLOR.light,
+    border: 0,
+    borderRadius: '100px',
+    boxShadow: SHADOW.s,
+    transition: 'all 0.3s',
+    cursor: 'pointer',
+    '&:hover': {
+      background: COLOR.gray5,
+    },
+    '&:active': {
+      background: COLOR.gray4,
+    },
+    '&:disabled': {
+      color: COLOR.gray3,
+      cursor: 'no-drop',
+    },
+  }
 };
 
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {

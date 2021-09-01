@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'inline' | 'special';
 
 export type ButtonProps = {
   variant: ButtonVariant;
