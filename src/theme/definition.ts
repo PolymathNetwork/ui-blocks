@@ -39,19 +39,24 @@ export const GAP: Record<Gap, string> = {
 
 export const COLOR = {
   light: '#FFFFFF',
-  gray1: '#152935',
-  gray2: '#6C7D89',
-  gray3: '#8C9BA5',
-  gray4: '#D6DDE8',
+  gray1: '#1E1E1E',
+  gray2: '#565656',
+  gray3: '#727272',
+  gray4: '#8F8F8F',
   gray5: '#EBF0F7',
   gray6: '#F8F9FC',
-  brandBg: '#FAFDFF',
-  brandMain: '#1348E4',
-  brandLight: '#6DC7F7',
-  brandLight2: '#C0E3FF',
-  brandLightest: '#DCEFFE',
-  brandDark: '#0024BD',
-  brandDark2: '#170087',
+  brandBg: '#FBFBFB',
+  brandMain: '#EC4673',
+  brandMain2: '#43195B',
+  brandMain3: '#170087',
+  brandMain4: '#D557EA',
+  brandMain5: '#60D3CB',
+  brandLighter: '#DCD3FF',
+  brandLight: '#FAD1DC',
+  brandLight2: '#F2EFFF',
+  brandLightest: '#D7F4F2',
+  brandDark: '#100255',
+  brandDark2: '#100255',
   success: '#00AA5E',
   success2: '#D4F7E7',
   warning: '#EFC100',
@@ -59,8 +64,8 @@ export const COLOR = {
   warning3: '#E3A30C',
   danger: '#DB2C3E',
   danger2: '#FAE6E8',
-  teal800: '#285E61',
-  teal100: '#E6FFFA',
+  teal800: '#00AA5E',
+  teal100: '#D4F7E7',
   cyan800: '#046C7C',
   cyan100: '#E6F9FE',
   indigo800: '#434190',
@@ -101,7 +106,7 @@ export const RADIUS = {
 };
 
 export const TYPOGRAPHY = {
-  font: "'Inter', sans-serif",
+  font: "'Poppins', sans-serif",
   h1: {
     margin: `0 0 ${GAP.l} 0`,
     lineHeight: '80px',
@@ -240,9 +245,9 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
     ...TYPOGRAPHY.btn,
     color: COLOR.light,
-    background: COLOR.brandMain,
+    background: COLOR.brandMain3,
     border: 0,
-    borderRadius: RADIUS.l,
+    borderRadius: '100px',
     boxShadow: SHADOW.s,
     transition: 'all 0.3s',
     cursor: 'pointer',
@@ -253,30 +258,31 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
       background: COLOR.brandDark2,
     },
     '&:disabled': {
-      color: COLOR.gray3,
-      background: COLOR.gray5,
+      color: COLOR.gray5,
+      background: COLOR.gray6,
       cursor: 'no-drop',
     },
   },
   secondary: {
     ...TYPOGRAPHY.btn,
-    color: COLOR.gray1,
-    background: COLOR.gray5,
-    border: 0,
-    borderRadius: RADIUS.l,
+    color: COLOR.brandMain3,
+    background: COLOR.light,
+    border: `1px solid ${COLOR.brandMain3}`,
+    borderRadius: '100px',
     transition: 'all 0.3s',
     cursor: 'pointer',
     '&:hover': {
-      color: COLOR.brandMain,
-      background: COLOR.brandLightest,
-    },
-    '&:active': {
-      color: COLOR.brandMain,
+      color: COLOR.brandMain3,
       background: COLOR.brandLight2,
     },
+    '&:active': {
+      color: COLOR.brandMain3,
+      background: COLOR.brandLighter,
+    },
     '&:disabled': {
-      color: COLOR.gray3,
-      background: COLOR.gray5,
+      border: `2px solid #F0F0F0`,
+      color: COLOR.gray5,
+      background: COLOR.light,
       cursor: 'no-drop',
     },
   },
@@ -636,6 +642,28 @@ export const CHECKBOX: CSSPropertiesExtended = {
 };
 
 export const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
+  iconVariants: {
+    default: {
+      iconColor: {
+        open: 'brandMain',
+        closed: 'gray.3',
+      },
+      bgColor: {
+        open: 'brandLightest',
+        closed: 'gray.4',
+      },
+    },
+    transparent: {
+      iconColor: {
+        open: 'brandMain',
+        closed: 'gray.3',
+      },
+      bgColor: {
+        open: 'transparent',
+        closed: 'transparent',
+      },
+    },
+  },
   iconColor: {
     isOpen: 'brandMain',
     notOpen: 'gray.3',

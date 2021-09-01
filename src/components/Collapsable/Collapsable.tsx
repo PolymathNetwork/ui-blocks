@@ -13,6 +13,7 @@ export type CollapsableProps = BoxProps & {
   defaultOpen?: boolean;
   clickable?: boolean;
   onClick?: (state: boolean) => void;
+  iconVariant?: 'default' | 'transparent';
 };
 
 export const Collapsable: FC<CollapsableProps> = ({
@@ -21,6 +22,7 @@ export const Collapsable: FC<CollapsableProps> = ({
   clickable = true,
   onClick,
   children,
+  iconVariant = 'default',
   ...restProps
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen || false);
@@ -53,13 +55,13 @@ export const Collapsable: FC<CollapsableProps> = ({
           scale={1}
           color={
             isOpen
-              ? COLLAPSABLE.iconColor.isOpen
-              : COLLAPSABLE.iconColor.notOpen
+              ? COLLAPSABLE.iconVariants[iconVariant].iconColor.open
+              : COLLAPSABLE.iconVariants[iconVariant].iconColor.closed
           }
           bg={
             isOpen
-              ? COLLAPSABLE.iconBgColor.isOpen
-              : COLLAPSABLE.iconBgColor.notOpen
+              ? COLLAPSABLE.iconVariants[iconVariant].bgColor.open
+              : COLLAPSABLE.iconVariants[iconVariant].bgColor.open
           }
           rotate={isOpen ? undefined : '180deg'}
           {...(clickable ? {} : clickableProps)}

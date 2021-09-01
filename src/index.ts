@@ -21,12 +21,12 @@ export {
 export * from './components/Heading';
 export * from './components/Text';
 export * from './components/Badge';
-// export * from './components/Link';
+export * from './components/Link';
 
 // CONTROLS
 export * from './components/Button';
 export * from './components/Checkbox';
-// export * from './components/Radio';
+export * from './components/Radio';
 export * from './components/Select';
 // export * from './components/CountrySelect';
 export * from './components/Input';
