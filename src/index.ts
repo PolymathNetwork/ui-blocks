@@ -21,12 +21,12 @@ export {
 export * from './components/Heading';
 export * from './components/Text';
 export * from './components/Badge';
-// export * from './components/Link';
+export * from './components/Link';
 
 // CONTROLS
 export * from './components/Button';
-// export * from './components/CheckBox';
-// export * from './components/Radio';
+export * from './components/Checkbox';
+export * from './components/Radio';
 export * from './components/Select';
 // export * from './components/CountrySelect';
 export * from './components/Input';
@@ -54,3 +54,4 @@ export * from './components/Icon';
 // export * from './components/LoadingScreen';
 // export * from './components/ProgressBar';
 // export * from './components/TabBar';
+export * from './components/Table';
