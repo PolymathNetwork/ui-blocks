@@ -1,9 +1,10 @@
-import { FC, ComponentType } from 'react';
+import { FC, ComponentType, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 
+type HtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 export type ButtonVariant =
   | 'primary'
   | 'secondary'
@@ -11,7 +12,7 @@ export type ButtonVariant =
   | 'inline'
   | 'special';
 
-export type ButtonProps = {
+export type ButtonProps = HtmlButtonProps & {
   variant: ButtonVariant;
   margin?: string;
   id?: string;
@@ -50,12 +51,13 @@ const IconContainer = styled.span(({ theme }) => ({
 }));
 
 export const Button: FC<ButtonProps> = ({
+  type = 'button',
   size = 'm',
   icon,
   children,
   ...props
 }) => (
-  <Component size={size} {...props}>
+  <Component size={size} type={type} {...props}>
     {icon && (
       <IconContainer>
         <Icon icon={icon} variant="basic" size="12px" />

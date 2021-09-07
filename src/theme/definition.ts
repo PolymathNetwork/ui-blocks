@@ -45,6 +45,7 @@ export const COLOR = {
   gray4: '#8F8F8F',
   gray5: '#EBF0F7',
   gray6: '#F8F9FC',
+  gray7: '#F0F0F0',
   brandBg: '#FBFBFB',
   brandMain: '#EC4673',
   brandMain2: '#43195B',
@@ -258,8 +259,8 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
       background: COLOR.brandDark2,
     },
     '&:disabled': {
-      color: COLOR.gray5,
-      background: COLOR.gray6,
+      color: COLOR.gray4,
+      background: COLOR.gray7,
       cursor: 'no-drop',
     },
   },
