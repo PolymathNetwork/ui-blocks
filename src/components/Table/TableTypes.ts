@@ -3,7 +3,7 @@ import { ComponentProps, JSXElementConstructor } from 'react';
 import { ButtonProps } from '../Button';
 import { BoxProps } from '../Box';
 // import { CheckboxProps } from '../Checkbox';
-import { CSSPropertiesExtended } from '../../theme/types';
+import { CSSPropertiesExtended } from '../../themeSettings/types';
 
 export interface TableColumnDefinition<
   T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any> = any

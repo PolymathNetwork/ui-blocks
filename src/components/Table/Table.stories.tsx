@@ -10,7 +10,7 @@ import { Icon } from '../Icon';
 import { DatePicker } from '../DatePicker';
 import { Input } from '../Input';
 import { Select } from '../Select';
-import { polyIcons } from '../../theme/icons';
+import { polyIcons } from '../../themeSettings/icons';
 
 export default {
   title: 'Polyblocks/Table',

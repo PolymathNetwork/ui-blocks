@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { TextFormat, Display } from '../../theme/types';
-import { getMargin } from '../../theme/utils';
+import { TextFormat, Display } from '../../themeSettings/types';
+import { getMargin } from '../../themeSettings/utils';
 
 export type TextVariant = 'p' | 'span' | 'label';
 

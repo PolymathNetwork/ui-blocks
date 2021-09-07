@@ -5,7 +5,7 @@ import DateInputComponent from 'react-day-picker/DayPickerInput';
 import { DayModifiers, DayPickerProps } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 import { BoxVariant, Box } from '../Box';
 import { Input } from '../Input';
 import { Flex } from '../Flex';

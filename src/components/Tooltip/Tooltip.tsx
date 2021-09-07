@@ -4,7 +4,7 @@ import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/animations/shift-away-subtle.css'; // eslint-disable-line import/no-extraneous-dependencies
 import 'tippy.js/dist/tippy.css'; // eslint-disable-line import/no-extraneous-dependencies
 
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 import { Icon } from '../Icon';
 
 export type TooltipVariant = 'basic' | 'icon';

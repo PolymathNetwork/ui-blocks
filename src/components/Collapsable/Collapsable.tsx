@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
-import { COLLAPSABLE } from '../../theme/definition';
-import { polyIcons } from '../../theme';
+import { COLLAPSABLE } from '../../themeSettings/definition';
+import { polyIcons } from '../../themeSettings';
 import { Box, BoxVariant, BoxProps } from '../Box';
 import { Flex } from '../Flex';
 import { Heading } from '../Heading';

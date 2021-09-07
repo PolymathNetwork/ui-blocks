@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
-import { getMargin, visuallyHidden } from '../../theme/utils';
+import { getMargin, visuallyHidden } from '../../themeSettings/utils';
 import { Icon } from '../Icon';
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 
 export type CheckboxVariant = 'basic';
 

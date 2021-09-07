@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 import { Input } from './Input';
 
 export default {

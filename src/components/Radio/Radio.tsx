@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { Icon, IconProps } from '../Icon';
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 import { Text } from '../Text';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {

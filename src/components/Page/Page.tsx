@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../theme/utils';
+import { getMargin } from '../../themeSettings/utils';
 
 export type PageProps = {
   margin?: string;

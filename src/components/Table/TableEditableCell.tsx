@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import { DatePicker } from '../DatePicker';
 import { Select } from '../Select';
 import { TableEditableCellProps } from './TableTypes';
-import { polyIcons } from '../../theme/icons';
+import { polyIcons } from '../../themeSettings/icons';
 
 export const TableEditableCell: FC<TableEditableCellProps> = ({
   cell,

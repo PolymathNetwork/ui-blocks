@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Display, CSSPropertiesExtended } from '../../theme/types';
-import { getMargin } from '../../theme/utils';
+import { Display, CSSPropertiesExtended } from '../../themeSettings/types';
+import { getMargin } from '../../themeSettings/utils';
 
 export type BadgeVariant = 'basic' | 'success' | 'warning' | 'danger';
 

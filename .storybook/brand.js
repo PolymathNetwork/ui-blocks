@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming';
-import polymathSvg from '../src/theme/icons/svg/polymath.svg';
-import { polyTheme } from '../src/theme';
+import polymathSvg from '../src/themeSettings/icons/svg/polymath.svg';
+import { polyTheme } from '../src/themeSettings';
 
 export default create({
   brandTitle: 'Polymath',

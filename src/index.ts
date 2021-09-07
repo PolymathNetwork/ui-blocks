@@ -15,7 +15,7 @@ export {
   polyIcons,
   PolyThemeProvider,
   PolyGlobalStyles,
-} from './theme';
+} from './themeSettings';
 
 // TYPOGRAPHY
 export * from './components/Heading';

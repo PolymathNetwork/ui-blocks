@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../theme/utils';
+import { getMargin } from '../../themeSettings/utils';
 
 export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
 import { Icon } from './Icon';
-import { polyIcons } from '../../theme';
+import { polyIcons } from '../../themeSettings';
 // import { Flex } from '../Flex';
 
 export default {
