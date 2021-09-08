@@ -4,7 +4,7 @@ import { withThemes } from 'storybook-addon-themes/react';
 
 import { PolyThemeProvider } from '../src/themeSettings';
 import { polyTheme as blueTheme } from '../src';
-import { pinkTheme } from '../src/themes/polyPink';
+import { pinkTheme } from '../src/themes';
 
 addDecorator(withThemes);
 
@@ -34,7 +34,7 @@ const Component = (props) => {
 
   //the props.children is the <Story /> component 
   return (
-    <PolyThemeProvider theme={blueTheme}>
+    <PolyThemeProvider theme={currentTheme}>
       {props.children}
     </PolyThemeProvider>
   )
@@ -42,7 +42,7 @@ const Component = (props) => {
 
 export const parameters = {
   themes: {
-    default: 'Polymath',
+    default: Themes.PolymathDefault,
     Decorator: (props) => {
       return (<Component {...props} />);
     },
