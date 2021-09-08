@@ -9,12 +9,11 @@ import { pinkTheme } from '../src/themes';
 addDecorator(withThemes);
 
 //think of enums
-const PolymathDefault = 'PolymathDefault';
+const Blue = 'Blue - PolymathDefault';
 const Pink = 'Pink';
 
 const Themes = {
-  // PolymathDefault is the blueish theme
-  PolymathDefault: PolymathDefault,
+  Blue: Blue,
   Pink: Pink,
 }
 
@@ -24,7 +23,7 @@ const Component = (props) => {
 
   let currentTheme = blueTheme;
   switch (themeName) {
-    case Themes.PolymathDefault:
+    case Themes.Blue:
       currentTheme = blueTheme;
       break;
     case Themes.Pink:
@@ -48,7 +47,7 @@ export const parameters = {
     },
     list: [
       {
-        name: Themes.PolymathDefault, color: blueTheme.COLOR.brandMain
+        name: Themes.Blue, color: blueTheme.COLOR.brandMain
       },
       { name: Themes.Pink, color: pinkTheme.COLOR.brandMain }
     ],
