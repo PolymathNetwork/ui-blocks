@@ -8,14 +8,10 @@ import { pinkTheme } from '../src/themes';
 
 addDecorator(withThemes);
 
-//think of enums
-const Blue = 'Blue - PolymathDefault';
-const Pink = 'Pink';
-
-const Themes = {
-  Blue: Blue,
-  Pink: Pink,
-}
+enum Themes {
+  Blue = 'Blue - PolymathDefault',
+  Pink = 'Pink',
+};
 
 const Component = (props) => {
   const { themeName } = props;
@@ -41,7 +37,7 @@ const Component = (props) => {
 
 export const parameters = {
   themes: {
-    default: Themes.PolymathDefault,
+    default: Themes.Blue,
     Decorator: (props) => {
       return (<Component {...props} />);
     },
