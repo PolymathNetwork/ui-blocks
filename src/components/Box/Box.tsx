@@ -10,12 +10,13 @@ export type BoxProps = {
   variant: BoxVariant;
   margin?: string;
   padding?: string;
+  id?: string;
   display?: Display;
   shadow?: Shadow;
   radius?: Radius;
   bg?: string;
   border?: string;
-  width?: number;
+  width?: number | string;
   maxWidth?: number;
 };
 

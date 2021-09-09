@@ -1,10 +1,9 @@
-import { FC, ComponentType, ButtonHTMLAttributes } from 'react';
+import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 
-type HtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 export type ButtonVariant =
   | 'primary'
   | 'secondary'
@@ -12,10 +11,11 @@ export type ButtonVariant =
   | 'inline'
   | 'special';
 
-export type ButtonProps = HtmlButtonProps & {
+export type ButtonProps = {
   variant: ButtonVariant;
   margin?: string;
   id?: string;
+  type?: string;
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: ComponentType;
