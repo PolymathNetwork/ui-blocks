@@ -6,7 +6,7 @@ import { BoxProps } from '../Box';
 import { CSSPropertiesExtended } from '../../theme/types';
 
 export interface TableColumnDefinition<
-  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any> = any,
+  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any> = any
 > {
   Header?: JSX.Element | string;
   accessor: string;
@@ -22,7 +22,7 @@ export interface TableColumnDefinition<
 }
 
 export interface TableColumnEnhanced<
-  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any> = any,
+  T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any> = any
 > extends TableColumnDefinition<T> {
   getHeaderProps: any;
   getSortByToggleProps?: any;
