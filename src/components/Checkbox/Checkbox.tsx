@@ -145,7 +145,6 @@ export const Checkbox: FC<CheckboxProps> = ({
             size="1.5em"
             icon={polyIcons.MinusBox}
             className="minusIcon"
-            color="brandMain2"
           />
           <CheckStateIcon
             variant="basic"
