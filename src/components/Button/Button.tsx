@@ -15,7 +15,7 @@ export type ButtonProps = {
   variant: ButtonVariant;
   margin?: string;
   id?: string;
-  type?: string;
+  type?: 'submit' | 'reset' | 'button';
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: ComponentType;
