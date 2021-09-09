@@ -15,11 +15,7 @@ export {
   polyIcons,
   PolyThemeProvider,
   PolyGlobalStyles,
-} from './themeSettings';
-
-// PINK THEME
-// eslint-disable-next-line import/no-cycle
-export { pinkTheme } from './themes';
+} from './theme';
 
 // TYPOGRAPHY
 export * from './components/Heading';

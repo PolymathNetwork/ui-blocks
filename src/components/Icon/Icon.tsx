@@ -1,7 +1,7 @@
 import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../themeSettings/utils';
+import { getMargin } from '../../theme/utils';
 
 export type IconVariant = 'basic' | 'circle';
 

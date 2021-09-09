@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Display, Shadow, Radius } from '../../themeSettings/types';
-import { getMargin, getBorder } from '../../themeSettings/utils';
+import { Display, Shadow, Radius } from '../../theme/types';
+import { getMargin, getBorder } from '../../theme/utils';
 
 export type BoxVariant = 'raw' | 'basic' | 'border' | 'shadow';
 

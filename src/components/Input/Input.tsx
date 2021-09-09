@@ -2,7 +2,7 @@ import { FC, WheelEvent, ComponentType } from 'react';
 import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
-import { getMargin } from '../../themeSettings/utils';
+import { getMargin } from '../../theme/utils';
 import { Grid, GridProps } from '../Grid';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';

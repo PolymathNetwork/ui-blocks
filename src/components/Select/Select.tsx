@@ -6,8 +6,8 @@ import ReactSelect, {
 } from 'react-select';
 import { ThemeContext } from 'styled-components';
 
-import { OptionType } from '../../themeSettings/types';
-import { polyIcons } from '../../themeSettings';
+import { OptionType } from '../../theme/types';
+import { polyIcons } from '../../theme';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';
 import { Text } from '../Text';

@@ -1,14 +1,14 @@
 import { createGlobalStyle } from 'styled-components';
 
-import * as polyIcons from './icons';
-import { CSSPropertiesExtended, Gap } from './types';
-import { BoxVariant } from '../components/Box';
-import { ButtonVariant } from '../components/Button';
-import { IconVariant } from '../components/Icon';
-import { TextVariant } from '../components/Text';
-import { BadgeVariant } from '../components/Badge';
-import { InfoBoxVariant } from '../components/InfoBox';
-import { DrawerVariant } from '../components/Drawer';
+import * as polyIcons from '../icons';
+import { CSSPropertiesExtended, Gap } from '../types';
+import { BoxVariant } from '../../components/Box';
+import { ButtonVariant } from '../../components/Button';
+import { IconVariant } from '../../components/Icon';
+import { TextVariant } from '../../components/Text';
+import { BadgeVariant } from '../../components/Badge';
+import { InfoBoxVariant } from '../../components/InfoBox';
+import { DrawerVariant } from '../../components/Drawer';
 // Basics
 
 export const BREAKPOINT = {

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../themeSettings/utils';
-import { polyIcons } from '../../themeSettings/icons';
+import { getMargin } from '../../theme/utils';
+import { polyIcons } from '../../theme/icons';
 import { Icon } from '../Icon';
 import { Text } from '../Text/Text';
 

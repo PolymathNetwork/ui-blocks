@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { Icon, IconProps } from '../Icon';
-import { polyIcons } from '../../themeSettings';
+import { polyIcons } from '../../theme';
 import { Flex } from '../Flex';
 import { Text, TextProps } from '../Text';
-import { TextFormat } from '../../themeSettings/types';
+import { TextFormat } from '../../theme/types';
 
 const StyledAnchor = styled.a`
   text-decoration: none;

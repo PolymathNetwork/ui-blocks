@@ -1,4 +1,4 @@
-import { polyTheme as defaultTheme } from '../index';
+import * as blue from './blue';
 
 const COLOR = {
   light: '#FFFFFF',
@@ -67,25 +67,25 @@ const CHECKBOX: any = {
 
 const BADGE: any = {
   basic: {
-    ...defaultTheme.TYPOGRAPHY.b3m,
+    ...blue.TYPOGRAPHY.b3m,
     color: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
     borderRadius: '100px',
   },
   success: {
-    ...defaultTheme.TYPOGRAPHY.b3m,
+    ...blue.TYPOGRAPHY.b3m,
     color: COLOR.success,
     backgroundColor: COLOR.success2,
     borderRadius: '100px',
   },
   warning: {
-    ...defaultTheme.TYPOGRAPHY.b3m,
+    ...blue.TYPOGRAPHY.b3m,
     color: COLOR.warning,
     backgroundColor: COLOR.warning2,
     borderRadius: '100px',
   },
   danger: {
-    ...defaultTheme.TYPOGRAPHY.b3m,
+    ...blue.TYPOGRAPHY.b3m,
     color: COLOR.danger,
     backgroundColor: COLOR.danger2,
     borderRadius: '100px',
@@ -134,29 +134,30 @@ const COLLAPSABLE: any = {
     // },
   },
 };
-export const pinkTheme: any = {
-  ...defaultTheme,
+
+export const pink: any = {
+  ...blue,
   COLOR: {
-    ...defaultTheme.COLOR,
+    ...blue.COLOR,
     ...COLOR,
   },
   TYPOGRAPHY: {
-    ...defaultTheme.TYPOGRAPHY,
+    ...blue.TYPOGRAPHY,
     font: "'Poppins', sans-serif",
     h4: {
-      ...defaultTheme.TYPOGRAPHY.h4,
+      ...blue.TYPOGRAPHY.h4,
       fontWeight: '600',
     },
   },
   BUTTON: {
-    ...defaultTheme.BUTTON,
+    ...blue.BUTTON,
     primary: {
-      ...defaultTheme.TYPOGRAPHY.btn,
+      ...blue.TYPOGRAPHY.btn,
       color: COLOR.light,
       background: COLOR.brandMain3,
       border: 0,
       borderRadius: '100px',
-      boxShadow: defaultTheme.SHADOW.s,
+      boxShadow: blue.SHADOW.s,
       transition: 'all 0.3s',
       cursor: 'pointer',
       '&:hover': {
@@ -168,12 +169,12 @@ export const pinkTheme: any = {
       '&:disabled': {
         color: COLOR.gray4,
         // Remove me when gray7 is defined in blue (default) theme
-        background: defaultTheme.COLOR.gray7,
+        background: blue.COLOR.gray7,
         cursor: 'no-drop',
       },
     },
     secondary: {
-      ...defaultTheme.TYPOGRAPHY.btn,
+      ...blue.TYPOGRAPHY.btn,
       color: COLOR.brandMain3,
       background: COLOR.light,
       border: `1px solid ${COLOR.brandMain3}`,
@@ -196,11 +197,11 @@ export const pinkTheme: any = {
       },
     },
     tertiary: {
-      ...defaultTheme.TYPOGRAPHY.btn,
+      ...blue.TYPOGRAPHY.btn,
       color: COLOR.gray1,
       background: 'transparent',
       border: 0,
-      borderRadius: defaultTheme.RADIUS.l,
+      borderRadius: blue.RADIUS.l,
       transition: 'all 0.3s',
       cursor: 'pointer',
       '&:hover': {
@@ -229,12 +230,12 @@ export const pinkTheme: any = {
       cursor: 'pointer',
     },
     special: {
-      ...defaultTheme.TYPOGRAPHY.btn,
+      ...blue.TYPOGRAPHY.btn,
       color: COLOR.gray1,
       background: COLOR.light,
       border: 0,
       borderRadius: '100px',
-      boxShadow: defaultTheme.SHADOW.s,
+      boxShadow: blue.SHADOW.s,
       transition: 'all 0.3s',
       cursor: 'pointer',
       '&:hover': {
@@ -250,15 +251,15 @@ export const pinkTheme: any = {
     },
   },
   BADGE: {
-    ...defaultTheme.BADGE,
+    ...blue.BADGE,
     ...BADGE,
   },
   CHECKBOX: {
-    ...defaultTheme.CHECKBOX,
+    ...blue.CHECKBOX,
     ...CHECKBOX,
   },
   COLLAPSABLE: {
-    ...defaultTheme.COLLAPSABLE,
+    ...blue.COLLAPSABLE,
     ...COLLAPSABLE,
   },
 };

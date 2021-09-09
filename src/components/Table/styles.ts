@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { CSSPropertiesExtended } from '../../themeSettings/types';
+import { CSSPropertiesExtended } from '../../theme/types';
 import { TableRowProps } from './TableTypes';
 
 export const TableWrapper = styled.div`

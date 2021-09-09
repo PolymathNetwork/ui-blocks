@@ -1,11 +1,11 @@
 import { create } from '@storybook/theming';
-import polymathSvg from '../src/themeSettings/icons/svg/polymath.svg';
-import { polyTheme } from '../src/themeSettings';
+import polymathSvg from '../src/theme/icons/svg/polymath.svg';
+import { polyTheme } from '../src/theme';
 
 export default create({
   brandTitle: 'Polymath',
   brandImage: polymathSvg,
   base: 'light',
-  colorPrimary: polyTheme.COLOR.brandMain,
-  barSelectedColor: polyTheme.COLOR.brandMain,
+  colorPrimary: polyTheme.blue.COLOR.brandMain,
+  barSelectedColor: polyTheme.blue.COLOR.brandMain,
 });

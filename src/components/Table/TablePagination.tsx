@@ -6,7 +6,7 @@ import { Text } from '../Text';
 import { Select } from '../Select';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { polyIcons } from '../../themeSettings/icons';
+import { polyIcons } from '../../theme/icons';
 import { TablePaginationProps } from './TableTypes';
 
 export const TablePagination: FC<TablePaginationProps> = ({

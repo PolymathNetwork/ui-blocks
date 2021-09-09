@@ -12,7 +12,7 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
 // import { Loading } from '../Loading';
-import { polyIcons } from '../../themeSettings';
+import { polyIcons } from '../../theme';
 import { TablePagination } from './TablePagination';
 import { TableBatchActions } from './TableBatchActions';
 import { TableColumnEnhanced, TableProps, TableRowCell } from './TableTypes';

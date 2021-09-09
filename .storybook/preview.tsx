@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { addDecorator } from '@storybook/react';
 import { withThemes } from 'storybook-addon-themes/react';
 
-import { PolyThemeProvider } from '../src/themeSettings';
-import { polyTheme as blueTheme } from '../src';
-import { pinkTheme } from '../src/themes';
+import { PolyThemeProvider } from '../src/theme';
+import { polyTheme } from '../src';
 
 addDecorator(withThemes);
 
@@ -17,13 +16,13 @@ const Component = (props) => {
   const { themeName } = props;
 
 
-  let currentTheme = blueTheme;
+  let currentTheme = polyTheme.blue;
   switch (themeName) {
     case Themes.Blue:
-      currentTheme = blueTheme;
+      currentTheme = polyTheme.blue;
       break;
     case Themes.Pink:
-      currentTheme = pinkTheme
+      currentTheme = polyTheme.pink;
       break;
   }
 
@@ -43,9 +42,9 @@ export const parameters = {
     },
     list: [
       {
-        name: Themes.Blue, color: blueTheme.COLOR.brandMain
+        name: Themes.Blue, color: polyTheme.blue.COLOR.brandMain
       },
-      { name: Themes.Pink, color: pinkTheme.COLOR.brandMain }
+      { name: Themes.Pink, color: polyTheme.pink.COLOR.brandMain }
     ],
   },
 };;

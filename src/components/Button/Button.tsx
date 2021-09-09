@@ -1,7 +1,7 @@
 import { FC, ComponentType, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-import { getMargin } from '../../themeSettings/utils';
+import { getMargin } from '../../theme/utils';
 import { Icon } from '../Icon';
 
 type HtmlButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { Justify, Align, propValueMap } from '../../themeSettings/types';
+import { Justify, Align, propValueMap } from '../../theme/types';
 import { Box, BoxVariant, BoxProps } from '../Box';
 
 export type FlexVariant = BoxVariant;

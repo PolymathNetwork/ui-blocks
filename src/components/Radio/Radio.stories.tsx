@@ -1,7 +1,7 @@
 import { useState, ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 import { Radio } from './Radio';
-import { polyIcons } from '../../themeSettings';
+import { polyIcons } from '../../theme';
 import { Box } from '../Box';
 
 const Template: Story<ComponentProps<typeof Radio>> = (props: any) => (
