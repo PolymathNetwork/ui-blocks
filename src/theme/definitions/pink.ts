@@ -289,8 +289,8 @@ export const pink: any = {
     ...blue.COLLAPSABLE,
     ...COLLAPSABLE,
   },
-  INFOBOX:{
+  INFOBOX: {
     ...blue.INFOBOX,
     ...INFOBOX,
-  }
+  },
 };
