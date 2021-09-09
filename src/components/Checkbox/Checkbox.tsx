@@ -33,6 +33,19 @@ const CheckStateIcon = styled(Icon)<any>(() => ({
   transition: `150ms`,
 }));
 
+const MinusBoxIcon = styled(Icon)<any>(() => ({
+  position: 'absolute',
+  top: '71%',
+  left: '71%',
+  transform: 'translate(-50%, -50%)',
+  display: 'block',
+  visibility: 'hidden',
+  opacity: 0,
+  pointerEvents: 'none',
+  margin: 'auto',
+  transition: `150ms`,
+}));
+
 const CheckboxInput = styled.div(({ theme }) => ({
   position: 'relative',
   cursor: 'pointer',
@@ -46,16 +59,16 @@ const CheckboxInput = styled.div(({ theme }) => ({
   userSelect: 'none',
 
   [`${Input}:focus + &`]: {
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.brandMain,
   },
 
   [`${Input}:checked:focus + &`]: {
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.gray5,
   },
 
   [`${Input}:checked + &`]: {
-    backgroundColor: theme.COLOR.primary,
-    borderColor: theme.COLOR.primary,
+    backgroundColor: theme.COLOR.gray5,
+    borderColor: theme.COLOR.brandMain,
   },
 
   [`${Input}:disabled + &`]: {
@@ -68,16 +81,18 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 
   '&.indeterminate': {
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.brandMain,
 
     '.minusIcon': {
       visibility: 'visible',
       opacity: 1,
+      background: theme.COLOR.light,
     },
 
     '.checkIcon': {
       visibility: 'hidden',
       opacity: 0,
+      background: theme.COLOR.light,
     },
   },
 }));
@@ -96,6 +111,10 @@ export const Checkbox: FC<CheckboxProps> = ({
   const Component = styled.label(({ theme }) => ({
     ...(theme.CHECKBOX[variant] || {}),
     ...(margin && { margin: getMargin({ theme, margin }) }),
+  }));
+
+  const Label = styled(Flex)<any>(({ theme }) => ({
+    ...(theme.CHECKBOX['labelMargin'] || {}),
   }));
 
   const checkedProps =
@@ -121,6 +140,12 @@ export const Checkbox: FC<CheckboxProps> = ({
         <CheckboxInput
           {...(indeterminate ? { className: 'indeterminate' } : {})}
         >
+          <MinusBoxIcon
+            variant="basic"
+            size="1.5em"
+            icon={polyIcons.MinusBox}
+            className="minusIcon"
+          />
           <CheckStateIcon
             variant="basic"
             size="1.5em"
@@ -129,9 +154,9 @@ export const Checkbox: FC<CheckboxProps> = ({
           />
         </CheckboxInput>
         {label && (
-          <Flex variant="raw" margin="0 0 0 10px">
+          <Label variant="raw">
             <label htmlFor={name}>{label}</label>
-          </Flex>
+          </Label>
         )}
       </Flex>
     </Component>

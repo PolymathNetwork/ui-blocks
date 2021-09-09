@@ -56,12 +56,16 @@ const CHECKBOX: any = {
   basic: {
     color: COLOR.gray1,
     fontSize: '16px',
+
     // the icon color manipulation
     svg: {
       path: {
         fill: `${COLOR.brandMain} !important`,
       },
     },
+  },
+  labelMargin: {
+    margin: '-2px 0 0 10px',
   },
 };
 

@@ -640,6 +640,9 @@ export const CHECKBOX: CSSPropertiesExtended = {
     //   },
     // },
   },
+  labelMargin: {
+    margin: '0 0 0 10px',
+  },
 };
 
 export const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
