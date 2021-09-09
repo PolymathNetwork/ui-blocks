@@ -13,6 +13,7 @@ Clone repo and run Storybook locally via `npm start`. Browse components (Polyblo
 ### NOTE:
 
 - Styles are passed to components from `src/theme/definition.ts`. You can also import `PolyThemeProvider` and pass your own theme to it.
+- To add a new theme, create a file definition in `src/theme/definition` and override on default theme then export it from `src/theme/index.ts`.
 - Styles set via props are wired inside the component and override the theme.
 - `GAP`s are used for margins and other spacings, and are incremented by `8px`.
 - You can set a margin for some components via the `margin` prop:

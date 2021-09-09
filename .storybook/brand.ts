@@ -6,6 +6,6 @@ export default create({
   brandTitle: 'Polymath',
   brandImage: polymathSvg,
   base: 'light',
-  colorPrimary: polyTheme.COLOR.brandMain,
-  barSelectedColor: polyTheme.COLOR.brandMain,
+  colorPrimary: polyTheme.blue.COLOR.brandMain,
+  barSelectedColor: polyTheme.blue.COLOR.brandMain,
 });

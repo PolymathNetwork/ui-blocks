@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 
-import * as defaultTheme from './definition';
+import * as defaultTheme from './definitions/blue';
 import { PolyGlobalStyles } from './globalStyles';
 
 export const PolyThemeProvider = ({
