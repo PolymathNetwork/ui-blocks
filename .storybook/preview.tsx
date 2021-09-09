@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react';
 import { addDecorator } from '@storybook/react';
 import { withThemes } from 'storybook-addon-themes/react';
 
-import { PolyThemeProvider } from '../src/theme';
-import { polyTheme } from '../src';
+import { PolyThemeProvider, polyTheme } from '../src/theme';
 
 addDecorator(withThemes);
 
 enum Themes {
-  Blue = 'Blue - PolymathDefault',
-  Pink = 'Pink',
-};
+  Blue = 'Blue (Polymath)',
+  Pink = 'Pink (Polymesh)',
+}
 
-const Component = (props) => {
-  const { themeName } = props;
-
-
-  let currentTheme = polyTheme.blue;
+const Decorator = ({ themeName, children }) => {
+  let currentTheme: any = polyTheme.blue;
   switch (themeName) {
     case Themes.Blue:
       currentTheme = polyTheme.blue;
@@ -25,26 +20,22 @@ const Component = (props) => {
       currentTheme = polyTheme.pink;
       break;
   }
-
-  //the props.children is the <Story /> component 
-  return (
-    <PolyThemeProvider theme={currentTheme}>
-      {props.children}
-    </PolyThemeProvider>
-  )
+  return <PolyThemeProvider theme={currentTheme}>{children}</PolyThemeProvider>;
 };
 
 export const parameters = {
   themes: {
+    Decorator,
     default: Themes.Blue,
-    Decorator: (props) => {
-      return (<Component {...props} />);
-    },
     list: [
       {
-        name: Themes.Blue, color: polyTheme.blue.COLOR.brandMain
+        name: Themes.Blue,
+        color: polyTheme.blue.COLOR.brandMain,
       },
-      { name: Themes.Pink, color: polyTheme.pink.COLOR.brandMain }
+      {
+        name: Themes.Pink,
+        color: polyTheme.pink.COLOR.brandMain,
+      },
     ],
   },
-};;
+};
