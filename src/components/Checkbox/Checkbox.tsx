@@ -63,12 +63,12 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 
   [`${Input}:checked:focus + &`]: {
-    borderColor: theme.COLOR.primary,
+    borderColor: 'black',
   },
 
   [`${Input}:checked + &`]: {
     backgroundColor: theme.COLOR.primary,
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.brandMain,
   },
 
   [`${Input}:disabled + &`]: {
