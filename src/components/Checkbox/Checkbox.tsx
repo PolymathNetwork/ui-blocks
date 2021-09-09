@@ -13,7 +13,7 @@ export type CheckboxProps = {
   onChange?: (e: boolean) => void;
   defaultChecked?: boolean;
   checked?: boolean;
-  name?: React.AllHTMLAttributes<HTMLInputElement>['name'];
+  name?: string;
   label?: React.ComponentType | string;
   indeterminate?: boolean;
 };
