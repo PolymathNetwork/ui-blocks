@@ -589,7 +589,7 @@ export const TOOLTIP = createGlobalStyle`
   }
 `;
 
-export const InfoBox: Record<InfoBoxVariant, CSSPropertiesExtended> = {
+export const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   basic: {
     minWidth: '240px',
     display: 'inline-block',

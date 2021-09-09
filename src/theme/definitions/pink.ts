@@ -139,6 +139,29 @@ const COLLAPSABLE: any = {
   },
 };
 
+const INFOBOX: any = {
+  basic: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: blue.GAP.s,
+    border: `2px solid #F0F0F0`,
+    sizing: 'border-box',
+    borderRadius: blue.RADIUS.l,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+  compact: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: `0 ${blue.GAP.xs}`,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+};
+
 export const pink: any = {
   ...blue,
   COLOR: {
@@ -266,4 +289,8 @@ export const pink: any = {
     ...blue.COLLAPSABLE,
     ...COLLAPSABLE,
   },
+  INFOBOX:{
+    ...blue.INFOBOX,
+    ...INFOBOX,
+  }
 };

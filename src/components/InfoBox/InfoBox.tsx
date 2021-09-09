@@ -25,7 +25,7 @@ const IconContainer = styled.span(() => ({
 
 const Component = styled.div<Pick<InfoBoxProps, 'variant' | 'margin'>>(
   ({ variant, margin, theme }) => ({
-    ...(theme.InfoBox[variant] || {}),
+    ...(theme.INFOBOX[variant] || {}),
     margin: getMargin({ theme, margin }),
   }),
 );
