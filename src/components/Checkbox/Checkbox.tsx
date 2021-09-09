@@ -59,15 +59,15 @@ const CheckboxInput = styled.div(({ theme }) => ({
   userSelect: 'none',
 
   [`${Input}:focus + &`]: {
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.brandMain,
   },
 
   [`${Input}:checked:focus + &`]: {
-    borderColor: 'black',
+    borderColor: theme.COLOR.gray5,
   },
 
   [`${Input}:checked + &`]: {
-    backgroundColor: theme.COLOR.primary,
+    backgroundColor: theme.COLOR.gray5,
     borderColor: theme.COLOR.brandMain,
   },
 
@@ -81,7 +81,7 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 
   '&.indeterminate': {
-    borderColor: theme.COLOR.primary,
+    borderColor: theme.COLOR.brandMain,
 
     '.minusIcon': {
       visibility: 'visible',
