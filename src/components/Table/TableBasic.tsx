@@ -204,11 +204,12 @@ export function TableBasic({
                             column.getCustomHeaderProperties())}
                         >
                           <Text
-                            variant="span"
-                            format="b2m"
+                            as="span"
+                            variant="b2m"
                             color={column.isSorted ? 'brandMain' : 'gray.2'}
                           >
                             {column.render('Header')}
+                            {/* eslint-disable react/no-danger */}
                             <span
                               dangerouslySetInnerHTML={{
                                 __html: column.isSorted
@@ -218,6 +219,7 @@ export function TableBasic({
                                   : '',
                               }}
                             />
+                            {/* eslint-enable */}
                           </Text>
                         </sc.TableColumnHeader>
                       ),
@@ -307,7 +309,7 @@ export function TableBasic({
           {empty && empty.copy === false
             ? null
             : (empty && empty.copy) || (
-                <Text variant="span" color="gray2" margin="m 0 0 0">
+                <Text as="span" variant="b3" color="gray2" margin="m 0 0 0">
                   No data
                 </Text>
               )}

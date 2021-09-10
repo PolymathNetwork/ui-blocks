@@ -70,8 +70,8 @@ export const TableEditableCell: FC<TableEditableCellProps> = ({
   ) : (
     <>
       <Text
-        variant="span"
-        format="b2"
+        as="span"
+        variant="b2"
         color="gray1"
         {...{ onClick: editCell }}
         {...(cell.column.editor ? { className: 'canEdit' } : {})}

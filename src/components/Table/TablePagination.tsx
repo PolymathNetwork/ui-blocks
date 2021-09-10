@@ -29,7 +29,7 @@ export const TablePagination: FC<TablePaginationProps> = ({
     <Flex variant="raw" justify="end">
       {pageSizes && setPageSize && (
         <Flex variant="raw" margin="0 xxl 0 0">
-          <Text variant="span" format="b2m" color="gray2">
+          <Text as="span" variant="b2m" color="gray2">
             {label}
           </Text>
           <Select
@@ -51,7 +51,7 @@ export const TablePagination: FC<TablePaginationProps> = ({
       )}
 
       <Box variant="raw" margin="0 xxl 0 0">
-        <Text variant="span" format="b2m" color="gray1">
+        <Text as="span" variant="b2m" color="gray1">
           {`${pageIndex * pageSize + 1}-${
             totalRows
               ? Math.min(totalRows, (pageIndex + 1) * pageSize)

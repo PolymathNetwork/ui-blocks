@@ -99,10 +99,10 @@ export const Select: FC<SelectProps> = ({
 
   return (
     <>
-      <Text variant="label" display="block" margin={margin}>
+      <Text as="label" variant="b2m" display="block" margin={margin}>
         {label && tooltip && (
           <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-            <Text variant="span" format="b2m">
+            <Text as="span" variant="b2m">
               {label}
             </Text>
             {tooltip && <Tooltip variant="icon" content={tooltip} />}

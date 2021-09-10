@@ -14,7 +14,8 @@ const Template: Story<ComponentProps<typeof Text>> = (props: any) => (
 
 export const P = Template.bind({});
 P.args = {
-  variant: 'p',
+  variant: 'b2m',
+  as: 'p',
   children: (
     <>
       This is in a paragraph <span>with alt text</span>.
@@ -25,12 +26,14 @@ P.args = {
 
 export const Span = Template.bind({});
 Span.args = {
-  variant: 'span',
+  variant: 'b2',
+  as: 'span',
   children: 'This is in a span.',
 };
 
 export const Label = Template.bind({});
 Label.args = {
-  variant: 'label',
+  variant: 'b3',
+  as: 'label',
   children: 'This is in a label.',
 };

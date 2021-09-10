@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import { Icon, IconProps } from '../Icon';
-import { polyIcons } from '../../theme';
-import { Flex } from '../Flex';
-import { Text, TextProps } from '../Text';
-import { TextFormat } from '../../theme/types';
 
-const StyledAnchor = styled.a`
-  text-decoration: none;
-  :hover, :focus: {
-    text-decoration: none;
-  }
-`;
+import { polyIcons } from '../../theme';
+import { Icon, IconProps } from '../Icon';
+import { Flex } from '../Flex';
+import { Text, TextProps, TextVariant } from '../Text';
+
+const StyledAnchor = styled.a(() => ({
+  textDecoration: 'none',
+  ':hover, :focus': {
+    textDecoration: 'none',
+  },
+}));
 
 export type LinkProps = {
   href?: string;
@@ -35,15 +35,15 @@ const IconComponent = styled(Icon)<IconProps & { disabled: boolean }>(
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
-    format: 'b3m',
+    variant: 'b3m',
     size: '12px',
   },
   m: {
-    format: 'b2m',
+    variant: 'b2m',
     size: '14px',
   },
   l: {
-    format: 'b1m',
+    variant: 'b1m',
     size: '16px',
   },
 };
@@ -60,8 +60,8 @@ export const Link = ({
   let component: any;
   const labelComponent = (
     <TextComponent
-      format={sizeMap[size].format as TextFormat}
-      variant="p"
+      variant={sizeMap[size].variant as TextVariant}
+      as="p"
       color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
       disabled={disabled}
     >

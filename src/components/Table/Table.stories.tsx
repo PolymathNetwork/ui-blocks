@@ -41,7 +41,7 @@ export const Default = () => {
             accessor: 'did',
             footer: (index: number) =>
               index === 4 ? (
-                <Text variant="span" format="b3" color="red.0">
+                <Text as="span" variant="b3" color="red.0">
                   This identity (DID) is invalid. Please remove or edit the
                   address to continue
                 </Text>
@@ -152,7 +152,7 @@ export const Default = () => {
   ];
   const pageSizes = [5, 10, 20, 30];
   const title = (
-    <Text variant="span" format="b2m" color="gray.1">
+    <Text as="span" variant="b2m" color="gray.1">
       Table Demo
     </Text>
   );
@@ -231,7 +231,7 @@ export const Default = () => {
             />
           ),
           copy: (
-            <Text variant="span" format="b3" margin="m 0 0 0">
+            <Text as="span" variant="b3" margin="m 0 0 0">
               No Item Exist
             </Text>
           ),
@@ -354,7 +354,7 @@ export const TableExpandable = () => {
   ];
   const pageSizes = [5, 10, 20, 30];
   const title = (
-    <Text variant="span" format="b3">
+    <Text as="span" variant="b3">
       Table Expandable Demo
     </Text>
   );
@@ -406,7 +406,7 @@ export const TableExpandable = () => {
           />
         ),
         copy: (
-          <Text variant="span" format="b3" margin="m 0 0 0">
+          <Text as="span" variant="b3" margin="m 0 0 0">
             No Item Exist
           </Text>
         ),

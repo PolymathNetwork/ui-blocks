@@ -79,11 +79,7 @@ const Item: FC<TabItemProps> = ({
               color={isActive ? 'gray.1' : 'gray.2'}
             />
           )}
-          <Text
-            variant="span"
-            format="b2m"
-            color={isActive ? 'gray.1' : 'gray.2'}
-          >
+          <Text as="span" variant="b2m" color={isActive ? 'gray.1' : 'gray.2'}>
             {text}
           </Text>
         </ActiveText>

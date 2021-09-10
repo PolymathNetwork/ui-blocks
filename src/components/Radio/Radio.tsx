@@ -24,7 +24,7 @@ export const IconStyled = styled(Icon)<
   },
 }));
 
-const StyledText = styled(Text)`
+const StyledText: any = styled(Text)`
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -51,7 +51,7 @@ export const Radio: FC<Props> = (props) => {
   };
 
   return (
-    <StyledText variant="label">
+    <StyledText as="label" variant="b3">
       <HiddenRadio
         type="radio"
         name={name}
@@ -70,7 +70,8 @@ export const Radio: FC<Props> = (props) => {
       />
       <Text
         margin="0 5px"
-        variant="span"
+        as="span"
+        variant="b3"
         color={disabled ? 'gray2' : 'highlightText'}
       >
         {label}
