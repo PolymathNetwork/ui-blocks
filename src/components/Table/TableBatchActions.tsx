@@ -46,7 +46,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
                 key={`batchAction${index + 1}LastUpdate`}
                 margin="0 0 0 4px"
               >
-                <Text variant="span" format="b3" color="gray.1">
+                <Text as="span" variant="b3" color="gray.1">
                   {lastUpdate}
                 </Text>
               </Box>
@@ -72,7 +72,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
                 )}
                 {action.buttonProps &&
                 action.buttonProps.variant === 'tertiary' ? (
-                  <Text variant="span" format="b2" color="brandMain">
+                  <Text as="span" variant="b2" color="brandMain">
                     {label(action.label)}
                   </Text>
                 ) : (

@@ -1,15 +1,28 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { TextFormat, Display } from '../../theme/types';
+import { Display } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
 
-export type TextVariant = 'p' | 'span' | 'label';
+export type TextAs = 'p' | 'span' | 'label';
+export type TextVariant =
+  | 'b1m'
+  | 'b1'
+  | 'b2m'
+  | 'b2'
+  | 'b3m'
+  | 'b3'
+  | 'c1'
+  | 'c2'
+  | 'btn'
+  | 'tn'
+  | 'code';
 
 export type TextProps = {
+  as: TextAs;
   variant: TextVariant;
   margin?: string;
-  format?: TextFormat;
+  padding?: string;
   color?: string;
   altColor?: string;
   display?: Display;
@@ -17,10 +30,21 @@ export type TextProps = {
 };
 
 const Component = styled.span<TextProps>(
-  ({ variant, format, margin, color, altColor, display, align, theme }) => ({
-    ...(theme.TEXT[variant] || {}),
-    ...(format ? theme.TYPOGRAPHY[format] : {}),
-    margin: getMargin({ theme, margin }),
+  ({
+    as,
+    variant,
+    margin,
+    padding,
+    color,
+    altColor,
+    display,
+    align,
+    theme,
+  }) => ({
+    ...(theme.TEXT[as] || {}),
+    ...(theme.TYPOGRAPHY[variant] || {}),
+    ...(margin ? { margin: getMargin({ theme, margin }) } : {}),
+    ...(padding ? { padding: getMargin({ theme, margin: padding }) } : {}),
     ...(color ? { color: theme.COLOR[color] } : {}),
     ...(altColor ? { span: { color: theme.COLOR[altColor] } } : {}),
     ...(display ? { display } : {}),
@@ -28,6 +52,4 @@ const Component = styled.span<TextProps>(
   }),
 );
 
-export const Text: FC<TextProps> = ({ variant, ...props }) => (
-  <Component as={variant} variant={variant} {...props} />
-);
+export const Text: FC<TextProps> = (props) => <Component {...props} />;

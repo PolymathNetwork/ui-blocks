@@ -5,7 +5,7 @@ import { CSSPropertiesExtended, Gap } from '../types';
 import { BoxVariant } from '../../components/Box';
 import { ButtonVariant } from '../../components/Button';
 import { IconVariant } from '../../components/Icon';
-import { TextVariant } from '../../components/Text';
+import { TextAs } from '../../components/Text';
 import { BadgeVariant } from '../../components/Badge';
 import { InfoBoxVariant } from '../../components/InfoBox';
 import { DrawerVariant } from '../../components/Drawer';
@@ -342,7 +342,7 @@ export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   },
 };
 
-export const TEXT: Record<TextVariant, CSSPropertiesExtended> = {
+export const TEXT: Record<TextAs, CSSPropertiesExtended> = {
   p: {
     margin: `0 0 ${GAP.s} 0`,
     lineHeight: '27px',
