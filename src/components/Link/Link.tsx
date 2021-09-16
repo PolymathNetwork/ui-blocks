@@ -12,22 +12,26 @@ const StyledAnchor = styled.a(() => ({
   },
 }));
 
+export type LinkVariant = 'primary' | 'secondary';
+
 export type LinkProps = {
+  variant: LinkVariant;
   href?: string;
+  id?: string;
   onClick?: (event: any) => void;
-  label: string;
+  label: any;
   size: 's' | 'm' | 'l';
-  variant: 'primary' | 'secondary';
-  disabled: boolean;
+  disabled?: boolean;
+  icon?: boolean;
   target?: '_blank' | '_self' | '_parent' | '_top';
 };
 
-const TextComponent = styled(Text)<TextProps & { disabled: boolean }>(
+const TextComponent = styled(Text)<TextProps & { disabled?: boolean }>(
   ({ disabled }) => ({
     cursor: disabled ? 'not-allowed' : 'pointer',
   }),
 );
-const IconComponent = styled(Icon)<IconProps & { disabled: boolean }>(
+const IconComponent = styled(Icon)<IconProps & { disabled?: boolean }>(
   ({ disabled }) => ({
     cursor: disabled ? 'not-allowed' : 'pointer',
   }),
@@ -55,15 +59,16 @@ export const Link = ({
   size,
   disabled,
   variant,
+  icon = true,
   ...rest
 }: LinkProps) => {
   let component: any;
   const labelComponent = (
     <TextComponent
       variant={sizeMap[size].variant as TextVariant}
-      as="p"
+      as="label"
       color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
-      disabled={disabled}
+      {...(disabled ? { disabled } : {})}
     >
       {label}
     </TextComponent>
@@ -86,16 +91,18 @@ export const Link = ({
   return (
     <Flex variant="raw" align="center">
       {component}
-      <IconComponent
-        variant="basic"
-        icon={polyIcons.ArrowRight}
-        margin="0 5px"
-        size={sizeMap[size].size as string}
-        color={
-          disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'
-        }
-        disabled={disabled}
-      />
+      {icon && (
+        <IconComponent
+          variant="basic"
+          icon={polyIcons.ArrowRight}
+          margin="0 5px"
+          size={sizeMap[size].size as string}
+          color={
+            disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'
+          }
+          {...(disabled ? { disabled } : {})}
+        />
+      )}
     </Flex>
   );
 };

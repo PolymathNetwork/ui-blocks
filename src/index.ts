@@ -32,8 +32,7 @@ export * from './components/Select';
 export * from './components/Input';
 export * from './components/DatePicker';
 export * from './components/Tooltip';
-// export * from './components/TextArea';
-// export * from './components/TextCopy'; // (tx hash)
+export * from './components/TextCopy';
 
 // CONTAINERS
 export * from './components/Box';
@@ -44,14 +43,10 @@ export * from './components/InfoBox';
 export * from './components/Drawer';
 export * from './components/Collapsable';
 
-// MEDIA
-export * from './components/Icon';
-// export * from './components/Image';
-// export * from './components/Video';
-
 // MISC
+export * from './components/Icon';
+export * from './components/Table';
+export * from './components/TabBar';
+// export * from './components/ProgressBar';
 // export * from './components/Loader';
 // export * from './components/LoadingScreen';
-// export * from './components/ProgressBar';
-export * from './components/TabBar';
-export * from './components/Table';

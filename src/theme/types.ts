@@ -8,6 +8,8 @@ export type Justify = 'spaced' | 'center' | 'start' | 'end';
 
 export type Align = 'center' | 'start' | 'end';
 
+export type Gap = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
+
 export type Shadow = 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type Radius = 's' | 'm' | 'l' | 'xl';
@@ -22,5 +24,3 @@ export type OptionType = {
   value: string;
   label: string;
 };
-
-export type Gap = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';

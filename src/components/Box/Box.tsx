@@ -17,7 +17,7 @@ export type BoxProps = {
   bg?: string;
   border?: string;
   width?: number | string;
-  maxWidth?: number;
+  maxWidth?: number | string;
 };
 
 const Component = styled.div<BoxProps>(
