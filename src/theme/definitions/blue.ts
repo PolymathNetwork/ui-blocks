@@ -487,11 +487,11 @@ export const SELECT: any = {
     borderColor: COLOR.gray3,
     ...(state.isFocused
       ? {
-        borderColor: COLOR.brandMain,
-        '&:hover': {
           borderColor: COLOR.brandMain,
-        },
-      }
+          '&:hover': {
+            borderColor: COLOR.brandMain,
+          },
+        }
       : {}),
     cursor: 'pointer',
   }),
@@ -513,9 +513,9 @@ export const SELECT: any = {
     color: COLOR.gray1,
     ...(state.isSelected
       ? {
-        color: COLOR.gray1,
-        backgroundColor: COLOR.gray5,
-      }
+          color: COLOR.gray1,
+          backgroundColor: COLOR.gray5,
+        }
       : {}),
     '&:hover': {
       color: COLOR.gray1,
