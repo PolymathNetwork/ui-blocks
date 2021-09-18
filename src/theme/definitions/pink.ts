@@ -1,6 +1,11 @@
 import * as blue from './blue';
+import { BadgeVariant } from '../../components/Badge';
+import { BoxVariant } from '../../components/Box';
+import { InfoBoxVariant } from '../../components/InfoBox';
 
-const COLOR = {
+import { CSSPropertiesExtended } from '../types';
+
+const COLOR: Record<string, string> = {
   light: '#FFFFFF',
   gray1: '#1E1E1E',
   gray2: '#565656',
@@ -52,7 +57,7 @@ rgba(220, 239, 254, 0) 79.96%
 )`,
 };
 
-const CHECKBOX: any = {
+const CHECKBOX: CSSPropertiesExtended = {
   basic: {
     color: COLOR.gray1,
     fontSize: '16px',
@@ -69,7 +74,7 @@ const CHECKBOX: any = {
   },
 };
 
-const BADGE: any = {
+const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
   basic: {
     ...blue.TYPOGRAPHY.b3m,
     color: COLOR.brandMain,
@@ -96,7 +101,7 @@ const BADGE: any = {
   },
 };
 
-const COLLAPSABLE: any = {
+const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
   iconVariants: {
     default: {
       iconColor: {
@@ -139,7 +144,7 @@ const COLLAPSABLE: any = {
   },
 };
 
-const INFOBOX: any = {
+const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   basic: {
     minWidth: '240px',
     display: 'inline-block',
