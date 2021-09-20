@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 import * as polyIcons from '../icons';
-import { CSSPropertiesExtended, Gap } from '../types';
+import { CSSPropertiesExtended, Gap, Shadow, Radius } from '../types';
 import { BoxVariant } from '../../components/Box';
 import { ButtonVariant } from '../../components/Button';
 import { IconVariant } from '../../components/Icon';
@@ -12,7 +12,7 @@ import { DrawerVariant } from '../../components/Drawer';
 
 // Basics
 
-export const BREAKPOINT = {
+export const BREAKPOINT: Record<string, number> = {
   xs: 320,
   sm: 768,
   md: 900,
@@ -20,7 +20,7 @@ export const BREAKPOINT = {
   xl: 1920,
 };
 
-export const MEDIA_QUERY = {
+export const MEDIA_QUERY: Record<string, string> = {
   xs: `@media (max-width: ${BREAKPOINT.xs}px)`,
   sm: `@media (min-width: ${BREAKPOINT.sm}px)`,
   md: `@media (min-width: ${BREAKPOINT.md}px)`,
@@ -38,7 +38,7 @@ export const GAP: Record<Gap, string> = {
   xxxl: '96px',
 };
 
-export const COLOR = {
+export const COLOR: Record<string, string> = {
   light: '#FFFFFF',
   gray1: '#1E1E1E',
   gray2: '#565656',
@@ -91,7 +91,7 @@ export const COLOR = {
   )`,
 };
 
-export const SHADOW = {
+export const SHADOW: Record<Shadow, string> = {
   xs: '0px 1px 3px rgba(21, 41, 53, 0.12), 0px 1px 2px rgba(21, 41, 53, 0.24)',
   s: '0px 2px 4px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(21, 41, 53, 0.12)',
   m: '0px 10px 20px rgba(21, 41, 53, 0.15), 0px 3px 6px rgba(21, 41, 53, 0.1)',
@@ -99,14 +99,14 @@ export const SHADOW = {
   xl: '0px 20px 40px rgba(21, 41, 53, 0.1)',
 };
 
-export const RADIUS = {
+export const RADIUS: Record<Radius, string> = {
   s: '2px',
   m: '4px',
   l: '8px',
   xl: '16px',
 };
 
-export const TYPOGRAPHY = {
+export const TYPOGRAPHY: any = {
   font: "'Inter', sans-serif",
   h1: {
     margin: `0 0 ${GAP.l} 0`,
