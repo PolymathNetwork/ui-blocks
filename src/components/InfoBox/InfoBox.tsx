@@ -39,7 +39,6 @@ const Title = ({
   important: boolean | undefined;
   color: string | undefined;
 }) => {
-  
   const getColor = () => {
     const fallBackColor = 'gray1';
     if (important && color) {
