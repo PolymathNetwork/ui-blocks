@@ -50,7 +50,6 @@ const Title = ({
     }
   };
 
-  console.log(getColor());
   return (
     <IconContainer>
       <Icon
@@ -61,7 +60,7 @@ const Title = ({
         color={color || 'brandMain'}
         bg="light"
       />
-      <Text as="span" variant="b2m" color="brandMain">
+      <Text as="span" variant="b2m" color={getColor()}>
         {important ? title.toUpperCase() : title}
       </Text>
     </IconContainer>
