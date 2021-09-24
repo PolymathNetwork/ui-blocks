@@ -30,11 +30,6 @@ const Component = styled.div<Pick<InfoBoxProps, 'variant' | 'margin'>>(
   }),
 );
 
-const TitleText: any = styled(Text)`
-  font-size: 14px !important;
-  font-weight: 500 !important;
-`;
-
 const Title = ({
   title,
   important,
@@ -55,6 +50,7 @@ const Title = ({
     }
   };
 
+  console.log(getColor());
   return (
     <IconContainer>
       <Icon
@@ -65,9 +61,9 @@ const Title = ({
         color={color || 'brandMain'}
         bg="light"
       />
-      <TitleText as="span" variant="b2m" color={getColor()}>
+      <Text as="span" variant="b2m" color="brandMain">
         {important ? title.toUpperCase() : title}
-      </TitleText>
+      </Text>
     </IconContainer>
   );
 };
