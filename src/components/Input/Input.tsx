@@ -28,6 +28,7 @@ export type InputProps = {
   error?: string;
   countryCode?: string;
   isDivisible?: boolean;
+  thousandSeparator?: boolean;
   inputRef?: any;
 };
 
@@ -81,7 +82,8 @@ export const Input: FC<InputProps> = ({
   unit,
   error,
   isDivisible = true,
-  countryCode = "+1",
+  thousandSeparator = true,
+  countryCode = '+1',
   disabled,
   ...props
 }) => {
@@ -94,7 +96,7 @@ export const Input: FC<InputProps> = ({
     ...(isBasic ? { type } : {}),
     ...(isAmount
       ? {
-          thousandSeparator: true,
+          thousandSeparator,
           allowNegative: false,
           decimalScale: isDivisible ? 6 : 0,
           onWheel: (e: WheelEvent<HTMLInputElement>) => {
