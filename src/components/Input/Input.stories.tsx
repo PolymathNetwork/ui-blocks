@@ -45,6 +45,14 @@ Amount.args = {
   label: 'Texbox with amount formatting',
 };
 
+export const Phone = Template.bind({});
+Phone.args = {
+  variant: 'amount',
+  type: 'phone',
+  countryCode: '+1',
+  label: 'Texbox with phone number formatting',
+};
+
 export const Error = Template.bind({});
 Error.args = {
   variant: 'basic',

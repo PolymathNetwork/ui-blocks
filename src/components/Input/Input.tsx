@@ -16,7 +16,7 @@ export type InputProps = {
   margin?: string;
   id?: string;
   name?: string;
-  type?: 'text' | 'password' | 'email';
+  type?: 'text' | 'password' | 'email' | 'phone';
   disabled?: boolean;
   label?: string;
   placeholder?: string;
@@ -26,6 +26,7 @@ export type InputProps = {
   icon?: ComponentType;
   unit?: string;
   error?: string;
+  countryCode?: string;
   isDivisible?: boolean;
   inputRef?: any;
 };
@@ -80,6 +81,7 @@ export const Input: FC<InputProps> = ({
   unit,
   error,
   isDivisible = true,
+  countryCode = "+1",
   disabled,
   ...props
 }) => {
@@ -128,7 +130,13 @@ export const Input: FC<InputProps> = ({
             margin="0 s 0 0"
           />
         )}
-        <Component as={isAmount ? NumberInput : 'input'} {...componentProps} />
+        <Component
+          as={isAmount ? NumberInput : 'input'}
+          {...(type === 'phone'
+            ? { format: `${countryCode} (###) ###-####`, mask: '_' }
+            : {})}
+          {...componentProps}
+        />
         {unit && <Unit>{unit}</Unit>}
       </InputWrapper>
       {error && (
