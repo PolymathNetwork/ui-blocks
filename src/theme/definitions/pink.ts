@@ -184,8 +184,16 @@ const INPUT: CSSPropertiesExtended = {
     borderColor: COLOR.brandMain,
   },
   '&:disabled': {
-    borderColor: COLOR.gray5,
-    backgroundColor: COLOR.gray5,
+    borderColor: '#F0F0F0',
+    backgroundColor: COLOR.light,
+    color: COLOR.gray4,
+  },
+  '&:readOnly': {
+    borderColor: '#F0F0F0',
+    backgroundColor: '#F0F0F0',
+  },
+  '::placeholder': {
+    color: COLOR.gray3,
   },
 };
 
