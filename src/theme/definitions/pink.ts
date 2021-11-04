@@ -167,6 +167,28 @@ const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   },
 };
 
+const INPUT: CSSPropertiesExtended = {
+  padding: `10px ${blue.GAP.s}`,
+  lineHeight: '18px',
+  fontWeight: 'inherit',
+  fontSize: 'inherit',
+  color: COLOR.gray1,
+  border: `1px solid ${COLOR.gray4}`,
+  borderRadius: blue.RADIUS.l,
+  transition: 'all 0.3s',
+  backgroundColor: COLOR.light,
+  '&:hover': {
+    borderColor: COLOR.gray2,
+  },
+  '&:focus': {
+    borderColor: COLOR.brandMain,
+  },
+  '&:disabled': {
+    borderColor: COLOR.gray5,
+    backgroundColor: COLOR.gray5,
+  },
+};
+
 export const pink: any = {
   ...blue,
   COLOR: {
@@ -298,4 +320,5 @@ export const pink: any = {
     ...blue.INFOBOX,
     ...INFOBOX,
   },
+  INPUT,
 };
