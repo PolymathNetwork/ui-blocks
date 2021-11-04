@@ -48,3 +48,32 @@ Shadow.args = {
     </>
   ),
 };
+
+export const Areas = Template.bind({});
+Areas.args = {
+  variant: 'basic',
+  gap: 'm',
+  areas: `
+  "first  second third"
+  "fourth .      fifth"
+  `,
+  children: (
+    <>
+      <Grid.Item as="Box" variant="shadow" area="first">
+        First
+      </Grid.Item>
+      <Grid.Item as="Box" variant="shadow" area="second">
+        Second
+      </Grid.Item>
+      <Grid.Item as="Box" variant="shadow" area="third">
+        Third
+      </Grid.Item>
+      <Grid.Item as="Box" variant="shadow" area="fourth">
+        Fourth
+      </Grid.Item>
+      <Grid.Item as="Box" variant="shadow" area="fifth">
+        Fifth
+      </Grid.Item>
+    </>
+  ),
+};

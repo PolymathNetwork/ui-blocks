@@ -21,7 +21,7 @@ export type GridItemProps = BoxProps &
   GridProps & {
     as: 'Box' | 'Flex' | 'Grid';
     variant: BoxVariant | FlexVariant | GridVariant;
-    area: string;
+    area?: string;
   };
 
 const Component = styled(Box)<GridProps>(
