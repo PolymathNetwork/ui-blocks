@@ -70,7 +70,9 @@ const Component = styled.input(({ theme, readOnly }) => ({
   borderColor: 'transparent',
   WebkitAppearance: 'none',
   outline: 'none',
-  ...(readOnly ? { background: '#F0F0F0' } : {}),
+  ...(readOnly
+    ? { backgroundColor: theme.INPUT['&:readOnly'].backgroundColor }
+    : {}),
 }));
 
 const Unit = styled.div(({ theme }) => ({
