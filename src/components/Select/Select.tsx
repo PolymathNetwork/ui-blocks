@@ -124,7 +124,7 @@ export const Select: FC<SelectProps> = ({
         onChange={handleChange}
         noIcon={noIcon}
         menuPlacement="auto"
-        menuPortalTarget={document?.body}
+        menuPortalTarget={document.body}
         backspaceRemovesValue={false}
         {...props}
       />

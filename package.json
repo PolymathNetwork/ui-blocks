@@ -24,6 +24,7 @@
     "create-icons": "svgr --typescript --silent --template src/theme/icons/template.js --index-template src/theme/icons/template-index.js src/theme/icons/svg -d src/theme/icons/tsx",
     "copy-icons-svg": "copyfiles -u 1 src/theme/icons/svg/*.svg build/lib",
     "copy-fonts": "copyfiles -u 1 \"src/theme/fonts/**/*.*\" build/lib",
+    "prebuild": "npm run create-icons",
     "build": "webpack --progress --config webpack.config.js",
     "lint": "eslint \"{src,config,.storybook}/**/*{.js,.ts,.tsx}\"",
     "lint-fix": "npm run lint -- --fix",
