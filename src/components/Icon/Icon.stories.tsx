@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { PolyIcons } from 'theme/icons';
 import { Icon } from './Icon';
 import { polyIcons } from '../../theme';
-import { Text } from '../Text';
+import { Flex } from '../Flex';
 import { Grid } from '../Grid';
 
 export default {
@@ -31,17 +31,17 @@ Circle.args = {
 };
 
 export const All = () => (
-  <Grid variant="raw" cols="repeat(3, min-content)" gap="s">
+  <Grid variant="raw" cols="repeat(3, min-content)" rowGap="xs">
     {Object.keys(polyIcons).map((icon) => {
       const TargetIcon = polyIcons[icon as keyof PolyIcons];
 
       return (
         <React.Fragment key={icon}>
-          <Text variant="b1" as="span" align="right">
+          <Flex variant="raw" align="center" justify="end">
             {icon}:
-          </Text>
-          <Icon variant="basic" icon={TargetIcon} size="48px" margin="0 m" />
-          <Icon variant="circle" icon={TargetIcon} size="48px" />
+          </Flex>
+          <Icon variant="basic" icon={TargetIcon} size="32px" margin="0 m" />
+          <Icon variant="circle" icon={TargetIcon} size="32px" />
         </React.Fragment>
       );
     })}
