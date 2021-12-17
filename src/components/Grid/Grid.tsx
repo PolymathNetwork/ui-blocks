@@ -14,6 +14,8 @@ export type GridProps = BoxProps & {
   cols?: string;
   rows?: string;
   gap?: Gap;
+  colGap?: Gap;
+  rowGap?: Gap;
 };
 
 export type GridItemProps = BoxProps &
@@ -25,7 +27,7 @@ export type GridItemProps = BoxProps &
   };
 
 const Component = styled(Box)<GridProps>(
-  ({ theme, justify, align, areas, cols, rows, gap }) => ({
+  ({ theme, justify, align, areas, cols, rows, gap, colGap, rowGap }) => ({
     ...(theme.GRID || {}),
     display: 'grid',
     ...(justify ? { justifyContent: propValueMap[justify] || justify } : {}),
@@ -33,7 +35,9 @@ const Component = styled(Box)<GridProps>(
     ...(areas ? { gridTemplateAreas: areas } : {}),
     ...(cols ? { gridTemplateColumns: cols } : {}),
     ...(rows ? { gridTemplateRows: rows } : {}),
-    ...(gap ? { gridGap: theme.GAP[gap] } : {}),
+    ...(gap ? { gap: theme.GAP[gap] } : {}),
+    ...(colGap ? { columnGap: theme.GAP[colGap] } : {}),
+    ...(rowGap ? { rowGap: theme.GAP[rowGap] } : {}),
   }),
 );
 
