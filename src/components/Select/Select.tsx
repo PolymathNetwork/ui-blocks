@@ -82,7 +82,6 @@ export const Select: FC<SelectProps> = ({
   ...props
 }) => {
   const currentTheme = useContext(ThemeContext);
-  const menuPortalTarget = window ? document.body : null;
 
   // @TODO: properly type this function
   const handleChange = (e?: any) => {
@@ -125,7 +124,7 @@ export const Select: FC<SelectProps> = ({
         onChange={handleChange}
         noIcon={noIcon}
         menuPlacement="auto"
-        menuPortalTarget={menuPortalTarget}
+        // menuPortalTarget={document.body}
         backspaceRemovesValue={false}
         {...props}
       />
