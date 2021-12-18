@@ -13,6 +13,8 @@ import { Flex } from '../Flex';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 
+declare const document: any;
+
 export type SelectVariant = 'basic';
 
 export type SelectProps = {
