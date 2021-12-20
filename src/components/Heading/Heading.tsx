@@ -13,7 +13,7 @@ export type HeadingProps = {
 };
 
 const Component = styled.h1<HeadingProps>(
-  ({ theme, color = 'red', altColor, margin, variant }) => ({
+  ({ theme, color, altColor, margin, variant }) => ({
     ...(theme.TYPOGRAPHY[variant] || {}),
     margin: getMargin({ theme, margin }),
     ...(color ? { color: theme.COLOR[color] } : {}),
