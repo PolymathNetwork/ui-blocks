@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -11,7 +12,7 @@ module.exports = {
       type: 'umd',
     },
     globalObject: 'this',
-    publicPath: path.resolve('/public/assets/js'),
+    publicPath: path.resolve('build'),
   },
   module: {
     rules: [
@@ -22,7 +23,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
@@ -30,7 +31,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new MiniCssExtractPlugin(), new CleanWebpackPlugin()],
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     fallback: {
