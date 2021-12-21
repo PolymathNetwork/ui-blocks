@@ -28,15 +28,17 @@ export type InputProps = {
   error?: string;
   isDivisible?: boolean;
   inputRef?: any;
+  readOnly?: boolean;
 };
 
 export type InputWrapperProps = GridProps & {
   error?: string;
   disabled?: boolean;
+  readOnly?: boolean;
 };
 
 const InputWrapper = styled(Grid)<InputWrapperProps>(
-  ({ theme, error, disabled }) => ({
+  ({ theme, error, disabled, readOnly }) => ({
     backgroundColor: (theme.INPUT || { backgroundColor: 'unset' })
       .backgroundColor,
     padding: (theme.INPUT || { padding: 0 }).padding,
@@ -44,16 +46,22 @@ const InputWrapper = styled(Grid)<InputWrapperProps>(
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
     transition: (theme.INPUT || { transition: 'unset' }).transition,
     ...(error ? { borderColor: theme.COLOR.danger } : {}),
+    ...(!disabled && theme.INPUT && theme.INPUT['&:hover']
+      ? { '&:hover': theme.INPUT['&:hover'] }
+      : {}),
     ...(theme.INPUT && theme.INPUT['&:focus']
       ? { '&:focus-within': theme.INPUT['&:focus'] }
       : {}),
     ...(disabled && theme.INPUT && theme.INPUT['&:disabled']
       ? theme.INPUT['&:disabled']
       : {}),
+    ...(readOnly && theme.INPUT && theme.INPUT['&:readOnly']
+      ? theme.INPUT['&:readOnly']
+      : {}),
   }),
 );
 
-const Component = styled.input(({ theme }) => ({
+const Component = styled.input(({ theme, readOnly }) => ({
   ...(theme.INPUT || {}),
   margin: 0,
   padding: 0,
@@ -62,6 +70,9 @@ const Component = styled.input(({ theme }) => ({
   borderColor: 'transparent',
   WebkitAppearance: 'none',
   outline: 'none',
+  ...(readOnly
+    ? { backgroundColor: theme.INPUT['&:readOnly'].backgroundColor }
+    : {}),
 }));
 
 const Unit = styled.div(({ theme }) => ({
@@ -81,6 +92,7 @@ export const Input: FC<InputProps> = ({
   error,
   isDivisible = true,
   disabled,
+  readOnly,
   ...props
 }) => {
   const isBasic = variant === 'basic';
@@ -89,6 +101,7 @@ export const Input: FC<InputProps> = ({
   const componentProps = {
     ...props,
     disabled,
+    readOnly,
     ...(isBasic ? { type } : {}),
     ...(isAmount
       ? {
@@ -106,7 +119,7 @@ export const Input: FC<InputProps> = ({
     <Text as="label" variant="b2m" display="block" margin={margin}>
       {label && tooltip && (
         <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-          <Text as="span" variant="b2m">
+          <Text as="span" variant="b2m" color={disabled ? 'gray4' : 'gray1'}>
             {label}
           </Text>
           {tooltip && <Tooltip variant="icon" content={tooltip} />}
@@ -118,6 +131,7 @@ export const Input: FC<InputProps> = ({
         cols={`${icon ? 'auto ' : ''}1fr${unit ? ' auto' : ''}`}
         error={error}
         disabled={disabled}
+        readOnly={readOnly}
       >
         {icon && (
           <Icon

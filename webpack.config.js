@@ -1,12 +1,55 @@
-module.exports = (config) => {
-  // Remove SVG from default rule
-  const svgRule = config.module.rules.find((rule) => rule.test.test('.svg'));
-  svgRule.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-  // Add new SVG rule
-  config.module.rules.push({
-    test: /\.svg$/,
-    use: ['@svgr/webpack'],
-  });
-  return config;
+module.exports = {
+  mode: 'production',
+  entry: './src/index.ts',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    library: {
+      type: 'umd',
+    },
+    globalObject: 'this',
+    publicPath: path.resolve('build'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        type: 'asset',
+      },
+    ],
+  },
+  plugins: [new MiniCssExtractPlugin(), new CleanWebpackPlugin()],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    fallback: {
+      path: require.resolve('path-browserify'),
+    },
+  },
+  externals: {
+    // Use external version of React
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'ReactDOM',
+    },
+  },
 };
