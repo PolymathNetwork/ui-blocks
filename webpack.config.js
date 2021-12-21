@@ -6,7 +6,6 @@ module.exports = {
   mode: 'production',
   entry: './src/index.ts',
   output: {
-    filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
     library: {
       type: 'umd',

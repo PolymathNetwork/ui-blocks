@@ -10,8 +10,8 @@
   "bugs": {
     "url": "https://github.com/PolymathNetwork/ui-blocks/issues"
   },
-  "main": "./build/index.js",
-  "module": "./build/index.js",
+  "main": "./build/main.js",
+  "module": "./build/main.js",
   "types": "./build/index.d.ts",
   "files": [
     "build"
