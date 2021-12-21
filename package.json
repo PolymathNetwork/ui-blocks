@@ -10,8 +10,8 @@
   "bugs": {
     "url": "https://github.com/PolymathNetwork/ui-blocks/issues"
   },
-  "main": "./build/index.js",
-  "module": "./build/index.js",
+  "main": "./build/main.js",
+  "module": "./build/main.js",
   "types": "./build/index.d.ts",
   "files": [
     "build"
@@ -79,6 +79,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "git-commit-msg-linter": "^3.2.6",
+    "mini-css-extract-plugin": "^2.4.5",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "storybook-addon-themes": "^6.1.0",
