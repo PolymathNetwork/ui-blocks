@@ -1,11 +1,10 @@
-import React, { FC } from 'react';
-import { Box, BoxProps } from '../Box';
+import { FC } from 'react';
+import { Box } from '../Box';
 
 export type ProgressBarProps = {
   percent: number;
   height?: string;
   width?: number | string;
-  borderRadius?: number;
   bg?: string;
   bar?: string;
 };
@@ -14,7 +13,6 @@ export const ProgressBar: FC<ProgressBarProps> = ({
   percent = 0,
   height = '8px',
   width = '100%',
-  borderRadius = 100,
   bg = 'brandLightest',
   bar = 'brandMain',
   ...restProps
@@ -26,7 +24,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
       radius="m"
       height={height}
       width={width}
-      padding='0px'
+      padding="0px"
       {...restProps}
     >
       <Box

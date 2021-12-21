@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { LoadingProps } from './types';
+import { LoaderProps } from './types';
 import { Box } from '../Box';
 
 const wave = keyframes`
@@ -12,7 +12,7 @@ const wave = keyframes`
   }
 `;
 
-export const LoadingDots = styled.div<LoadingProps>`
+export const LoadingDots = styled.div<LoaderProps>`
   position: relative;
   text-align: center;
   width: 48px;
@@ -39,7 +39,7 @@ export const LoadingDots = styled.div<LoadingProps>`
   }
 `;
 
-export const LoadingDotsOutlined = styled.div<LoadingProps>`
+export const LoadingDotsOutlined = styled.div<LoaderProps>`
   position: relative;
   text-align: center;
   width: 48px;
@@ -110,12 +110,12 @@ export const Wrapper = styled(Box)`
   text-align: center;
   z-index: 9999;
   background-color: ${({ theme }) => theme.COLOR.light};
-  border-radius:  ${({ theme }) => theme.RADIUS.m};
+  border-radius: ${({ theme }) => theme.RADIUS.m};
   box-shadow: ${({ theme }) => theme.SHADOW.s};
   padding: 40px 40px;
 `;
 
-export const Loading = styled.div<LoadingProps>`
+export const Loader = styled.div<LoaderProps>`
   margin: 0 auto;
   width: ${(props: any) => (props.small ? '32px' : '64px')};
   height: ${(props: any) => (props.small ? '32px' : '64px')};
