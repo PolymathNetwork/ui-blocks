@@ -11,7 +11,7 @@ import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
-// import { Loading } from '../Loading';
+// import { Loader } from '../Loader';
 import { polyIcons } from '../../theme';
 import { TablePagination } from './TablePagination';
 import { TableBatchActions } from './TableBatchActions';
@@ -175,7 +175,7 @@ export function TableBasic({
 
       {isLoading ? (
         <Flex variant="raw" justify="center" margin="l 0">
-          {/* <Loading /> */}
+          {/* <Loader /> */}
           Loading...
         </Flex>
       ) : hasData ? (

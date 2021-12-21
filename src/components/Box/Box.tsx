@@ -17,6 +17,7 @@ export type BoxProps = {
   bg?: string;
   border?: string;
   width?: number | string;
+  height?: number | string;
   maxWidth?: number;
 };
 
@@ -32,6 +33,7 @@ const Component = styled.div<BoxProps>(
     bg,
     border,
     width,
+    height,
     maxWidth,
   }) => ({
     ...(theme.BOX[variant] || {}),
@@ -43,6 +45,7 @@ const Component = styled.div<BoxProps>(
     ...(bg ? { backgroundColor: theme.COLOR[bg] } : {}),
     ...(border ? { border: getBorder({ theme, border }) } : {}),
     ...(width ? { width } : {}),
+    ...(height ? { height } : {}),
     ...(maxWidth ? { maxWidth } : {}),
   }),
 );

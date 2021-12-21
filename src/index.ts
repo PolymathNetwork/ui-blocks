@@ -50,8 +50,7 @@ export * from './components/Icon';
 // export * from './components/Video';
 
 // MISC
-// export * from './components/Loader';
-// export * from './components/LoadingScreen';
-// export * from './components/ProgressBar';
+export * from './components/Loader';
+export * from './components/ProgressBar';
 export * from './components/TabBar';
 export * from './components/Table';

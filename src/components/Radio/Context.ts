@@ -1,7 +1,7 @@
-import React from 'react';
+import { createContext, ChangeEvent } from 'react';
 
-export const Context = React.createContext<{
+export const Context = createContext<{
   name?: string;
   value?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 } | null>(null);
