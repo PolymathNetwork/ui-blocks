@@ -4,6 +4,7 @@ export {
   createGlobalStyle,
   GlobalStyleComponent,
   ThemeProvider,
+  ServerStyleSheet,
 } from 'styled-components';
 
 // UTILS
