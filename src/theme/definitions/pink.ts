@@ -5,7 +5,7 @@ import { InfoBoxVariant } from '../../components/InfoBox';
 
 import { CSSPropertiesExtended } from '../types';
 
-const COLOR: Record<string, string> = {
+const COLOR = {
   light: '#FFFFFF',
   gray1: '#1E1E1E',
   gray2: '#565656',
