@@ -12,7 +12,7 @@ import { DrawerVariant } from '../../components/Drawer';
 
 // Basics
 
-export const BREAKPOINT: Record<string, number> = {
+export const BREAKPOINT = {
   xs: 320,
   sm: 768,
   md: 900,
@@ -20,7 +20,7 @@ export const BREAKPOINT: Record<string, number> = {
   xl: 1920,
 };
 
-export const MEDIA_QUERY: Record<string, string> = {
+export const MEDIA_QUERY = {
   xs: `@media (max-width: ${BREAKPOINT.xs}px)`,
   sm: `@media (min-width: ${BREAKPOINT.sm}px)`,
   md: `@media (min-width: ${BREAKPOINT.md}px)`,
@@ -38,7 +38,7 @@ export const GAP: Record<Gap, string> = {
   xxxl: '96px',
 };
 
-export const COLOR: Record<string, string> = {
+export const COLOR = {
   light: '#FFFFFF',
   gray1: '#1E1E1E',
   gray2: '#565656',
