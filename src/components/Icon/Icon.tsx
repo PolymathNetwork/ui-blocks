@@ -7,9 +7,14 @@ export type IconVariant = 'basic' | 'circle';
 
 export type IconProps = {
   variant: IconVariant;
-  margin?: string;
   icon: ComponentType;
-  size: string;
+  size:
+    | string
+    | {
+        width: string;
+        height: string;
+      };
+  margin?: string;
   color?: string;
   bg?: string;
   scale?: number;
@@ -22,8 +27,8 @@ const Component = styled.span<Omit<IconProps, 'icon'>>(
     display: 'inline-block',
     margin: getMargin({ theme, margin }),
     padding: 0,
-    width: size,
-    height: size,
+    width: typeof size === 'string' ? size : size.width,
+    height: typeof size === 'string' ? size : size.height,
     ...(bg && theme.COLOR[bg] ? { backgroundColor: theme.COLOR[bg] } : {}),
     svg: {
       display: 'block',
@@ -35,9 +40,7 @@ const Component = styled.span<Omit<IconProps, 'icon'>>(
     'svg > *': {
       ...theme.ICON[variant]['svg > *'],
       ...(color || theme.ICON[variant].fill
-        ? {
-            fill: color ? theme.COLOR[color] : theme.ICON[variant].fill,
-          }
+        ? { fill: color ? theme.COLOR[color] : theme.ICON[variant].fill }
         : {}),
     },
   }),
