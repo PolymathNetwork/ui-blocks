@@ -1,13 +1,6 @@
 import * as sc from './styles';
+import { LoaderProps } from './types';
 import { Box } from '../Box';
-
-export type LoaderVariant = 'basic' | 'dots' | 'outlined' | 'screen';
-
-export type LoaderProps = {
-  variant: LoaderVariant;
-  small?: boolean;
-  details?: string;
-};
 
 const LoadingDefault = (props: LoaderProps) => (
   <sc.Loader {...props}>
