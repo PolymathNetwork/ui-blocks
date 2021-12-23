@@ -1,6 +1,13 @@
 import * as sc from './styles';
-import { LoaderProps } from './types';
 import { Box } from '../Box';
+
+export type LoaderVariant = 'basic' | 'dots' | 'outlined' | 'screen';
+
+export type LoaderProps = {
+  variant: LoaderVariant;
+  small?: boolean;
+  details?: string;
+};
 
 const LoadingDefault = (props: LoaderProps) => (
   <sc.Loader {...props}>
@@ -44,9 +51,8 @@ const LoadingDotsOutlined = (props: LoaderProps) => (
 
 export const Loader = (props: LoaderProps) => {
   const { variant } = props;
-  if (variant === 'default') return <LoadingDefault {...props} />;
-  else if (variant === 'dots') return <LoadingDots {...props} />;
-  else if (variant === 'outlined') return <LoadingDotsOutlined {...props} />;
-  else if (variant === 'screen') return <LoadingScreen {...props} />;
-  else return <></>;
+  if (variant === 'dots') return <LoadingDots {...props} />;
+  if (variant === 'outlined') return <LoadingDotsOutlined {...props} />;
+  if (variant === 'screen') return <LoadingScreen {...props} />;
+  return <LoadingDefault {...props} />; // basic
 };

@@ -8,9 +8,9 @@ export default {
 
 const Template: Story<LoaderProps> = (args) => <Loader {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  variant: 'default',
+export const Basic = Template.bind({});
+Basic.args = {
+  variant: 'basic',
 } as LoaderProps;
 
 export const Screen = Template.bind({});
