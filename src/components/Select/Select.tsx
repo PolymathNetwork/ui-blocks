@@ -1,4 +1,11 @@
-import { FC, useContext, ComponentProps, ComponentType } from 'react';
+import {
+  FC,
+  useContext,
+  useState,
+  useEffect,
+  ComponentProps,
+  ComponentType,
+} from 'react';
 import ReactSelect, {
   components,
   OptionsType,
@@ -82,6 +89,13 @@ export const Select: FC<SelectProps> = ({
   ...props
 }) => {
   const currentTheme = useContext(ThemeContext);
+  const [menuPortalTarget, setMenuPortalTarget] = useState<
+    HTMLElement | undefined
+  >();
+
+  useEffect(() => {
+    setMenuPortalTarget(document.body);
+  }, []);
 
   // @TODO: properly type this function
   const handleChange = (e?: any) => {
@@ -124,7 +138,7 @@ export const Select: FC<SelectProps> = ({
         onChange={handleChange}
         noIcon={noIcon}
         menuPlacement="auto"
-        menuPortalTarget={document.body}
+        menuPortalTarget={menuPortalTarget}
         backspaceRemovesValue={false}
         {...props}
       />
