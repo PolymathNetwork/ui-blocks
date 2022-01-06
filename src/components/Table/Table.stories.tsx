@@ -85,7 +85,7 @@ export const Default = () => {
                 <Icon
                   variant="basic"
                   icon={polyIcons.MinusCircle}
-                  size="26px"
+                  size="22px"
                   color="gray3"
                   margin="0 0 0 -2px"
                 />

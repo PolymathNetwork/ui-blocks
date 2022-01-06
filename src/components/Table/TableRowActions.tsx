@@ -130,7 +130,11 @@ export const TableRowActions = ({
             id: 'expansion',
             width: 30,
             Cell: ({ row }: any) => (
-              <span {...row.getToggleRowExpandedProps()}>
+              <Box
+                variant="raw"
+                {...row.getToggleRowExpandedProps()}
+                margin="xs 0 0 0"
+              >
                 <Icon
                   variant="basic"
                   icon={
@@ -141,7 +145,7 @@ export const TableRowActions = ({
                   size="24px"
                   color="gray3"
                 />
-              </span>
+              </Box>
             ),
           },
         ]
