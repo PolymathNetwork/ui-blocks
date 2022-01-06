@@ -85,6 +85,8 @@ export const TableColumn = styled.td(
   white-space: nowrap;
   line-height: ${props.lineHeight || 'initial'};
   text-align: ${props.textAlign || 'left'};
+  border-top: 2px solid ${props.theme.COLOR.gray5};
+  border-bottom: 2px solid ${props.theme.COLOR.gray5};
 
   .canEdit {
     cursor: pointer;
