@@ -73,8 +73,8 @@ export const TableColumnHeader = styled.th(
   margin: 0;
   padding: ${props.padding || '10px 15px'};
   text-align: ${props.textAlign || 'left'};
-  color: ${({ theme }: any) => theme.COLOR.gray2};
-  line-height: ${({ theme }: any) => theme.lineHeights.lessTight};
+  color: ${props.theme.COLOR.gray2};
+  line-height: ${props.theme.GAP.s};
 `,
 );
 
