@@ -25,7 +25,7 @@ export const TableCheckbox: FC<TableCheckboxProps> = ({
   };
 
   return (
-    <Box variant="raw" margin="s 0 0 0">
+    <Box variant="raw">
       <Checkbox
         onChange={handleChange}
         indeterminate={indeterminate}

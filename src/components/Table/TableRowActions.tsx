@@ -64,7 +64,7 @@ export const TableRowActions = ({
             id: 'action',
             width: 30,
             Cell: ({ row }: CellProps<Record<string, any>>) => (
-              <Flex variant="raw" justify="end">
+              <Flex variant="raw" justify="end" align="center">
                 {rowActions.map((rowAction: TableRowActionType) => {
                   const showTooltip = rowAction.showTooltip
                     ? rowAction?.showTooltip(row.original)
