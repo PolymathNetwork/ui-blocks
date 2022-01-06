@@ -52,7 +52,7 @@ export const TableRow = styled.tr`
   &.selected,
   &:hover {
     td {
-      background-color: ${({ theme }) => theme.COLOR.gray4};
+      background-color: ${({ theme }) => theme.COLOR.gray6};
     }
   }
 
