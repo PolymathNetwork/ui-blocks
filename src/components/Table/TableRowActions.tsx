@@ -64,7 +64,7 @@ export const TableRowActions = ({
             id: 'action',
             width: 30,
             Cell: ({ row }: CellProps<Record<string, any>>) => (
-              <Flex variant="raw" justify="end">
+              <Flex variant="raw" justify="end" align="center">
                 {rowActions.map((rowAction: TableRowActionType) => {
                   const showTooltip = rowAction.showTooltip
                     ? rowAction?.showTooltip(row.original)
@@ -130,7 +130,11 @@ export const TableRowActions = ({
             id: 'expansion',
             width: 30,
             Cell: ({ row }: any) => (
-              <span {...row.getToggleRowExpandedProps()}>
+              <Box
+                variant="raw"
+                margin="xs 0 0 0"
+                {...row.getToggleRowExpandedProps()}
+              >
                 <Icon
                   variant="basic"
                   icon={
@@ -141,7 +145,7 @@ export const TableRowActions = ({
                   size="24px"
                   color="gray3"
                 />
-              </span>
+              </Box>
             ),
           },
         ]

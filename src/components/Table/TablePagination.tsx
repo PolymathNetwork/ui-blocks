@@ -26,10 +26,10 @@ export const TablePagination: FC<TablePaginationProps> = ({
   // const buttonStyles = { minWidth: 50, padding: 0 };
 
   return (
-    <Flex variant="raw" justify="end">
+    <Flex variant="raw" justify="end" align="center" margin="m 0 0 0">
       {pageSizes && setPageSize && (
-        <Flex variant="raw" margin="0 xxl 0 0">
-          <Text as="span" variant="b2m" color="gray2">
+        <Flex variant="raw" margin="0 xxl 0 0" align="center">
+          <Text as="span" variant="b2m" color="gray2" margin="0 s 0 0">
             {label}
           </Text>
           <Select

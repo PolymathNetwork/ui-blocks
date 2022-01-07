@@ -52,7 +52,7 @@ export const TableRow = styled.tr`
   &.selected,
   &:hover {
     td {
-      background-color: ${({ theme }) => theme.COLOR.gray4};
+      background-color: ${({ theme }) => theme.COLOR.gray6};
     }
   }
 
@@ -73,8 +73,8 @@ export const TableColumnHeader = styled.th(
   margin: 0;
   padding: ${props.padding || '10px 15px'};
   text-align: ${props.textAlign || 'left'};
-  color: ${({ theme }: any) => theme.COLOR.gray2};
-  line-height: ${({ theme }: any) => theme.lineHeights.lessTight};
+  color: ${props.theme.COLOR.gray2};
+  line-height: ${props.theme.GAP.s};
 `,
 );
 
@@ -85,6 +85,8 @@ export const TableColumn = styled.td(
   white-space: nowrap;
   line-height: ${props.lineHeight || 'initial'};
   text-align: ${props.textAlign || 'left'};
+  border-top: 2px solid ${props.theme.COLOR.gray5};
+  border-bottom: 2px solid ${props.theme.COLOR.gray5};
 
   .canEdit {
     cursor: pointer;
