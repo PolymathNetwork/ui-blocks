@@ -132,8 +132,8 @@ export const TableRowActions = ({
             Cell: ({ row }: any) => (
               <Box
                 variant="raw"
-                {...row.getToggleRowExpandedProps()}
                 margin="xs 0 0 0"
+                {...row.getToggleRowExpandedProps()}
               >
                 <Icon
                   variant="basic"
