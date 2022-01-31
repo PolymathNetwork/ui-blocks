@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
@@ -97,10 +97,15 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 }));
 
-const Component = styled.label<{ variant: string; margin?: string }>(
+const LabelComponent = styled.label<{ variant: string; margin?: string }>(
   ({ theme, variant, margin }) => ({
     ...(theme.CHECKBOX[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
+    ...(margin
+      ? {
+          display: 'inline-block',
+          margin: getMargin({ theme, margin }),
+        }
+      : {}),
   }),
 );
 
@@ -129,7 +134,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   };
 
   return (
-    <Component variant={variant} margin={margin}>
+    <LabelComponent variant={variant} margin={margin}>
       <Flex variant="raw">
         <Input
           {...props}
@@ -155,7 +160,7 @@ export const Checkbox: FC<CheckboxProps> = ({
             className="checkIcon"
           />
         </CheckboxInput>
-        <React.Fragment key={`${name}Label`}>
+        <Fragment key={`${name}Label`}>
           {typeof label === 'string' ? (
             <Label variant="raw">
               <label htmlFor={name}>{label}</label>
@@ -163,8 +168,8 @@ export const Checkbox: FC<CheckboxProps> = ({
           ) : (
             label
           )}
-        </React.Fragment>
+        </Fragment>
       </Flex>
-    </Component>
+    </LabelComponent>
   );
 };
