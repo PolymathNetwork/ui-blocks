@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
@@ -119,15 +119,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   indeterminate,
   ...props
 }) => {
-  const Component = styled.label(({ theme }) => ({
-    ...(theme.CHECKBOX[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
-  }));
-
-  const Label = styled(Flex)<any>(({ theme }) => ({
-    ...(theme.CHECKBOX['labelMargin'] || {}),
-  }));
-
   const checkedProps =
     typeof checked !== 'undefined' ? { checked } : { defaultChecked };
 
@@ -138,7 +129,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   };
 
   return (
-    <Component>
+    <Component variant={variant} margin={margin}>
       <Flex variant="raw">
         <Input
           {...props}
@@ -164,10 +155,12 @@ export const Checkbox: FC<CheckboxProps> = ({
             className="checkIcon"
           />
         </CheckboxInput>
-        {label && (
+        {typeof label === 'string' ? (
           <Label variant="raw">
             <label htmlFor={name}>{label}</label>
           </Label>
+        ) : (
+          label
         )}
       </Flex>
     </Component>
