@@ -97,6 +97,17 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 }));
 
+const Component = styled.label<{ variant: string; margin?: string }>(
+  ({ theme, variant, margin }) => ({
+    ...(theme.CHECKBOX[variant] || {}),
+    ...(margin && { margin: getMargin({ theme, margin }) }),
+  }),
+);
+
+const Label = styled(Flex)<any>(({ theme }) => ({
+  ...(theme.CHECKBOX['labelMargin'] || {}),
+}));
+
 export const Checkbox: FC<CheckboxProps> = ({
   variant,
   margin,
