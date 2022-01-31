@@ -19,6 +19,7 @@ export type ButtonProps = {
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: ComponentType;
+  fluid?: boolean;
   onClick?: () => void;
 };
 
@@ -38,9 +39,10 @@ const sizeMap: Record<string, Record<string, string>> = {
 };
 
 const Component = styled.button<ButtonProps>(
-  ({ theme, variant, margin, size }) => ({
+  ({ theme, variant, margin, size, fluid }) => ({
     ...(theme.BUTTON[variant] || {}),
     ...(size ? sizeMap[size] : {}),
+    ...(fluid ? { width: '100%' } : {}),
     margin: getMargin({ theme, margin }),
   }),
 );
