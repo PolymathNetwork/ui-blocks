@@ -14,7 +14,7 @@ export type CheckboxProps = {
   defaultChecked?: boolean;
   checked?: boolean;
   name?: string;
-  label?: React.ComponentType | string;
+  label?: React.ComponentType | JSX.Element | string;
   indeterminate?: boolean;
 };
 
@@ -155,13 +155,15 @@ export const Checkbox: FC<CheckboxProps> = ({
             className="checkIcon"
           />
         </CheckboxInput>
-        {typeof label === 'string' ? (
-          <Label variant="raw">
-            <label htmlFor={name}>{label}</label>
-          </Label>
-        ) : (
-          label
-        )}
+        <React.Fragment key={`${name}Label`}>
+          {typeof label === 'string' ? (
+            <Label variant="raw">
+              <label htmlFor={name}>{label}</label>
+            </Label>
+          ) : (
+            label
+          )}
+        </React.Fragment>
       </Flex>
     </Component>
   );
