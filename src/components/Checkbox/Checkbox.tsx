@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
@@ -14,7 +14,7 @@ export type CheckboxProps = {
   defaultChecked?: boolean;
   checked?: boolean;
   name?: string;
-  label?: React.ComponentType | string;
+  label?: React.ComponentType | JSX.Element | string;
   indeterminate?: boolean;
 };
 
@@ -97,6 +97,22 @@ const CheckboxInput = styled.div(({ theme }) => ({
   },
 }));
 
+const LabelComponent = styled.label<{ variant: string; margin?: string }>(
+  ({ theme, variant, margin }) => ({
+    ...(theme.CHECKBOX[variant] || {}),
+    ...(margin
+      ? {
+          display: 'inline-block',
+          margin: getMargin({ theme, margin }),
+        }
+      : {}),
+  }),
+);
+
+const Label = styled(Flex)<any>(({ theme }) => ({
+  ...(theme.CHECKBOX['labelMargin'] || {}),
+}));
+
 export const Checkbox: FC<CheckboxProps> = ({
   variant,
   margin,
@@ -108,15 +124,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   indeterminate,
   ...props
 }) => {
-  const Component = styled.label(({ theme }) => ({
-    ...(theme.CHECKBOX[variant] || {}),
-    ...(margin && { margin: getMargin({ theme, margin }) }),
-  }));
-
-  const Label = styled(Flex)<any>(({ theme }) => ({
-    ...(theme.CHECKBOX['labelMargin'] || {}),
-  }));
-
   const checkedProps =
     typeof checked !== 'undefined' ? { checked } : { defaultChecked };
 
@@ -127,7 +134,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   };
 
   return (
-    <Component>
+    <LabelComponent variant={variant} margin={margin}>
       <Flex variant="raw">
         <Input
           {...props}
@@ -153,12 +160,16 @@ export const Checkbox: FC<CheckboxProps> = ({
             className="checkIcon"
           />
         </CheckboxInput>
-        {label && (
-          <Label variant="raw">
-            <label htmlFor={name}>{label}</label>
-          </Label>
-        )}
+        <Fragment key={`${name}Label`}>
+          {typeof label === 'string' ? (
+            <Label variant="raw">
+              <label htmlFor={name}>{label}</label>
+            </Label>
+          ) : (
+            label
+          )}
+        </Fragment>
       </Flex>
-    </Component>
+    </LabelComponent>
   );
 };
