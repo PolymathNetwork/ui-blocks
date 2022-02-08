@@ -4,6 +4,7 @@ import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
 import { Icon } from '../Icon';
 import { polyIcons } from '../../theme';
+import { Box } from '../Box';
 
 export type CheckboxVariant = 'basic';
 
@@ -135,7 +136,7 @@ export const Checkbox: FC<CheckboxProps> = ({
 
   return (
     <LabelComponent variant={variant} margin={margin}>
-      <Flex variant="raw">
+      <Flex variant="raw" align="center">
         <Input
           {...props}
           {...checkedProps}
@@ -162,9 +163,9 @@ export const Checkbox: FC<CheckboxProps> = ({
         </CheckboxInput>
         <Fragment key={`${name}Label`}>
           {typeof label === 'string' ? (
-            <Label variant="raw">
-              <label htmlFor={name}>{label}</label>
-            </Label>
+            <Box variant="raw" margin="0 0 0 xs">
+              {label}
+            </Box>
           ) : (
             label
           )}
