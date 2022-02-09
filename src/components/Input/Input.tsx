@@ -82,7 +82,7 @@ const Unit = styled.div(({ theme }) => ({
 }));
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  function ForwardRefInput(inputComponentProps, ref) {
+  function ForwardRefInput(inputProps, ref) {
     const {
       variant,
       margin,
@@ -96,7 +96,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       readOnly,
       ...props
-    } = inputComponentProps;
+    } = inputProps;
 
     const isBasic = variant === 'basic';
     const isAmount = variant === 'amount';

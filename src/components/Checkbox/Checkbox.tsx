@@ -1,17 +1,16 @@
-import { FC, Fragment } from 'react';
+import { ChangeEventHandler, forwardRef, Fragment } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
 import { Icon } from '../Icon';
 import { polyIcons } from '../../theme';
-import { Box } from '../Box';
 
 export type CheckboxVariant = 'basic';
 
 export type CheckboxProps = {
   variant: CheckboxVariant;
   margin?: string;
-  onChange?: (e: boolean) => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   defaultChecked?: boolean;
   checked?: boolean;
   name?: string;
@@ -112,65 +111,61 @@ const LabelComponent = styled.label<{ variant: string; margin?: string }>(
 
 const Label = styled(Flex)<any>(({ theme }) => ({
   ...(theme.CHECKBOX['labelMargin'] || {}),
+  paddingTop: '1px',
 }));
 
-export const Checkbox: FC<CheckboxProps> = ({
-  variant,
-  margin,
-  name,
-  defaultChecked,
-  checked,
-  onChange,
-  label,
-  indeterminate,
-  ...props
-}) => {
-  const checkedProps =
-    typeof checked !== 'undefined' ? { checked } : { defaultChecked };
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  function ForwardRefCheckbox(checkboxProps, ref) {
+    const {
+      variant,
+      margin,
+      defaultChecked,
+      checked,
+      label,
+      indeterminate,
+      name,
+      ...props
+    } = checkboxProps;
 
-  const handleChange = (e: any) => {
-    if (onChange) {
-      onChange(e.currentTarget.checked);
-    }
-  };
+    const checkedProps =
+      typeof checked !== 'undefined' ? { checked } : { defaultChecked };
 
-  return (
-    <LabelComponent variant={variant} margin={margin}>
-      <Flex variant="raw" align="center">
-        <Input
-          {...props}
-          {...checkedProps}
-          type="checkbox"
-          id={name}
-          name={name}
-          onChange={handleChange}
-        />
-        <CheckboxInput
-          {...(indeterminate ? { className: 'indeterminate' } : {})}
-        >
-          <MinusBoxIcon
-            variant="basic"
-            size="1.5em"
-            icon={polyIcons.MinusBox}
-            className="minusIcon"
+    return (
+      <LabelComponent variant={variant} margin={margin}>
+        <Flex variant="raw" align="center">
+          <Input
+            {...props}
+            {...checkedProps}
+            ref={ref}
+            id={name}
+            name={name}
+            type="checkbox"
           />
-          <CheckStateIcon
-            variant="basic"
-            size="1.5em"
-            icon={polyIcons.CheckboxMarked}
-            className="checkIcon"
-          />
-        </CheckboxInput>
-        <Fragment key={`${name}Label`}>
-          {typeof label === 'string' ? (
-            <Box variant="raw" margin="0 0 0 xs">
-              {label}
-            </Box>
-          ) : (
-            label
-          )}
-        </Fragment>
-      </Flex>
-    </LabelComponent>
-  );
-};
+          <CheckboxInput
+            {...(indeterminate ? { className: 'indeterminate' } : {})}
+          >
+            <MinusBoxIcon
+              variant="basic"
+              size="1.5em"
+              icon={polyIcons.MinusBox}
+              className="minusIcon"
+            />
+            <CheckStateIcon
+              variant="basic"
+              size="1.5em"
+              icon={polyIcons.CheckboxMarked}
+              className="checkIcon"
+            />
+          </CheckboxInput>
+          <Fragment key={`${name}Label`}>
+            {typeof label === 'string' ? (
+              <Label variant="raw">{label}</Label>
+            ) : (
+              label
+            )}
+          </Fragment>
+        </Flex>
+      </LabelComponent>
+    );
+  },
+);
