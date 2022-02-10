@@ -1,4 +1,4 @@
-import { FC, WheelEvent, ComponentType } from 'react';
+import { WheelEvent, ComponentType, forwardRef } from 'react';
 import styled from 'styled-components';
 import NumberInput from 'react-number-format';
 
@@ -61,7 +61,7 @@ const InputWrapper = styled(Grid)<InputWrapperProps>(
   }),
 );
 
-const Component = styled.input(({ theme, readOnly }) => ({
+const InputComponent = styled.input(({ theme, readOnly }) => ({
   ...(theme.INPUT || {}),
   margin: 0,
   padding: 0,
@@ -81,75 +81,83 @@ const Unit = styled.div(({ theme }) => ({
   color: theme.COLOR.gray3,
 }));
 
-export const Input: FC<InputProps> = ({
-  variant,
-  margin,
-  type,
-  label,
-  tooltip,
-  icon,
-  unit,
-  error,
-  isDivisible = true,
-  disabled,
-  readOnly,
-  ...props
-}) => {
-  const isBasic = variant === 'basic';
-  const isAmount = variant === 'amount';
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  function ForwardRefInput(inputProps, ref) {
+    const {
+      variant,
+      margin,
+      type,
+      label,
+      tooltip,
+      icon,
+      unit,
+      error,
+      isDivisible = true,
+      disabled,
+      readOnly,
+      ...props
+    } = inputProps;
 
-  const componentProps = {
-    ...props,
-    disabled,
-    readOnly,
-    ...(isBasic ? { type } : {}),
-    ...(isAmount
-      ? {
-          thousandSeparator: true,
-          allowNegative: false,
-          decimalScale: isDivisible ? 6 : 0,
-          onWheel: (e: WheelEvent<HTMLInputElement>) => {
-            e.currentTarget.blur();
-          },
-        }
-      : {}),
-  };
+    const isBasic = variant === 'basic';
+    const isAmount = variant === 'amount';
 
-  return (
-    <Text as="label" variant="b2m" display="block" margin={margin}>
-      {label && tooltip && (
-        <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-          <Text as="span" variant="b2m" color={disabled ? 'gray4' : 'gray1'}>
-            {label}
-          </Text>
-          {tooltip && <Tooltip variant="icon" content={tooltip} />}
-        </Flex>
-      )}
-      <InputWrapper
-        variant="raw"
-        align="center"
-        cols={`${icon ? 'auto ' : ''}1fr${unit ? ' auto' : ''}`}
-        error={error}
-        disabled={disabled}
-        readOnly={readOnly}
-      >
-        {icon && (
-          <Icon
-            icon={icon}
-            variant="basic"
-            size="24px"
-            color="gray3"
-            margin="0 s 0 0"
-          />
+    const componentProps = {
+      ...props,
+      disabled,
+      readOnly,
+      ...(isBasic ? { type } : {}),
+      ...(isAmount
+        ? {
+            thousandSeparator: true,
+            allowNegative: false,
+            decimalScale: isDivisible ? 6 : 0,
+            onWheel: (e: WheelEvent<HTMLInputElement>) => {
+              e.currentTarget.blur();
+            },
+          }
+        : {}),
+    };
+
+    return (
+      <Text as="label" variant="b2m" display="block" margin={margin}>
+        {label && tooltip && (
+          <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
+            <Text as="span" variant="b2m" color={disabled ? 'gray4' : 'gray1'}>
+              {label}
+            </Text>
+            {tooltip && <Tooltip variant="icon" content={tooltip} />}
+          </Flex>
         )}
-        <Component as={isAmount ? NumberInput : 'input'} {...componentProps} />
-        {unit && <Unit>{unit}</Unit>}
-      </InputWrapper>
-      {error && (
-        <Text as="span" variant="b3" color="danger">
-          {error}
-        </Text>
-      )}
-    </Text>
-  );
-};
+        <InputWrapper
+          variant="raw"
+          align="center"
+          cols={`${icon ? 'auto ' : ''}1fr${unit ? ' auto' : ''}`}
+          error={error}
+          disabled={disabled}
+          readOnly={readOnly}
+        >
+          {icon && (
+            <Icon
+              icon={icon}
+              variant="basic"
+              size="24px"
+              color="gray3"
+              margin="0 s 0 0"
+            />
+          )}
+          <InputComponent
+            ref={ref}
+            as={isAmount ? NumberInput : 'input'}
+            {...componentProps}
+          />
+          {unit && <Unit>{unit}</Unit>}
+        </InputWrapper>
+        {error && (
+          <Text as="span" variant="b3" color="danger">
+            {error}
+          </Text>
+        )}
+      </Text>
+    );
+  },
+);

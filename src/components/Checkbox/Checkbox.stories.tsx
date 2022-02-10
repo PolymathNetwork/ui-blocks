@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
+import { Text } from '../Text';
 import { Checkbox } from './Checkbox';
 
 export default {
@@ -9,10 +10,22 @@ export default {
 };
 
 const Template: Story<ComponentProps<typeof Checkbox>> = (props: any) => (
-  <Checkbox {...props} />
+  <>
+    <Checkbox {...props} />
+    <Checkbox
+      {...props}
+      label={
+        <Text as="span" variant="b1m" margin="0 0 0 xs">
+          Custom label component
+        </Text>
+      }
+      margin="s 0 0"
+    />
+  </>
 );
 
 export const Basic = Template.bind({});
+
 Basic.args = {
   name: 'chkbox1',
   label: 'Checkbox label',
