@@ -300,7 +300,7 @@ export const pink: any = {
       boxShadow: blue.SHADOW.s,
       transition: 'all 0.3s',
       cursor: 'pointer',
-      '&:hover': {
+      '&:hover:enabled': {
         background: COLOR.gray5,
       },
       '&:active': {
