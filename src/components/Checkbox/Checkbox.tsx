@@ -53,8 +53,8 @@ const CheckboxInput = styled.div(({ theme }) => ({
   boxSizing: 'border-box',
   border: `2px solid ${theme.COLOR.gray3}`,
   borderRadius: theme.RADIUS.s,
-  width: '1.125rem',
-  height: '1.125rem',
+  minWidth: '1.125rem',
+  minHeight: '1.125rem',
   backgroundColor: '#fff',
   userSelect: 'none',
 
