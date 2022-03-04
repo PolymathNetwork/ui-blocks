@@ -215,6 +215,7 @@ export const pink: any = {
     ...blue.BUTTON,
     primary: {
       ...blue.TYPOGRAPHY.btn,
+      fontFamily: "'Poppins', sans-serif",
       color: COLOR.light,
       background: COLOR.brandMain3,
       border: 0,
@@ -237,6 +238,7 @@ export const pink: any = {
     },
     secondary: {
       ...blue.TYPOGRAPHY.btn,
+      fontFamily: "'Poppins', sans-serif",
       color: COLOR.brandMain3,
       background: COLOR.light,
       border: `1px solid ${COLOR.brandMain3}`,
@@ -260,6 +262,7 @@ export const pink: any = {
     },
     tertiary: {
       ...blue.TYPOGRAPHY.btn,
+      fontFamily: "'Poppins', sans-serif",
       color: COLOR.gray1,
       background: 'transparent',
       border: 0,
@@ -284,6 +287,7 @@ export const pink: any = {
       border: 0,
       borderRadius: 0,
       lineHeight: 'inherit',
+      fontFamily: "'Poppins', sans-serif",
       fontWeight: 'inherit',
       fontSize: 'inherit',
       letterSpacing: 'inherit',
@@ -293,6 +297,7 @@ export const pink: any = {
     },
     special: {
       ...blue.TYPOGRAPHY.btn,
+      fontFamily: "'Poppins', sans-serif",
       color: COLOR.gray1,
       background: COLOR.light,
       border: 0,
@@ -300,7 +305,7 @@ export const pink: any = {
       boxShadow: blue.SHADOW.s,
       transition: 'all 0.3s',
       cursor: 'pointer',
-      '&:hover': {
+      '&:hover:enabled': {
         background: COLOR.gray5,
       },
       '&:active': {
