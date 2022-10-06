@@ -16,7 +16,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   tabs: [
     { id: 'tab1', text: 'First tab' },
-    { id: 'tab2', text: 'Second tab', separator: true },
+    { id: 'tab2', text: 'Second tab', separator: true, isActive: true },
     { id: 'tab3', text: 'Third tab' },
   ],
 };

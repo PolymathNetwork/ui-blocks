@@ -1,10 +1,10 @@
-import { FC, ComponentType } from 'react';
+import { FC, ComponentType, useState } from 'react';
 import styled from 'styled-components';
 
 import { Flex, FlexProps } from '../Flex';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
-
+import { polyIcons } from '../../theme/icons';
 export type TabBarVariant = 'basic';
 
 export type TabItemProps = {
@@ -25,26 +25,31 @@ export type TabBarProps = FlexProps & {
 const ActiveTab = styled<any>(Flex)(({ theme, separator }) => ({
   ...(separator
     ? {
+        color: theme.COLOR.brandMain,
         padding: `0 ${theme.GAP.xs} 0 0`,
-        borderRight: `2px solid ${theme.COLOR.gray4}`,
+        borderBottom: `4px solid ${theme.COLOR.brandMain}`,
       }
     : {}),
 }));
 
 const ActiveTextLink = styled.a(({ theme }) => ({
+  color: theme.COLOR.brandMain,
   textDecoration: 'none',
-  color: theme.COLOR.gray1,
   cursor: 'pointer',
 }));
 
-const ActiveText = styled<any>(Text)(({ theme, isActive }) => ({
+const ActiveText = styled<any>(Text)(({ theme, isActive, isHover }) => ({
   whiteSpace: 'nowrap',
-  borderRadius: '100px',
   padding: theme.GAP.xs,
-  backgroundColor: isActive ? theme.COLOR.gray5 : 'transparent',
   '&:hover': {
-    backgroundColor: theme.COLOR.gray5,
+    color: theme.COLOR.brandMain,
+    cursor: 'pointer',
+    fill: theme.COLOR.brandMain,
   },
+}));
+const IconT = styled<any>(Icon)(({theme, isHover}) => ({
+  cursor: 'pointer',
+  fill: isHover ? '#1A56AF' : '#1E1E1E',
 }));
 
 const Item: FC<TabItemProps> = ({
@@ -55,6 +60,16 @@ const Item: FC<TabItemProps> = ({
   separator,
   onClick,
 }) => {
+  const [isHover, setIsHover] = useState(false);
+
+const handleMouseEnter = () => {
+   setIsHover(true);
+};
+
+const handleMouseLeave = () => {
+   setIsHover(false);
+};
+
   return (
     <ActiveTab
       variant="raw"
@@ -62,24 +77,28 @@ const Item: FC<TabItemProps> = ({
       align="center"
       margin="0 xs 0 0"
       separator={separator}
+      color="brandMain"
     >
       <ActiveTextLink {...(url ? { href: url } : { onClick })}>
         <ActiveText
           variant="span"
           format="b2"
           color="gray1"
+          display="flex"
           isActive={isActive}
+          isHover = {isHover}
         >
-          {icon && (
-            <Icon
-              variant="basic"
-              icon={icon}
-              size="24px"
-              margin="0 s 0 0"
-              color={isActive ? 'gray.1' : 'gray.2'}
-            />
-          )}
-          <Text as="span" variant="b2m" color={isActive ? 'gray.1' : 'gray.2'}>
+            <IconT
+            icon={polyIcons.ArrowTab}
+            variant="circle"
+            size="24px"
+            cursor="pointer"
+            color= {isHover || isActive ? 'brandMain' : 'gray.2'}
+            bg="light"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+           />
+          <Text as="span" variant="b1" color={isActive ? 'brandMain' : 'gray.2'}>
             {text}
           </Text>
         </ActiveText>

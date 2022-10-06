@@ -4,12 +4,23 @@ import { polyIcons } from '../../theme';
 import { Icon, IconProps } from '../Icon';
 import { Flex } from '../Flex';
 import { Text, TextProps, TextVariant } from '../Text';
+import { borderRadius } from 'styled-system';
 
-const StyledAnchor = styled.a(() => ({
+const StyledAnchor = styled.a(({theme}) => ({
+  color: theme.COLOR.brandMain,
+  fontSize: '16px',
   textDecoration: 'none',
   ':hover, :focus': {
     textDecoration: 'none',
   },
+  '&:hover': {
+    color: theme.COLOR.brandDark,
+    textDecoration: 'underline'
+  },
+  '&:focus': {
+    border: '3px solid #5B9EF8',
+    borderRadius:'5px'
+  }
 }));
 
 export type LinkProps = {
@@ -62,7 +73,7 @@ export const Link = ({
     <TextComponent
       variant={sizeMap[size].variant as TextVariant}
       as="p"
-      color={disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'}
+      color={disabled ? 'gray3' : variant === 'primary' ? 'gray3' : 'brandMain'}
       disabled={disabled}
     >
       {label}
@@ -86,7 +97,7 @@ export const Link = ({
   return (
     <Flex variant="raw" align="center">
       {component}
-      <IconComponent
+      {/* <IconComponent
         variant="basic"
         icon={polyIcons.ArrowRight}
         margin="0 5px"
@@ -95,7 +106,7 @@ export const Link = ({
           disabled ? 'gray3' : variant === 'primary' ? 'brandMain' : 'gray1'
         }
         disabled={disabled}
-      />
+      /> */}
     </Flex>
   );
 };
