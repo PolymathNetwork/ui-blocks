@@ -20,7 +20,7 @@ export type TextVariant =
 
 export type TextProps = {
   as: TextAs;
-  variant: TextVariant;
+  variant?: TextVariant;
   margin?: string;
   padding?: string;
   color?: string;

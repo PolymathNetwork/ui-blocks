@@ -5,9 +5,8 @@ import { Icon, IconProps } from '../Icon';
 import { Flex } from '../Flex';
 import { Text, TextProps, TextVariant } from '../Text';
 import { borderRadius } from 'styled-system';
-
-const StyledAnchor = styled.a(({theme}) => ({
-  color: theme.COLOR.brandMain,
+const StyledAnchor = styled.a(({theme, disabled}) => ({
+  color: disabled ? theme.COLOR.gray3 : theme.COLOR.brandMain,
   fontSize: '16px',
   textDecoration: 'none',
   ':hover, :focus': {
@@ -73,7 +72,7 @@ export const Link = ({
     <TextComponent
       variant={sizeMap[size].variant as TextVariant}
       as="p"
-      color={disabled ? 'gray3' : variant === 'primary' ? 'gray3' : 'brandMain'}
+      color={disabled ? 'gray3' : 'brandMain'}
       disabled={disabled}
     >
       {label}
