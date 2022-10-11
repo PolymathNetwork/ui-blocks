@@ -20,3 +20,11 @@ Basic.args = {
   variant: 'primary',
   target: '_blank',
 };
+export const Secondary = Template.bind({});
+Secondary.args = {
+  href: 'https://polymath.network',
+  label: 'Link',
+  size: 'l',
+  variant: 'secondary',
+  target: '_blank',
+};
