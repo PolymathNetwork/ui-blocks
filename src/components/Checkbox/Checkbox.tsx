@@ -1,5 +1,5 @@
 import { ChangeEventHandler, forwardRef, Fragment } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeConsumer } from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
 import { Icon } from '../Icon';
@@ -47,23 +47,14 @@ const MinusBoxIcon = styled(Icon)<any>(() => ({
   margin: 'auto',
   transition: `150ms`,
 }));
-// const LabelComponent = styled.label<{ variant: string; margin?: string }>(
-//   ({ theme, variant, margin }) => ({
-//     ...(theme.CHECKBOX[variant] || {}),
-//     ...(margin
-//       ? {
-//           display: 'inline-block',
-//           margin: getMargin({ theme, margin }),
-//         }
-//       : {}),
-//   }),
-// );
+
 const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => ({
   position: 'relative',
   cursor: 'pointer',
   transition: `200ms`,
   boxSizing: 'border-box',
-  border: `2px solid ${disabled ? 'blue' : 'red'}`,
+  border: '2px solid',
+  borderColor: disabled ? '#D6DDE8' : '#8C9BA5',
   borderRadius: theme.RADIUS.s,
   minWidth: '1.125rem',
   minHeight: '1.125rem',
@@ -91,17 +82,10 @@ const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => (
       bottom: '5px',
       border: '115px solid #ffea00'
   },
-  [`${Input}:checked:disabled + &`]: {
-    backgroundColor: 'red',
-},
-
   [`${Input}:checked + &`]: {
-    backgroundColor: theme.COLOR.gray5,
     borderColor: theme.COLOR.brandMain,
-  },
+    borderColor: theme.COLOR.gray2,
 
-  [`${Input}:disabled + &`]: {
-    borderColor: theme.COLOR.gray4,
   },
 
   [`${Input}:checked + & .checkIcon`]: {
@@ -116,12 +100,14 @@ const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => (
       visibility: 'visible',
       opacity: 1,
       background: theme.COLOR.light,
+      fill: 'yellow'
     },
 
     '.checkIcon': {
       visibility: 'hidden',
       opacity: 0,
       background: theme.COLOR.light,
+      fill: 'yellow'
     },
   },
 }));
@@ -157,9 +143,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ...props
     } = checkboxProps;
 
-    const checkedProps =
-      typeof checked !== 'undefined' ? { checked } : { defaultChecked };
-    const isDisabled = true
+    const checkedProps = typeof checked !== 'undefined' ? { checked } : { defaultChecked };
+    // const isDisabled = typeof disabled !== 'undefined' ? true  : false;
     return (
       <LabelComponent variant={variant} margin={margin}>
         <Flex variant="raw" align="center">
@@ -172,7 +157,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
           />
           <CheckboxInput
-           disabled={!isDisabled}
+           disabled={disabled}
             {...(indeterminate ? { className: 'indeterminate' } : {})}
           >
             <MinusBoxIcon
@@ -184,11 +169,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             <CheckStateIcon
               variant="basic"
               size="1.5em"
-              icon={polyIcons.CheckboxMarked}
+              // icon={polyIcons.CheckboxMarked}
+              icon={polyIcons.CheckboxMarkedGray}
               className="checkIcon"
             />
           </CheckboxInput>
-          <div></div>
           <Fragment key={`${name}Label`}>
             {typeof label === 'string' ? (
               <Label variant="raw">{label}</Label>

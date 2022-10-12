@@ -37,6 +37,5 @@ Disabled.args = {
   name: 'chkbox2',
   label: 'Checkbox label',
   variant: 'basic',
-  disabled: false,
 };
 
