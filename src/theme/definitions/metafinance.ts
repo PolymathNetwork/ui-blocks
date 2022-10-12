@@ -452,7 +452,7 @@ export const INPUT: CSSPropertiesExtended = {
     },
   },
   '::placeholder': {
-    color: COLOR.gray3
+    color: COLOR.gray3,
   },
 };
 
@@ -530,13 +530,17 @@ export const SELECT: any = {
     ...styles,
     backgroundColor: state.selectProps.readonly ? COLOR.gray5 : COLOR.light,
     borderRadius: RADIUS.m,
-    ...(state.selectProps.isDisabled ? { 
-      borderColor: COLOR.gray5,
-    } : (state.selectProps.readonly ? {
-      borderColor: 'transparent',
-    } : {
-      borderColor: COLOR.gray3,
-    })),
+    ...(state.selectProps.isDisabled
+      ? {
+          borderColor: COLOR.gray5,
+        }
+      : state.selectProps.readonly
+      ? {
+          borderColor: 'transparent',
+        }
+      : {
+          borderColor: COLOR.gray3,
+        }),
     '&:hover': {
       borderColor: state.selectProps.readonly ? 'transparent' : COLOR.gray2,
     },
@@ -548,7 +552,7 @@ export const SELECT: any = {
           },
         }
       : {}),
-    cursor:  state.selectProps.readonly ? 'not-allowed' : 'pointer',
+    cursor: state.selectProps.readonly ? 'not-allowed' : 'pointer',
   }),
   option: (styles: any, state: any) => ({
     ...styles,
@@ -569,12 +573,12 @@ export const SELECT: any = {
   }),
   valueContainer: (styles: any) => ({
     ...styles,
-    ...TYPOGRAPHY.b2
+    ...TYPOGRAPHY.b2,
   }),
   placeholder: (styles: any) => ({
     ...styles,
     ...TYPOGRAPHY.b2,
-    color: COLOR.gray3
+    color: COLOR.gray3,
   }),
   menu: (styles: any) => ({
     ...styles,
@@ -754,4 +758,3 @@ export const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
     // },
   },
 };
-

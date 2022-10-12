@@ -35,7 +35,7 @@ export type SelectProps = {
   onChange?: (value: any) => void;
   placeholder?: string;
   value?: OptionType;
-  readonly?: boolean,
+  readonly?: boolean;
   options: OptionsType<OptionType> | GroupedOptionsType<OptionType>;
   // disabledOptionText?: string;
 };
@@ -95,7 +95,6 @@ export const Select: FC<SelectProps> = ({
   const [menuPortalTarget, setMenuPortalTarget] = useState<
     HTMLElement | undefined
   >();
-  console.log(props, "==props");
   useEffect(() => {
     setMenuPortalTarget(document.body);
   }, []);
@@ -119,7 +118,11 @@ export const Select: FC<SelectProps> = ({
       <Text as="label" variant="b2m" display="block" margin={margin}>
         {label && (
           <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-            <Text color={isDisabled ? 'gray3' : 'gray1' } as="span" variant="b2m">
+            <Text
+              color={isDisabled ? 'gray3' : 'gray1'}
+              as="span"
+              variant="b2m"
+            >
               {label}
             </Text>
             {tooltip && <Tooltip variant="icon" content={tooltip} />}

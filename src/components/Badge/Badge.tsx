@@ -8,8 +8,8 @@ import { Icon } from '../Icon';
 export type BadgeVariant = 'default' | 'success' | 'warning' | 'danger';
 enum IconPosition {
   Left = 'left',
-  Right = 'right'
-};
+  Right = 'right',
+}
 
 export type BadgeProps = {
   variant: BadgeVariant;
@@ -42,7 +42,7 @@ const Component = styled.span<BadgeProps>(
 const IconContainer = styled.span(() => ({
   display: 'inline-block',
   lineHeight: '10px',
-  verticalAlign:' middle'
+  verticalAlign: ' middle',
 }));
 
 const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
@@ -51,16 +51,21 @@ const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
     svg: {
       path: {
         fill: `${theme.BADGE[themeVariant].color} !important`,
-      }
-    }
-  }
+      },
+    },
+  };
 });
 
 const renderIconContainer = (icon: ComponentType, variant: BadgeVariant) => (
   <IconContainer>
-    <StyledIcon themeVariant={variant} icon={icon} variant="basic" size="14px" />
+    <StyledIcon
+      themeVariant={variant}
+      icon={icon}
+      variant="basic"
+      size="14px"
+    />
   </IconContainer>
-)
+);
 
 export const Badge: FC<BadgeProps> = ({
   display = 'inline-block',
@@ -70,8 +75,14 @@ export const Badge: FC<BadgeProps> = ({
   iconPosition,
   children,
   ...props
-}) => <Component variant={variant} display={display} size={size} {...props} >
-  {icon && (!iconPosition || iconPosition === IconPosition.Left) && renderIconContainer(icon, variant)}
-  {children}
-  {icon && iconPosition === IconPosition.Right && renderIconContainer(icon, variant)}
-</Component>;
+}) => (
+  <Component variant={variant} display={display} size={size} {...props}>
+    {icon &&
+      (!iconPosition || iconPosition === IconPosition.Left) &&
+      renderIconContainer(icon, variant)}
+    {children}
+    {icon &&
+      iconPosition === IconPosition.Right &&
+      renderIconContainer(icon, variant)}
+  </Component>
+);

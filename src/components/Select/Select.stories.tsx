@@ -31,9 +31,7 @@ Disabled.args = {
   variant: 'basic',
   label: 'Select with label and icons',
   placeholder: 'Select an option',
-  options: [
-    { value: 'first', label: 'First' },
-  ],
+  options: [{ value: 'first', label: 'First' }],
   isDisabled: true,
 };
 
@@ -66,7 +64,7 @@ ReadOnly.args = {
     { value: 'forth', label: 'Forth' },
     { value: 'fifth', label: 'Fifth' },
   ],
-  readonly: true
+  readonly: true,
 };
 
 export const WithoutIcon = Template.bind({});
@@ -82,7 +80,7 @@ WithoutIcon.args = {
     { value: 'forth', label: 'Forth' },
     { value: 'fifth', label: 'Fifth' },
   ],
-  noIcon: true
+  noIcon: true,
 };
 
 export const GroupedOptions = Template.bind({});
@@ -93,26 +91,26 @@ GroupedOptions.args = {
   placeholder: 'Select an option',
   options: [
     {
-      label: "Mamals",
+      label: 'Mamals',
       options: [
-        { label: "Rat", value: "value_1" },
-        { label: "Bat", value: "value_2" }
-      ]
+        { label: 'Rat', value: 'value_1' },
+        { label: 'Bat', value: 'value_2' },
+      ],
     },
     {
-      label: "Reptiles",
+      label: 'Reptiles',
       options: [
-        { label: "Snake", value: "value_1" },
-        { label: "Lizard", value: "value_2" }
-      ]
+        { label: 'Snake', value: 'value_1' },
+        { label: 'Lizard', value: 'value_2' },
+      ],
     },
     {
-      label: "Plants",
+      label: 'Plants',
       options: [
-        { label: "Chuimui", value: "value_1" },
-        { label: "Bamboo", value: "value_2" }
-      ]
-    }
+        { label: 'Chuimui', value: 'value_1' },
+        { label: 'Bamboo', value: 'value_2' },
+      ],
+    },
   ],
-  noIcon: true
+  noIcon: true,
 };

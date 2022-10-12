@@ -13,8 +13,8 @@ export type ButtonVariant =
 
 enum IconPosition {
   Left = 'left',
-  Right = 'right'
-};
+  Right = 'right',
+}
 
 export type ButtonProps = {
   variant: ButtonVariant;
@@ -45,21 +45,20 @@ const sizeMap: Record<string, Record<string, string>> = {
 
 const Component = styled.button<ButtonProps>(
   ({ theme, variant, margin, size }) => {
-    console.log(theme.BUTTON[variant], variant, "theme.BUTTON[variant]")
     return {
       ...(theme.BUTTON[variant] || {}),
       ...(size ? sizeMap[size] : {}),
       margin: getMargin({ theme, margin }),
-    }
+    };
   },
 );
 
-const IconContainer = styled.span<any>(({ theme, iconPosition }) => ({
+const IconContainer = styled.span<any>(({ iconPosition }) => ({
   display: 'inline-block',
   ...(iconPosition === IconPosition.Left && { marginRight: '12px' }),
   ...(iconPosition === IconPosition.Right && { marginLeft: '12px' }),
   lineHeight: '24px',
-  fontSize: '19px'
+  fontSize: '19px',
 }));
 
 const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
@@ -68,16 +67,25 @@ const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
     svg: {
       path: {
         fill: `${theme.BUTTON[themeVariant].color} !important`,
-      }
-    }
-  }
+      },
+    },
+  };
 });
 
-const renderIconContainer = (icon: ComponentType, variant: ButtonVariant, iconPosition: string  = IconPosition.Left) => (
+const renderIconContainer = (
+  icon: ComponentType,
+  variant: ButtonVariant,
+  iconPosition: string = IconPosition.Left,
+) => (
   <IconContainer iconPosition={iconPosition}>
-    <StyledIcon themeVariant={variant} icon={icon} variant="basic" size="14px" />
+    <StyledIcon
+      themeVariant={variant}
+      icon={icon}
+      variant="basic"
+      size="14px"
+    />
   </IconContainer>
-)
+);
 
 export const Button: FC<ButtonProps> = ({
   type = 'button',
@@ -89,8 +97,12 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }) => (
   <Component size={size} type={type} variant={variant} {...props}>
-    {icon && (!iconPosition || iconPosition === IconPosition.Left) && renderIconContainer(icon, variant, iconPosition)}
+    {icon &&
+      (!iconPosition || iconPosition === IconPosition.Left) &&
+      renderIconContainer(icon, variant, iconPosition)}
     {children}
-    {icon && iconPosition === IconPosition.Right && renderIconContainer(icon, variant, iconPosition)}
+    {icon &&
+      iconPosition === IconPosition.Right &&
+      renderIconContainer(icon, variant, iconPosition)}
   </Component>
 );

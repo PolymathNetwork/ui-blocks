@@ -13,7 +13,7 @@ export type InputVariant = 'basic' | 'amount';
 export enum IconPosition {
   Left = 'left',
   Right = 'right',
-};
+}
 
 export type InputProps = {
   variant: InputVariant;
@@ -28,7 +28,7 @@ export type InputProps = {
   onChange?: (state: any) => void;
   tooltip?: string | ComponentType;
   icon?: ComponentType;
-  iconPosition?: IconPosition,
+  iconPosition?: IconPosition;
   unit?: string;
   error?: string;
   isDivisible?: boolean;
@@ -50,13 +50,15 @@ const InputWrapper = styled(Grid)<InputWrapperProps>(
     border: (theme.INPUT || { border: 0 }).border,
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
     transition: (theme.INPUT || { transition: 'unset' }).transition,
-    ...(error ? {
-      borderColor: theme.COLOR.danger2,
-      background: theme.COLOR.danger3,
-      input: {
-        background: theme.COLOR.danger3,
-      }
-    } : {}),
+    ...(error
+      ? {
+          borderColor: theme.COLOR.danger2,
+          background: theme.COLOR.danger3,
+          input: {
+            background: theme.COLOR.danger3,
+          },
+        }
+      : {}),
     ...(!disabled && theme.INPUT && theme.INPUT['&:hover']
       ? { '&:hover': theme.INPUT['&:hover'] }
       : {}),
@@ -130,15 +132,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         : {}),
     };
 
-    const renderIcon = (icon: ComponentType, iconPosition: IconPosition = IconPosition.Left) => (
+    const renderIcon = (
+      _icon: ComponentType,
+      _iconPosition: IconPosition = IconPosition.Left,
+    ) => (
       <Icon
-        icon={icon}
+        icon={_icon}
         variant="basic"
         size="24px"
         color="gray3"
-        margin={iconPosition === IconPosition.Left ?  "0 s 0 0" : "0"}
+        margin={_iconPosition === IconPosition.Left ? '0 s 0 0' : '0'}
       />
-    )
+    );
 
     return (
       <Text as="label" variant="b2m" display="block" margin={margin}>
@@ -158,13 +163,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           readOnly={readOnly}
         >
-          {icon && (!iconPosition || iconPosition === IconPosition.Left) && (renderIcon(icon, iconPosition))}
+          {icon &&
+            (!iconPosition || iconPosition === IconPosition.Left) &&
+            renderIcon(icon, iconPosition)}
           <InputComponent
             ref={ref}
             as={isAmount ? NumberInput : 'input'}
             {...componentProps}
           />
-          {icon && iconPosition === IconPosition.Right && (renderIcon(icon, iconPosition))}
+          {icon &&
+            iconPosition === IconPosition.Right &&
+            renderIcon(icon, iconPosition)}
           {unit && <Unit>{unit}</Unit>}
         </InputWrapper>
         {error && (

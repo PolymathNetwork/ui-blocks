@@ -116,7 +116,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         {...(hasIcon
           ? {
               icon: polyIcons.CalendarRange,
-              iconPosition: IconPosition.Right
+              iconPosition: IconPosition.Right,
             }
           : {})}
         {...inputProps}
