@@ -23,6 +23,7 @@ Labeled.args = {
   variant: 'basic',
   label: 'Texbox with a label',
   tooltip: 'Some helpful imformation about this feild.',
+  placeholder: 'Input some text'
 };
 
 export const Unit = Template.bind({});
@@ -50,4 +51,20 @@ Error.args = {
   variant: 'basic',
   label: 'Texbox with error state',
   error: 'Enter valid value',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  variant: 'basic',
+  label: 'Disabled texbox',
+  placeholder: 'Can\'t type here',
+  disabled: true
+};
+
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  variant: 'basic',
+  label: 'Read only texbox',
+  placeholder: 'Can\'t type here',
+  readOnly: true
 };

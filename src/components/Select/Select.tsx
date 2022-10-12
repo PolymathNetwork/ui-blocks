@@ -29,12 +29,13 @@ export type SelectProps = {
   name?: string;
   label?: string;
   tooltip?: string | ComponentType;
-  disabled?: boolean;
+  isDisabled?: boolean;
   noIcon?: boolean;
   inputRef?: any;
   onChange?: (value: any) => void;
   placeholder?: string;
   value?: OptionType;
+  readonly?: boolean,
   options: OptionsType<OptionType> | GroupedOptionsType<OptionType>;
   // disabledOptionText?: string;
 };
@@ -68,7 +69,7 @@ const Option: FC<SelectOptionProps> = ({ children, ...props }) => (
         icon={polyIcons.Image}
         size="22px"
         color="gray3"
-        margin="0 s -5px l"
+        margin="0 9px -5px 0"
       />
     )}
     {children}
@@ -86,13 +87,15 @@ export const Select: FC<SelectProps> = ({
   inputRef,
   onChange,
   noIcon,
+  isDisabled,
+  readonly,
   ...props
 }) => {
   const currentTheme = useContext(ThemeContext);
   const [menuPortalTarget, setMenuPortalTarget] = useState<
     HTMLElement | undefined
   >();
-
+  console.log(props, "==props");
   useEffect(() => {
     setMenuPortalTarget(document.body);
   }, []);
@@ -114,9 +117,9 @@ export const Select: FC<SelectProps> = ({
   return (
     <>
       <Text as="label" variant="b2m" display="block" margin={margin}>
-        {label && tooltip && (
+        {label && (
           <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-            <Text as="span" variant="b2m">
+            <Text color={isDisabled ? 'gray3' : 'gray1' } as="span" variant="b2m">
               {label}
             </Text>
             {tooltip && <Tooltip variant="icon" content={tooltip} />}
@@ -128,6 +131,7 @@ export const Select: FC<SelectProps> = ({
         ref={inputRef}
         inputRef={inputRef}
         innerRef={inputRef}
+        isDisabled={isDisabled}
         styles={currentTheme.SELECT}
         components={{
           Option,
@@ -136,6 +140,9 @@ export const Select: FC<SelectProps> = ({
           ClearIndicator: null,
         }}
         onChange={handleChange}
+        readonly={readonly}
+        menuIsOpen={readonly ? false : undefined}
+        isSearchable={!readonly}
         noIcon={noIcon}
         menuPlacement="auto"
         menuPortalTarget={menuPortalTarget}

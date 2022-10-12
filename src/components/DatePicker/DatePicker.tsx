@@ -7,7 +7,7 @@ import 'react-day-picker/lib/style.css';
 
 import { polyIcons } from '../../theme';
 import { BoxVariant, Box } from '../Box';
-import { Input } from '../Input';
+import { Input, IconPosition } from '../Input';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
 
@@ -116,6 +116,7 @@ export const DatePicker: FC<DatePickerProps> = ({
         {...(hasIcon
           ? {
               icon: polyIcons.CalendarRange,
+              iconPosition: IconPosition.Right
             }
           : {})}
         {...inputProps}

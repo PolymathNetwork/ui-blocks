@@ -75,7 +75,7 @@ const CHECKBOX: CSSPropertiesExtended = {
 };
 
 const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
-  basic: {
+  default: {
     ...blue.TYPOGRAPHY.b3m,
     color: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
@@ -215,6 +215,7 @@ export const pink: any = {
     ...blue.BUTTON,
     primary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.light,
       background: COLOR.brandMain3,
@@ -238,6 +239,7 @@ export const pink: any = {
     },
     secondary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.brandMain3,
       background: COLOR.light,
@@ -262,6 +264,7 @@ export const pink: any = {
     },
     tertiary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.gray1,
       background: 'transparent',

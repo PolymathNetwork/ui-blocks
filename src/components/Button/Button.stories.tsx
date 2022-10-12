@@ -2,6 +2,7 @@ import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 
 import { Button } from './Button';
+import { polyIcons } from '../../theme';
 
 export default {
   title: 'Polyblocks/Button',
@@ -50,4 +51,11 @@ export const Special = Template.bind({});
 Special.args = {
   variant: 'special',
   children: 'Special',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  variant: 'primary',
+  children: 'With icon',
+  icon: polyIcons.DeleteOutline,
 };
