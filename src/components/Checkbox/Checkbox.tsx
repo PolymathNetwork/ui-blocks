@@ -5,6 +5,7 @@ import { getMargin, visuallyHidden } from '../../theme/utils';
 import { Icon } from '../Icon';
 import { polyIcons } from '../../theme';
 import { width } from 'styled-system';
+import { relative } from 'path/win32';
 
 export type CheckboxVariant = 'basic';
 
@@ -22,7 +23,7 @@ export type CheckboxProps = {
 
 const Input = styled.input(visuallyHidden);
 
-const CheckStateIcon = styled(Icon)<any>(() => ({
+const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -33,7 +34,15 @@ const CheckStateIcon = styled(Icon)<any>(() => ({
   pointerEvents: 'none',
   margin: 'auto',
   transition: `150ms`,
-}));
+  'svg > *': {
+    ...theme.ICON[variant]['svg > *'],
+    ...(theme.ICON[variant].fill
+      ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
+      : {}),
+  },
+ 
+} 
+));
 
 const MinusBoxIcon = styled(Icon)<any>(() => ({
   position: 'absolute',
@@ -63,28 +72,45 @@ const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => (
   [`${Input}:focus + &`]: {
     border: `2px solid #5B9EF8`,
     position: 'relative',
-    padding: '12px',
+    padding: disabled? '0px' : '12px',
     zIndex: '1',
+    '&:after': {
+    display:'block',
+    content: "''",
+    position: 'absolute',
+    top: '3px',
+    left: '3px',
+    zIndex: '2',
+    right: '3px',
+    bottom: '3px',
+    border: '2px solid #8C9BA5',
+    borderRadius: theme.RADIUS.s,
+  }
   },
 
   [`${Input}:checked:focus + &`]: {
+    position: 'relative',
     border: `2px solid #5B9EF8`,
-    padding: '12px',
+    padding: disabled? '0px' : '12px',
+    '&:after': {
+      border: '0px solid #8C9BA5',
+    }
   },
-  [`${Input}:checked:focus + ::before + &`]: {
-      backgroundColor: 'red',
-      content: ' ',
-      position: 'absolute',
-      zIndex: '-1',
-      top: '5px',
-      left: '5px',
-      right: '5px',
-      bottom: '5px',
-      border: '115px solid #ffea00'
-  },
+  // [`${Input}:focus + &`]: {
+  //   '&:after': {
+  //     display:'block',
+  //     content: "''",
+  //     position: 'absolute',
+  //     top: '3px',
+  //     left: '3px',
+  //     right: '3px',
+  //     bottom: '3px',
+  //     border: '2px solid #8C9BA5',
+  //   }
+  // },
   [`${Input}:checked + &`]: {
     borderColor: theme.COLOR.brandMain,
-    borderColor: theme.COLOR.gray2,
+    // borderColor: theme.COLOR.gray2,
 
   },
 
@@ -169,8 +195,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             <CheckStateIcon
               variant="basic"
               size="1.5em"
-              // icon={polyIcons.CheckboxMarked}
-              icon={polyIcons.CheckboxMarkedGray}
+              icon={polyIcons.CheckboxMarked}
+              disabled={disabled}
               className="checkIcon"
             />
           </CheckboxInput>
