@@ -12,8 +12,8 @@ const Template: Story<ComponentProps<typeof Link>> = (props: any) => (
   <Link {...props} />
 );
 
-export const Basic = Template.bind({});
-Basic.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   href: 'https://polymath.network',
   label: 'Link',
   size: 'm',

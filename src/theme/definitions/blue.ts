@@ -49,6 +49,7 @@ export const COLOR = {
   gray7: '#F0F0F0',
   brandBg: '#FAFDFF',
   brandMain: '#1A56AF',
+  brandMain1: '#5B9EF8',
   brandMain2: '#6DC7F7',
   brandMain3: '#C0E3FF',
   brandMain4: '#DCEFFE',
