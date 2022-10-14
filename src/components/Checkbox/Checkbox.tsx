@@ -44,10 +44,10 @@ const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
 } 
 ));
 
-const MinusBoxIcon = styled(Icon)<any>(() => ({
+const MinusBoxIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
   position: 'absolute',
-  top: '71%',
-  left: '71%',
+  top: '73%',
+  left: '73%',
   transform: 'translate(-50%, -50%)',
   display: 'block',
   visibility: 'hidden',
@@ -55,6 +55,13 @@ const MinusBoxIcon = styled(Icon)<any>(() => ({
   pointerEvents: 'none',
   margin: 'auto',
   transition: `150ms`,
+  'svg > *': {
+    ...theme.ICON[variant]['svg > *'],
+    ...(theme.ICON[variant].fill
+      ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
+      : {}),
+  },
+
 }));
 
 const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => ({
@@ -75,16 +82,16 @@ const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => (
     padding: disabled? '0px' : '12px',
     zIndex: '1',
     '&:after': {
-    display:'block',
-    content: "''",
-    position: 'absolute',
-    top: '3px',
-    left: '3px',
-    zIndex: '2',
-    right: '3px',
-    bottom: '3px',
-    border: '2px solid #8C9BA5',
-    borderRadius: theme.RADIUS.s,
+    // display:'block',
+    // content: "''",
+    // position: 'absolute',
+    // top: '3px',
+    // left: '3px',
+    // zIndex: '2',
+    // right: '3px',
+    // bottom: '3px',
+    // border: '2px solid #8C9BA5',
+    // borderRadius: theme.RADIUS.s,
   }
   },
 
@@ -96,44 +103,34 @@ const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => (
       border: '0px solid #8C9BA5',
     }
   },
-  // [`${Input}:focus + &`]: {
-  //   '&:after': {
-  //     display:'block',
-  //     content: "''",
-  //     position: 'absolute',
-  //     top: '3px',
-  //     left: '3px',
-  //     right: '3px',
-  //     bottom: '3px',
-  //     border: '2px solid #8C9BA5',
-  //   }
-  // },
   [`${Input}:checked + &`]: {
     borderColor: theme.COLOR.brandMain,
-    // borderColor: theme.COLOR.gray2,
-
   },
+
 
   [`${Input}:checked + & .checkIcon`]: {
     visibility: 'visible',
     opacity: 1,
   },
-
+  [`${Input}:focus + & .minusIcon`]: {
+    visibility: 'visible',
+    top: '60%',
+    left: '60%',
+  },
+ 
+ 
   '&.indeterminate': {
     borderColor: theme.COLOR.brandMain,
 
     '.minusIcon': {
       visibility: 'visible',
       opacity: 1,
-      background: theme.COLOR.light,
-      fill: 'yellow'
     },
 
     '.checkIcon': {
       visibility: 'hidden',
       opacity: 0,
       background: theme.COLOR.light,
-      fill: 'yellow'
     },
   },
 }));
@@ -190,6 +187,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               variant="basic"
               size="1.5em"
               icon={polyIcons.MinusBox}
+              disabled={disabled}
               className="minusIcon"
             />
             <CheckStateIcon
