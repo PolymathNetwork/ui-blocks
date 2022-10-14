@@ -42,7 +42,7 @@ const Component = styled.span<TextProps>(
     theme,
   }) => ({
     ...(theme.TEXT[as] || {}),
-    ...(theme.TYPOGRAPHY[variant] || {}),
+    ...(theme.TYPOGRAPHY[variant as TextVariant] || {}),
     ...(margin ? { margin: getMargin({ theme, margin }) } : {}),
     ...(padding ? { padding: getMargin({ theme, margin: padding }) } : {}),
     ...(color ? { color: theme.COLOR[color] } : {}),
