@@ -5,6 +5,7 @@ import { Flex, FlexProps } from '../Flex';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
 import { polyIcons } from '../../theme/icons';
+
 export type TabBarVariant = 'basic';
 
 export type TabItemProps = {
@@ -38,7 +39,7 @@ const ActiveTextLink = styled.a(({ theme }) => ({
   cursor: 'pointer',
 }));
 
-const ActiveText = styled<any>(Text)(({ theme, isActive, isHover }) => ({
+const ActiveText = styled<any>(Text)(({ theme }) => ({
   whiteSpace: 'nowrap',
   padding: theme.GAP.xs,
   '&:hover': {
@@ -47,7 +48,7 @@ const ActiveText = styled<any>(Text)(({ theme, isActive, isHover }) => ({
     fill: theme.COLOR.brandMain,
   },
 }));
-const IconT = styled<any>(Icon)(({theme, isHover}) => ({
+const IconT = styled<any>(Icon)(({ isHover }) => ({
   cursor: 'pointer',
   fill: isHover ? '#1A56AF' : '#1E1E1E',
 }));
@@ -55,20 +56,19 @@ const IconT = styled<any>(Icon)(({theme, isHover}) => ({
 const Item: FC<TabItemProps> = ({
   text,
   url,
-  icon,
   isActive,
   separator,
   onClick,
 }) => {
   const [isHover, setIsHover] = useState(false);
 
-const handleMouseEnter = () => {
-   setIsHover(true);
-};
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
 
-const handleMouseLeave = () => {
-   setIsHover(false);
-};
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
 
   return (
     <ActiveTab
@@ -86,19 +86,23 @@ const handleMouseLeave = () => {
           color="gray1"
           display="flex"
           isActive={isActive}
-          isHover = {isHover}
+          isHover={isHover}
         >
-            <IconT
+          <IconT
             icon={polyIcons.ArrowTab}
             variant="circle"
             size="24px"
             cursor="pointer"
-            color= {isHover || isActive ? 'brandMain' : 'gray.2'}
+            color={isHover || isActive ? 'brandMain' : 'gray.2'}
             bg="light"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-           />
-          <Text as="span" variant="b1" color={isActive ? 'brandMain' : 'gray.2'}>
+          />
+          <Text
+            as="span"
+            variant="b1"
+            color={isActive ? 'brandMain' : 'gray.2'}
+          >
             {text}
           </Text>
         </ActiveText>
