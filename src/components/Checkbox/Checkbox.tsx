@@ -176,7 +176,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
           />
           <CheckboxInput
-            disabled={disabled}
+            disabled={disabled as boolean}
             {...(indeterminate ? { className: 'indeterminate' } : {})}
           >
             <MinusBoxIcon
