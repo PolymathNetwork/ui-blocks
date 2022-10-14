@@ -1,11 +1,9 @@
 import { ChangeEventHandler, forwardRef, Fragment } from 'react';
-import styled, { ThemeConsumer } from 'styled-components';
+import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { getMargin, visuallyHidden } from '../../theme/utils';
 import { Icon } from '../Icon';
 import { polyIcons } from '../../theme';
-import { width } from 'styled-system';
-import { relative } from 'path/win32';
 
 export type CheckboxVariant = 'basic';
 
@@ -23,7 +21,7 @@ export type CheckboxProps = {
 
 const Input = styled.input(visuallyHidden);
 
-const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
+const CheckStateIcon = styled(Icon)<any>(({ theme, variant, disabled }) => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -40,11 +38,9 @@ const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
       ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
       : {}),
   },
- 
-} 
-));
+}));
 
-const MinusBoxIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
+const MinusBoxIcon = styled(Icon)<any>(({ theme, variant, disabled }) => ({
   position: 'absolute',
   top: '73%',
   left: '73%',
@@ -61,79 +57,78 @@ const MinusBoxIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
       ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
       : {}),
   },
-
 }));
 
-const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => ({
-  position: 'relative',
-  cursor: 'pointer',
-  transition: `200ms`,
-  boxSizing: 'border-box',
-  border: '2px solid',
-  borderColor: disabled ? '#D6DDE8' : '#8C9BA5',
-  borderRadius: theme.RADIUS.s,
-  minWidth: '1.125rem',
-  minHeight: '1.125rem',
-  backgroundColor: '#fff',
-  userSelect: 'none',
-  [`${Input}:focus + &`]: {
-    border: `2px solid #5B9EF8`,
+const CheckboxInput = styled.div<{ disabled: boolean }>(
+  ({ theme, disabled }) => ({
     position: 'relative',
-    padding: disabled? '0px' : '12px',
-    zIndex: '1',
-    '&:after': {
-    // display:'block',
-    // content: "''",
-    // position: 'absolute',
-    // top: '3px',
-    // left: '3px',
-    // zIndex: '2',
-    // right: '3px',
-    // bottom: '3px',
-    // border: '2px solid #8C9BA5',
-    // borderRadius: theme.RADIUS.s,
-  }
-  },
+    cursor: 'pointer',
+    transition: `200ms`,
+    boxSizing: 'border-box',
+    border: '2px solid',
+    borderColor: disabled ? '#D6DDE8' : '#8C9BA5',
+    borderRadius: theme.RADIUS.s,
+    minWidth: '1.125rem',
+    minHeight: '1.125rem',
+    backgroundColor: '#fff',
+    userSelect: 'none',
+    [`${Input}:focus + &`]: {
+      border: `2px solid #5B9EF8`,
+      position: 'relative',
+      padding: disabled ? '0px' : '12px',
+      zIndex: '1',
+      '&:after': {
+        // display:'block',
+        // content: "''",
+        // position: 'absolute',
+        // top: '3px',
+        // left: '3px',
+        // zIndex: '2',
+        // right: '3px',
+        // bottom: '3px',
+        // border: '2px solid #8C9BA5',
+        // borderRadius: theme.RADIUS.s,
+      },
+    },
 
-  [`${Input}:checked:focus + &`]: {
-    position: 'relative',
-    border: `2px solid #5B9EF8`,
-    padding: disabled? '0px' : '12px',
-    '&:after': {
-      border: '0px solid #8C9BA5',
-    }
-  },
-  [`${Input}:checked + &`]: {
-    borderColor: theme.COLOR.brandMain,
-  },
+    [`${Input}:checked:focus + &`]: {
+      position: 'relative',
+      border: `2px solid #5B9EF8`,
+      padding: disabled ? '0px' : '12px',
+      '&:after': {
+        border: '0px solid #8C9BA5',
+      },
+    },
+    [`${Input}:checked + &`]: {
+      borderColor: theme.COLOR.brandMain,
+    },
 
-
-  [`${Input}:checked + & .checkIcon`]: {
-    visibility: 'visible',
-    opacity: 1,
-  },
-  [`${Input}:focus + & .minusIcon`]: {
-    visibility: 'visible',
-    top: '60%',
-    left: '60%',
-  },
- 
- 
-  '&.indeterminate': {
-    borderColor: theme.COLOR.brandMain,
-
-    '.minusIcon': {
+    [`${Input}:checked + & .checkIcon`]: {
       visibility: 'visible',
       opacity: 1,
     },
-
-    '.checkIcon': {
-      visibility: 'hidden',
-      opacity: 0,
-      background: theme.COLOR.light,
+    [`${Input}:focus + & .minusIcon`]: {
+      visibility: 'visible',
+      top: '60%',
+      left: '60%',
     },
-  },
-}));
+
+    '&.indeterminate': {
+      borderColor: theme.COLOR.brandMain,
+
+      '.minusIcon': {
+        visibility: 'visible',
+        opacity: 1,
+      },
+
+      '.checkIcon': {
+        visibility: 'hidden',
+        opacity: 0,
+        background: theme.COLOR.light,
+      },
+    },
+  }),
+);
 
 const LabelComponent = styled.label<{ variant: string; margin?: string }>(
   ({ theme, variant, margin }) => ({
@@ -166,7 +161,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ...props
     } = checkboxProps;
 
-    const checkedProps = typeof checked !== 'undefined' ? { checked } : { defaultChecked };
+    const checkedProps =
+      typeof checked !== 'undefined' ? { checked } : { defaultChecked };
     // const isDisabled = typeof disabled !== 'undefined' ? true  : false;
     return (
       <LabelComponent variant={variant} margin={margin}>
@@ -180,7 +176,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
           />
           <CheckboxInput
-           disabled={disabled}
+            disabled={disabled}
             {...(indeterminate ? { className: 'indeterminate' } : {})}
           >
             <MinusBoxIcon
