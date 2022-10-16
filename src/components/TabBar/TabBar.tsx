@@ -48,9 +48,9 @@ const ActiveText = styled<any>(Text)(({ theme }) => ({
     fill: theme.COLOR.brandMain,
   },
 }));
-const IconT = styled<any>(Icon)(({ isHover }) => ({
+const IconT = styled<any>(Icon)(({ isHover, theme }) => ({
   cursor: 'pointer',
-  fill: isHover ? '#1A56AF' : '#1E1E1E',
+  fill: isHover ? `${theme.COLOR.brandMain}` : `${theme.COLOR.gray1}`,
 }));
 
 const Item: FC<TabItemProps> = ({
