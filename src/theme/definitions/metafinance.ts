@@ -396,7 +396,7 @@ export const TEXT: Record<TextAs, CSSPropertiesExtended> = {
 };
 
 export const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
-  default: {
+  basic: {
     ...TYPOGRAPHY.b3m,
     color: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
