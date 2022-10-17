@@ -21,7 +21,7 @@ export type CheckboxProps = {
 
 const Input = styled.input(visuallyHidden);
 
-const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
+const CheckStateIcon = styled(Icon)<any>(({ theme, variant, disabled }) => ({
   position: 'absolute',
   top: '50%',
   left: '50%',
@@ -35,14 +35,12 @@ const CheckStateIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
   'svg > *': {
     ...theme.ICON[variant]['svg > *'],
     ...(theme.ICON[variant].fill
-      ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
+      ? { fill: disabled ? `${theme.COLOR.gray4}` : `${theme.COLOR.brandMain}` }
       : {}),
   },
- 
-} 
-));
+}));
 
-const MinusBoxIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
+const MinusBoxIcon = styled(Icon)<any>(({ theme, variant, disabled }) => ({
   position: 'absolute',
   top: '73%',
   left: '73%',
@@ -56,72 +54,71 @@ const MinusBoxIcon = styled(Icon)<any>(({theme, variant, disabled}) => ({
   'svg > *': {
     ...theme.ICON[variant]['svg > *'],
     ...(theme.ICON[variant].fill
-      ? { fill: disabled ? `${theme.COLOR.gray8}` : `${theme.COLOR.brandMain}` }
+      ? { fill: disabled ? `${theme.COLOR.gray4}` : `${theme.COLOR.brandMain}` }
       : {}),
   },
-
 }));
 
-const CheckboxInput = styled.div<{disabled: boolean}>(({ theme, disabled }) => ({
-  position: 'relative',
-  cursor: 'pointer',
-  transition: `200ms`,
-  boxSizing: 'border-box',
-  border: '2px solid',
-  borderColor: disabled ? theme.COLOR.gray8 : theme.COLOR.gray9,
-  borderRadius: theme.RADIUS.s,
-  minWidth: '1.125rem',
-  minHeight: '1.125rem',
-  backgroundColor: '#fff',
-  userSelect: 'none',
-  [`${Input}:focus + &`]: {
-    border: '2px solid',
-    borderColor: theme.COLOR.utilityFocus,
+const CheckboxInput = styled.div<{ disabled: boolean }>(
+  ({ theme, disabled }) => ({
     position: 'relative',
-    padding: disabled? '0px' : '12px',
-    zIndex: '1',
-  },
-
-  [`${Input}:checked:focus + &`]: {
-    position: 'relative',
+    cursor: 'pointer',
+    transition: `200ms`,
+    boxSizing: 'border-box',
     border: '2px solid',
-    borderColor: theme.COLOR.utilityFocus,
-    padding: disabled? '0px' : '12px',
-    '&:after': {
-      border: '0px solid',
-    }
-  },
-  [`${Input}:checked + &`]: {
-    borderColor: theme.COLOR.brandMain,
-  },
+    borderColor: disabled ? theme.COLOR.gray4 : theme.COLOR.gray3,
+    borderRadius: theme.RADIUS.s,
+    minWidth: '1.125rem',
+    minHeight: '1.125rem',
+    backgroundColor: '#fff',
+    userSelect: 'none',
+    [`${Input}:focus + &`]: {
+      border: '2px solid',
+      borderColor: theme.COLOR.utilityFocus,
+      position: 'relative',
+      padding: disabled ? '0px' : '12px',
+      zIndex: '1',
+    },
 
+    [`${Input}:checked:focus + &`]: {
+      position: 'relative',
+      border: '2px solid',
+      borderColor: theme.COLOR.utilityFocus,
+      padding: disabled ? '0px' : '12px',
+      '&:after': {
+        border: '0px solid',
+      },
+    },
+    [`${Input}:checked + &`]: {
+      borderColor: theme.COLOR.brandMain,
+    },
 
-  [`${Input}:checked + & .checkIcon`]: {
-    visibility: 'visible',
-    opacity: 1,
-  },
-  [`${Input}:focus + & .minusIcon`]: {
-    visibility: 'visible',
-    top: '60%',
-    left: '60%',
-  },
- 
- 
-  '&.indeterminate': {
-    borderColor: theme.COLOR.brandMain,
-
-    '.minusIcon': {
+    [`${Input}:checked + & .checkIcon`]: {
       visibility: 'visible',
       opacity: 1,
     },
-
-    '.checkIcon': {
-      visibility: 'hidden',
-      opacity: 0,
-      background: theme.COLOR.light,
+    [`${Input}:focus + & .minusIcon`]: {
+      visibility: 'visible',
+      top: '60%',
+      left: '60%',
     },
-  },
-}));
+
+    '&.indeterminate': {
+      borderColor: theme.COLOR.brandMain,
+
+      '.minusIcon': {
+        visibility: 'visible',
+        opacity: 1,
+      },
+
+      '.checkIcon': {
+        visibility: 'hidden',
+        opacity: 0,
+        background: theme.COLOR.light,
+      },
+    },
+  }),
+);
 
 const LabelComponent = styled.label<{ variant: string; margin?: string }>(
   ({ theme, variant, margin }) => ({
@@ -154,7 +151,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ...props
     } = checkboxProps;
 
-    const checkedProps = typeof checked !== 'undefined' ? { checked } : { defaultChecked };
+    const checkedProps =
+      typeof checked !== 'undefined' ? { checked } : { defaultChecked };
     return (
       <LabelComponent variant={variant} margin={margin}>
         <Flex variant="raw" align="center">
@@ -167,7 +165,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             type="checkbox"
           />
           <CheckboxInput
-          disabled={disabled}
+            disabled={disabled}
             {...(indeterminate ? { className: 'indeterminate' } : {})}
           >
             <MinusBoxIcon
