@@ -24,7 +24,7 @@ const StyledAnchor = styled.a(({ theme }) => ({
   textDecoration: 'none',
   '&:focus': {
     border: '2px solid',
-    borderColor: theme.COLOR.brandMain1,
+    borderColor: theme.COLOR.brandMain2,
     borderRadius: '5px',
     padding: '1px',
   },
