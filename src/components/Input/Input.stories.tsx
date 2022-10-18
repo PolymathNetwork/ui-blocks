@@ -65,6 +65,8 @@ export const ReadOnly = Template.bind({});
 ReadOnly.args = {
   variant: 'basic',
   label: 'Read only texbox',
+  value: 'Read only value',
   placeholder: "Can't type here",
   readOnly: true,
 };
+

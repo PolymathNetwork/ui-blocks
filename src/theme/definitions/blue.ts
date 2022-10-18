@@ -7,7 +7,7 @@ import { ButtonVariant } from '../../components/Button';
 import { IconVariant } from '../../components/Icon';
 import { TextAs } from '../../components/Text';
 import { BadgeVariant } from '../../components/Badge';
-import { InfoBoxVariant } from '../../components/InfoBox';
+import { InfoBoxSize } from '../../components/InfoBox';
 import { DrawerVariant } from '../../components/Drawer';
 
 // Basics
@@ -411,6 +411,17 @@ export const INPUT: CSSPropertiesExtended = {
     borderColor: COLOR.gray5,
     backgroundColor: COLOR.gray5,
   },
+  '&:readOnly': {
+    borderColor: 'transparent',
+    backgroundColor: COLOR.gray5,
+    color: COLOR.gray2,
+    '&:hover': {
+      borderColor: 'transparent',
+    },
+    '&:focus': {
+      borderColor: 'transparent',
+    },
+  },
 };
 
 export const DATEPICKER: CSSPropertiesExtended = {
@@ -592,8 +603,8 @@ export const TOOLTIP = createGlobalStyle`
   }
 `;
 
-export const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
-  basic: {
+export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
+  default: {
     minWidth: '240px',
     display: 'inline-block',
     padding: GAP.s,

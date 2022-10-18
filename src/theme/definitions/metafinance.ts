@@ -7,8 +7,10 @@ import { ButtonVariant } from '../../components/Button';
 import { IconVariant } from '../../components/Icon';
 import { TextAs } from '../../components/Text';
 import { BadgeVariant } from '../../components/Badge';
-import { InfoBoxVariant } from '../../components/InfoBox';
+import { InfoBoxSize, InfoBoxVariant } from '../../components/InfoBox';
 import { DrawerVariant } from '../../components/Drawer';
+import { ChipsVariant } from '../../components/Chips';
+import { NotificationVariant } from '../../components/Notification';
 
 // Basics
 
@@ -263,6 +265,11 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
       color: COLOR.gray3,
       background: COLOR.gray5,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   secondary: {
@@ -278,17 +285,23 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     cursor: 'pointer',
     '&:hover': {
       color: COLOR.brandMain,
-      background: COLOR.brandLight,
+      background: COLOR.brandLightest,
     },
     '&:active': {
       color: COLOR.brandMain,
-      background: COLOR.brandLightest,
+      background: COLOR.brandLight,
+      borderColor: COLOR.brandMain,
     },
     '&:disabled': {
-      border: `2px solid #F0F0F0`,
-      color: COLOR.gray5,
+      border: `1px solid ${COLOR.gray5}`,
+      color: COLOR.gray3,
       background: COLOR.light,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   tertiary: {
@@ -296,7 +309,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     display: 'flex',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
-    color: COLOR.gray1,
+    color: COLOR.brandMain,
     background: 'transparent',
     border: 0,
     borderRadius: RADIUS.l,
@@ -311,6 +324,11 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     '&:disabled': {
       color: COLOR.gray3,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   inline: {
@@ -330,6 +348,8 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   },
   special: {
     ...TYPOGRAPHY.btn,
+    display: 'flex',
+    lineHeight: '22px',
     fontFamily: "'Poppins', sans-serif",
     fontSize: '14px',
     color: COLOR.gray1,
@@ -347,7 +367,13 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     },
     '&:disabled': {
       color: COLOR.gray3,
+      border: `1px solid ${COLOR.gray3}`,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
 };
@@ -397,20 +423,20 @@ export const TEXT: Record<TextAs, CSSPropertiesExtended> = {
 export const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
   default: {
     ...TYPOGRAPHY.b3m,
-    color: COLOR.brandMain,
+    color: COLOR.brandDark,
     backgroundColor: COLOR.brandLightest,
     borderRadius: '100px',
   },
   success: {
     ...TYPOGRAPHY.b3m,
     color: COLOR.success,
-    backgroundColor: COLOR.success2,
+    backgroundColor: COLOR.success3,
     borderRadius: '100px',
   },
   warning: {
     ...TYPOGRAPHY.b3m,
-    color: COLOR.danger2,
-    backgroundColor: COLOR.danger3,
+    color: COLOR.warning,
+    backgroundColor: COLOR.warning3,
     borderRadius: '100px',
   },
   danger: {
@@ -659,12 +685,80 @@ export const TOOLTIP = createGlobalStyle`
   }
 `;
 
-export const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
-  basic: {
+export const NOTIFICATION: CSSPropertiesExtended = {
+  ...TYPOGRAPHY.b2m,
+  width: '100%',
+  display: 'inline-block',
+  padding: '12px 18px',
+  background: COLOR.gray1,
+  sizing: 'border-box',
+};
+export const NOTIFICATION_VARIANTS: Record<NotificationVariant, CSSPropertiesExtended> = {
+  info: {
+    background: COLOR.brandLightest,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+  },
+  danger: {
+    background: COLOR.danger3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.danger2} !important`,
+        },
+      },
+    },
+  },
+  warning: {
+    background: COLOR.warning3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.warning2} !important`,
+        },
+      },
+    },
+  },
+  success: {
+    background: COLOR.success3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+  },
+}
+
+export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
+  default: {
     minWidth: '240px',
     display: 'inline-block',
     padding: GAP.s,
-    border: `2px solid #F0F0F0`,
+    border: `2px solid ${COLOR.gray5}`,
+    background: COLOR.gray6,
+    sizing: 'border-box',
+    borderRadius: RADIUS.l,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+  small: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    border: `2px solid ${COLOR.gray5}`,
+    background: COLOR.gray6,
     sizing: 'border-box',
     borderRadius: RADIUS.l,
     fontSize: '14px',
@@ -681,6 +775,95 @@ export const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
     a: { color: COLOR.brandMain },
   },
 };
+export const INFOBOX_COMPACT_BORDER: Record<InfoBoxVariant, CSSPropertiesExtended> = {
+  default: {
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+  },
+  danger: {
+    borderLeft: `2px solid ${COLOR.danger2}`,
+  },
+  warning: {
+    borderLeft: `2px solid ${COLOR.warning2}`,
+  },
+  special: {
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+  },
+}
+export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
+  default: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+    color: COLOR.brandDark
+  },
+  danger: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.danger2} !important`,
+        },
+      },
+    },
+    color: COLOR.danger
+  },
+  warning: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.warning2} !important`,
+        },
+      },
+    },
+    color: COLOR.warning
+  },
+  special: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+    color: COLOR.gray1
+  },
+}
+
+export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> =  {
+  default: {
+    ...TYPOGRAPHY.b2m,
+    padding: GAP.xs,
+    borderRadius: '100px',
+    width: 'fit-content',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '&:hover': {
+      background: COLOR.gray5,
+    },
+    '&:active': {
+      background: COLOR.gray5,
+    },
+    '.number': {
+      ...TYPOGRAPHY.b3m,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: '2px',
+      width: '20px',
+      height: '20px',
+      background: COLOR.gray4,
+      color: COLOR.gray1,
+      borderRadius: '100px',
+    }
+  }
+}
 
 export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
   basic: {
@@ -698,6 +881,29 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
     transition: 'transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1)',
   },
 };
+
+export const TABLE: CSSPropertiesExtended = {
+  thead: {
+    background: COLOR.gray5,
+    borderRadius: '8px 0px 0px 0px',
+    color: COLOR.gray1,
+    th: {
+      color: COLOR.gray1,
+    }
+  },
+}
+
+export const TABLE_WRAPPER: CSSPropertiesExtended = {
+  '.paginationButtons': {
+    button: {
+      svg: {
+        path: {
+          fill: COLOR.gray1,
+        },
+      },
+    }
+  }
+}
 
 export const CHECKBOX: CSSPropertiesExtended = {
   basic: {

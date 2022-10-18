@@ -1,21 +1,20 @@
 import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 import { Button } from '../Button';
-import { InfoBox } from './InfoBox';
+import { Notification } from './Notification';
 
 export default {
-  title: 'Polyblocks/InfoBox',
-  component: InfoBox,
+  title: 'Polyblocks/Notification',
+  component: Notification,
 };
 
-const Template: Story<ComponentProps<typeof InfoBox>> = (props: any) => (
-  <InfoBox {...props} />
+const Template: Story<ComponentProps<typeof Notification>> = (props: any) => (
+  <Notification {...props} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  size: 'default',
-  title: 'important',
+export const Info = Template.bind({});
+Info.args = {
+  title: 'notification',
   important: true,
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
@@ -23,7 +22,6 @@ Default.args = {
 
 export const Danger = Template.bind({});
 Danger.args = {
-  size: 'default',
   variant: 'danger',
   title: 'important',
   important: true,
@@ -33,7 +31,6 @@ Danger.args = {
 
 export const Warning = Template.bind({});
 Warning.args = {
-  size: 'default',
   variant: 'warning',
   title: 'important',
   important: true,
@@ -41,10 +38,9 @@ Warning.args = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
-export const Special = Template.bind({});
-Special.args = {
-  size: 'default',
-  variant: 'special',
+export const Success = Template.bind({});
+Success.args = {
+  variant: 'success',
   title: 'important',
   important: true,
   text:
@@ -53,58 +49,22 @@ Special.args = {
 
 export const Closable = Template.bind({});
 Closable.args = {
-  size: 'default',
-  variant: 'default',
+  variant: 'info',
   title: 'important',
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  title: 'important',
-  important: true,
-  margin: '0',
-  isClosable: true,
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const WithButton = Template.bind({});
 WithButton.args = {
-  size: 'default',
   title: 'important',
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
   text:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-  children: <Button variant="primary" >Button</Button>
-};
-
-export const Compact = Template.bind({});
-Compact.args = {
-  size: 'compact',
-  title: 'important',
-  important: true,
-  margin: '0',
-  isClosable: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-};
-
-export const CompactWithButton = Template.bind({});
-CompactWithButton.args = {
-  size: 'compact',
-  title: 'important',
-  important: true,
-  margin: '0',
-  isClosable: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-    children: <Button variant="primary" >Button</Button>
+  children: <Button variant="primary" size="s" >Button</Button>
 };

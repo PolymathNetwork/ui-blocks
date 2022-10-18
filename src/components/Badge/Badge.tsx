@@ -1,3 +1,4 @@
+import { Box } from '../Box';
 import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
 
@@ -16,7 +17,7 @@ export type BadgeProps = {
   margin?: string;
   display?: Display;
   icon?: ComponentType;
-  iconPosition?: IconPosition;
+  iconPosition?: 'left' | 'right';
   size?: 's' | 'l';
 };
 
@@ -78,11 +79,19 @@ export const Badge: FC<BadgeProps> = ({
 }) => (
   <Component variant={variant} display={display} size={size} {...props}>
     {icon &&
-      (!iconPosition || iconPosition === IconPosition.Left) &&
-      renderIconContainer(icon, variant)}
+      (!iconPosition || iconPosition === IconPosition.Left) && (
+        <Box display="inline-block" variant="raw" margin="0 8px 0 0">
+          {renderIconContainer(icon, variant)}
+        </Box>
+      )
+    }
     {children}
     {icon &&
-      iconPosition === IconPosition.Right &&
-      renderIconContainer(icon, variant)}
+      iconPosition === IconPosition.Right && (
+        <Box display="inline-block" variant="raw" margin="0 0 0 8px">
+          {renderIconContainer(icon, variant)}
+        </Box>
+      )
+    }
   </Component>
 );

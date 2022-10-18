@@ -24,22 +24,19 @@ export type ButtonProps = {
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: ComponentType;
-  iconPosition?: IconPosition;
+  iconPosition?: 'left' | 'right';
   onClick?: () => void;
 };
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
     padding: '4px 16px',
-    minWidth: '82px',
   },
   m: {
     padding: '8px 16px',
-    minWidth: '104px',
   },
   l: {
     padding: '12px 16px',
-    minWidth: '128px',
   },
 };
 
@@ -66,7 +63,7 @@ const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
     color: theme.BUTTON[themeVariant].color,
     svg: {
       path: {
-        fill: `${theme.BUTTON[themeVariant].color} !important`,
+        fill: theme.BUTTON[themeVariant].color,
       },
     },
   };

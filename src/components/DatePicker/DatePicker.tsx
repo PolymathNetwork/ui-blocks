@@ -7,7 +7,7 @@ import 'react-day-picker/lib/style.css';
 
 import { polyIcons } from '../../theme';
 import { BoxVariant, Box } from '../Box';
-import { Input, IconPosition } from '../Input';
+import { Input, IconPosition, LablePosition } from '../Input';
 import { Flex } from '../Flex';
 import { Button } from '../Button';
 
@@ -20,6 +20,7 @@ export type DatePickerProps = {
   name?: string;
   disabled?: boolean;
   label?: string;
+  labelPosition: LablePosition;
   placeholder?: string;
   value?: string | null;
   onChange?: (state: any) => void;

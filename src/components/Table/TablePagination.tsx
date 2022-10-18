@@ -59,13 +59,35 @@ export const TablePagination: FC<TablePaginationProps> = ({
           }${totalRows ? ` of ${totalRows}` : ''}`}
         </Text>
       </Box>
+      <div className="paginationButtons">
+        <Flex variant="raw" margin="0 s 0 0">
+          {gotoPage && pageCount && (
+            <Button
+              variant="tertiary"
+              // style={buttonStyles}
+              onClick={() => gotoPage(0)}
+              disabled={!canPreviousPage}
+            >
+              <Icon
+                variant="basic"
+                icon={polyIcons.ChevronLeft}
+                size="24px"
+                color="gray3"
+              />
+              <Icon
+                variant="basic"
+                icon={polyIcons.ChevronLeft}
+                size="24px"
+                color="gray3"
+                margin="0 0 0 -17px"
+              />
+            </Button>
+          )}
 
-      <Flex variant="raw" margin="0 s 0 0">
-        {gotoPage && pageCount && (
           <Button
             variant="tertiary"
             // style={buttonStyles}
-            onClick={() => gotoPage(0)}
+            onClick={() => previousPage()}
             disabled={!canPreviousPage}
           >
             <Icon
@@ -74,49 +96,12 @@ export const TablePagination: FC<TablePaginationProps> = ({
               size="24px"
               color="gray3"
             />
-            <Icon
-              variant="basic"
-              icon={polyIcons.ChevronLeft}
-              size="24px"
-              color="gray3"
-              margin="0 0 0 -17px"
-            />
           </Button>
-        )}
 
-        <Button
-          variant="tertiary"
-          // style={buttonStyles}
-          onClick={() => previousPage()}
-          disabled={!canPreviousPage}
-        >
-          <Icon
-            variant="basic"
-            icon={polyIcons.ChevronLeft}
-            size="24px"
-            color="gray3"
-          />
-        </Button>
-
-        <Button
-          variant="tertiary"
-          // style={buttonStyles}
-          onClick={() => nextPage()}
-          disabled={!canNextPage}
-        >
-          <Icon
-            variant="basic"
-            icon={polyIcons.ChevronRight}
-            size="24px"
-            color="gray3"
-          />
-        </Button>
-
-        {gotoPage && pageCount && (
           <Button
             variant="tertiary"
             // style={buttonStyles}
-            onClick={() => gotoPage(pageCount - 1)}
+            onClick={() => nextPage()}
             disabled={!canNextPage}
           >
             <Icon
@@ -124,17 +109,33 @@ export const TablePagination: FC<TablePaginationProps> = ({
               icon={polyIcons.ChevronRight}
               size="24px"
               color="gray3"
-              margin="0 -17px 0 0"
-            />
-            <Icon
-              variant="basic"
-              icon={polyIcons.ChevronRight}
-              size="24px"
-              color="gray3"
             />
           </Button>
-        )}
-      </Flex>
+
+          {gotoPage && pageCount && (
+            <Button
+              variant="tertiary"
+              // style={buttonStyles}
+              onClick={() => gotoPage(pageCount - 1)}
+              disabled={!canNextPage}
+            >
+              <Icon
+                variant="basic"
+                icon={polyIcons.ChevronRight}
+                size="24px"
+                color="gray3"
+                margin="0 -17px 0 0"
+              />
+              <Icon
+                variant="basic"
+                icon={polyIcons.ChevronRight}
+                size="24px"
+                color="gray3"
+              />
+            </Button>
+          )}
+        </Flex>
+      </div>
     </Flex>
   );
 };

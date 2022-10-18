@@ -1,7 +1,7 @@
 import * as blue from './blue';
 import { BadgeVariant } from '../../components/Badge';
 import { BoxVariant } from '../../components/Box';
-import { InfoBoxVariant } from '../../components/InfoBox';
+import { InfoBoxSize } from '../../components/InfoBox';
 
 import { CSSPropertiesExtended } from '../types';
 
@@ -144,8 +144,8 @@ const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
   },
 };
 
-const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
-  basic: {
+const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
+  default: {
     minWidth: '240px',
     display: 'inline-block',
     padding: blue.GAP.s,
