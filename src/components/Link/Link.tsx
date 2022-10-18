@@ -65,14 +65,14 @@ const TextComponent = styled(Text)<
     color: disabled
       ? theme.COLOR.gray3
       : linkVariant === 'primary'
-      ? theme.COLOR.gray1
+      ? theme.COLOR.brandDarkest
       : theme.COLOR.brandMain,
 
     'svg > *': {
       fill: disabled
         ? theme.COLOR.gray3
         : linkVariant === 'primary'
-        ? theme.COLOR.gray1
+        ? theme.COLOR.brandDarkest
         : theme.COLOR.brandMain,
     },
   },

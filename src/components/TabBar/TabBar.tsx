@@ -50,6 +50,7 @@ const ActiveText = styled<any>(Text)(({ theme }) => ({
 }));
 const IconT = styled<any>(Icon)(({ isHover, theme }) => ({
   cursor: 'pointer',
+  padding: '0px',
   fill: isHover ? `${theme.COLOR.brandMain}` : `${theme.COLOR.gray1}`,
 }));
 
@@ -91,7 +92,8 @@ const Item: FC<TabItemProps> = ({
           <IconT
             icon={polyIcons.ArrowTab}
             variant="circle"
-            size="24px"
+            size="28px"
+            margin="0 4px 0 0"
             cursor="pointer"
             color={isHover || isActive ? 'brandMain' : 'gray.2'}
             bg="light"
