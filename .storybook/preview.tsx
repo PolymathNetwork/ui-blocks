@@ -8,7 +8,7 @@ addDecorator(withThemes);
 enum Themes {
   Blue = 'Blue (Polymath)',
   Pink = 'Pink (Polymesh)',
-  Metafinance = 'Metafinance',
+  Launchpad = 'Launchpad',
 }
 
 const Decorator = ({ themeName, children }) => {
@@ -20,8 +20,8 @@ const Decorator = ({ themeName, children }) => {
     case Themes.Pink:
       currentTheme = polyTheme.pink;
       break;
-    case Themes.Metafinance:
-      currentTheme = polyTheme.metafinance;
+    case Themes.Launchpad:
+      currentTheme = polyTheme.launchpad;
       break;
   }
   return <PolyThemeProvider theme={currentTheme}>{children}</PolyThemeProvider>;
@@ -41,8 +41,8 @@ export const parameters = {
         color: polyTheme.pink.COLOR.brandMain,
       },
       {
-        name: Themes.Metafinance,
-        color: polyTheme.metafinance.COLOR.brandMain,
+        name: Themes.Launchpad,
+        color: polyTheme.launchpad.COLOR.brandMain,
       },
     ],
   },

@@ -42,5 +42,5 @@ Disabled.args = {
   variant: 'basic',
   hasIcon: true,
   label: 'Disabled date picker',
-  disabled: true
+  disabled: true,
 };

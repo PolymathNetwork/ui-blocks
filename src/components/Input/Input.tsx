@@ -17,7 +17,7 @@ export enum IconPosition {
 }
 export enum LablePosition {
   Top = 'top',
-  Left = 'left'
+  Left = 'left',
 }
 
 export type InputProps = {
@@ -142,23 +142,42 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const renderIcon = (
       _icon: ComponentType,
       _iconPosition: IconPosition = IconPosition.Left,
-      _disabled: boolean = false
+      _disabled = false,
     ) => (
       <Icon
         icon={_icon}
         variant="basic"
         size="24px"
-        color={_disabled ? "gray4" : "gray3"}
+        color={_disabled ? 'gray4' : 'gray3'}
         margin={_iconPosition === IconPosition.Left ? '0 s 0 0' : '0'}
       />
     );
 
     return (
-      <Flex width="fit-content" variant="basic" align={labelPosition === LablePosition.Left ? "center" : "start"} dir={labelPosition === LablePosition.Left ? "row" : "column"} margin={margin}>
-        <Box width="100%" variant="raw" display="block" margin={labelPosition === LablePosition.Left ? '0 8px 0 0' : ''}>
+      <Flex
+        width="fit-content"
+        variant="basic"
+        align={labelPosition === LablePosition.Left ? 'center' : 'start'}
+        dir={labelPosition === LablePosition.Left ? 'row' : 'column'}
+        margin={margin}
+      >
+        <Box
+          width="100%"
+          variant="raw"
+          display="block"
+          margin={labelPosition === LablePosition.Left ? '0 8px 0 0' : ''}
+        >
           {label && (
-            <Flex align="center" variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-              <Text as="span" variant="b2m" color={disabled ? 'gray3' : 'gray1'}>
+            <Flex
+              align="center"
+              variant="raw"
+              justify={tooltip ? 'spaced' : 'start'}
+            >
+              <Text
+                as="span"
+                variant="b2m"
+                color={disabled ? 'gray3' : 'gray1'}
+              >
                 {label}
               </Text>
               {tooltip && <Tooltip variant="icon" content={tooltip} />}

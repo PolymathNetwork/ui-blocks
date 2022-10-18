@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react';
-import styled from 'styled-components';
-import { ThemeContext } from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { getMargin } from '../../theme/utils';
 import { polyIcons } from '../../theme/icons';
 import { Icon } from '../Icon';
@@ -18,8 +17,8 @@ export type InfoBoxProps = {
   title: string;
   important?: boolean;
   color?: string;
-  isClosable?: boolean,
-  onClose?: () => void,
+  isClosable?: boolean;
+  onClose?: () => void;
   text: string;
 };
 
@@ -30,7 +29,7 @@ const IconContainer = styled.span(() => ({
 }));
 
 const CloseIcon = styled(Icon)(() => ({
-  cursor: 'pointer'
+  cursor: 'pointer',
 }));
 
 const renderCloseIcon = (onClose?: () => void) => (
@@ -43,13 +42,13 @@ const renderCloseIcon = (onClose?: () => void) => (
       margin="0"
     />
   </div>
-)
+);
 
 const Component = styled.div<Pick<InfoBoxProps, 'size' | 'margin' | 'variant'>>(
   ({ size, margin, variant, theme }) => ({
     ...(theme.INFOBOX[size] || {}),
-    ...(size == 'compact' && (theme.INFOBOX_COMPACT_BORDER[variant] || {})),
-    ...(theme.INFOBOXTITLE[variant]),
+    ...(size === 'compact' && (theme.INFOBOX_COMPACT_BORDER[variant] || {})),
+    ...theme.INFOBOXTITLE[variant],
     margin: getMargin({ theme, margin }),
   }),
 );
@@ -61,13 +60,12 @@ const Title = ({
 }: {
   title: string;
   important: boolean | undefined;
-  color: string | undefined;
   variant: string;
 }) => {
   const currentTheme = useContext(ThemeContext);
   return (
     <IconContainer>
-      <div className="info-icon" >
+      <div className="info-icon">
         <Icon
           icon={polyIcons.InformationOutline}
           variant="circle"
@@ -76,46 +74,82 @@ const Title = ({
           bg="light"
         />
       </div>
-      <Text color={currentTheme.INFOBOXTITLE[variant].color} as="span" variant={variant === 'special' ? 'b1m' : "b2m"}>
+      <Text
+        color={currentTheme.INFOBOXTITLE[variant].color}
+        as="span"
+        variant={variant === 'special' ? 'b1m' : 'b2m'}
+      >
         {important ? title.toUpperCase() : title}
       </Text>
     </IconContainer>
   );
 };
 
-const DefaultVariant: FC<InfoBoxProps> = ({variant, title, important, color, isClosable, onClose, text, children, ...props}) => {
+const DefaultVariant: FC<InfoBoxProps> = ({
+  variant,
+  title,
+  important,
+  color,
+  isClosable,
+  onClose,
+  text,
+  children,
+  ...props
+}) => {
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
-        <Title variant={variant} title={title} important={important} color={color} />
+        <Title
+          variant={variant}
+          title={title}
+          important={important}
+        />
         {isClosable && renderCloseIcon(onClose)}
       </Flex>
-      <Text margin="10px 0 0" color="gray2" as="p" variant="b2">{text}</Text>
+      <Text margin="10px 0 0" color="gray2" as="p" variant="b2">
+        {text}
+      </Text>
       {children && (
-        <Box variant="raw" margin="8px 0 0" >
+        <Box variant="raw" margin="8px 0 0">
           {children}
         </Box>
       )}
     </Component>
-  )
-}
+  );
+};
 
-const SmallVariant: FC<InfoBoxProps> = ({variant, title, important, color, isClosable, onClose, text, children, ...props}) => {
+const SmallVariant: FC<InfoBoxProps> = ({
+  variant,
+  title,
+  important,
+  color,
+  isClosable,
+  onClose,
+  text,
+  children,
+  ...props
+}) => {
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
-        <Title variant={variant} title={title} important={important} color={color} />
-        <Text margin="0" padding="0 10px" color="gray2" as="p" variant="b2">{text}</Text>
+        <Title
+          variant={variant}
+          title={title}
+          important={important}
+        />
+        <Text margin="0" padding="0 10px" color="gray2" as="p" variant="b2">
+          {text}
+        </Text>
         {isClosable && renderCloseIcon(onClose)}
       </Flex>
       {children && (
-        <Box variant="raw" margin="8px 0 0" >
+        <Box variant="raw" margin="8px 0 0">
           {children}
         </Box>
       )}
     </Component>
-  )
-}
+  );
+};
 
 export const InfoBox: FC<InfoBoxProps> = ({
   title,
@@ -129,31 +163,33 @@ export const InfoBox: FC<InfoBoxProps> = ({
   onClose = () => {},
   ...props
 }) => {
-  return (
-    size === 'small' ?
-      <SmallVariant
-        size={size}
-        variant={variant}
-        title={title}
-        important={important}
-        color={color}
-        isClosable={isClosable}
-        onClose={onClose}
-        text={text}
-        children={children}
-        {...props}
-      /> :
-      <DefaultVariant
-        size={size}
-        variant={variant}
-        title={title}
-        important={important}
-        color={color}
-        isClosable={isClosable}
-        onClose={onClose}
-        text={text}
-        children={children}
-        {...props}
-      />
+  return size === 'small' ? (
+    <SmallVariant
+      size={size}
+      variant={variant}
+      title={title}
+      important={important}
+      color={color}
+      isClosable={isClosable}
+      onClose={onClose}
+      text={text}
+      {...props}
+    >
+      {children}
+    </SmallVariant>
+  ) : (
+    <DefaultVariant
+      size={size}
+      variant={variant}
+      title={title}
+      important={important}
+      color={color}
+      isClosable={isClosable}
+      onClose={onClose}
+      text={text}
+      {...props}
+    >
+      {children}
+    </DefaultVariant>
   );
 };

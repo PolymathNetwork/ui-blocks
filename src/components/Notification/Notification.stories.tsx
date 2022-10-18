@@ -16,8 +16,7 @@ export const Info = Template.bind({});
 Info.args = {
   title: 'notification',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Danger = Template.bind({});
@@ -25,8 +24,7 @@ Danger.args = {
   variant: 'danger',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Warning = Template.bind({});
@@ -34,8 +32,7 @@ Warning.args = {
   variant: 'warning',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Success = Template.bind({});
@@ -43,8 +40,7 @@ Success.args = {
   variant: 'success',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Closable = Template.bind({});
@@ -54,8 +50,7 @@ Closable.args = {
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const WithButton = Template.bind({});
@@ -64,7 +59,10 @@ WithButton.args = {
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-  children: <Button variant="primary" size="s" >Button</Button>
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  children: (
+    <Button variant="primary" size="s">
+      Button
+    </Button>
+  ),
 };

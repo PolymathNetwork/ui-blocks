@@ -693,7 +693,10 @@ export const NOTIFICATION: CSSPropertiesExtended = {
   background: COLOR.gray1,
   sizing: 'border-box',
 };
-export const NOTIFICATION_VARIANTS: Record<NotificationVariant, CSSPropertiesExtended> = {
+export const NOTIFICATION_VARIANTS: Record<
+  NotificationVariant,
+  CSSPropertiesExtended
+> = {
   info: {
     background: COLOR.brandLightest,
     '.info-icon': {
@@ -738,7 +741,7 @@ export const NOTIFICATION_VARIANTS: Record<NotificationVariant, CSSPropertiesExt
       },
     },
   },
-}
+};
 
 export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
   default: {
@@ -775,7 +778,10 @@ export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
     a: { color: COLOR.brandMain },
   },
 };
-export const INFOBOX_COMPACT_BORDER: Record<InfoBoxVariant, CSSPropertiesExtended> = {
+export const INFOBOX_COMPACT_BORDER: Record<
+  InfoBoxVariant,
+  CSSPropertiesExtended
+> = {
   default: {
     borderLeft: `2px solid ${COLOR.brandMain}`,
   },
@@ -788,7 +794,7 @@ export const INFOBOX_COMPACT_BORDER: Record<InfoBoxVariant, CSSPropertiesExtende
   special: {
     borderLeft: `2px solid ${COLOR.brandMain}`,
   },
-}
+};
 export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
   default: {
     '.info-icon': {
@@ -799,7 +805,7 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
         },
       },
     },
-    color: COLOR.brandDark
+    color: COLOR.brandDark,
   },
   danger: {
     '.info-icon': {
@@ -810,7 +816,7 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
         },
       },
     },
-    color: COLOR.danger
+    color: COLOR.danger,
   },
   warning: {
     '.info-icon': {
@@ -821,7 +827,7 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
         },
       },
     },
-    color: COLOR.warning
+    color: COLOR.warning,
   },
   special: {
     '.info-icon': {
@@ -832,11 +838,11 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
         },
       },
     },
-    color: COLOR.gray1
+    color: COLOR.gray1,
   },
-}
+};
 
-export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> =  {
+export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {
   default: {
     ...TYPOGRAPHY.b2m,
     padding: GAP.xs,
@@ -861,9 +867,9 @@ export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> =  {
       background: COLOR.gray4,
       color: COLOR.gray1,
       borderRadius: '100px',
-    }
-  }
-}
+    },
+  },
+};
 
 export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
   basic: {
@@ -889,9 +895,9 @@ export const TABLE: CSSPropertiesExtended = {
     color: COLOR.gray1,
     th: {
       color: COLOR.gray1,
-    }
+    },
   },
-}
+};
 
 export const TABLE_WRAPPER: CSSPropertiesExtended = {
   '.paginationButtons': {
@@ -901,9 +907,9 @@ export const TABLE_WRAPPER: CSSPropertiesExtended = {
           fill: COLOR.gray1,
         },
       },
-    }
-  }
-}
+    },
+  },
+};
 
 export const CHECKBOX: CSSPropertiesExtended = {
   basic: {

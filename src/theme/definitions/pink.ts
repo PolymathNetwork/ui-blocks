@@ -165,6 +165,15 @@ const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
     fontWeight: 400,
     a: { color: COLOR.brandMain },
   },
+  small: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: `0 ${blue.GAP.xs}`,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
 };
 
 const INPUT: CSSPropertiesExtended = {

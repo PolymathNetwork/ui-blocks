@@ -17,8 +17,7 @@ Default.args = {
   size: 'default',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Danger = Template.bind({});
@@ -27,8 +26,7 @@ Danger.args = {
   variant: 'danger',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Warning = Template.bind({});
@@ -37,8 +35,7 @@ Warning.args = {
   variant: 'warning',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Special = Template.bind({});
@@ -47,8 +44,7 @@ Special.args = {
   variant: 'special',
   title: 'important',
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Closable = Template.bind({});
@@ -59,8 +55,7 @@ Closable.args = {
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const Small = Template.bind({});
@@ -70,8 +65,7 @@ Small.args = {
   important: true,
   margin: '0',
   isClosable: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const WithButton = Template.bind({});
@@ -81,9 +75,8 @@ WithButton.args = {
   isClosable: true,
   onClose: () => alert('Close clicked'),
   important: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-  children: <Button variant="primary" >Button</Button>
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  children: <Button variant="primary">Button</Button>,
 };
 
 export const Compact = Template.bind({});
@@ -93,8 +86,7 @@ Compact.args = {
   important: true,
   margin: '0',
   isClosable: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
 
 export const CompactWithButton = Template.bind({});
@@ -104,7 +96,6 @@ CompactWithButton.args = {
   important: true,
   margin: '0',
   isClosable: true,
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
-    children: <Button variant="primary" >Button</Button>
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
+  children: <Button variant="primary">Button</Button>,
 };

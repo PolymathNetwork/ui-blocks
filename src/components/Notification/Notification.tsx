@@ -14,7 +14,7 @@ const VARIANT_ICONS: Record<NotificationVariant, ComponentType> = {
   danger: polyIcons.AlertCircleOutline,
   warning: polyIcons.InformationOutline,
   success: polyIcons.CheckCircleOutline,
-}
+};
 
 export type NotificationProps = {
   variant: NotificationVariant;
@@ -22,8 +22,8 @@ export type NotificationProps = {
   title: string;
   important?: boolean;
   color?: string;
-  isClosable?: boolean,
-  onClose?: () => void,
+  isClosable?: boolean;
+  onClose?: () => void;
   text: string;
 };
 
@@ -34,7 +34,7 @@ const IconContainer = styled.span(() => ({
 }));
 
 const CloseIcon = styled(Icon)(() => ({
-  cursor: 'pointer'
+  cursor: 'pointer',
 }));
 
 const renderCloseIcon = (onClose?: () => void) => (
@@ -47,12 +47,12 @@ const renderCloseIcon = (onClose?: () => void) => (
       margin="0"
     />
   </div>
-)
+);
 
 const Component = styled.div<Pick<NotificationProps, 'margin' | 'variant'>>(
   ({ margin, variant, theme }) => ({
     ...(theme.NOTIFICATION || {}),
-    ...(theme.NOTIFICATION_VARIANTS[variant]),
+    ...theme.NOTIFICATION_VARIANTS[variant],
     margin: getMargin({ theme, margin }),
   }),
 );
@@ -71,7 +71,7 @@ export const Notification: FC<NotificationProps> = ({
       <Flex justify="spaced" align="center" variant="raw">
         <Flex variant="raw">
           <IconContainer>
-            <div className="info-icon" >
+            <div className="info-icon">
               <Icon
                 icon={VARIANT_ICONS[variant]}
                 variant="circle"
@@ -80,9 +80,17 @@ export const Notification: FC<NotificationProps> = ({
               />
             </div>
           </IconContainer>
-          <Text margin="0" padding="4px 10px" color="gray1" as="p" variant="b2m">{text}</Text>
+          <Text
+            margin="0"
+            padding="4px 10px"
+            color="gray1"
+            as="p"
+            variant="b2m"
+          >
+            {text}
+          </Text>
           {children && (
-            <Box variant="raw" margin="0 8px 0" >
+            <Box variant="raw" margin="0 8px 0">
               {children}
             </Box>
           )}
@@ -90,5 +98,5 @@ export const Notification: FC<NotificationProps> = ({
         {isClosable && renderCloseIcon(onClose)}
       </Flex>
     </Component>
-  )
+  );
 };

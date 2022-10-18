@@ -42,5 +42,5 @@ WithIcon.args = {
   variant: 'default',
   children: 'Icon Badge',
   icon: polyIcons.DeleteOutline,
-  iconPosition: 'right'
+  iconPosition: 'right',
 };

@@ -1,6 +1,6 @@
-import { Box } from '../Box';
 import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
+import { Box } from '../Box';
 
 import { Display, CSSPropertiesExtended } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
@@ -78,20 +78,16 @@ export const Badge: FC<BadgeProps> = ({
   ...props
 }) => (
   <Component variant={variant} display={display} size={size} {...props}>
-    {icon &&
-      (!iconPosition || iconPosition === IconPosition.Left) && (
-        <Box display="inline-block" variant="raw" margin="0 8px 0 0">
-          {renderIconContainer(icon, variant)}
-        </Box>
-      )
-    }
+    {icon && (!iconPosition || iconPosition === IconPosition.Left) && (
+      <Box display="inline-block" variant="raw" margin="0 8px 0 0">
+        {renderIconContainer(icon, variant)}
+      </Box>
+    )}
     {children}
-    {icon &&
-      iconPosition === IconPosition.Right && (
-        <Box display="inline-block" variant="raw" margin="0 0 0 8px">
-          {renderIconContainer(icon, variant)}
-        </Box>
-      )
-    }
+    {icon && iconPosition === IconPosition.Right && (
+      <Box display="inline-block" variant="raw" margin="0 0 0 8px">
+        {renderIconContainer(icon, variant)}
+      </Box>
+    )}
   </Component>
 );

@@ -3,15 +3,11 @@ import styled from 'styled-components';
 import { CSSPropertiesExtended } from '../../theme/types';
 import { TableRowProps } from './TableTypes';
 
-export const TableWrapper = styled.div(
-  ({
-    theme
-  }) => ({
-    margin: '0',
-    padding: '0',
-    ...(theme.TABLE_WRAPPER || {})
-  }),
-)
+export const TableWrapper = styled.div(({ theme }) => ({
+  margin: '0',
+  padding: '0',
+  ...(theme.TABLE_WRAPPER || {}),
+}));
 
 export const TableInnerWrapper = styled.div`
   margin: 0;
@@ -20,18 +16,13 @@ export const TableInnerWrapper = styled.div`
   overflow-x: auto;
 `;
 
-export const Table = styled.table(
-  ({
-    theme
-  }) => ({
-    margin: '0',
-    padding: '0',
-    borderCollapse: 'collapse',
-    minWidth: '100%',
-    ...(theme.TABLE || {})
-  }),
-);
-
+export const Table = styled.table(({ theme }) => ({
+  margin: '0',
+  padding: '0',
+  borderCollapse: 'collapse',
+  minWidth: '100%',
+  ...(theme.TABLE || {}),
+}));
 
 export const TableBody = styled.tbody`
   margin: 0;

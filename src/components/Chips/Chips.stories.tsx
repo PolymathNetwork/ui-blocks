@@ -16,5 +16,5 @@ export const Basic = Template.bind({});
 Basic.args = {
   text: 'Active',
   number: 12,
-  variant: 'default'
+  variant: 'default',
 };

@@ -624,6 +624,15 @@ export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
     fontWeight: 400,
     a: { color: COLOR.brandMain },
   },
+  small: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: `0 ${GAP.xs}`,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
 };
 
 export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
