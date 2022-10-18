@@ -33,7 +33,7 @@ const CloseIcon = styled(Icon)(() => ({
 }));
 
 const renderCloseIcon = (onClose?: () => void) => (
-  <div onClick={onClose}>
+  <div role="button" tabIndex={0} onClick={onClose}>
     <CloseIcon
       size="10px"
       color="gray3"
@@ -99,11 +99,7 @@ const DefaultVariant: FC<InfoBoxProps> = ({
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
-        <Title
-          variant={variant}
-          title={title}
-          important={important}
-        />
+        <Title variant={variant} title={title} important={important} />
         {isClosable && renderCloseIcon(onClose)}
       </Flex>
       <Text margin="10px 0 0" color="gray2" as="p" variant="b2">
@@ -132,11 +128,7 @@ const SmallVariant: FC<InfoBoxProps> = ({
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
-        <Title
-          variant={variant}
-          title={title}
-          important={important}
-        />
+        <Title variant={variant} title={title} important={important} />
         <Text margin="0" padding="0 10px" color="gray2" as="p" variant="b2">
           {text}
         </Text>

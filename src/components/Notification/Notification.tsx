@@ -38,7 +38,7 @@ const CloseIcon = styled(Icon)(() => ({
 }));
 
 const renderCloseIcon = (onClose?: () => void) => (
-  <div onClick={onClose}>
+  <div role="button" tabIndex={0} onClick={onClose}>
     <CloseIcon
       size="10px"
       color="gray3"

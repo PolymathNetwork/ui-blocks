@@ -53,7 +53,7 @@ Closable.args = {
   variant: 'default',
   title: 'important',
   isClosable: true,
-  onClose: () => alert('Close clicked'),
+  onClose: () => alert('Close clicked'), // eslint-disable-line
   important: true,
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
@@ -73,7 +73,7 @@ WithButton.args = {
   size: 'default',
   title: 'important',
   isClosable: true,
-  onClose: () => alert('Close clicked'),
+  onClose: () => alert('Close clicked'), // eslint-disable-line
   important: true,
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
   children: <Button variant="primary">Button</Button>,

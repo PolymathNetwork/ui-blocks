@@ -16,7 +16,7 @@ const Template: Story<ComponentProps<typeof DropZone>> = (props: any) => (
 export const Basic = Template.bind({});
 Basic.args = {
   onFileUpload: (file) => {
-    console.log(file);
+    console.log(file); // eslint-disable-line
   },
 };
 
@@ -24,6 +24,6 @@ export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
   icon: polyIcons.Image,
   onFileUpload: (file) => {
-    console.log(file);
+    console.log(file); // eslint-disable-line
   },
 };

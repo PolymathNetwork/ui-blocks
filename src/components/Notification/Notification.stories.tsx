@@ -48,7 +48,7 @@ Closable.args = {
   variant: 'info',
   title: 'important',
   isClosable: true,
-  onClose: () => alert('Close clicked'),
+  onClose: () => alert('Close clicked'), // eslint-disable-line
   important: true,
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
 };
@@ -57,7 +57,7 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   title: 'important',
   isClosable: true,
-  onClose: () => alert('Close clicked'),
+  onClose: () => alert('Close clicked'), // eslint-disable-line
   important: true,
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam odio porta purus et.',
   children: (
