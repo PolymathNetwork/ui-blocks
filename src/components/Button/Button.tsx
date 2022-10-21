@@ -11,6 +11,11 @@ export type ButtonVariant =
   | 'inline'
   | 'special';
 
+enum IconPosition {
+  Left = 'left',
+  Right = 'right',
+}
+
 export type ButtonProps = {
   variant: ButtonVariant;
   margin?: string;
@@ -19,50 +24,82 @@ export type ButtonProps = {
   size?: 's' | 'm' | 'l';
   disabled?: boolean;
   icon?: ComponentType;
+  iconPosition?: 'left' | 'right';
   onClick?: () => void;
 };
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
-    padding: '8px 16px',
-    minWidth: '82px',
+    padding: '4px 16px',
   },
   m: {
-    padding: '12px 16px',
-    minWidth: '104px',
+    padding: '8px 16px',
   },
   l: {
-    padding: '16px',
-    minWidth: '128px',
+    padding: '12px 16px',
   },
 };
 
 const Component = styled.button<ButtonProps>(
-  ({ theme, variant, margin, size }) => ({
-    ...(theme.BUTTON[variant] || {}),
-    ...(size ? sizeMap[size] : {}),
-    margin: getMargin({ theme, margin }),
-  }),
+  ({ theme, variant, margin, size }) => {
+    return {
+      ...(theme.BUTTON[variant] || {}),
+      ...(size ? sizeMap[size] : {}),
+      margin: getMargin({ theme, margin }),
+    };
+  },
 );
 
-const IconContainer = styled.span(({ theme }) => ({
+const IconContainer = styled.span<any>(({ iconPosition }) => ({
   display: 'inline-block',
-  marginRight: theme.GAP.s,
+  ...(iconPosition === IconPosition.Left && { marginRight: '12px' }),
+  ...(iconPosition === IconPosition.Right && { marginLeft: '12px' }),
+  lineHeight: '24px',
+  fontSize: '19px',
 }));
+
+const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
+  return {
+    color: theme.BUTTON[themeVariant].color,
+    svg: {
+      path: {
+        fill: theme.BUTTON[themeVariant].color,
+      },
+    },
+  };
+});
+
+const renderIconContainer = (
+  icon: ComponentType,
+  variant: ButtonVariant,
+  iconPosition: string = IconPosition.Left,
+) => (
+  <IconContainer iconPosition={iconPosition}>
+    <StyledIcon
+      themeVariant={variant}
+      icon={icon}
+      variant="basic"
+      size="14px"
+    />
+  </IconContainer>
+);
 
 export const Button: FC<ButtonProps> = ({
   type = 'button',
   size = 'm',
   icon,
+  iconPosition,
   children,
+  variant,
   ...props
 }) => (
-  <Component size={size} type={type} {...props}>
-    {icon && (
-      <IconContainer>
-        <Icon icon={icon} variant="basic" size="12px" />
-      </IconContainer>
-    )}
+  <Component size={size} type={type} variant={variant} {...props}>
+    {icon &&
+      (!iconPosition || iconPosition === IconPosition.Left) &&
+      renderIconContainer(icon, variant, iconPosition)}
     {children}
+    {icon &&
+      iconPosition === IconPosition.Right &&
+      renderIconContainer(icon, variant, iconPosition)}
   </Component>
 );

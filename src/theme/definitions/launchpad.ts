@@ -7,8 +7,10 @@ import { ButtonVariant } from '../../components/Button';
 import { IconVariant } from '../../components/Icon';
 import { TextAs } from '../../components/Text';
 import { BadgeVariant } from '../../components/Badge';
-import { InfoBoxSize } from '../../components/InfoBox';
+import { InfoBoxSize, InfoBoxVariant } from '../../components/InfoBox';
 import { DrawerVariant } from '../../components/Drawer';
+import { ChipsVariant } from '../../components/Chips';
+import { NotificationVariant } from '../../components/Notification';
 
 // Basics
 
@@ -40,32 +42,30 @@ export const GAP: Record<Gap, string> = {
 
 export const COLOR = {
   light: '#FFFFFF',
-  gray1: '#1E1E1E',
-  gray2: '#565656',
-  gray3: '#727272',
-  gray4: '#8F8F8F',
+  gray1: '#152935',
+  gray2: '#5B6F7E',
+  gray3: '#8C9BA5',
+  gray4: '#D6DDE8',
   gray5: '#EBF0F7',
   gray6: '#F8F9FC',
   gray7: '#F0F0F0',
-  brandBg: '#FAFDFF',
-  brandMain: '#1348E4',
-  brandMain2: '#6DC7F7',
-  brandMain3: '#C0E3FF',
-  brandMain4: '#DCEFFE',
-  brandMain5: '#60D3CB',
-  brandLighter: '#DCD3FF',
-  brandLight: '#FAD1DC',
-  brandLight2: '#F2EFFF',
-  brandLightest: '#DCEFFE',
-  brandDark: '#0024BD',
-  brandDark2: '#170087',
-  success: '#00AA5E',
-  success2: '#D4F7E7',
-  warning: '#EFC100',
-  warning2: '#FBF3D0',
-  warning3: '#E3A30C',
-  danger: '#DB2C3E',
-  danger2: '#FAE6E8',
+  brandBg: '#1A56AF',
+  brandMain: '#1A56AF',
+  brandLighter: '#E1EEFD',
+  brandLight: '#BBD7FB',
+  brandLightest: '#E1EEFD',
+  brandDark: '#124185',
+  brandDarkest: '#002D61',
+  brandDark2: '#002D61',
+  success: '#004A29',
+  success2: '#009F58',
+  success3: '#DFFFF1',
+  warning: '#604D00',
+  warning2: '#EBBC00',
+  warning3: '#FFF9E0',
+  danger: '#A61C2A',
+  danger2: '#DB2C3E',
+  danger3: '#FBE5E7',
   teal800: '#285E61',
   teal100: '#E6FFFA',
   cyan800: '#046C7C',
@@ -237,7 +237,7 @@ export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
   },
   circle: {
     fill: COLOR.brandMain,
-    backgroundColor: COLOR.brandLightest,
+    backgroundColor: COLOR.brandMain,
     borderRadius: '50%',
   },
 };
@@ -246,31 +246,40 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    fontFamily: "'Poppins', sans-serif",
+    lineHeight: '24px',
     color: COLOR.light,
     background: COLOR.brandMain,
     border: 0,
     borderRadius: RADIUS.l,
-    boxShadow: SHADOW.s,
+    padding: '12px 16px',
     transition: 'all 0.3s',
     cursor: 'pointer',
     '&:hover': {
       background: COLOR.brandDark,
     },
     '&:active': {
-      background: COLOR.brandDark2,
+      background: COLOR.brandDarkest,
     },
     '&:disabled': {
       color: COLOR.gray3,
       background: COLOR.gray5,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   secondary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
-    color: COLOR.gray1,
-    background: COLOR.gray5,
-    border: 0,
+    fontFamily: "'Poppins', sans-serif",
+    lineHeight: '24px',
+    color: COLOR.brandMain,
+    background: COLOR.light,
+    border: `1px solid ${COLOR.brandMain}`,
     borderRadius: RADIUS.l,
     transition: 'all 0.3s',
     cursor: 'pointer',
@@ -280,32 +289,46 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     },
     '&:active': {
       color: COLOR.brandMain,
-      background: COLOR.brandLight2,
+      background: COLOR.brandLight,
+      borderColor: COLOR.brandMain,
     },
     '&:disabled': {
+      border: `1px solid ${COLOR.gray5}`,
       color: COLOR.gray3,
-      background: COLOR.gray5,
+      background: COLOR.light,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   tertiary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
-    color: COLOR.gray1,
+    fontFamily: "'Poppins', sans-serif",
+    lineHeight: '24px',
+    color: COLOR.brandMain,
     background: 'transparent',
     border: 0,
     borderRadius: RADIUS.l,
     transition: 'all 0.3s',
     cursor: 'pointer',
     '&:hover': {
-      background: COLOR.gray5,
+      background: COLOR.brandLightest,
     },
     '&:active': {
-      background: COLOR.gray4,
+      background: COLOR.brandLight,
     },
     '&:disabled': {
       color: COLOR.gray3,
       cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
     },
   },
   inline: {
@@ -315,6 +338,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     border: 0,
     borderRadius: 0,
     lineHeight: 'inherit',
+    fontFamily: "'Poppins', sans-serif",
     fontWeight: 'inherit',
     fontSize: 'inherit',
     letterSpacing: 'inherit',
@@ -322,7 +346,36 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     background: 'transparent',
     cursor: 'pointer',
   },
-  special: {},
+  special: {
+    ...TYPOGRAPHY.btn,
+    display: 'flex',
+    lineHeight: '22px',
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: '14px',
+    color: COLOR.gray1,
+    background: COLOR.light,
+    border: `1px solid ${COLOR.gray1}`,
+    borderRadius: RADIUS.l,
+    padding: '12px 16px',
+    transition: 'all 0.3s',
+    cursor: 'pointer',
+    '&:hover:enabled': {
+      background: COLOR.gray5,
+    },
+    '&:active': {
+      background: COLOR.gray4,
+    },
+    '&:disabled': {
+      color: COLOR.gray3,
+      border: `1px solid ${COLOR.gray3}`,
+      cursor: 'no-drop',
+      svg: {
+        path: {
+          fill: COLOR.gray3,
+        },
+      },
+    },
+  },
 };
 
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
@@ -370,46 +423,48 @@ export const TEXT: Record<TextAs, CSSPropertiesExtended> = {
 export const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
   default: {
     ...TYPOGRAPHY.b3m,
-    color: COLOR.brandMain,
+    color: COLOR.brandDark,
     backgroundColor: COLOR.brandLightest,
     borderRadius: '100px',
   },
   success: {
     ...TYPOGRAPHY.b3m,
     color: COLOR.success,
-    backgroundColor: COLOR.success2,
+    backgroundColor: COLOR.success3,
     borderRadius: '100px',
   },
   warning: {
     ...TYPOGRAPHY.b3m,
     color: COLOR.warning,
-    backgroundColor: COLOR.warning2,
+    backgroundColor: COLOR.warning3,
     borderRadius: '100px',
   },
   danger: {
     ...TYPOGRAPHY.b3m,
-    color: COLOR.danger,
-    backgroundColor: COLOR.danger2,
+    color: COLOR.danger2,
+    backgroundColor: COLOR.danger3,
     borderRadius: '100px',
   },
 };
 
 export const INPUT: CSSPropertiesExtended = {
-  padding: `0 ${GAP.s}`,
-  lineHeight: '40px',
-  fontWeight: 'inherit',
-  fontSize: 'inherit',
-  color: COLOR.gray1,
+  ...TYPOGRAPHY.b2,
+  padding: `${GAP.xs} ${GAP.s}`,
   border: `1px solid ${COLOR.gray3}`,
   borderRadius: RADIUS.s,
   transition: 'all 0.3s',
   backgroundColor: COLOR.light,
+  '&:hover': {
+    borderColor: COLOR.gray2,
+  },
   '&:focus': {
     borderColor: COLOR.brandMain,
   },
   '&:disabled': {
     borderColor: COLOR.gray5,
-    backgroundColor: COLOR.gray5,
+    backgroundColor: COLOR.light,
+    color: COLOR.gray3,
+    cursor: 'not-allowed',
   },
   '&:readOnly': {
     borderColor: 'transparent',
@@ -421,6 +476,9 @@ export const INPUT: CSSPropertiesExtended = {
     '&:focus': {
       borderColor: 'transparent',
     },
+  },
+  '::placeholder': {
+    color: COLOR.gray3,
   },
 };
 
@@ -471,7 +529,7 @@ export const DATEPICKER: CSSPropertiesExtended = {
       color: COLOR.gray1,
       lineHeight: '30px',
       '&--selected': {
-        backgroundColor: COLOR.brandMain,
+        backgroundColor: `${COLOR.brandMain} !important`,
       },
       '&--disabled': {
         color: COLOR.gray4,
@@ -496,9 +554,22 @@ export const SELECT: any = {
   }),
   control: (styles: any, state: any) => ({
     ...styles,
-    backgroundColor: COLOR.light,
+    backgroundColor: state.selectProps.readonly ? COLOR.gray5 : COLOR.light,
     borderRadius: RADIUS.m,
-    borderColor: COLOR.gray3,
+    ...(state.selectProps.isDisabled
+      ? {
+          borderColor: COLOR.gray5,
+        }
+      : state.selectProps.readonly
+      ? {
+          borderColor: 'transparent',
+        }
+      : {
+          borderColor: COLOR.gray3,
+        }),
+    '&:hover': {
+      borderColor: state.selectProps.readonly ? 'transparent' : COLOR.gray2,
+    },
     ...(state.isFocused
       ? {
           borderColor: COLOR.brandMain,
@@ -507,23 +578,12 @@ export const SELECT: any = {
           },
         }
       : {}),
-    cursor: 'pointer',
-  }),
-  valueContainer: (styles: any) => ({
-    ...styles,
-    ...TYPOGRAPHY.b2,
-  }),
-  menu: (styles: any) => ({
-    ...styles,
-    backgroundColor: COLOR.light,
-    boxShadow: SHADOW.s,
-  }),
-  menuPortal: (styles: any) => ({
-    ...styles,
-    zIndex: 1000,
+    cursor: state.selectProps.readonly ? 'not-allowed' : 'pointer',
   }),
   option: (styles: any, state: any) => ({
     ...styles,
+    padding: '8px 9px',
+    ...TYPOGRAPHY.b2,
     color: COLOR.gray1,
     ...(state.isSelected
       ? {
@@ -533,9 +593,31 @@ export const SELECT: any = {
       : {}),
     '&:hover': {
       color: COLOR.gray1,
-      backgroundColor: COLOR.brandLightest,
+      backgroundColor: COLOR.gray6,
     },
     cursor: 'pointer',
+  }),
+  valueContainer: (styles: any) => ({
+    ...styles,
+    ...TYPOGRAPHY.b2,
+  }),
+  placeholder: (styles: any) => ({
+    ...styles,
+    ...TYPOGRAPHY.b2,
+    color: COLOR.gray3,
+  }),
+  menu: (styles: any) => ({
+    ...styles,
+    backgroundColor: COLOR.light,
+    boxShadow: SHADOW.s,
+  }),
+  menuList: (styles: any) => ({
+    ...styles,
+    padding: '0px',
+  }),
+  menuPortal: (styles: any) => ({
+    ...styles,
+    zIndex: 1000,
   }),
 };
 
@@ -603,12 +685,83 @@ export const TOOLTIP = createGlobalStyle`
   }
 `;
 
+export const NOTIFICATION: CSSPropertiesExtended = {
+  ...TYPOGRAPHY.b2m,
+  width: '100%',
+  display: 'inline-block',
+  padding: '12px 18px',
+  background: COLOR.gray1,
+  sizing: 'border-box',
+};
+export const NOTIFICATION_VARIANTS: Record<
+  NotificationVariant,
+  CSSPropertiesExtended
+> = {
+  info: {
+    background: COLOR.brandLightest,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+  },
+  danger: {
+    background: COLOR.danger3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.danger2} !important`,
+        },
+      },
+    },
+  },
+  warning: {
+    background: COLOR.warning3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.warning2} !important`,
+        },
+      },
+    },
+  },
+  success: {
+    background: COLOR.success3,
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+  },
+};
+
 export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
   default: {
     minWidth: '240px',
     display: 'inline-block',
     padding: GAP.s,
-    border: `2px solid #F0F0F0`,
+    border: `2px solid ${COLOR.gray5}`,
+    background: COLOR.gray6,
+    sizing: 'border-box',
+    borderRadius: RADIUS.l,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+  small: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: GAP.s,
+    border: `2px solid ${COLOR.gray5}`,
+    background: COLOR.gray6,
     sizing: 'border-box',
     borderRadius: RADIUS.l,
     fontSize: '14px',
@@ -624,14 +777,97 @@ export const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
     fontWeight: 400,
     a: { color: COLOR.brandMain },
   },
-  small: {
-    minWidth: '240px',
-    display: 'inline-block',
-    padding: `0 ${GAP.xs}`,
+};
+export const INFOBOX_COMPACT_BORDER: Record<
+  InfoBoxVariant,
+  CSSPropertiesExtended
+> = {
+  default: {
     borderLeft: `2px solid ${COLOR.brandMain}`,
-    fontSize: '14px',
-    fontWeight: 400,
-    a: { color: COLOR.brandMain },
+  },
+  danger: {
+    borderLeft: `2px solid ${COLOR.danger2}`,
+  },
+  warning: {
+    borderLeft: `2px solid ${COLOR.warning2}`,
+  },
+  special: {
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+  },
+};
+export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
+  default: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+    color: COLOR.brandDark,
+  },
+  danger: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.danger2} !important`,
+        },
+      },
+    },
+    color: COLOR.danger,
+  },
+  warning: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.warning2} !important`,
+        },
+      },
+    },
+    color: COLOR.warning,
+  },
+  special: {
+    '.info-icon': {
+      display: 'flex',
+      svg: {
+        path: {
+          fill: `${COLOR.brandMain} !important`,
+        },
+      },
+    },
+    color: COLOR.gray1,
+  },
+};
+
+export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {
+  default: {
+    ...TYPOGRAPHY.b2m,
+    padding: GAP.xs,
+    borderRadius: '100px',
+    width: 'fit-content',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '&:hover': {
+      background: COLOR.gray5,
+    },
+    '&:active': {
+      background: COLOR.gray5,
+    },
+    '.number': {
+      ...TYPOGRAPHY.b3m,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: '2px',
+      width: '20px',
+      height: '20px',
+      background: COLOR.gray4,
+      color: COLOR.gray1,
+      borderRadius: '100px',
+    },
   },
 };
 
@@ -652,19 +888,43 @@ export const DRAWER: Record<DrawerVariant, CSSPropertiesExtended> = {
   },
 };
 
+export const TABLE: CSSPropertiesExtended = {
+  thead: {
+    background: COLOR.gray5,
+    borderRadius: '8px 0px 0px 0px',
+    color: COLOR.gray1,
+    th: {
+      color: COLOR.gray1,
+    },
+  },
+};
+
+export const TABLE_WRAPPER: CSSPropertiesExtended = {
+  '.paginationButtons': {
+    button: {
+      svg: {
+        path: {
+          fill: COLOR.gray1,
+        },
+      },
+    },
+  },
+};
+
 export const CHECKBOX: CSSPropertiesExtended = {
   basic: {
     color: COLOR.gray1,
     fontSize: '16px',
+
     // the icon color manipulation
-    // svg: {
-    //   path: {
-    //     fill: 'red !important',
-    //   },
-    // },
+    svg: {
+      path: {
+        fill: `${COLOR.brandMain} !important`,
+      },
+    },
   },
   labelMargin: {
-    margin: '0 0 0 10px',
+    margin: '-2px 0 0 10px',
   },
 };
 

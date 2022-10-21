@@ -33,6 +33,7 @@ export * from './components/Select';
 export * from './components/Input';
 export * from './components/DatePicker';
 export * from './components/Tooltip';
+export * from './components/DropZone';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
 

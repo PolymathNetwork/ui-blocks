@@ -6,10 +6,19 @@ import { getMargin } from '../../theme/utils';
 import { Grid, GridProps } from '../Grid';
 import { Icon } from '../Icon';
 import { Flex } from '../Flex';
+import { Box } from '../Box';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 
 export type InputVariant = 'basic' | 'amount';
+export enum IconPosition {
+  Left = 'left',
+  Right = 'right',
+}
+export enum LablePosition {
+  Top = 'top',
+  Left = 'left',
+}
 
 export type InputProps = {
   variant: InputVariant;
@@ -19,11 +28,13 @@ export type InputProps = {
   type?: 'text' | 'password' | 'email';
   disabled?: boolean;
   label?: string;
+  labelPosition?: LablePosition;
   placeholder?: string;
   value?: string | null;
   onChange?: (state: any) => void;
   tooltip?: string | ComponentType;
   icon?: ComponentType;
+  iconPosition?: IconPosition;
   unit?: string;
   error?: string;
   isDivisible?: boolean;
@@ -45,7 +56,15 @@ const InputWrapper = styled(Grid)<InputWrapperProps>(
     border: (theme.INPUT || { border: 0 }).border,
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
     transition: (theme.INPUT || { transition: 'unset' }).transition,
-    ...(error ? { borderColor: theme.COLOR.danger } : {}),
+    ...(error
+      ? {
+          borderColor: theme.COLOR.danger2,
+          background: theme.COLOR.danger3,
+          input: {
+            background: theme.COLOR.danger3,
+          },
+        }
+      : {}),
     ...(!disabled && theme.INPUT && theme.INPUT['&:hover']
       ? { '&:hover': theme.INPUT['&:hover'] }
       : {}),
@@ -88,6 +107,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       margin,
       type,
       label,
+      labelPosition = LablePosition.Top,
       tooltip,
       icon,
       unit,
@@ -95,6 +115,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       isDivisible = true,
       disabled,
       readOnly,
+      iconPosition,
       ...props
     } = inputProps;
 
@@ -118,16 +139,51 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         : {}),
     };
 
+    const renderIcon = (
+      _icon: ComponentType,
+      _iconPosition: IconPosition = IconPosition.Left,
+      _disabled = false,
+    ) => (
+      <Icon
+        icon={_icon}
+        variant="basic"
+        size="24px"
+        color={_disabled ? 'gray4' : 'gray3'}
+        margin={_iconPosition === IconPosition.Left ? '0 s 0 0' : '0'}
+      />
+    );
+
     return (
-      <Text as="label" variant="b2m" display="block" margin={margin}>
-        {label && tooltip && (
-          <Flex variant="raw" justify={tooltip ? 'spaced' : 'start'}>
-            <Text as="span" variant="b2m" color={disabled ? 'gray4' : 'gray1'}>
-              {label}
-            </Text>
-            {tooltip && <Tooltip variant="icon" content={tooltip} />}
-          </Flex>
-        )}
+      <Flex
+        width="fit-content"
+        variant="basic"
+        align={labelPosition === LablePosition.Left ? 'center' : 'start'}
+        dir={labelPosition === LablePosition.Left ? 'row' : 'column'}
+        margin={margin}
+      >
+        <Box
+          width="100%"
+          variant="raw"
+          display="block"
+          margin={labelPosition === LablePosition.Left ? '0 8px 0 0' : ''}
+        >
+          {label && (
+            <Flex
+              align="center"
+              variant="raw"
+              justify={tooltip ? 'spaced' : 'start'}
+            >
+              <Text
+                as="span"
+                variant="b2m"
+                color={disabled ? 'gray3' : 'gray1'}
+              >
+                {label}
+              </Text>
+              {tooltip && <Tooltip variant="icon" content={tooltip} />}
+            </Flex>
+          )}
+        </Box>
         <InputWrapper
           variant="raw"
           align="center"
@@ -136,28 +192,25 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           disabled={disabled}
           readOnly={readOnly}
         >
-          {icon && (
-            <Icon
-              icon={icon}
-              variant="basic"
-              size="24px"
-              color="gray3"
-              margin="0 s 0 0"
-            />
-          )}
+          {icon &&
+            (!iconPosition || iconPosition === IconPosition.Left) &&
+            renderIcon(icon, iconPosition, disabled)}
           <InputComponent
             ref={ref}
             as={isAmount ? NumberInput : 'input'}
             {...componentProps}
           />
+          {icon &&
+            iconPosition === IconPosition.Right &&
+            renderIcon(icon, iconPosition, disabled)}
           {unit && <Unit>{unit}</Unit>}
         </InputWrapper>
         {error && (
-          <Text as="span" variant="b3" color="danger">
+          <Text as="span" variant="b3" color="danger2">
             {error}
           </Text>
         )}
-      </Text>
+      </Flex>
     );
   },
 );

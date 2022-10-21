@@ -1,25 +1,33 @@
-import { FC } from 'react';
+import { FC, ComponentType } from 'react';
 import styled from 'styled-components';
+import { Box } from '../Box';
 
 import { Display, CSSPropertiesExtended } from '../../theme/types';
 import { getMargin } from '../../theme/utils';
+import { Icon } from '../Icon';
 
-export type BadgeVariant = 'basic' | 'success' | 'warning' | 'danger';
+export type BadgeVariant = 'default' | 'success' | 'warning' | 'danger';
+enum IconPosition {
+  Left = 'left',
+  Right = 'right',
+}
 
 export type BadgeProps = {
   variant: BadgeVariant;
   margin?: string;
   display?: Display;
-  size?: 's' | 'm';
+  icon?: ComponentType;
+  iconPosition?: 'left' | 'right';
+  size?: 's' | 'l';
 };
 
 const sizeMap: Record<string, CSSPropertiesExtended> = {
-  s: {
+  l: {
     padding: '2px 8px',
-    fontSize: '10px !important',
   },
-  m: {
-    padding: '5px 16px',
+  s: {
+    padding: '0px 8px',
+    lineHeight: '16px',
   },
 };
 
@@ -32,8 +40,54 @@ const Component = styled.span<BadgeProps>(
   }),
 );
 
+const IconContainer = styled.span(() => ({
+  display: 'inline-block',
+  lineHeight: '10px',
+  verticalAlign: ' middle',
+}));
+
+const StyledIcon = styled(Icon)<any>(({ theme, themeVariant }) => {
+  return {
+    color: theme.BADGE[themeVariant].color,
+    svg: {
+      path: {
+        fill: `${theme.BADGE[themeVariant].color} !important`,
+      },
+    },
+  };
+});
+
+const renderIconContainer = (icon: ComponentType, variant: BadgeVariant) => (
+  <IconContainer>
+    <StyledIcon
+      themeVariant={variant}
+      icon={icon}
+      variant="basic"
+      size="14px"
+    />
+  </IconContainer>
+);
+
 export const Badge: FC<BadgeProps> = ({
   display = 'inline-block',
-  size = 'm',
+  size = 'l',
+  variant = 'default',
+  icon,
+  iconPosition,
+  children,
   ...props
-}) => <Component display={display} size={size} {...props} />;
+}) => (
+  <Component variant={variant} display={display} size={size} {...props}>
+    {icon && (!iconPosition || iconPosition === IconPosition.Left) && (
+      <Box display="inline-block" variant="raw" margin="0 8px 0 0">
+        {renderIconContainer(icon, variant)}
+      </Box>
+    )}
+    {children}
+    {icon && iconPosition === IconPosition.Right && (
+      <Box display="inline-block" variant="raw" margin="0 0 0 8px">
+        {renderIconContainer(icon, variant)}
+      </Box>
+    )}
+  </Component>
+);

@@ -1,7 +1,7 @@
 import * as blue from './blue';
 import { BadgeVariant } from '../../components/Badge';
 import { BoxVariant } from '../../components/Box';
-import { InfoBoxVariant } from '../../components/InfoBox';
+import { InfoBoxSize } from '../../components/InfoBox';
 
 import { CSSPropertiesExtended } from '../types';
 
@@ -75,7 +75,7 @@ const CHECKBOX: CSSPropertiesExtended = {
 };
 
 const BADGE: Record<BadgeVariant, CSSPropertiesExtended> = {
-  basic: {
+  default: {
     ...blue.TYPOGRAPHY.b3m,
     color: COLOR.brandMain,
     backgroundColor: COLOR.brandLightest,
@@ -144,8 +144,8 @@ const COLLAPSABLE: Record<BoxVariant & any, CSSPropertiesExtended> = {
   },
 };
 
-const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
-  basic: {
+const INFOBOX: Record<InfoBoxSize, CSSPropertiesExtended> = {
+  default: {
     minWidth: '240px',
     display: 'inline-block',
     padding: blue.GAP.s,
@@ -157,6 +157,15 @@ const INFOBOX: Record<InfoBoxVariant, CSSPropertiesExtended> = {
     a: { color: COLOR.brandMain },
   },
   compact: {
+    minWidth: '240px',
+    display: 'inline-block',
+    padding: `0 ${blue.GAP.xs}`,
+    borderLeft: `2px solid ${COLOR.brandMain}`,
+    fontSize: '14px',
+    fontWeight: 400,
+    a: { color: COLOR.brandMain },
+  },
+  small: {
     minWidth: '240px',
     display: 'inline-block',
     padding: `0 ${blue.GAP.xs}`,
@@ -215,6 +224,7 @@ export const pink: any = {
     ...blue.BUTTON,
     primary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.light,
       background: COLOR.brandMain3,
@@ -238,6 +248,7 @@ export const pink: any = {
     },
     secondary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.brandMain3,
       background: COLOR.light,
@@ -262,6 +273,7 @@ export const pink: any = {
     },
     tertiary: {
       ...blue.TYPOGRAPHY.btn,
+      display: 'flex',
       fontFamily: "'Poppins', sans-serif",
       color: COLOR.gray1,
       background: 'transparent',
