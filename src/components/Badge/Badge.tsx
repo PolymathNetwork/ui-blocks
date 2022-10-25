@@ -68,7 +68,6 @@ const renderIconContainer = (icon: ComponentType, variant: BadgeVariant) => (
   </IconContainer>
 );
 
-// export const Badge: FC<BadgeProps> = ({
 export function Badge(badgeProps: BadgeProps) {
   const {
     display = 'inline-block',
