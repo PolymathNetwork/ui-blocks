@@ -1,4 +1,4 @@
-import { FC, ComponentType } from 'react';
+import { ComponentType, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
@@ -16,7 +16,7 @@ enum IconPosition {
   Right = 'right',
 }
 
-export type ButtonProps = {
+export type ButtonProps = PropsWithChildren<{
   variant: ButtonVariant;
   margin?: string;
   id?: string;
@@ -26,7 +26,7 @@ export type ButtonProps = {
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
   onClick?: () => void;
-};
+}>;
 
 const sizeMap: Record<string, Record<string, string>> = {
   s: {
@@ -84,22 +84,26 @@ const renderIconContainer = (
   </IconContainer>
 );
 
-export const Button: FC<ButtonProps> = ({
-  type = 'button',
-  size = 'm',
-  icon,
-  iconPosition,
-  children,
-  variant,
-  ...props
-}) => (
-  <Component size={size} type={type} variant={variant} {...props}>
-    {icon &&
-      (!iconPosition || iconPosition === IconPosition.Left) &&
-      renderIconContainer(icon, variant, iconPosition)}
-    {children}
-    {icon &&
-      iconPosition === IconPosition.Right &&
-      renderIconContainer(icon, variant, iconPosition)}
-  </Component>
-);
+export function Button(buttonProps: ButtonProps) {
+  const {
+    type = 'button',
+    size = 'm',
+    icon,
+    iconPosition,
+    children,
+    variant,
+    ...props
+  } = buttonProps;
+
+  return (
+    <Component size={size} type={type} variant={variant} {...props}>
+      {icon &&
+        (!iconPosition || iconPosition === IconPosition.Left) &&
+        renderIconContainer(icon, variant, iconPosition)}
+      {children}
+      {icon &&
+        iconPosition === IconPosition.Right &&
+        renderIconContainer(icon, variant, iconPosition)}
+    </Component>
+  );
+}
