@@ -1,4 +1,4 @@
-import { FC, ComponentType } from 'react';
+import { ComponentType, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { Box } from '../Box';
 
@@ -12,14 +12,14 @@ enum IconPosition {
   Right = 'right',
 }
 
-export type BadgeProps = {
+export type BadgeProps = PropsWithChildren<{
   variant: BadgeVariant;
   margin?: string;
   display?: Display;
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
   size?: 's' | 'l';
-};
+}>;
 
 const sizeMap: Record<string, CSSPropertiesExtended> = {
   l: {
@@ -68,26 +68,31 @@ const renderIconContainer = (icon: ComponentType, variant: BadgeVariant) => (
   </IconContainer>
 );
 
-export const Badge: FC<BadgeProps> = ({
-  display = 'inline-block',
-  size = 'l',
-  variant = 'default',
-  icon,
-  iconPosition,
-  children,
-  ...props
-}) => (
-  <Component variant={variant} display={display} size={size} {...props}>
-    {icon && (!iconPosition || iconPosition === IconPosition.Left) && (
-      <Box display="inline-block" variant="raw" margin="0 8px 0 0">
-        {renderIconContainer(icon, variant)}
-      </Box>
-    )}
-    {children}
-    {icon && iconPosition === IconPosition.Right && (
-      <Box display="inline-block" variant="raw" margin="0 0 0 8px">
-        {renderIconContainer(icon, variant)}
-      </Box>
-    )}
-  </Component>
-);
+// export const Badge: FC<BadgeProps> = ({
+export function Badge(badgeProps: BadgeProps) {
+  const {
+    display = 'inline-block',
+    size = 'l',
+    variant = 'default',
+    icon,
+    iconPosition,
+    children,
+    ...props
+  } = badgeProps;
+
+  return (
+    <Component variant={variant} display={display} size={size} {...props}>
+      {icon && (!iconPosition || iconPosition === IconPosition.Left) && (
+        <Box display="inline-block" variant="raw" margin="0 8px 0 0">
+          {renderIconContainer(icon, variant)}
+        </Box>
+      )}
+      {children}
+      {icon && iconPosition === IconPosition.Right && (
+        <Box display="inline-block" variant="raw" margin="0 0 0 8px">
+          {renderIconContainer(icon, variant)}
+        </Box>
+      )}
+    </Component>
+  );
+}
