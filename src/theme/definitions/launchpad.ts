@@ -150,7 +150,7 @@ export const TYPOGRAPHY: any = {
   h6: {
     margin: `0 0 ${GAP.s} 0`,
     lineHeight: '27px',
-    fontWeight: 400,
+    fontWeight: 500,
     fontSize: '18px',
     color: COLOR.gray1,
   },
@@ -841,6 +841,24 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
     color: COLOR.gray1,
   },
 };
+
+export const PROFILE_PICTURE: CSSPropertiesExtended = {
+  borderRadius: '100px',
+  background: COLOR.brandLightest,
+  backgroundSize: 'contain'
+};
+export const SELECT_CARD: CSSPropertiesExtended = {
+  padding: '16px',
+  border: `1px solid ${COLOR.gray4}`,
+  borderRadius: RADIUS.xl,
+  cursor: 'pointer',
+  '&:hover': {
+    border: `1px solid ${COLOR.gray1}`,
+  },
+  '&:active': {
+    border: `1px solid ${COLOR.brandMain}`,
+  },
+}
 
 export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {
   default: {
