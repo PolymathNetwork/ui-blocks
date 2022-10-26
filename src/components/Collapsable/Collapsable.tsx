@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { COLLAPSABLE } from '../../theme/definitions/blue';
 import { polyIcons } from '../../theme';
 import { Box, BoxVariant, BoxProps } from '../Box';
@@ -16,15 +16,16 @@ export type CollapsableProps = BoxProps & {
   iconVariant?: 'default' | 'transparent';
 };
 
-export const Collapsable: FC<CollapsableProps> = ({
-  title,
-  defaultOpen,
-  clickable = true,
-  onClick,
-  children,
-  iconVariant = 'default',
-  ...restProps
-}) => {
+export function Collapsable(collapsableProps: CollapsableProps) {
+  const {
+    title,
+    defaultOpen,
+    clickable = true,
+    onClick,
+    children,
+    iconVariant = 'default',
+    ...restProps
+  } = collapsableProps;
   const [isOpen, setIsOpen] = useState(defaultOpen || false);
 
   const toggle = () => {
@@ -74,4 +75,4 @@ export const Collapsable: FC<CollapsableProps> = ({
       )}
     </Box>
   );
-};
+}
