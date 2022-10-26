@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Justify, Align, propValueMap } from '../../theme/types';
@@ -20,6 +19,6 @@ const Component = styled(Box)<FlexProps>(({ justify, align, dir, theme }) => ({
   ...(dir && { flexDirection: dir }),
 }));
 
-export const Flex: FC<FlexProps> = (props) => {
-  return <Component {...props} />;
-};
+export function Flex(flexProps: FlexProps) {
+  return <Component {...flexProps} />;
+}
