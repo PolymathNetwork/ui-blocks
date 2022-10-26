@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { Text } from '../Text';
@@ -9,7 +7,7 @@ import { Icon } from '../Icon';
 import { polyIcons } from '../../theme/icons';
 import { TablePaginationProps } from './TableTypes';
 
-export const TablePagination: FC<TablePaginationProps> = ({
+export const TablePagination = ({
   canPreviousPage,
   canNextPage,
   nextPage,
@@ -22,7 +20,7 @@ export const TablePagination: FC<TablePaginationProps> = ({
   pageCount,
   gotoPage,
   label = 'Rows per page',
-}) => {
+}: TablePaginationProps) => {
   // const buttonStyles = { minWidth: 50, padding: 0 };
 
   return (
