@@ -1,4 +1,4 @@
-import { FC, ComponentType } from 'react';
+import { ComponentType } from 'react';
 import styled from 'styled-components';
 
 import { Flex, FlexProps } from '../Flex';
@@ -47,14 +47,14 @@ const ActiveText = styled<any>(Text)(({ theme, isActive }) => ({
   },
 }));
 
-const Item: FC<TabItemProps> = ({
+const Item = ({
   text,
   url,
   icon,
   isActive,
   separator,
   onClick,
-}) => {
+}: TabItemProps) => {
   return (
     <ActiveTab
       variant="raw"
@@ -88,14 +88,14 @@ const Item: FC<TabItemProps> = ({
   );
 };
 
-const TabBarComponent: FC<TabBarProps> = ({
+const TabBarComponent = ({
   tabs,
   variant = 'raw',
   justify = 'start',
   align = 'end',
   dir = 'row',
   ...props
-}) => {
+}: TabBarProps) => {
   return (
     <Flex
       variant={variant}
