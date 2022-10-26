@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 
 import { propValueMap, Justify, Align, Gap } from '../../theme/types';
@@ -45,9 +44,9 @@ const ItemWrapper = styled.div<GridItemProps & any>`
   grid-area: ${({ area }) => area};
 `;
 
-const GridComponent: FC<GridProps> = ({ ...props }) => <Component {...props} />;
+const GridComponent = (gridProps: GridProps) => <Component {...gridProps} />;
 
-const Item: FC<GridItemProps> = ({ as, ...itemProps }) => {
+const Item = ({ as, ...itemProps }: GridItemProps) => {
   const TargetComponent = {
     Box,
     Flex,
