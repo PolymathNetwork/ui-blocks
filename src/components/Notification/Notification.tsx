@@ -1,4 +1,4 @@
-import { ComponentType, FC } from 'react';
+import { ComponentType, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { getMargin } from '../../theme/utils';
 import { polyIcons } from '../../theme/icons';
@@ -16,7 +16,7 @@ const VARIANT_ICONS: Record<NotificationVariant, ComponentType> = {
   success: polyIcons.CheckCircleOutline,
 };
 
-export type NotificationProps = {
+export type NotificationProps = PropsWithChildren<{
   variant: NotificationVariant;
   margin?: string;
   title: string;
@@ -25,7 +25,7 @@ export type NotificationProps = {
   isClosable?: boolean;
   onClose?: () => void;
   text: string;
-};
+}>;
 
 const IconContainer = styled.span(() => ({
   display: 'flex',
@@ -57,15 +57,17 @@ const Component = styled.div<Pick<NotificationProps, 'margin' | 'variant'>>(
   }),
 );
 
-export const Notification: FC<NotificationProps> = ({
-  color,
-  children,
-  variant = 'info',
-  text,
-  isClosable = false,
-  onClose = () => {},
-  ...props
-}) => {
+export function Notification(notificationProps: NotificationProps) {
+  const {
+    color,
+    children,
+    variant = 'info',
+    text,
+    isClosable = false,
+    onClose = () => {},
+    ...props
+  } = notificationProps;
+
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
@@ -99,4 +101,4 @@ export const Notification: FC<NotificationProps> = ({
       </Flex>
     </Component>
   );
-};
+}
