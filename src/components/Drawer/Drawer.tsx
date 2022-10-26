@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 
 import { Box, BoxProps } from '../Box';
@@ -55,13 +54,13 @@ const Component = styled(Box)<any>(
   },
 );
 
-export const Drawer: FC<DrawerProps> = ({
-  hasOverlay = true,
-  isOpen,
-  ...props
-}) => (
-  <>
-    {isOpen && hasOverlay && <Overlay variant="raw" />}
-    <Component isOpen={isOpen} {...props} />
-  </>
-);
+export function Drawer(drawerProps: DrawerProps) {
+  const { hasOverlay = true, isOpen, ...props } = drawerProps;
+
+  return (
+    <>
+      {isOpen && hasOverlay && <Overlay variant="raw" />}
+      <Component isOpen={isOpen} {...props} />
+    </>
+  );
+}
