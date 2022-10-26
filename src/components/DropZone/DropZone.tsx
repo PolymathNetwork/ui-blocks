@@ -1,4 +1,4 @@
-import { FC, ComponentType, useState } from 'react';
+import { ComponentType, useState } from 'react';
 import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { Icon } from '../Icon';
@@ -69,7 +69,9 @@ const StyedIcon = styled(Icon)(({ theme }) => ({
   },
 }));
 
-export const DropZone: FC<DropZoneProps> = ({ icon, onFileUpload }) => {
+export function DropZone(dropZoneProps: DropZoneProps) {
+  const { icon, onFileUpload } = dropZoneProps;
+
   const [file, setFile] = useState<(File & { preview: string }) | null>();
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -103,4 +105,4 @@ export const DropZone: FC<DropZoneProps> = ({ icon, onFileUpload }) => {
       </StyedFlex>
     </StyedBorder>
   );
-};
+}
