@@ -1,16 +1,16 @@
-import { FC } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
 
 export type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export type HeadingProps = {
+export type HeadingProps = PropsWithChildren<{
   variant: HeadingVariant;
   margin?: string;
   color?: string;
   altColor?: string;
-};
+}>;
 
 const Component = styled.h1<HeadingProps>(
   ({ theme, color, altColor, margin, variant }) => ({
@@ -21,4 +21,4 @@ const Component = styled.h1<HeadingProps>(
   }),
 );
 
-export const Heading: FC<HeadingProps> = (props) => <Component {...props} />;
+export const Heading = (props: HeadingProps) => <Component {...props} />;

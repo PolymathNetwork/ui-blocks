@@ -1,12 +1,17 @@
-import { FC } from 'react';
+import { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import * as defaultTheme from './definitions/blue';
 import { PolyGlobalStyles } from './globalStyles';
 
-export const PolyThemeProvider: FC<{
+type PolyThemeProps = PropsWithChildren<{
   theme: any;
-}> = ({ theme = defaultTheme, children }) => {
+}>;
+
+export const PolyThemeProvider = ({
+  theme = defaultTheme,
+  children,
+}: PolyThemeProps) => {
   return (
     <ThemeProvider theme={theme}>
       <>

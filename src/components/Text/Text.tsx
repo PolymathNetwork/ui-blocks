@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { Display } from '../../theme/types';
@@ -24,7 +24,7 @@ export type TextVariant =
   | 'tn'
   | 'code';
 
-export type TextProps = {
+export type TextProps = PropsWithChildren<{
   as: TextAs;
   variant: TextVariant;
   margin?: string;
@@ -33,7 +33,7 @@ export type TextProps = {
   altColor?: string;
   display?: Display;
   align?: 'center' | 'left' | 'right';
-};
+}>;
 
 const Component = styled.span<TextProps>(
   ({
@@ -58,4 +58,4 @@ const Component = styled.span<TextProps>(
   }),
 );
 
-export const Text: FC<TextProps> = (props) => <Component {...props} />;
+export const Text = (props: TextProps) => <Component {...props} />;

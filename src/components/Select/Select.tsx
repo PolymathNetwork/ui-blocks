@@ -1,5 +1,4 @@
 import {
-  FC,
   useContext,
   useState,
   useEffect,
@@ -46,7 +45,7 @@ export type DropdownIndicatorProps = ComponentProps<
   typeof components.DropdownIndicator
 >;
 
-const DropdownIndicator: FC<DropdownIndicatorProps> = (props) => {
+const DropdownIndicator = (props: DropdownIndicatorProps) => {
   return (
     components.DropdownIndicator && (
       <components.DropdownIndicator {...props}>
@@ -61,7 +60,7 @@ const DropdownIndicator: FC<DropdownIndicatorProps> = (props) => {
   );
 };
 
-const Option: FC<SelectOptionProps> = ({ children, ...props }) => (
+const Option = ({ children, ...props }: SelectOptionProps) => (
   <components.Option {...props} isDisabled>
     {!props.selectProps.noIcon && (
       <Icon
@@ -79,7 +78,7 @@ const Option: FC<SelectOptionProps> = ({ children, ...props }) => (
   </components.Option>
 );
 
-export const Select: FC<SelectProps> = ({
+export const Select = ({
   margin,
   id,
   label,
@@ -90,7 +89,7 @@ export const Select: FC<SelectProps> = ({
   isDisabled,
   readonly,
   ...props
-}) => {
+}: SelectProps) => {
   const currentTheme = useContext(ThemeContext);
   const [menuPortalTarget, setMenuPortalTarget] = useState<
     HTMLElement | undefined

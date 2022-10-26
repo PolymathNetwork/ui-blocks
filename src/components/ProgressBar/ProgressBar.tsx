@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Box } from '../Box';
 
 export type ProgressBarProps = {
@@ -9,14 +8,14 @@ export type ProgressBarProps = {
   bar?: string;
 };
 
-export const ProgressBar: FC<ProgressBarProps> = ({
+export const ProgressBar = ({
   percent = 0,
   height = '8px',
   width = '100%',
   bg = 'brandLightest',
   bar = 'brandMain',
   ...restProps
-}) => {
+}: ProgressBarProps) => {
   return (
     <Box
       variant="basic"

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 import { Display, Shadow, Radius } from '../../theme/types';
@@ -6,7 +6,7 @@ import { getMargin, getBorder } from '../../theme/utils';
 
 export type BoxVariant = 'raw' | 'basic' | 'border' | 'shadow';
 
-export type BoxProps = {
+export type BoxProps = PropsWithChildren<{
   variant: BoxVariant;
   margin?: string;
   padding?: string;
@@ -19,7 +19,7 @@ export type BoxProps = {
   width?: number | string;
   height?: number | string;
   maxWidth?: number;
-};
+}>;
 
 const Component = styled.div<BoxProps>(
   ({
@@ -50,6 +50,6 @@ const Component = styled.div<BoxProps>(
   }),
 );
 
-export const Box: FC<BoxProps> = (props) => {
-  return <Component {...props} />;
-};
+export function Box(boxProps: BoxProps) {
+  return <Component {...boxProps} />;
+}

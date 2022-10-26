@@ -1,4 +1,4 @@
-import { FC, useContext } from 'react';
+import { PropsWithChildren, useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { getMargin } from '../../theme/utils';
 import { polyIcons } from '../../theme/icons';
@@ -10,7 +10,7 @@ import { Box } from '../Box';
 export type InfoBoxSize = 'default' | 'compact' | 'small';
 export type InfoBoxVariant = 'default' | 'danger' | 'warning' | 'special';
 
-export type InfoBoxProps = {
+export type InfoBoxProps = PropsWithChildren<{
   size: InfoBoxSize;
   variant: InfoBoxVariant;
   margin?: string;
@@ -20,7 +20,7 @@ export type InfoBoxProps = {
   isClosable?: boolean;
   onClose?: () => void;
   text: string;
-};
+}>;
 
 const IconContainer = styled.span(() => ({
   display: 'flex',
@@ -85,17 +85,19 @@ const Title = ({
   );
 };
 
-const DefaultVariant: FC<InfoBoxProps> = ({
-  variant,
-  title,
-  important,
-  color,
-  isClosable,
-  onClose,
-  text,
-  children,
-  ...props
-}) => {
+function DefaultVariant(infoBoxProps: InfoBoxProps) {
+  const {
+    variant,
+    title,
+    important,
+    color,
+    isClosable,
+    onClose,
+    text,
+    children,
+    ...props
+  } = infoBoxProps;
+
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
@@ -112,19 +114,21 @@ const DefaultVariant: FC<InfoBoxProps> = ({
       )}
     </Component>
   );
-};
+}
 
-const SmallVariant: FC<InfoBoxProps> = ({
-  variant,
-  title,
-  important,
-  color,
-  isClosable,
-  onClose,
-  text,
-  children,
-  ...props
-}) => {
+function SmallVariant(infoBoxProps: InfoBoxProps) {
+  const {
+    variant,
+    title,
+    important,
+    color,
+    isClosable,
+    onClose,
+    text,
+    children,
+    ...props
+  } = infoBoxProps;
+
   return (
     <Component variant={variant} {...props}>
       <Flex justify="spaced" align="center" variant="raw">
@@ -141,20 +145,22 @@ const SmallVariant: FC<InfoBoxProps> = ({
       )}
     </Component>
   );
-};
+}
 
-export const InfoBox: FC<InfoBoxProps> = ({
-  title,
-  important,
-  color,
-  children,
-  variant = 'default',
-  size = 'default',
-  text,
-  isClosable = false,
-  onClose = () => {},
-  ...props
-}) => {
+export function InfoBox(infoBoxProps: InfoBoxProps) {
+  const {
+    title,
+    important,
+    color,
+    children,
+    variant = 'default',
+    size = 'default',
+    text,
+    isClosable = false,
+    onClose = () => {},
+    ...props
+  } = infoBoxProps;
+
   return size === 'small' ? (
     <SmallVariant
       size={size}
@@ -184,4 +190,4 @@ export const InfoBox: FC<InfoBoxProps> = ({
       {children}
     </DefaultVariant>
   );
-};
+}

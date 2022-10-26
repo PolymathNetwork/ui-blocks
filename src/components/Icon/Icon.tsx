@@ -1,4 +1,4 @@
-import { FC, ComponentType } from 'react';
+import { ComponentType } from 'react';
 import styled from 'styled-components';
 
 import { getMargin } from '../../theme/utils';
@@ -46,15 +46,17 @@ const Component = styled.span<Omit<IconProps, 'icon'>>(
   }),
 );
 
-export const Icon: FC<IconProps> = ({
-  variant,
-  icon: SvgIcon,
-  scale = variant === 'circle' ? 0.75 : undefined,
-  ...props
-}) => {
+export function Icon(iconProps: IconProps) {
+  const {
+    variant,
+    icon: SvgIcon,
+    scale = variant === 'circle' ? 0.75 : undefined,
+    ...props
+  } = iconProps;
+
   return (
     <Component variant={variant} scale={scale} {...props}>
       <SvgIcon />
     </Component>
   );
-};
+}

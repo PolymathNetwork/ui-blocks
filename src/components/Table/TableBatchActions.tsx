@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { Fragment } from 'react';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 import { Button } from '../Button';
 import { TableBatchActionsProps } from './TableTypes';
 
-export const TableBatchActions: FC<TableBatchActionsProps> = ({
+export const TableBatchActions = ({
   batchActions,
   showBatchActions,
   totalSelectedRows,
@@ -15,7 +15,7 @@ export const TableBatchActions: FC<TableBatchActionsProps> = ({
   refresh,
   lastUpdate,
   isLoading,
-}) => {
+}: TableBatchActionsProps) => {
   const label = (str = '') =>
     str
       .replace('{0}', `${totalSelectedRows}`)
