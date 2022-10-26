@@ -1,4 +1,4 @@
-import { FC, useState, forwardRef, ComponentType } from 'react';
+import { useState, forwardRef, ComponentType, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import DateInputComponent from 'react-day-picker/DayPickerInput';
@@ -35,12 +35,12 @@ export type DatePickerProps = {
   dayPickerProps?: Partial<DayPickerProps>;
 };
 
-export type OverlayComponentProps = {
+export type OverlayComponentProps = PropsWithChildren<{
   noExpiryOption: boolean;
   noExpiryCopy: string;
   handleNoExpiry: () => void;
   variant: BoxVariant;
-};
+}>;
 
 const Overlay = styled(Box)(({ theme }) => ({
   ...(theme.DATEPICKER || {}),
@@ -51,38 +51,39 @@ const Overlay = styled(Box)(({ theme }) => ({
 const formatDate = (date: Date | string, dateFormat: string) =>
   moment(date).format(dateFormat);
 
-const OverlayComponent: FC<OverlayComponentProps> = ({
-  children,
-  noExpiryOption,
-  noExpiryCopy,
-  handleNoExpiry,
-  ...overlayProps
-}) => (
-  <Overlay {...overlayProps}>
-    <Flex variant="raw" dir="column" align="center">
-      {children}
-      {noExpiryOption && (
-        <Button variant="tertiary" margin="s 0 0 0" onClick={handleNoExpiry}>
-          {noExpiryCopy}
-        </Button>
-      )}
-    </Flex>
-  </Overlay>
-);
+export function OverlayComponent(overlayProps: OverlayComponentProps) {
+  const { children, noExpiryOption, noExpiryCopy, handleNoExpiry, ...props } =
+    overlayProps;
 
-export const DatePicker: FC<DatePickerProps> = ({
-  value,
-  onChange,
-  minDate,
-  maxDate,
-  hasIcon,
-  noExpiryOption,
-  noExpiryCopy = 'No expiry',
-  dateFormat = 'MM/DD/YYYY',
-  placeholder = 'mm/dd/yyyy',
-  dayPickerProps = {},
-  ...inputProps
-}) => {
+  return (
+    <Overlay {...props}>
+      <Flex variant="raw" dir="column" align="center">
+        {children}
+        {noExpiryOption && (
+          <Button variant="tertiary" margin="s 0 0 0" onClick={handleNoExpiry}>
+            {noExpiryCopy}
+          </Button>
+        )}
+      </Flex>
+    </Overlay>
+  );
+}
+
+export function DatePicker(datePickerProps: DatePickerProps) {
+  const {
+    value,
+    onChange,
+    minDate,
+    maxDate,
+    hasIcon,
+    noExpiryOption,
+    noExpiryCopy = 'No expiry',
+    dateFormat = 'MM/DD/YYYY',
+    placeholder = 'mm/dd/yyyy',
+    dayPickerProps = {},
+    ...inputProps
+  } = datePickerProps;
+
   const isNoExpiry =
     noExpiryOption &&
     (value === undefined || value === null || value === noExpiryCopy);
@@ -153,4 +154,4 @@ export const DatePicker: FC<DatePickerProps> = ({
       )}
     />
   );
-};
+}
