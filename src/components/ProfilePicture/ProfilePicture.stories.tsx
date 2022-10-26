@@ -20,5 +20,5 @@ WithIcon.args = {
 export const WithImage = Template.bind({});
 WithImage.args = {
   variant: 'image',
-  image: 'https://www.w3schools.com/howto/img_avatar2.png'
+  image: 'https://www.w3schools.com/howto/img_avatar2.png',
 };

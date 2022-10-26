@@ -16,7 +16,7 @@ export const Basic = Template.bind({});
 Basic.args = {
   title: 'Card title',
   description: 'Some description text here.',
-  onChange: () => {}
+  onChange: () => {},
 };
 
 export const Checked = Template.bind({});
@@ -24,7 +24,7 @@ Checked.args = {
   title: 'Card title',
   description: 'Some description text here.',
   checked: true,
-  onChange: () => {}
+  onChange: () => {},
 };
 
 export const WithIcon = Template.bind({});
@@ -32,5 +32,5 @@ WithIcon.args = {
   title: 'Card title',
   description: 'Some description text here.',
   icon: polyIcons.Image,
-  onChange: () => {}
+  onChange: () => {},
 };

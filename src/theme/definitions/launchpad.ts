@@ -845,7 +845,7 @@ export const INFOBOXTITLE: Record<InfoBoxVariant, CSSPropertiesExtended> = {
 export const PROFILE_PICTURE: CSSPropertiesExtended = {
   borderRadius: '100px',
   background: COLOR.brandLightest,
-  backgroundSize: 'contain'
+  backgroundSize: 'contain',
 };
 export const SELECT_CARD: CSSPropertiesExtended = {
   padding: '16px',
@@ -858,7 +858,7 @@ export const SELECT_CARD: CSSPropertiesExtended = {
   '&:active': {
     border: `1px solid ${COLOR.brandMain}`,
   },
-}
+};
 
 export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {
   default: {

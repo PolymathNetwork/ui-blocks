@@ -9,7 +9,7 @@ export type SelectCardProps = {
   title?: string;
   description?: string;
   icon?: ComponentType;
-  checked?: boolean,
+  checked?: boolean;
   onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
@@ -21,25 +21,36 @@ export const SelectCard: FC<SelectCardProps> = (props) => {
   const { title, description, checked, icon, onChange } = props;
   const [isActive, setIsActive] = useState(checked ?? false);
   return (
-    <Component onClick={() => setIsActive(!isActive)} align="center" justify="spaced" {...props}>
-      <Flex width="100%" padding="0" justify="spaced" variant="basic" >
-        <Flex padding="0" variant="basic" dir="column" >
+    <Component
+      onClick={() => setIsActive(!isActive)}
+      align="center"
+      justify="spaced"
+      {...props}
+    >
+      <Flex width="100%" padding="0" justify="spaced" variant="basic">
+        <Flex padding="0" variant="basic" dir="column">
           <Checkbox
             variant="basic"
             checked={isActive}
             onChange={(e) => {
               setIsActive(isActive);
-              onChange(e)
+              onChange(e);
             }}
-            label={<Text as="span" variant="h6" margin="0 18px" >{title}</Text>}
+            label={
+              <Text as="span" variant="h6" margin="0 18px">
+                {title}
+              </Text>
+            }
           />
-          <Text margin="0 0 0 36px" as="span" variant="b2" >{description}</Text>
+          <Text margin="0 0 0 36px" as="span" variant="b2">
+            {description}
+          </Text>
         </Flex>
         {icon && (
           <Icon
             size="48px"
-            color={isActive ? "brandMain" : "gray1"}
-            bg={isActive ? "brandLightest" : "gray5"}
+            color={isActive ? 'brandMain' : 'gray1'}
+            bg={isActive ? 'brandLightest' : 'gray5'}
             icon={icon}
             variant="circle"
             margin="0"

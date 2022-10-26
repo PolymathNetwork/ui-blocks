@@ -55,14 +55,18 @@ const ComponentSizeMap: Record<string, Record<string, string>> = {
 const Component = styled(Flex)<any>(({ theme, size, variant, image }) => ({
   ...ComponentSizeMap[size],
   ...theme.PROFILE_PICTURE,
-  ...(variant === 'image' && { backgroundImage: `url(${image})` })
+  ...(variant === 'image' && { backgroundImage: `url(${image})` }),
 }));
 
 const StyledText = styled.p<any>(({ size }) => ({
-  ...textSizeMap[size]
+  ...textSizeMap[size],
 }));
 
-const renderChildren = (variant: string, text: string | undefined, size: string) => {
+const renderChildren = (
+  variant: string,
+  text: string | undefined,
+  size: string,
+) => {
   if (variant === 'icon') {
     return (
       <Icon
@@ -72,18 +76,25 @@ const renderChildren = (variant: string, text: string | undefined, size: string)
         variant="basic"
         margin="0"
       />
-    )
+    );
   } else if (variant === 'text') {
     return <StyledText size={size}>{text}</StyledText>;
   } else if (variant === 'image') {
     return <StyledText size={size}>{text}</StyledText>;
   }
-}
+};
 
 export const ProfilePicture: FC<ProfilePictureProps> = (props) => {
   const { text, variant = 'icon', size = 'm', image } = props;
   return (
-    <Component size={size} image={image} variant={variant} align="center" justify="center" {...props}>
+    <Component
+      size={size}
+      image={image}
+      variant={variant}
+      align="center"
+      justify="center"
+      {...props}
+    >
       {renderChildren(variant, text, size)}
     </Component>
   );
