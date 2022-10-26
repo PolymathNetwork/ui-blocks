@@ -1,4 +1,4 @@
-import { FC, useContext, ComponentType } from 'react';
+import { useContext, ComponentType, PropsWithChildren } from 'react';
 import { ThemeContext } from 'styled-components';
 import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/animations/shift-away-subtle.css'; // eslint-disable-line import/no-extraneous-dependencies
@@ -9,16 +9,16 @@ import { Icon } from '../Icon';
 
 export type TooltipVariant = 'basic' | 'icon';
 
-export type TooltipProps = TippyProps & {
-  variant: TooltipVariant;
-  children?: any;
-  icon?: ComponentType;
-  size?: string;
-  color?: string | undefined;
-  onHover?: () => void;
-};
+export type TooltipProps = TippyProps &
+  PropsWithChildren<{
+    variant: TooltipVariant;
+    icon?: ComponentType;
+    size?: string;
+    color?: string | undefined;
+    onHover?: () => void;
+  }>;
 
-export const Tooltip: FC<TooltipProps> = ({
+export const Tooltip = ({
   variant,
   icon = polyIcons.InformationOutline,
   color = 'brandMain',
@@ -27,7 +27,7 @@ export const Tooltip: FC<TooltipProps> = ({
   children,
   onHover,
   ...props
-}) => {
+}: TooltipProps) => {
   const currentTheme = useContext(ThemeContext);
 
   return (
