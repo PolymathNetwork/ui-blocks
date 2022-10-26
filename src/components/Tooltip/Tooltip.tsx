@@ -1,4 +1,4 @@
-import { useContext, ComponentType, PropsWithChildren } from 'react';
+import { useContext, ComponentType } from 'react';
 import { ThemeContext } from 'styled-components';
 import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/animations/shift-away-subtle.css'; // eslint-disable-line import/no-extraneous-dependencies
@@ -9,14 +9,14 @@ import { Icon } from '../Icon';
 
 export type TooltipVariant = 'basic' | 'icon';
 
-export type TooltipProps = TippyProps &
-  PropsWithChildren<{
-    variant: TooltipVariant;
-    icon?: ComponentType;
-    size?: string;
-    color?: string | undefined;
-    onHover?: () => void;
-  }>;
+export type TooltipProps = TippyProps & {
+  variant: TooltipVariant;
+  icon?: ComponentType;
+  size?: string;
+  color?: string | undefined;
+  onHover?: () => void;
+  children?: any;
+};
 
 export const Tooltip = ({
   variant,
