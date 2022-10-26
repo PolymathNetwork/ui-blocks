@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 import { Icon, IconProps } from '../Icon';
 import { polyIcons } from '../../theme';
@@ -41,7 +40,7 @@ const HiddenRadio = styled.input`
   border: 0;
 `;
 
-export const Radio: FC<Props> = (props) => {
+export const Radio = (props: Props) => {
   const { checked, name, onChange, label, disabled, icon, ...other } = props;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
