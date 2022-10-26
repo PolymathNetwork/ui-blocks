@@ -56,3 +56,5 @@ export * from './components/Loader';
 export * from './components/ProgressBar';
 export * from './components/TabBar';
 export * from './components/Table';
+export * from './components/ProfilePicture';
+export * from './components/SelectCard';
