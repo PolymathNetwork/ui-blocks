@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Text } from '../Text';
 import { Icon } from '../Icon';
@@ -7,12 +7,12 @@ import { Select } from '../Select';
 import { TableEditableCellProps } from './TableTypes';
 import { polyIcons } from '../../theme/icons';
 
-export const TableEditableCell: FC<TableEditableCellProps> = ({
+export const TableEditableCell = ({
   cell,
   data,
   updateData,
   setSkipTableReset,
-}: any) => {
+}: TableEditableCellProps) => {
   const [currentValue, setCurrentValue] = useState(cell.value);
   const [isEditting, setIsEditting] = useState(false);
   const isOnClickEditor =
