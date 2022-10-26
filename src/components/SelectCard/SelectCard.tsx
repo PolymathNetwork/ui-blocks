@@ -1,4 +1,4 @@
-import { ComponentType, FC, ChangeEventHandler, useState } from 'react';
+import { ComponentType, ChangeEventHandler, useState } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { Text } from '../Text';
@@ -17,7 +17,7 @@ const Component = styled(Flex)<any>(({ theme }) => ({
   ...theme.SELECT_CARD,
 }));
 
-export const SelectCard: FC<SelectCardProps> = (props) => {
+export const SelectCard = (props: SelectCardProps) => {
   const { title, description, checked, icon, onChange } = props;
   const [isActive, setIsActive] = useState(checked ?? false);
   return (

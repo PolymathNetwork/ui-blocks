@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import styled from 'styled-components';
 import { Flex } from '../Flex';
 import { polyIcons } from '../../theme/icons';
@@ -84,7 +83,7 @@ const renderChildren = (
   }
 };
 
-export const ProfilePicture: FC<ProfilePictureProps> = (props) => {
+export const ProfilePicture = (props: ProfilePictureProps) => {
   const { text, variant = 'icon', size = 'm', image } = props;
   return (
     <Component
