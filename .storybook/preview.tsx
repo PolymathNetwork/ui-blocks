@@ -1,3 +1,4 @@
+import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { withThemes } from 'storybook-addon-themes/react';
 
@@ -30,7 +31,7 @@ const Decorator = ({ themeName, children }) => {
 export const parameters = {
   themes: {
     Decorator,
-    default: Themes.Blue,
+    default: Themes.Launchpad,
     list: [
       {
         name: Themes.Blue,
