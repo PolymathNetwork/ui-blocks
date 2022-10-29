@@ -238,7 +238,7 @@ export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
   },
   circle: {
     fill: COLOR.brandMain,
-    backgroundColor: COLOR.brandMain,
+    backgroundColor: COLOR.brandLightest,
     borderRadius: '50%',
   },
 };
