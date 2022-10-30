@@ -84,7 +84,7 @@
     "mini-css-extract-plugin": "^2.4.5",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
-    "react": "17 - 18",
+    "react": "^17.0.2",
     "storybook-addon-themes": "^6.1.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.3.5",
