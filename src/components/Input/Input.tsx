@@ -40,6 +40,7 @@ export type InputProps = {
   isDivisible?: boolean;
   inputRef?: any;
   readOnly?: boolean;
+  width?: string;
 };
 
 export type InputWrapperProps = GridProps & {
@@ -56,6 +57,7 @@ const InputWrapper = styled(Grid)<InputWrapperProps>(
     border: (theme.INPUT || { border: 0 }).border,
     borderRadius: (theme.INPUT || { borderRadius: 0 }).borderRadius,
     transition: (theme.INPUT || { transition: 'unset' }).transition,
+    width: '100%',
     ...(error
       ? {
           borderColor: theme.COLOR.danger2,
@@ -116,6 +118,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       readOnly,
       iconPosition,
+      width = 'fit-content',
       ...props
     } = inputProps;
 
@@ -155,7 +158,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <Flex
-        width="fit-content"
+        width={width}
         variant="raw"
         align={labelPosition === LablePosition.Left ? 'center' : 'start'}
         dir={labelPosition === LablePosition.Left ? 'row' : 'column'}
