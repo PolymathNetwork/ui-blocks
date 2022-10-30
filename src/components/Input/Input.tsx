@@ -156,7 +156,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <Flex
         width="fit-content"
-        variant="basic"
+        variant="raw"
         align={labelPosition === LablePosition.Left ? 'center' : 'start'}
         dir={labelPosition === LablePosition.Left ? 'row' : 'column'}
         margin={margin}
