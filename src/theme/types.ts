@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type CSSPropertiesExtended = CSSProperties & Record<string, any>;
 
@@ -21,6 +21,7 @@ export const propValueMap: Record<string, string> = {
 export type OptionType = {
   value: string;
   label: string;
+  icon?: ReactNode;
 };
 
 export type Gap = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
