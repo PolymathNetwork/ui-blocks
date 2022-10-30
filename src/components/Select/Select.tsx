@@ -60,23 +60,25 @@ const DropdownIndicator = (props: DropdownIndicatorProps) => {
   );
 };
 
-const Option = ({ children, ...props }: SelectOptionProps) => (
-  <components.Option {...props} isDisabled>
-    {!props.selectProps.noIcon && (
-      <Icon
-        variant="basic"
-        icon={polyIcons.Image}
-        size="22px"
-        color="gray3"
-        margin="0 9px -5px 0"
-      />
-    )}
-    {children}
-    {/* {oProps.isDisabled && oProps.selectProps.disabledOptionText && (
+const Option = ({ children, ...props }: SelectOptionProps) => {
+  return (
+    <components.Option {...props} isDisabled>
+      {!props.selectProps.noIcon && (
+        <Icon
+          variant="basic"
+          icon={props.data.icon || polyIcons.Image}
+          size="22px"
+          color="gray3"
+          margin="0 9px -5px 0"
+        />
+      )}
+      {children}
+      {/* {oProps.isDisabled && oProps.selectProps.disabledOptionText && (
         <Tooltip>{oProps.selectProps.disabledOptionText}</Tooltip>
       )} */}
-  </components.Option>
-);
+    </components.Option>
+  );
+};
 
 export const Select = ({
   margin,
