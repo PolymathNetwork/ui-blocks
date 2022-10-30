@@ -556,7 +556,7 @@ export const SELECT: any = {
   control: (styles: any, state: any) => ({
     ...styles,
     backgroundColor: state.selectProps.readonly ? COLOR.gray5 : COLOR.light,
-    borderRadius: RADIUS.m,
+    borderRadius: RADIUS.s,
     ...(state.selectProps.isDisabled
       ? {
           borderColor: COLOR.gray5,
