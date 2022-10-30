@@ -16,7 +16,10 @@ const countryOptions = allCountries.map(([country]) => {
   };
 });
 
-type CountrySelectProps = Omit<ComponentProps<typeof Select>, 'variant'> & {
+type CountrySelectProps = Omit<
+  ComponentProps<typeof Select>,
+  'variant' | 'options'
+> & {
   countries?: typeof countryNames;
 };
 
