@@ -246,6 +246,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.light,
@@ -275,6 +276,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   secondary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.brandMain,
@@ -307,6 +309,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   tertiary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.brandMain,
@@ -349,6 +352,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   special: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     lineHeight: '22px',
     fontFamily: "'Poppins', sans-serif",
     fontSize: '14px',
@@ -381,17 +385,14 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   raw: {},
   basic: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
   },
   border: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
     border: `1px solid ${COLOR.gray3}`,
     borderRadius: RADIUS.m,
   },
   shadow: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
     borderRadius: RADIUS.m,
     boxShadow: SHADOW.s,

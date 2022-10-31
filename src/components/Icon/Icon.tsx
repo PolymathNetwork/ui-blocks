@@ -17,12 +17,13 @@ export type IconProps = {
   margin?: string;
   color?: string;
   bg?: string;
+  fillIcon?: boolean;
   scale?: number;
   rotate?: string;
 };
 
 const Component = styled.span<Omit<IconProps, 'icon'>>(
-  ({ variant, margin, size, bg, scale, rotate, color, theme }) => ({
+  ({ variant, margin, size, bg, scale, rotate, color, fillIcon, theme }) => ({
     ...(theme.ICON[variant] || {}),
     display: 'inline-block',
     margin: getMargin({ theme, margin }),
@@ -37,12 +38,14 @@ const Component = styled.span<Omit<IconProps, 'icon'>>(
       ...(scale ? { padding: `${(1 - scale) * 100}%` } : {}),
       ...(rotate ? { transform: `rotateZ(${rotate})` } : {}),
     },
-    'svg > *': {
-      ...theme.ICON[variant]['svg > *'],
-      ...(color || theme.ICON[variant].fill
-        ? { fill: color ? theme.COLOR[color] : theme.ICON[variant].fill }
-        : {}),
-    },
+    ...(fillIcon && {
+      'svg > *': {
+        ...theme.ICON[variant]['svg > *'],
+        ...(color || theme.ICON[variant].fill
+          ? { fill: color ? theme.COLOR[color] : theme.ICON[variant].fill }
+          : {}),
+      }
+    })
   }),
 );
 
