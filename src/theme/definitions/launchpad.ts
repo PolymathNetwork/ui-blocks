@@ -343,7 +343,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     fontWeight: 'inherit',
     fontSize: 'inherit',
     letterSpacing: 'inherit',
-    color: 'inherit',
+    color: COLOR.brandMain,
     background: 'transparent',
     cursor: 'pointer',
   },
