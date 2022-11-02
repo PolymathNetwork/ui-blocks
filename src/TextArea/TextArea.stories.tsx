@@ -1,4 +1,4 @@
-import { ComponentProps, useState } from 'react';
+import { ChangeEvent, ComponentProps, useState } from 'react';
 import { Story } from '@storybook/react';
 
 import { TextArea } from './TextArea';
@@ -7,36 +7,56 @@ export default {
   title: 'Polyblocks/TextArea',
   component: TextArea,
 };
-const maxLength = 10;
+const maxLength = 300;
 
-const Template: Story<ComponentProps<typeof TextArea>> = (props: any) => {
-  const [currentLength, setCurrentLength] = useState(0);
-  const [errorMsg, setErrorMsg] = useState('');
+const DynamicTemplate: Story<ComponentProps<typeof TextArea>> = (
+  props: any,
+) => {
+  const [value, setValue] = useState('');
 
-  const onChange = (value: string) => {
-    setCurrentLength(value.length);
-
-    if (value.length <= maxLength) {
-      setErrorMsg('');
-    } else {
-      setErrorMsg('Error message');
-    }
+  const onChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const currentValue = e.target.value;
+    setValue(currentValue);
   };
 
   return (
     <TextArea
       {...props}
-      currentLength={currentLength}
+      value={value}
       onChange={onChange}
-      errorMsg={errorMsg}
+      errorMsg="Error message"
     />
   );
 };
 
-export const Basic = Template.bind({});
+const Template: Story<ComponentProps<typeof TextArea>> = (props: any) => (
+  <TextArea {...props} />
+);
+
+export const Basic = DynamicTemplate.bind({});
 Basic.args = {
   id: 'textarea',
+  label: 'Text area label',
   maxLength,
   placeholder: 'Placeholder text',
   tooltip: 'Tooltip',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  id: 'textareaDisabled',
+  label: 'Disabled textarea',
+  placeholder: "Can't type here",
+  disabled: true,
+  maxLength,
+};
+
+export const ReadOnly = Template.bind({});
+ReadOnly.args = {
+  id: 'textareaReadOnly',
+  label: 'Read only textarea',
+  value: 'Read only value',
+  placeholder: "Can't type here",
+  readOnly: true,
+  maxLength,
 };

@@ -51,6 +51,7 @@ export const COLOR = {
   gray7: '#F0F0F0',
   brandBg: '#1A56AF',
   brandMain: '#1A56AF',
+  brandMain2: '#6DC7F7',
   brandLighter: '#E1EEFD',
   brandLight: '#BBD7FB',
   brandLightest: '#E1EEFD',
