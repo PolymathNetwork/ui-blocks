@@ -149,7 +149,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
               {error}
             </Text>
           )}
-          <Text as="span" variant="b3">
+          <Text as="span" variant="b3" color={error ? 'danger2' : 'gray3'}>
             {value.length + '/' + maxLength}
           </Text>
         </Flex>
