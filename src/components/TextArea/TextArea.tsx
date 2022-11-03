@@ -6,12 +6,12 @@ import {
   useState,
 } from 'react';
 import styled from 'styled-components';
-import { Tooltip } from '../components/Tooltip';
-import { Text } from '../components/Text';
-import { Box } from '../components/Box';
-import { Flex } from '../components/Flex';
-import SvgResizingControl from '../theme/icons/svg/resizing-control.svg';
-import SvgResizingControlDisabled from '../theme/icons/svg/resizing-control-disabled.svg';
+import { Tooltip } from '../Tooltip';
+import { Text } from '../Text';
+import { Box } from '../Box';
+import { Flex } from '../Flex';
+import SvgResizingControl from '../../theme/icons/svg/resizing-control.svg';
+import SvgResizingControlDisabled from '../../theme/icons/svg/resizing-control-disabled.svg';
 
 export type TextAreaProps = {
   id: string;
@@ -41,7 +41,6 @@ const LabelComponent = styled.label<{ disabled?: boolean }>(
 const TextAreaComponent = styled.textarea<
   Partial<TextAreaProps> & { blur: boolean }
 >(({ theme, blur, errorMsg }) => ({
-  position: 'relative',
   fontSize: '14px',
   color: theme.COLOR.gray1,
   fontWeight: 400,
