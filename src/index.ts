@@ -58,3 +58,5 @@ export * from './components/TabBar';
 export * from './components/Table';
 export * from './components/ProfilePicture';
 export * from './components/SelectCard';
+export * from './components/SidePanel';
+export * from './components/Notification';

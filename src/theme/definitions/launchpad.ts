@@ -861,6 +861,39 @@ export const SELECT_CARD: CSSPropertiesExtended = {
   },
 };
 
+export const SIDE_PANEL: CSSPropertiesExtended = {
+  parent: {
+    width: '56px',
+    alignItems: 'center',
+    transition: 'all 0.2s ease-in-out',
+    '&:hover': {
+      width: '240px',
+      '.item-text': {
+        width: 'fit-content'
+      },
+    }
+  },
+  item: {
+    alignItems: 'center',
+    height: '48px',
+    width: '100%',
+    padding: '15px 19px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    '&:hover': {
+      background: COLOR.brandLightest
+    },
+    '.item-text': {
+      width: '0px',
+      overflow: 'hidden',
+    },
+    svg: {
+      minWidth: '18px'
+    }
+  }
+};
+
 export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {
   default: {
     ...TYPOGRAPHY.b2m,
