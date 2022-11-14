@@ -65,6 +65,7 @@ const TextAreaComponent = styled.textarea<
   '&:read-only': {
     background: theme.COLOR.gray5,
     borderColor: theme.COLOR.gray5,
+    color: theme.COLOR.gray2,
     '&::placeholder': {
       color: theme.COLOR.gray2,
     },
@@ -72,6 +73,7 @@ const TextAreaComponent = styled.textarea<
   '&:disabled': {
     background: theme.COLOR.light,
     borderColor: theme.COLOR.gray5,
+    color: theme.COLOR.gray3,
     pointerEvents: 'none',
     '&::-webkit-resizer': {
       backgroundImage: `url(${SvgResizingControlDisabled})`,
