@@ -22,6 +22,10 @@ export const PolyGlobalStyles = createGlobalStyle`
     -webkit-appearance: none;
   }
 
+  textarea {
+    font-family: ${({ theme }: any) => theme.TYPOGRAPHY.font};
+  }
+
   /*
     This will hide the focus indicator if the element receives focus via the mouse,
     but it will still show up on keyboard focus.
