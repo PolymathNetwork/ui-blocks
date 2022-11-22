@@ -23,6 +23,7 @@ export enum LablePosition {
 export type InputProps = {
   variant: InputVariant;
   margin?: string;
+  width?: string;
   id?: string;
   name?: string;
   type?: 'text' | 'password' | 'email';
@@ -105,6 +106,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const {
       variant,
       margin,
+      width,
       type,
       label,
       labelPosition = LablePosition.Top,
@@ -116,6 +118,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       readOnly,
       iconPosition,
+      inputRef,
       ...props
     } = inputProps;
 
@@ -155,7 +158,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <Flex
-        width="fit-content"
+        width={width ? width : "fit-content"}
         variant="basic"
         align={labelPosition === LablePosition.Left ? 'center' : 'start'}
         dir={labelPosition === LablePosition.Left ? 'row' : 'column'}
@@ -185,6 +188,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </Box>
         <InputWrapper
+          width="100%"
           variant="raw"
           align="center"
           cols={`${icon ? 'auto ' : ''}1fr${unit ? ' auto' : ''}`}
@@ -196,7 +200,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             (!iconPosition || iconPosition === IconPosition.Left) &&
             renderIcon(icon, iconPosition, disabled)}
           <InputComponent
-            ref={ref}
+            {...(inputRef ? inputRef : {ref})}
             as={isAmount ? NumberInput : 'input'}
             {...componentProps}
           />

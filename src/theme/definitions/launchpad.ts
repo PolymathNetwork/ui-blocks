@@ -247,6 +247,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   primary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.light,
@@ -276,6 +277,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   secondary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.brandMain,
@@ -308,6 +310,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   tertiary: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     fontFamily: "'Poppins', sans-serif",
     lineHeight: '24px',
     color: COLOR.brandMain,
@@ -350,6 +353,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
   special: {
     ...TYPOGRAPHY.btn,
     display: 'flex',
+    justifyContent: 'center',
     lineHeight: '22px',
     fontFamily: "'Poppins', sans-serif",
     fontSize: '14px',
@@ -382,17 +386,14 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
 export const BOX: Record<BoxVariant, CSSPropertiesExtended> = {
   raw: {},
   basic: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
   },
   border: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
     border: `1px solid ${COLOR.gray3}`,
     borderRadius: RADIUS.m,
   },
   shadow: {
-    padding: GAP.m,
     backgroundColor: COLOR.light,
     borderRadius: RADIUS.m,
     boxShadow: SHADOW.s,
@@ -859,6 +860,39 @@ export const SELECT_CARD: CSSPropertiesExtended = {
   '&:active': {
     border: `1px solid ${COLOR.brandMain}`,
   },
+};
+
+export const SIDE_PANEL: CSSPropertiesExtended = {
+  parent: {
+    width: '56px',
+    alignItems: 'center',
+    transition: 'all 0.2s ease-in-out',
+    '&:hover': {
+      width: '240px',
+      '.item-text': {
+        width: 'fit-content'
+      },
+    }
+  },
+  item: {
+    alignItems: 'center',
+    height: '48px',
+    width: '100%',
+    padding: '15px 19px',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    '&:hover': {
+      background: COLOR.brandLightest
+    },
+    '.item-text': {
+      width: '0px',
+      overflow: 'hidden',
+    },
+    svg: {
+      minWidth: '18px'
+    }
+  }
 };
 
 export const CHIPS: Record<ChipsVariant, CSSPropertiesExtended> = {

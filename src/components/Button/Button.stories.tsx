@@ -59,3 +59,20 @@ WithIcon.args = {
   children: 'With icon',
   icon: polyIcons.DeleteOutline,
 };
+
+export const WithColoredIcon = Template.bind({});
+WithColoredIcon.args = {
+  variant: 'primary',
+  children: 'With icon',
+  fillIcon: false,
+  icon: polyIcons.GoogleColor,
+};
+
+export const WithCustomWidth = Template.bind({});
+WithCustomWidth.args = {
+  variant: 'primary',
+  children: 'With icon',
+  fillIcon: false,
+  icon: polyIcons.GoogleColor,
+  width: '300px'
+};

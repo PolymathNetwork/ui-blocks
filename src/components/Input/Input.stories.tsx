@@ -69,3 +69,12 @@ ReadOnly.args = {
   placeholder: "Can't type here",
   readOnly: true,
 };
+
+export const CustomWidth = Template.bind({});
+CustomWidth.args = {
+  variant: 'basic',
+  label: 'Texbox with a label',
+  tooltip: 'Some helpful imformation about this feild.',
+  placeholder: 'Input some text',
+  width: '300px'
+};
