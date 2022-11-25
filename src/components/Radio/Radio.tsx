@@ -70,7 +70,7 @@ export const Radio = (props: Props) => {
       <Text
         margin="0 5px"
         as="span"
-        variant="b3"
+        variant="b1"
         color={disabled ? 'gray2' : 'highlightText'}
       >
         {label}

@@ -238,7 +238,7 @@ export const ICON: Record<IconVariant, CSSPropertiesExtended> = {
   },
   circle: {
     fill: COLOR.brandMain,
-    backgroundColor: COLOR.brandMain,
+    backgroundColor: COLOR.brandLightest,
     borderRadius: '50%',
   },
 };
@@ -343,7 +343,7 @@ export const BUTTON: Record<ButtonVariant, CSSPropertiesExtended> = {
     fontWeight: 'inherit',
     fontSize: 'inherit',
     letterSpacing: 'inherit',
-    color: 'inherit',
+    color: COLOR.brandMain,
     background: 'transparent',
     cursor: 'pointer',
   },
@@ -556,7 +556,7 @@ export const SELECT: any = {
   control: (styles: any, state: any) => ({
     ...styles,
     backgroundColor: state.selectProps.readonly ? COLOR.gray5 : COLOR.light,
-    borderRadius: RADIUS.m,
+    borderRadius: RADIUS.s,
     ...(state.selectProps.isDisabled
       ? {
           borderColor: COLOR.gray5,

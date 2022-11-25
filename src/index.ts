@@ -36,6 +36,7 @@ export * from './components/Tooltip';
 export * from './components/DropZone';
 // export * from './components/TextArea';
 // export * from './components/TextCopy'; // (tx hash)
+export * from './components/CountrySelector';
 
 // CONTAINERS
 export * from './components/Box';
