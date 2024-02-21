@@ -31,7 +31,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@tippyjs/react": "^4.2.5",
+    "@tippyjs/react": "^4.2.6",
     "country-region-data": "^2.6.0",
     "focus-visible": "^5.2.0",
     "lodash": "^4.17.21",
