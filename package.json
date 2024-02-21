@@ -35,7 +35,7 @@
     "country-region-data": "^2.6.0",
     "focus-visible": "^5.2.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
+    "moment": "^2.30.1",
     "react-day-picker": "^7.4.10",
     "react-dropzone": "^14.2.3",
     "react-number-format": "^4.6.4",
